@@ -113,9 +113,9 @@ pub mod CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Error Interrupts disabled"]
+            #[doc = "Disables"]
             pub const DISABLED: u32 = 0;
-            #[doc = "Error Interrupts enabled"]
+            #[doc = "Enables"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -126,11 +126,11 @@ pub mod CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA and interrupt requests disabled"]
+            #[doc = "Disables DMA and interrupt requests"]
             pub const ALL_DISABLED: u32 = 0;
-            #[doc = "DMA requests enabled"]
+            #[doc = "Enables DMA requests"]
             pub const DMAREQ_ENABLED: u32 = 0x01;
-            #[doc = "Interrupt requests enabled"]
+            #[doc = "Enables interrupt requests"]
             pub const INTREQ_ENABLED: u32 = 0x02;
         }
     }
@@ -141,9 +141,9 @@ pub mod CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled after completing the current frame"]
+            #[doc = "Disables after completing the current frame"]
             pub const DISABLED: u32 = 0;
-            #[doc = "Enabled"]
+            #[doc = "Enables operation"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -167,9 +167,9 @@ pub mod CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal Mode"]
+            #[doc = "Normal"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Debug Mode"]
+            #[doc = "Debug"]
             pub const DEBUG: u32 = 0x01;
         }
     }
@@ -180,9 +180,9 @@ pub mod CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "PDM stopped"]
+            #[doc = "Stops MICFIL operation"]
             pub const STOPPED: u32 = 0;
-            #[doc = "PDM operation started"]
+            #[doc = "Starts MICFIL operation"]
             pub const STARTED: u32 = 0x01;
         }
     }
@@ -206,9 +206,9 @@ pub mod CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal Mode"]
+            #[doc = "Normal mode"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Disable/Low Leakage Mode"]
+            #[doc = "DLL mode"]
             pub const LOW_LEAKAGE: u32 = 0x01;
         }
     }
@@ -284,17 +284,17 @@ pub mod CTRL_2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Medium quality mode"]
+            #[doc = "Medium-Quality mode"]
             pub const MQ_MODE: u32 = 0;
-            #[doc = "High quality mode"]
+            #[doc = "High-Quality mode"]
             pub const HQ_MODE: u32 = 0x01;
-            #[doc = "Very low quality 2 mode"]
+            #[doc = "Very-Low-Quality 2 mode"]
             pub const VLQ2_MODE: u32 = 0x04;
-            #[doc = "Very low quality 1 mode"]
+            #[doc = "Very-Low-Quality 1 mode"]
             pub const VLQ1_MODE: u32 = 0x05;
-            #[doc = "Very low quality 0 mode"]
+            #[doc = "Very-Low-Quality 0 mode"]
             pub const VLQ0_MODE: u32 = 0x06;
-            #[doc = "Low quality mode"]
+            #[doc = "Low-Quality mode"]
             pub const LQ_MODE: u32 = 0x07;
         }
     }
@@ -308,9 +308,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -321,9 +321,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -334,9 +334,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -347,9 +347,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -360,9 +360,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -373,9 +373,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -386,9 +386,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -399,9 +399,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Channel's FIFO did not reach the number of elements configured in watermark bit-field"]
+            #[doc = "Not surpassed"]
             pub const WM_NOTREACHED: u32 = 0;
-            #[doc = "Channel's FIFO reached the number of elements configured in watermark bit-field"]
+            #[doc = "Surpassed"]
             pub const WM_REACHED: u32 = 0x01;
         }
     }
@@ -425,9 +425,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Filter data is not reliable"]
+            #[doc = "Not reliable"]
             pub const NOT_RELIABLE: u32 = 0;
-            #[doc = "Filter data is reliable"]
+            #[doc = "Reliable"]
             pub const RELIABLE: u32 = 0x01;
         }
     }
@@ -438,9 +438,9 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "PDM is stopped"]
+            #[doc = "MICFIL is stopped"]
             pub const STOPPED: u32 = 0;
-            #[doc = "PDM is running"]
+            #[doc = "MICFIL is running"]
             pub const RUNNING: u32 = 0x01;
         }
     }
@@ -458,7 +458,7 @@ pub mod FIFO_CTRL {
 }
 #[doc = "MICFIL FIFO Status"]
 pub mod FIFO_STAT {
-    #[doc = "FIFO Overflow Exception flag for Channel 0"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 0"]
     pub mod FIFOOVF0 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -471,7 +471,7 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Overflow Exception flag for Channel 1"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 1"]
     pub mod FIFOOVF1 {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -484,7 +484,7 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Overflow Exception flag for Channel 2"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 2"]
     pub mod FIFOOVF2 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -497,7 +497,7 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Overflow Exception flag for Channel 3"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 3"]
     pub mod FIFOOVF3 {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -510,7 +510,7 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Overflow Exception flag for Channel 4"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 4"]
     pub mod FIFOOVF4 {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -523,7 +523,7 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Overflow Exception flag for Channel 5"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 5"]
     pub mod FIFOOVF5 {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -536,7 +536,7 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Overflow Exception flag for Channel 6"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 6"]
     pub mod FIFOOVF6 {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -549,7 +549,7 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Overflow Exception flag for Channel 7"]
+    #[doc = "FIFO Overflow Exception Flag for Channel 7"]
     pub mod FIFOOVF7 {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -562,105 +562,105 @@ pub mod FIFO_STAT {
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 0"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 0"]
     pub mod FIFOUND0 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 1"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 1"]
     pub mod FIFOUND1 {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 2"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 2"]
     pub mod FIFOUND2 {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 3"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 3"]
     pub mod FIFOUND3 {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 4"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 4"]
     pub mod FIFOUND4 {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 5"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 5"]
     pub mod FIFOUND5 {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 6"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 6"]
     pub mod FIFOUND6 {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
         }
     }
-    #[doc = "FIFO Underflow Exception flag for Channel 7"]
+    #[doc = "FIFO Underflow Exception Flag for Channel 7"]
     pub mod FIFOUND7 {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No exception by FIFO Underflow"]
+            #[doc = "No exception by FIFO underflow"]
             pub const NO_EXCEPTION: u32 = 0;
             #[doc = "Exception by FIFO underflow"]
             pub const EXCEPTION: u32 = 0x01;
@@ -687,13 +687,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -704,13 +704,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -721,13 +721,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -738,13 +738,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -755,13 +755,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -772,13 +772,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -789,13 +789,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -806,13 +806,13 @@ pub mod DC_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DC Remover cut-off at 21Hz"]
+            #[doc = "21 Hz"]
             pub const DC_REM_21HZ: u32 = 0;
-            #[doc = "DC Remover cut-off at 83Hz"]
+            #[doc = "83 Hz"]
             pub const DC_REM_83HZ: u32 = 0x01;
-            #[doc = "DC Remover cut-off at 152Hz"]
+            #[doc = "152 Hz"]
             pub const DC_REM_152HZ: u32 = 0x02;
-            #[doc = "DC Remover is bypassed"]
+            #[doc = "DC remover is bypassed"]
             pub const DC_REM_BYPASS: u32 = 0x03;
         }
     }
@@ -1104,9 +1104,9 @@ pub mod VAD0_CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The HWVAD is disabled"]
+            #[doc = "Disables"]
             pub const DISABLED: u32 = 0;
-            #[doc = "The HWVAD is enabled"]
+            #[doc = "Enables"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1125,9 +1125,9 @@ pub mod VAD0_CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "HWVAD Interrupts disabled"]
+            #[doc = "Disables"]
             pub const DISABLED: u32 = 0;
-            #[doc = "HWVAD Interrupts enabled"]
+            #[doc = "Enables"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1138,9 +1138,9 @@ pub mod VAD0_CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "HWVAD Error Interrupts disabled"]
+            #[doc = "Disables"]
             pub const DISABLED: u32 = 0;
-            #[doc = "HWVAD Error Interrupts enabled"]
+            #[doc = "Enables"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1151,9 +1151,9 @@ pub mod VAD0_CTRL_1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
+            #[doc = "Normal operation"]
             pub const NORMAL_OP: u32 = 0;
-            #[doc = "Filters are initialized."]
+            #[doc = "Filters initialized"]
             pub const FILT_INIT: u32 = 0x01;
         }
     }
@@ -1231,13 +1231,13 @@ pub mod VAD0_CTRL_2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Filter bypassed."]
+            #[doc = "Filter bypassed"]
             pub const FILT_BYPASS: u32 = 0;
-            #[doc = "Cut-off frequency at 1750Hz."]
+            #[doc = "Cut-off frequency at 1750 Hz"]
             pub const CUTOFF_1750HZ: u32 = 0x01;
-            #[doc = "Cut-off frequency at 215Hz."]
+            #[doc = "Cut-off frequency at 215 Hz"]
             pub const CUTOFF_215HZ: u32 = 0x02;
-            #[doc = "Cut-off frequency at 102Hz."]
+            #[doc = "Cut-off frequency at 102 Hz"]
             pub const CUTOFF_102HZ: u32 = 0x03;
         }
     }
@@ -1320,9 +1320,9 @@ pub mod VAD0_CTRL_2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Output is enabled."]
+            #[doc = "Enables"]
             pub const OUT_ENABLED: u32 = 0;
-            #[doc = "Output is disabled."]
+            #[doc = "Disables"]
             pub const OUT_DISABLED: u32 = 0x01;
         }
     }
@@ -1333,9 +1333,9 @@ pub mod VAD0_CTRL_2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pre-filter is bypassed."]
+            #[doc = "Pre-filter bypassed"]
             pub const BYPASSED: u32 = 0;
-            #[doc = "Pre-filter is enabled."]
+            #[doc = "Pre-filter enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1346,9 +1346,9 @@ pub mod VAD0_CTRL_2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Frame energy calculus enabled."]
+            #[doc = "Enables"]
             pub const ENABLED: u32 = 0;
-            #[doc = "Frame energy calculus disabled."]
+            #[doc = "Disables"]
             pub const DISABLED: u32 = 0x01;
         }
     }
@@ -1362,9 +1362,9 @@ pub mod VAD0_STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Voice activity not detected"]
+            #[doc = "Not detected"]
             pub const NO_DETECT: u32 = 0;
-            #[doc = "Voice activity detected"]
+            #[doc = "Detected"]
             pub const DETECT: u32 = 0x01;
         }
     }
@@ -1388,9 +1388,9 @@ pub mod VAD0_STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "HWVAD is not being initialized."]
+            #[doc = "Not being initialized"]
             pub const NOT_INIT: u32 = 0;
-            #[doc = "HWVAD is being initialized."]
+            #[doc = "Being initialized"]
             pub const INIT: u32 = 0x01;
         }
     }
@@ -1435,9 +1435,9 @@ pub mod VAD0_SCONFIG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Maximum block is bypassed."]
+            #[doc = "Maximum block bypassed"]
             pub const BYPASSED: u32 = 0;
-            #[doc = "Maximum block is enabled."]
+            #[doc = "Maximum block enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1448,9 +1448,9 @@ pub mod VAD0_SCONFIG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Signal filter is disabled."]
+            #[doc = "Disables"]
             pub const DISABLED: u32 = 0;
-            #[doc = "Signal filter is enabled."]
+            #[doc = "Enables"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1526,9 +1526,9 @@ pub mod VAD0_NCONFIG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Noise input is not decimated."]
+            #[doc = "Not decimated"]
             pub const NOT_DECIMATED: u32 = 0;
-            #[doc = "Noise input is decimated."]
+            #[doc = "Decimated"]
             pub const DECIMATED: u32 = 0x01;
         }
     }
@@ -1539,9 +1539,9 @@ pub mod VAD0_NCONFIG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Noise input is not decimated."]
+            #[doc = "Not decimated"]
             pub const NOT_DECIMATED: u32 = 0;
-            #[doc = "Noise input is decimated."]
+            #[doc = "Decimated"]
             pub const DECIMATED: u32 = 0x01;
         }
     }
@@ -1552,9 +1552,9 @@ pub mod VAD0_NCONFIG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Minimum block is bypassed."]
+            #[doc = "Minimum block bypassed"]
             pub const BYPASSED: u32 = 0;
-            #[doc = "Minimum block is enabled."]
+            #[doc = "Minimum block enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1565,9 +1565,9 @@ pub mod VAD0_NCONFIG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Noise filter is always enabled."]
+            #[doc = "Noise filter always enabled"]
             pub const NF_ALWAYS_EN: u32 = 0;
-            #[doc = "Noise filter is enabled/disabled based on voice activity information."]
+            #[doc = "Noise filter enabled/disabled based on voice activity information"]
             pub const NF_COND_EN: u32 = 0x01;
         }
     }
@@ -1592,9 +1592,9 @@ pub mod VAD0_ZCD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The ZCD is disabled"]
+            #[doc = "Disables"]
             pub const DISABLED: u32 = 0;
-            #[doc = "The ZCD is enabled"]
+            #[doc = "Enables"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -1605,9 +1605,9 @@ pub mod VAD0_ZCD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The ZCD threshold is not estimated automatically"]
+            #[doc = "Disables"]
             pub const NOT_ESTIMATED: u32 = 0;
-            #[doc = "The ZCD threshold is estimated automatically"]
+            #[doc = "Enables"]
             pub const ESTIMATED: u32 = 0x01;
         }
     }
@@ -1618,9 +1618,9 @@ pub mod VAD0_ZCD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The ZCD result is OR'ed with the energy-based detection."]
+            #[doc = "OR"]
             pub const ORED: u32 = 0;
-            #[doc = "The ZCD result is AND'ed with the energy-based detection."]
+            #[doc = "AND"]
             pub const ANDED: u32 = 0x01;
         }
     }

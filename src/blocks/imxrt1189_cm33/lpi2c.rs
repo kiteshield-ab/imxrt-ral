@@ -91,10 +91,10 @@ pub mod VERID {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Master only, with standard feature set"]
-            pub const FEATURE_2: u32 = 0x02;
-            #[doc = "Master and slave, with standard feature set"]
-            pub const FEATURE_3: u32 = 0x03;
+            #[doc = "Controller only, with standard feature set"]
+            pub const MASTER_ONLY: u32 = 0x02;
+            #[doc = "Controller and target, with standard feature set"]
+            pub const MASTER_AND_SLAVE: u32 = 0x03;
         }
     }
     #[doc = "Minor Version Number"]
@@ -116,7 +116,7 @@ pub mod VERID {
 }
 #[doc = "Parameter"]
 pub mod PARAM {
-    #[doc = "Master Transmit FIFO Size"]
+    #[doc = "Controller Transmit FIFO Size"]
     pub mod MTXFIFO {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -124,7 +124,7 @@ pub mod PARAM {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Master Receive FIFO Size"]
+    #[doc = "Controller Receive FIFO Size"]
     pub mod MRXFIFO {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -135,17 +135,17 @@ pub mod PARAM {
 }
 #[doc = "Controller Control"]
 pub mod MCR {
-    #[doc = "Master Enable"]
+    #[doc = "Controller Enable"]
     pub mod MEN {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Master logic is disabled"]
-            pub const MEN_0: u32 = 0;
-            #[doc = "Master logic is enabled"]
-            pub const MEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Software Reset"]
@@ -155,23 +155,23 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Master logic is not reset"]
-            pub const RST_0: u32 = 0;
-            #[doc = "Master logic is reset"]
-            pub const RST_1: u32 = 0x01;
+            #[doc = "No effect"]
+            pub const NOT_RESET: u32 = 0;
+            #[doc = "Reset"]
+            pub const RESET: u32 = 0x01;
         }
     }
-    #[doc = "Doze mode enable"]
+    #[doc = "Doze Mode Enable"]
     pub mod DOZEN {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Master is enabled in Doze mode"]
-            pub const DOZEN_0: u32 = 0;
-            #[doc = "Master is disabled in Doze mode"]
-            pub const DOZEN_1: u32 = 0x01;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0x01;
         }
     }
     #[doc = "Debug Enable"]
@@ -181,10 +181,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Master is disabled in debug mode"]
-            pub const DBGEN_0: u32 = 0;
-            #[doc = "Master is enabled in debug mode"]
-            pub const DBGEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Reset Transmit FIFO"]
@@ -195,9 +195,9 @@ pub mod MCR {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect"]
-            pub const RTF_0: u32 = 0;
-            #[doc = "Transmit FIFO is reset"]
-            pub const RTF_1: u32 = 0x01;
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "Reset transmit FIFO"]
+            pub const RESET: u32 = 0x01;
         }
     }
     #[doc = "Reset Receive FIFO"]
@@ -208,9 +208,9 @@ pub mod MCR {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect"]
-            pub const RRF_0: u32 = 0;
-            #[doc = "Receive FIFO is reset"]
-            pub const RRF_1: u32 = 0x01;
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "Reset receive FIFO"]
+            pub const RESET: u32 = 0x01;
         }
     }
 }
@@ -223,10 +223,10 @@ pub mod MSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit data is not requested"]
-            pub const TDF_0: u32 = 0;
-            #[doc = "Transmit data is requested"]
-            pub const TDF_1: u32 = 0x01;
+            #[doc = "Transmit data not requested"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Transmit data requested"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive Data Flag"]
@@ -236,10 +236,10 @@ pub mod MSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive Data is not ready"]
-            pub const RDF_0: u32 = 0;
-            #[doc = "Receive data is ready"]
-            pub const RDF_1: u32 = 0x01;
+            #[doc = "Receive data not ready"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Receive data ready"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "End Packet Flag"]
@@ -247,10 +247,10 @@ pub mod MSR {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Master has not generated a STOP or Repeated START condition"]
-            pub const EPF_0: u32 = 0;
-            #[doc = "Master has generated a STOP or Repeated START condition"]
-            pub const EPF_1: u32 = 0x01;
+            #[doc = "No Stop or repeated Start generated"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Stop or repeated Start generated"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -260,10 +260,10 @@ pub mod MSR {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Master has not generated a STOP condition"]
-            pub const SDF_0: u32 = 0;
-            #[doc = "Master has generated a STOP condition"]
-            pub const SDF_1: u32 = 0x01;
+            #[doc = "No Stop condition generated"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Stop condition generated"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -273,10 +273,10 @@ pub mod MSR {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Unexpected NACK was not detected"]
-            pub const NDF_0: u32 = 0;
-            #[doc = "Unexpected NACK was detected"]
-            pub const NDF_1: u32 = 0x01;
+            #[doc = "No unexpected NACK detected"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Unexpected NACK detected"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -286,10 +286,10 @@ pub mod MSR {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Master has not lost arbitration"]
-            pub const ALF_0: u32 = 0;
-            #[doc = "Master has lost arbitration"]
-            pub const ALF_1: u32 = 0x01;
+            #[doc = "Controller did not lose arbitration"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Controller lost arbitration"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -299,10 +299,10 @@ pub mod MSR {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No error"]
-            pub const FEF_0: u32 = 0;
-            #[doc = "Master sending or receiving data without a START condition"]
-            pub const FEF_1: u32 = 0x01;
+            #[doc = "No FIFO error"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "FIFO error"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -312,10 +312,10 @@ pub mod MSR {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Pin low timeout has not occurred or is disabled"]
-            pub const PLTF_0: u32 = 0;
-            #[doc = "Pin low timeout has occurred"]
-            pub const PLTF_1: u32 = 0x01;
+            #[doc = "Pin low timeout did not occur"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Pin low timeout occurred"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -325,10 +325,10 @@ pub mod MSR {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Have not received matching data"]
-            pub const DMF_0: u32 = 0;
-            #[doc = "Have received matching data"]
-            pub const DMF_1: u32 = 0x01;
+            #[doc = "Matching data not received"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Matching data received"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -353,10 +353,10 @@ pub mod MSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "I2C Master is idle"]
-            pub const MBF_0: u32 = 0;
-            #[doc = "I2C Master is busy"]
-            pub const MBF_1: u32 = 0x01;
+            #[doc = "Idle"]
+            pub const IDLE: u32 = 0;
+            #[doc = "Busy"]
+            pub const BUSY: u32 = 0x01;
         }
     }
     #[doc = "Bus Busy Flag"]
@@ -366,10 +366,10 @@ pub mod MSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "I2C Bus is idle"]
-            pub const BBF_0: u32 = 0;
-            #[doc = "I2C Bus is busy"]
-            pub const BBF_1: u32 = 0x01;
+            #[doc = "Idle"]
+            pub const IDLE: u32 = 0;
+            #[doc = "Busy"]
+            pub const BUSY: u32 = 0x01;
         }
     }
 }
@@ -382,10 +382,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const TDIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const TDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive Data Interrupt Enable"]
@@ -395,10 +395,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const RDIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const RDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "End Packet Interrupt Enable"]
@@ -408,10 +408,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const EPIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const EPIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Stop Detect Interrupt Enable"]
@@ -421,10 +421,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const SDIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const SDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "NACK Detect Interrupt Enable"]
@@ -434,10 +434,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const NDIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const NDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Arbitration Lost Interrupt Enable"]
@@ -447,10 +447,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const ALIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const ALIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "FIFO Error Interrupt Enable"]
@@ -460,10 +460,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Enabled"]
-            pub const FEIE_0: u32 = 0;
-            #[doc = "Disabled"]
-            pub const FEIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Pin Low Timeout Interrupt Enable"]
@@ -473,10 +473,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const PLTIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const PLTIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Data Match Interrupt Enable"]
@@ -486,10 +486,10 @@ pub mod MIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const DMIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const DMIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Start Interrupt Enable"]
@@ -515,10 +515,10 @@ pub mod MDER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request is disabled"]
-            pub const TDDE_0: u32 = 0;
-            #[doc = "DMA request is enabled"]
-            pub const TDDE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive Data DMA Enable"]
@@ -528,10 +528,10 @@ pub mod MDER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request is disabled"]
-            pub const RDDE_0: u32 = 0;
-            #[doc = "DMA request is enabled"]
-            pub const RDDE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
 }
@@ -544,10 +544,10 @@ pub mod MCFGR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Host request input is disabled"]
-            pub const HREN_0: u32 = 0;
-            #[doc = "Host request input is enabled"]
-            pub const HREN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Host Request Polarity"]
@@ -558,9 +558,9 @@ pub mod MCFGR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Active low"]
-            pub const HRPOL_0: u32 = 0;
+            pub const ACTIVE_LOW: u32 = 0;
             #[doc = "Active high"]
-            pub const HRPOL_1: u32 = 0x01;
+            pub const ACTIVE_HIGH: u32 = 0x01;
         }
     }
     #[doc = "Host Request Select"]
@@ -571,9 +571,9 @@ pub mod MCFGR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Host request input is pin HREQ"]
-            pub const HRSEL_0: u32 = 0;
+            pub const DISABLED: u32 = 0;
             #[doc = "Host request input is input trigger"]
-            pub const HRSEL_1: u32 = 0x01;
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Host Request Direction"]
@@ -596,10 +596,10 @@ pub mod MCFGR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Circular FIFO is disabled"]
-            pub const CIRFIFO_0: u32 = 0;
-            #[doc = "Circular FIFO is enabled"]
-            pub const CIRFIFO_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive Data Match Only"]
@@ -610,9 +610,9 @@ pub mod MCFGR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Received data is stored in the receive FIFO"]
-            pub const RDMO_0: u32 = 0;
-            #[doc = "Received data is discarded unless the the Data Match Flag (MSR\\[DMF\\]) is set"]
-            pub const RDMO_1: u32 = 0x01;
+            pub const DISABLED: u32 = 0;
+            #[doc = "Received data is discarded unless MSR\\[DMF\\] is set"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Relaxed Mode"]
@@ -652,21 +652,21 @@ pub mod MCFGR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Divide by 1"]
-            pub const PRESCALE_0: u32 = 0;
+            pub const DIVIDE_BY_1: u32 = 0;
             #[doc = "Divide by 2"]
-            pub const PRESCALE_1: u32 = 0x01;
+            pub const DIVIDE_BY_2: u32 = 0x01;
             #[doc = "Divide by 4"]
-            pub const PRESCALE_2: u32 = 0x02;
+            pub const DIVIDE_BY_4: u32 = 0x02;
             #[doc = "Divide by 8"]
-            pub const PRESCALE_3: u32 = 0x03;
+            pub const DIVIDE_BY_8: u32 = 0x03;
             #[doc = "Divide by 16"]
-            pub const PRESCALE_4: u32 = 0x04;
+            pub const DIVIDE_BY_16: u32 = 0x04;
             #[doc = "Divide by 32"]
-            pub const PRESCALE_5: u32 = 0x05;
+            pub const DIVIDE_BY_32: u32 = 0x05;
             #[doc = "Divide by 64"]
-            pub const PRESCALE_6: u32 = 0x06;
+            pub const DIVIDE_BY_64: u32 = 0x06;
             #[doc = "Divide by 128"]
-            pub const PRESCALE_7: u32 = 0x07;
+            pub const DIVIDE_BY_128: u32 = 0x07;
         }
     }
     #[doc = "Automatic Stop Generation"]
@@ -677,9 +677,9 @@ pub mod MCFGR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect"]
-            pub const AUTOSTOP_0: u32 = 0;
-            #[doc = "STOP condition is automatically generated whenever the transmit FIFO is empty and the LPI2C master is busy"]
-            pub const AUTOSTOP_1: u32 = 0x01;
+            pub const DISABLED: u32 = 0;
+            #[doc = "Stop automatically generated"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Ignore NACK"]
@@ -689,10 +689,10 @@ pub mod MCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "LPI2C Master will receive ACK and NACK normally"]
-            pub const IGNACK_0: u32 = 0;
-            #[doc = "LPI2C Master will treat a received NACK as if it (NACK) was an ACK"]
-            pub const IGNACK_1: u32 = 0x01;
+            #[doc = "No effect"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Treat a received NACK as an ACK"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Timeout Configuration"]
@@ -702,10 +702,10 @@ pub mod MCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pin Low Timeout Flag will set if SCL is low for longer than the configured timeout"]
-            pub const TIMECFG_0: u32 = 0;
-            #[doc = "Pin Low Timeout Flag will set if either SCL or SDA is low for longer than the configured timeout"]
-            pub const TIMECFG_1: u32 = 0x01;
+            #[doc = "SCL"]
+            pub const IF_SCL_LOW: u32 = 0;
+            #[doc = "SCL or SDA"]
+            pub const IF_SCL_OR_SDA_LOW: u32 = 0x01;
         }
     }
     #[doc = "Stop Configuration"]
@@ -742,19 +742,19 @@ pub mod MCFGR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Match is disabled"]
-            pub const MATCFG_0: u32 = 0;
-            #[doc = "Match is enabled (1st data word equals MATCH0 OR MATCH1)"]
-            pub const MATCFG_2: u32 = 0x02;
-            #[doc = "Match is enabled (any data word equals MATCH0 OR MATCH1)"]
-            pub const MATCFG_3: u32 = 0x03;
-            #[doc = "Match is enabled (1st data word equals MATCH0 AND 2nd data word equals MATCH1)"]
-            pub const MATCFG_4: u32 = 0x04;
-            #[doc = "Match is enabled (any data word equals MATCH0 AND next data word equals MATCH1)"]
-            pub const MATCFG_5: u32 = 0x05;
-            #[doc = "Match is enabled (1st data word AND MATCH1 equals MATCH0 AND MATCH1)"]
-            pub const MATCFG_6: u32 = 0x06;
-            #[doc = "Match is enabled (any data word AND MATCH1 equals MATCH0 AND MATCH1)"]
-            pub const MATCFG_7: u32 = 0x07;
+            pub const DISABLED: u32 = 0;
+            #[doc = "Match is enabled: first data word equals MDMR\\[MATCH0\\] OR MDMR\\[MATCH1\\]"]
+            pub const FIRST_DATA_WORD_EQUALS_MATCH0_OR_MATCH1: u32 = 0x02;
+            #[doc = "Match is enabled: any data word equals MDMR\\[MATCH0\\] OR MDMR\\[MATCH1\\]"]
+            pub const ANY_DATA_WORD_EQUALS_MATCH0_OR_MATCH1: u32 = 0x03;
+            #[doc = "Match is enabled: (first data word equals MDMR\\[MATCH0\\]) AND (second data word equals MDMR\\[MATCH1)"]
+            pub const FIRST_DATA_WORD_MATCH0_AND_SECOND_DATA_WORD_MATCH1: u32 = 0x04;
+            #[doc = "Match is enabled: (any data word equals MDMR\\[MATCH0\\]) AND (next data word equals MDMR\\[MATCH1)"]
+            pub const ANY_DATA_WORD_MATCH0_NEXT_DATA_WORD_MATCH1: u32 = 0x05;
+            #[doc = "Match is enabled: (first data word AND MDMR\\[MATCH1\\]) equals (MDMR\\[MATCH0\\] AND MDMR\\[MATCH1\\])"]
+            pub const FIRST_DATA_WORD_AND_MATCH1_EQUALS_MATCH0_AND_MATCH1: u32 = 0x06;
+            #[doc = "Match is enabled: (any data word AND MDMR\\[MATCH1\\]) equals (MDMR\\[MATCH0\\] AND MDMR\\[MATCH1\\])"]
+            pub const ANY_DATA_WORD_AND_MATCH1_EQUALS_MATCH0_AND_MATCH1: u32 = 0x07;
         }
     }
     #[doc = "Pin Configuration"]
@@ -764,22 +764,22 @@ pub mod MCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "2-pin open drain mode"]
-            pub const PINCFG_0: u32 = 0;
-            #[doc = "2-pin output only mode (ultra-fast mode)"]
-            pub const PINCFG_1: u32 = 0x01;
-            #[doc = "2-pin push-pull mode"]
-            pub const PINCFG_2: u32 = 0x02;
-            #[doc = "4-pin push-pull mode"]
-            pub const PINCFG_3: u32 = 0x03;
-            #[doc = "2-pin open drain mode with separate LPI2C slave"]
-            pub const PINCFG_4: u32 = 0x04;
-            #[doc = "2-pin output only mode (ultra-fast mode) with separate LPI2C slave"]
-            pub const PINCFG_5: u32 = 0x05;
-            #[doc = "2-pin push-pull mode with separate LPI2C slave"]
-            pub const PINCFG_6: u32 = 0x06;
-            #[doc = "4-pin push-pull mode (inverted outputs)"]
-            pub const PINCFG_7: u32 = 0x07;
+            #[doc = "Two-pin open drain mode"]
+            pub const OPEN_DRAIN_2_PIN: u32 = 0;
+            #[doc = "Two-pin output only mode (Ultra-Fast mode)"]
+            pub const OUTPUT_2_PIN_ONLY: u32 = 0x01;
+            #[doc = "Two-pin push-pull mode"]
+            pub const PUSH_PULL_2_PIN: u32 = 0x02;
+            #[doc = "Four-pin push-pull mode"]
+            pub const PUSH_PULL_4_PIN: u32 = 0x03;
+            #[doc = "Two-pin open-drain mode with separate LPI2C target"]
+            pub const OPEN_DRAIN_2_PIN_W_LPI2C_SLAVE: u32 = 0x04;
+            #[doc = "Two-pin output only mode (Ultra-Fast mode) with separate LPI2C target"]
+            pub const OUTPUT_2_PIN_ONLY_W_LPI2C_SLAVE: u32 = 0x05;
+            #[doc = "Two-pin push-pull mode with separate LPI2C target"]
+            pub const PUSH_PULL_2_PIN_W_LPI2C_SLAVE: u32 = 0x06;
+            #[doc = "Four-pin push-pull mode (inverted outputs)"]
+            pub const PUSH_PULL_4_PIN_W_LPI2C_SLAVE: u32 = 0x07;
         }
     }
 }
@@ -965,22 +965,23 @@ pub mod MTDR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit DATA\\[7:0\\]"]
-            pub const CMD_0: u32 = 0;
+            #[doc = "Transmit the value in DATA\\[7:0\\]"]
+            pub const TRANSMIT_DATA_7_THROUGH_0: u32 = 0;
             #[doc = "Receive (DATA\\[7:0\\] + 1) bytes"]
-            pub const CMD_1: u32 = 0x01;
-            #[doc = "Generate STOP condition"]
-            pub const CMD_2: u32 = 0x02;
+            pub const RECEIVE_DATA_7_THROUGH_0_PLUS_ONE: u32 = 0x01;
+            #[doc = "Generate Stop condition on I2C bus"]
+            pub const GENERATE_STOP_CONDITION: u32 = 0x02;
             #[doc = "Receive and discard (DATA\\[7:0\\] + 1) bytes"]
-            pub const CMD_3: u32 = 0x03;
-            #[doc = "Generate (repeated) START and transmit address in DATA\\[7:0\\]"]
-            pub const CMD_4: u32 = 0x04;
-            #[doc = "Generate (repeated) START and transmit address in DATA\\[7:0\\]. This transfer expects a NACK to be returned."]
-            pub const CMD_5: u32 = 0x05;
-            #[doc = "Generate (repeated) START and transmit address in DATA\\[7:0\\] using high speed mode"]
-            pub const CMD_6: u32 = 0x06;
-            #[doc = "Generate (repeated) START and transmit address in DATA\\[7:0\\] using high speed mode. This transfer expects a NACK to be returned."]
-            pub const CMD_7: u32 = 0x07;
+            pub const RECEIVE_AND_DISCARD_DATA_7_THROUGH_0_PLUS_ONE: u32 = 0x03;
+            #[doc = "Generate (repeated) Start on the I2C bus and transmit the address in DATA\\[7:0\\]"]
+            pub const GENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0: u32 = 0x04;
+            #[doc = "Generate (repeated) Start on the I2C bus and transmit the address in DATA\\[7:0\\] (this transfer expects a NACK to be returned)"]
+            pub const GENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0_EXPECT_NACK: u32 =
+                0x05;
+            #[doc = "Generate (repeated) Start on the I2C bus and transmit the address in DATA\\[7:0\\] using HS mode"]
+            pub const GENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0_USING_HIGH_SPEED_MODE : u32 = 0x06 ;
+            #[doc = "Generate (repeated) Start on the I2C bus and transmit the address in DATA\\[7:0\\] using HS mode (this transfer expects a NACK to be returned)"]
+            pub const GENERATE_START_AND_TRANSMIT_ADDRESS_IN_DATA_7_THROUGH_0_USING_HIGH_SPEED_MODE_EXPECT_NACK : u32 = 0x07 ;
         }
     }
 }
@@ -994,17 +995,17 @@ pub mod MRDR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RX Empty"]
+    #[doc = "Receive Empty"]
     pub mod RXEMPTY {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive FIFO is not empty"]
-            pub const RXEMPTY_0: u32 = 0;
-            #[doc = "Receive FIFO is empty"]
-            pub const RXEMPTY_1: u32 = 0x01;
+            #[doc = "Not empty"]
+            pub const NOT_EMPTY: u32 = 0;
+            #[doc = "Empty"]
+            pub const EMPTY: u32 = 0x01;
         }
     }
 }
@@ -1034,17 +1035,17 @@ pub mod MRDROR {
 }
 #[doc = "Target Control"]
 pub mod SCR {
-    #[doc = "Slave Enable"]
+    #[doc = "Target Enable"]
     pub mod SEN {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "I2C Slave mode is disabled"]
-            pub const SEN_0: u32 = 0;
-            #[doc = "I2C Slave mode is enabled"]
-            pub const SEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Software Reset"]
@@ -1054,10 +1055,10 @@ pub mod SCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Slave mode logic is not reset"]
-            pub const RST_0: u32 = 0;
-            #[doc = "Slave mode logic is reset"]
-            pub const RST_1: u32 = 0x01;
+            #[doc = "Not reset"]
+            pub const NOT_RESET: u32 = 0;
+            #[doc = "Reset"]
+            pub const RESET: u32 = 0x01;
         }
     }
     #[doc = "Filter Enable"]
@@ -1067,10 +1068,10 @@ pub mod SCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disable digital filter and output delay counter for slave mode"]
-            pub const FILTEN_0: u32 = 0;
-            #[doc = "Enable digital filter and output delay counter for slave mode"]
-            pub const FILTEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Filter Doze Enable"]
@@ -1080,10 +1081,10 @@ pub mod SCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Filter remains enabled in Doze mode"]
-            pub const FILTDZ_0: u32 = 0;
-            #[doc = "Filter is disabled in Doze mode"]
-            pub const FILTDZ_1: u32 = 0x01;
+            #[doc = "Enable"]
+            pub const FILTER_ENABLED: u32 = 0;
+            #[doc = "Disable"]
+            pub const FILTER_DISABLED: u32 = 0x01;
         }
     }
     #[doc = "Reset Transmit FIFO"]
@@ -1094,9 +1095,9 @@ pub mod SCR {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect"]
-            pub const RTF_0: u32 = 0;
-            #[doc = "Transmit Data Register is now empty"]
-            pub const RTF_1: u32 = 0x01;
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "STDR is now empty"]
+            pub const NOW_EMPTY: u32 = 0x01;
         }
     }
     #[doc = "Reset Receive FIFO"]
@@ -1107,9 +1108,9 @@ pub mod SCR {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect"]
-            pub const RRF_0: u32 = 0;
-            #[doc = "Receive Data Register is now empty"]
-            pub const RRF_1: u32 = 0x01;
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "SRDR is now empty"]
+            pub const NOW_EMPTY: u32 = 0x01;
         }
     }
 }
@@ -1123,9 +1124,9 @@ pub mod SSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Transmit data not requested"]
-            pub const TDF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Transmit data is requested"]
-            pub const TDF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Receive Data Flag"]
@@ -1135,10 +1136,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive data is not ready"]
-            pub const RDF_0: u32 = 0;
-            #[doc = "Receive data is ready"]
-            pub const RDF_1: u32 = 0x01;
+            #[doc = "Not ready"]
+            pub const NOT_READY: u32 = 0;
+            #[doc = "Ready"]
+            pub const READY: u32 = 0x01;
         }
     }
     #[doc = "Address Valid Flag"]
@@ -1148,10 +1149,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Address Status Register is not valid"]
-            pub const AVF_0: u32 = 0;
-            #[doc = "Address Status Register is valid"]
-            pub const AVF_1: u32 = 0x01;
+            #[doc = "Not valid"]
+            pub const NOT_VALID: u32 = 0;
+            #[doc = "Valid"]
+            pub const VALID: u32 = 0x01;
         }
     }
     #[doc = "Transmit ACK Flag"]
@@ -1161,10 +1162,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit ACK/NACK is not required"]
-            pub const TAF_0: u32 = 0;
-            #[doc = "Transmit ACK/NACK is required"]
-            pub const TAF_1: u32 = 0x01;
+            #[doc = "Not required"]
+            pub const NOT_REQUIRED: u32 = 0;
+            #[doc = "Required"]
+            pub const REQUIRED: u32 = 0x01;
         }
     }
     #[doc = "Repeated Start Flag"]
@@ -1172,10 +1173,10 @@ pub mod SSR {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Slave has not detected a Repeated START condition"]
-            pub const RSF_0: u32 = 0;
-            #[doc = "Slave has detected a Repeated START condition"]
-            pub const RSF_1: u32 = 0x01;
+            #[doc = "No repeated Start detected"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Repeated Start detected"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -1185,10 +1186,10 @@ pub mod SSR {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Slave has not detected a STOP condition"]
-            pub const SDF_0: u32 = 0;
-            #[doc = "Slave has detected a STOP condition"]
-            pub const SDF_1: u32 = 0x01;
+            #[doc = "No Stop detected"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Stop detected"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -1198,10 +1199,10 @@ pub mod SSR {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Slave has not detected a bit error"]
-            pub const BEF_0: u32 = 0;
-            #[doc = "Slave has detected a bit error"]
-            pub const BEF_1: u32 = 0x01;
+            #[doc = "No bit error occurred"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "Bit error occurred"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -1211,10 +1212,10 @@ pub mod SSR {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "FIFO underflow or overflow was not detected"]
-            pub const FEF_0: u32 = 0;
-            #[doc = "FIFO underflow or overflow was detected"]
-            pub const FEF_1: u32 = 0x01;
+            #[doc = "No FIFO error"]
+            pub const INT_NO: u32 = 0;
+            #[doc = "FIFO error"]
+            pub const INT_YES: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -1226,10 +1227,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Have not received an ADDR0 matching address"]
-            pub const AM0F_0: u32 = 0;
-            #[doc = "Have received an ADDR0 matching address"]
-            pub const AM0F_1: u32 = 0x01;
+            #[doc = "ADDR0 matching address not received"]
+            pub const NO_FLAG: u32 = 0;
+            #[doc = "ADDR0 matching address received"]
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Address Match 1 Flag"]
@@ -1239,9 +1240,9 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Have not received an ADDR1 or ADDR0/ADDR1 range matching address"]
+            #[doc = "Matching address not received"]
             pub const NO_FLAG: u32 = 0;
-            #[doc = "Have received an ADDR1 or ADDR0/ADDR1 range matching address"]
+            #[doc = "Matching address received"]
             pub const FLAG: u32 = 0x01;
         }
     }
@@ -1252,10 +1253,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Slave has not detected the General Call Address or the General Call Address is disabled"]
-            pub const GCF_0: u32 = 0;
-            #[doc = "Slave has detected the General Call Address"]
-            pub const GCF_1: u32 = 0x01;
+            #[doc = "General call address disabled or not detected"]
+            pub const NO_FLAG: u32 = 0;
+            #[doc = "General call address detected"]
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "SMBus Alert Response Flag"]
@@ -1265,10 +1266,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "SMBus Alert Response is disabled or not detected"]
-            pub const SARF_0: u32 = 0;
-            #[doc = "SMBus Alert Response is enabled and detected"]
-            pub const SARF_1: u32 = 0x01;
+            #[doc = "Disabled or not detected"]
+            pub const NO_FLAG: u32 = 0;
+            #[doc = "Enabled and detected"]
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Target Busy Flag"]
@@ -1278,10 +1279,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "I2C Slave is idle"]
-            pub const SBF_0: u32 = 0;
-            #[doc = "I2C Slave is busy"]
-            pub const SBF_1: u32 = 0x01;
+            #[doc = "Idle"]
+            pub const IDLE: u32 = 0;
+            #[doc = "Busy"]
+            pub const BUSY: u32 = 0x01;
         }
     }
     #[doc = "Bus Busy Flag"]
@@ -1291,10 +1292,10 @@ pub mod SSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "I2C Bus is idle"]
-            pub const BBF_0: u32 = 0;
-            #[doc = "I2C Bus is busy"]
-            pub const BBF_1: u32 = 0x01;
+            #[doc = "Idle"]
+            pub const IDLE: u32 = 0;
+            #[doc = "Busy"]
+            pub const BUSY: u32 = 0x01;
         }
     }
 }
@@ -1307,10 +1308,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const TDIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const TDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive Data Interrupt Enable"]
@@ -1320,10 +1321,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const RDIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const RDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Address Valid Interrupt Enable"]
@@ -1333,10 +1334,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const AVIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const AVIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmit ACK Interrupt Enable"]
@@ -1346,10 +1347,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const TAIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const TAIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Repeated Start Interrupt Enable"]
@@ -1359,23 +1360,23 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const RSIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const RSIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "STOP Detect Interrupt Enable"]
+    #[doc = "Stop Detect Interrupt Enable"]
     pub mod SDIE {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const SDIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const SDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Bit Error Interrupt Enable"]
@@ -1385,10 +1386,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const BEIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const BEIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "FIFO Error Interrupt Enable"]
@@ -1398,10 +1399,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const FEIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const FEIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Address Match 0 Interrupt Enable"]
@@ -1411,10 +1412,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Enabled"]
-            pub const AM0IE_0: u32 = 0;
-            #[doc = "Disabled"]
-            pub const AM0IE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Address Match 1 Interrupt Enable"]
@@ -1424,10 +1425,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const AM1F_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const AM1F_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "General Call Interrupt Enable"]
@@ -1438,9 +1439,9 @@ pub mod SIER {
         pub mod W {}
         pub mod RW {
             #[doc = "Disabled"]
-            pub const GCIE_0: u32 = 0;
+            pub const DISABLED: u32 = 0;
             #[doc = "Enabled"]
-            pub const GCIE_1: u32 = 0x01;
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "SMBus Alert Response Interrupt Enable"]
@@ -1450,10 +1451,10 @@ pub mod SIER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disabled"]
-            pub const SARIE_0: u32 = 0;
-            #[doc = "Enabled"]
-            pub const SARIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
 }
@@ -1466,10 +1467,10 @@ pub mod SDER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request is disabled"]
-            pub const TDDE_0: u32 = 0;
-            #[doc = "DMA request is enabled"]
-            pub const TDDE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive Data DMA Enable"]
@@ -1479,10 +1480,10 @@ pub mod SDER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request is disabled"]
-            pub const RDDE_0: u32 = 0;
-            #[doc = "DMA request is enabled"]
-            pub const RDDE_1: u32 = 0x01;
+            #[doc = "Disable DMA request"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable DMA request"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Address Valid DMA Enable"]
@@ -1492,10 +1493,10 @@ pub mod SDER {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request is disabled"]
-            pub const AVDE_0: u32 = 0;
-            #[doc = "DMA request is enabled"]
-            pub const AVDE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Repeated Start DMA Enable"]
@@ -1563,10 +1564,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Clock stretching is disabled"]
-            pub const ADRSTALL_0: u32 = 0;
-            #[doc = "Clock stretching is enabled"]
-            pub const ADRSTALL_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "RX SCL Stall"]
@@ -1576,10 +1577,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Clock stretching is disabled"]
-            pub const RXSTALL_0: u32 = 0;
-            #[doc = "Clock stretching is enabled"]
-            pub const RXSTALL_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmit Data SCL Stall"]
@@ -1589,10 +1590,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Clock stretching is disabled"]
-            pub const TXDSTALL_0: u32 = 0;
-            #[doc = "Clock stretching is enabled"]
-            pub const TXDSTALL_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "ACK SCL Stall"]
@@ -1602,10 +1603,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Clock stretching is disabled"]
-            pub const ACKSTALL_0: u32 = 0;
-            #[doc = "Clock stretching is enabled"]
-            pub const ACKSTALL_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive NACK"]
@@ -1628,10 +1629,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "General Call address is disabled"]
-            pub const GCEN_0: u32 = 0;
-            #[doc = "General Call address is enabled"]
-            pub const GCEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "SMBus Alert Enable"]
@@ -1641,10 +1642,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disables match on SMBus Alert"]
-            pub const SAEN_0: u32 = 0;
-            #[doc = "Enables match on SMBus Alert"]
-            pub const SAEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Transmit Flag Configuration"]
@@ -1654,10 +1655,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit Data Flag will only assert during a slave-transmit transfer when the Transmit Data register is empty"]
-            pub const TXCFG_0: u32 = 0;
-            #[doc = "Transmit Data Flag will assert whenever the Transmit Data register is empty"]
-            pub const TXCFG_1: u32 = 0x01;
+            #[doc = "MSR\\[TDF\\] is set only during a target-transmit transfer when STDR is empty"]
+            pub const ASSERTS_DURING_SLAVE_TRANSMIT_TRANSFER_WHEN_TX_DATA_EMPTY: u32 = 0;
+            #[doc = "MSR\\[TDF\\] is set whenever STDR is empty"]
+            pub const ASSERTS_WHEN_TX_DATA_EMPTY: u32 = 0x01;
         }
     }
     #[doc = "Receive Data Configuration"]
@@ -1667,10 +1668,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Reading the Receive Data register will return received data and clear the Receive Data flag (MSR\\[RDF\\])."]
-            pub const RXCFG_0: u32 = 0;
-            #[doc = "Reading the Receive Data register when the Address Valid flag (SSR\\[AVF\\])is set, will return the Address Status register and clear the Address Valid flag. Reading the Receive Data register when the Address Valid flag is clear, will return received data and clear the Receive Data flag (MSR\\[RDF\\])."]
-            pub const RXCFG_1: u32 = 0x01;
+            #[doc = "Return received data, clear MSR\\[RDF\\]"]
+            pub const RETURNS_RECEIVED_DATA_AND_CLEARS_RX_DATA_FLAG: u32 = 0;
+            #[doc = "Return SASR and clear SSR\\[AVF\\] when SSR\\[AVF\\] is set, return received data and clear MSR\\[RDF\\] when SSR\\[AFV\\] is not set"]
+            pub const WHEN_ADDRESS_VALID_FLAG_SET_RETURNS_ADDRESS_STATUS_AND_CLEARS_ADDRESS_VALID_FLAG : u32 = 0x01 ;
         }
     }
     #[doc = "Ignore NACK"]
@@ -1680,10 +1681,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Slave will end transfer when NACK is detected"]
-            pub const IGNACK_0: u32 = 0;
-            #[doc = "Slave will not end transfer when NACK detected"]
-            pub const IGNACK_1: u32 = 0x01;
+            #[doc = "End transfer on NACK"]
+            pub const ENDS_TRANSFER_ON_NACK: u32 = 0;
+            #[doc = "Do not end transfer on NACK"]
+            pub const DOES_NOT_END_TRANSFER_ON_NACK: u32 = 0x01;
         }
     }
     #[doc = "HS Mode Enable"]
@@ -1693,10 +1694,10 @@ pub mod SCFGR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disables detection of HS-mode master code"]
-            pub const HSMEN_0: u32 = 0;
-            #[doc = "Enables detection of HS-mode master code"]
-            pub const HSMEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Address Configuration"]
@@ -1707,21 +1708,21 @@ pub mod SCFGR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Address match 0 (7-bit)"]
-            pub const ADDRCFG_0: u32 = 0;
+            pub const ADDRESS_MATCH0_7_BIT: u32 = 0;
             #[doc = "Address match 0 (10-bit)"]
-            pub const ADDRCFG_1: u32 = 0x01;
-            #[doc = "Address match 0 (7-bit) or Address match 1 (7-bit)"]
-            pub const ADDRCFG_2: u32 = 0x02;
-            #[doc = "Address match 0 (10-bit) or Address match 1 (10-bit)"]
-            pub const ADDRCFG_3: u32 = 0x03;
-            #[doc = "Address match 0 (7-bit) or Address match 1 (10-bit)"]
-            pub const ADDRCFG_4: u32 = 0x04;
-            #[doc = "Address match 0 (10-bit) or Address match 1 (7-bit)"]
-            pub const ADDRCFG_5: u32 = 0x05;
-            #[doc = "From Address match 0 (7-bit) to Address match 1 (7-bit)"]
-            pub const ADDRCFG_6: u32 = 0x06;
-            #[doc = "From Address match 0 (10-bit) to Address match 1 (10-bit)"]
-            pub const ADDRCFG_7: u32 = 0x07;
+            pub const ADDRESS_MATCH0_10_BIT: u32 = 0x01;
+            #[doc = "Address match 0 (7-bit) or address match 1 (7-bit)"]
+            pub const ADDRESS_MATCH0_7_BIT_OR_ADDRESS_MATCH1_7_BIT: u32 = 0x02;
+            #[doc = "Address match 0 (10-bit) or address match 1 (10-bit)"]
+            pub const ADDRESS_MATCH0_10_BIT_OR_ADDRESS_MATCH1_10_BIT: u32 = 0x03;
+            #[doc = "Address match 0 (7-bit) or address match 1 (10-bit)"]
+            pub const ADDRESS_MATCH0_7_BIT_OR_ADDRESS_MATCH1_10_BIT: u32 = 0x04;
+            #[doc = "Address match 0 (10-bit) or address match 1 (7-bit)"]
+            pub const ADDRESS_MATCH0_10_BIT_OR_ADDRESS_MATCH1_7_BIT: u32 = 0x05;
+            #[doc = "From address match 0 (7-bit) to address match 1 (7-bit)"]
+            pub const FROM_ADDRESS_MATCH0_7_BIT_TO_ADDRESS_MATCH1_7_BIT: u32 = 0x06;
+            #[doc = "From address match 0 (10-bit) to address match 1 (10-bit)"]
+            pub const FROM_ADDRESS_MATCH0_10_BIT_TO_ADDRESS_MATCH1_10_BIT: u32 = 0x07;
         }
     }
     #[doc = "Receive All"]
@@ -1835,10 +1836,10 @@ pub mod SASR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Received Address (RADDR) is valid"]
-            pub const ANV_0: u32 = 0;
-            #[doc = "Received Address (RADDR) is not valid"]
-            pub const ANV_1: u32 = 0x01;
+            #[doc = "Valid"]
+            pub const VALID: u32 = 0;
+            #[doc = "Not valid"]
+            pub const NOT_VALID: u32 = 0x01;
         }
     }
 }
@@ -1851,10 +1852,10 @@ pub mod STAR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Write a Transmit ACK for each received word"]
-            pub const TXNACK_0: u32 = 0;
-            #[doc = "Write a Transmit NACK for each received word"]
-            pub const TXNACK_1: u32 = 0x01;
+            #[doc = "Transmit ACK"]
+            pub const TRANSMIT_ACK: u32 = 0;
+            #[doc = "Transmit NACK"]
+            pub const TRANSMIT_NACK: u32 = 0x01;
         }
     }
 }
@@ -1894,10 +1895,10 @@ pub mod SRDR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The Receive Data Register is not empty"]
-            pub const RXEMPTY_0: u32 = 0;
-            #[doc = "The Receive Data Register is empty"]
-            pub const RXEMPTY_1: u32 = 0x01;
+            #[doc = "Not empty"]
+            pub const NOT_EMPTY: u32 = 0;
+            #[doc = "Empty"]
+            pub const EMPTY: u32 = 0x01;
         }
     }
     #[doc = "Start of Frame"]

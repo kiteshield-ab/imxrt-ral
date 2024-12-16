@@ -73,7 +73,8 @@ clean: clean-patch clean-html clean-check
 	$(SVDTOOL) makedeps $< $@
 
 crate: patch $(RALTOOL)
-	$(RALTOOL) generate svd/imxrt*.svd.patched --transform raltool-cfg.yaml
+	# $(RALTOOL) generate svd/imxrt*.svd.patched --transform raltool-cfg.yaml
+	$(RALTOOL) generate svd/imxrt118*.svd.patched --transform raltool-cfg-rt1180.yaml
 
 rustfmt:
 	cargo fmt --package=imxrt-ral

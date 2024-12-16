@@ -16,7 +16,7 @@ pub struct RegisterBlock {
 }
 #[doc = "Version ID Register"]
 pub mod VERID {
-    #[doc = "Feature Specification Number. This read only filed returns the feature set number."]
+    #[doc = "Feature Specification Number"]
     pub mod FEATURE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -24,7 +24,7 @@ pub mod VERID {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Minor Version Number. This read only field returns the minor version number for the module specification."]
+    #[doc = "Minor Version Number"]
     pub mod MINOR {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -32,7 +32,7 @@ pub mod VERID {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Major Version Number. This read only field returns the major version number for the module specification."]
+    #[doc = "Major Version Number"]
     pub mod MAJOR {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0xff << offset;
@@ -43,7 +43,7 @@ pub mod VERID {
 }
 #[doc = "Parameter Register"]
 pub mod PARAM {
-    #[doc = "Parameter Registers. This read only filed returns the feature parameters implemented along with the Version ID register."]
+    #[doc = "Parameters"]
     pub mod PARAM {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -61,22 +61,22 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Filter is disabled. If SE = 1, then COUT is a logic zero (this is not a legal state, and is not recommended). If SE = 0, COUT = COUTA."]
-            pub const FILTER_CNT_0: u32 = 0;
-            #[doc = "1 consecutive sample must agree (comparator output is simply sampled)."]
-            pub const FILTER_CNT_1: u32 = 0x01;
-            #[doc = "2 consecutive samples must agree."]
-            pub const FILTER_CNT_2: u32 = 0x02;
-            #[doc = "3 consecutive samples must agree."]
-            pub const FILTER_CNT_3: u32 = 0x03;
-            #[doc = "4 consecutive samples must agree."]
-            pub const FILTER_CNT_4: u32 = 0x04;
-            #[doc = "5 consecutive samples must agree."]
-            pub const FILTER_CNT_5: u32 = 0x05;
-            #[doc = "6 consecutive samples must agree."]
-            pub const FILTER_CNT_6: u32 = 0x06;
-            #[doc = "7 consecutive samples must agree."]
-            pub const FILTER_CNT_7: u32 = 0x07;
+            #[doc = "Filter is disabled (if C0\\[SE\\] = 1, then COUT is a logic zero (this is not a legal state, and is not recommended); if C0\\[SE\\] = 0, COUT = COUTA)"]
+            pub const FILTER_DISABLED: u32 = 0;
+            #[doc = "One consecutive sample (comparator output is simply sampled)"]
+            pub const SAMPLE_1: u32 = 0x01;
+            #[doc = "Two consecutive samples"]
+            pub const SAMPLE_2: u32 = 0x02;
+            #[doc = "Three consecutive samples"]
+            pub const SAMPLE_3: u32 = 0x03;
+            #[doc = "Four consecutive samples"]
+            pub const SAMPLE_4: u32 = 0x04;
+            #[doc = "Five consecutive samples"]
+            pub const SAMPLE_5: u32 = 0x05;
+            #[doc = "Six consecutive samples"]
+            pub const SAMPLE_6: u32 = 0x06;
+            #[doc = "Seven consecutive samples"]
+            pub const SAMPLE_7: u32 = 0x07;
         }
     }
     #[doc = "Analog Comparator Module Enable"]
@@ -86,10 +86,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Analog Comparator is disabled."]
-            pub const EN_0: u32 = 0;
-            #[doc = "Analog Comparator is enabled."]
-            pub const EN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const COMPARATOR_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const COMPARATOR_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Comparator Output Pin Enable"]
@@ -99,10 +99,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "When OPE is 0, the comparator output (after window/filter settings dependent on software configuration) is not available to a packaged pin."]
-            pub const OPE_0: u32 = 0;
-            #[doc = "When OPE is 1, and if the software has configured the comparator to own a packaged pin, the comparator is available in a packaged pin."]
-            pub const OPE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const OUTPUT_NOT_AVAILABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const OUTPUT_AVAILABLE: u32 = 0x01;
         }
     }
     #[doc = "Comparator Output Select"]
@@ -112,10 +112,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Set CMPO to equal COUT (filtered comparator output)."]
-            pub const COS_0: u32 = 0;
-            #[doc = "Set CMPO to equal COUTA (unfiltered comparator output)."]
-            pub const COS_1: u32 = 0x01;
+            #[doc = "COUT"]
+            pub const FILTERED: u32 = 0;
+            #[doc = "COUTA"]
+            pub const UNFILTERED: u32 = 0x01;
         }
     }
     #[doc = "Comparator Invert"]
@@ -125,10 +125,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Does not invert the comparator output."]
-            pub const INVT_0: u32 = 0;
-            #[doc = "Inverts the comparator output."]
-            pub const INVT_1: u32 = 0x01;
+            #[doc = "Do not invert"]
+            pub const NOT_INVERT: u32 = 0;
+            #[doc = "Invert"]
+            pub const INVERT: u32 = 0x01;
         }
     }
     #[doc = "Power Mode Select"]
@@ -138,10 +138,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Low Speed (LS) comparison mode is selected."]
-            pub const PMODE_0: u32 = 0;
-            #[doc = "High Speed (HS) comparison mode is selected."]
-            pub const PMODE_1: u32 = 0x01;
+            #[doc = "Low-speed (LS)"]
+            pub const LS: u32 = 0;
+            #[doc = "High-speed (HS)"]
+            pub const HS: u32 = 0x01;
         }
     }
     #[doc = "Windowing Enable"]
@@ -151,10 +151,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Windowing mode is not selected."]
-            pub const WE_0: u32 = 0;
-            #[doc = "Windowing mode is selected."]
-            pub const WE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const NO_WINDOWING_MODE: u32 = 0;
+            #[doc = "Enable"]
+            pub const WINDOWING_MODE: u32 = 0x01;
         }
     }
     #[doc = "Sample Enable"]
@@ -164,10 +164,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Sampling mode is not selected."]
-            pub const SE_0: u32 = 0;
-            #[doc = "Sampling mode is selected."]
-            pub const SE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const NO_SAMPLEING_MODE: u32 = 0;
+            #[doc = "Enable"]
+            pub const SAMPLEING_MODE: u32 = 0x01;
         }
     }
     #[doc = "Filter Sample Period"]
@@ -191,10 +191,10 @@ pub mod C0 {
         pub const offset: u32 = 25;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "A falling edge has not been detected on COUT."]
-            pub const CFF_0: u32 = 0;
-            #[doc = "A falling edge on COUT has occurred."]
-            pub const CFF_1: u32 = 0x01;
+            #[doc = "Not detected"]
+            pub const NO_FALLING_EDGE: u32 = 0;
+            #[doc = "Detected"]
+            pub const FALLING_EDGE: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -204,10 +204,10 @@ pub mod C0 {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "A rising edge has not been detected on COUT."]
-            pub const CFR_0: u32 = 0;
-            #[doc = "A rising edge on COUT has occurred."]
-            pub const CFR_1: u32 = 0x01;
+            #[doc = "Not detected"]
+            pub const NO_RISING_EDGE: u32 = 0;
+            #[doc = "Detected"]
+            pub const RISING_EDGE: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -219,10 +219,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Interrupt is disabled."]
-            pub const IEF_0: u32 = 0;
-            #[doc = "Interrupt is enabled."]
-            pub const IEF_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const INT_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const INT_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Comparator Interrupt Enable Rising"]
@@ -232,10 +232,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Interrupt is disabled."]
-            pub const IER_0: u32 = 0;
-            #[doc = "Interrupt is enabled."]
-            pub const IER_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const INT_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const INT_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "DMA Enable"]
@@ -245,10 +245,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA is disabled."]
-            pub const DMAEN_0: u32 = 0;
-            #[doc = "DMA is enabled."]
-            pub const DMAEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const INT_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const INT_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "CMP to DAC Link Enable"]
@@ -258,10 +258,10 @@ pub mod C0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "CMP to DAC link is disabled"]
-            pub const LINKEN_0: u32 = 0;
-            #[doc = "CMP to DAC link is enabled."]
-            pub const LINKEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const INT_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const INT_ENABLED: u32 = 0x01;
         }
     }
 }
@@ -282,10 +282,10 @@ pub mod C1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DAC is selected to work in low speed and low power mode."]
-            pub const DMODE_0: u32 = 0;
-            #[doc = "DAC is selected to work in high speed high power mode."]
-            pub const DMODE_1: u32 = 0x01;
+            #[doc = "Low-Speed and Low-Power mode"]
+            pub const LOW_SPEED_LOW_POWER: u32 = 0;
+            #[doc = "High-Speed and High-Power mode"]
+            pub const HIGH_SPEED_HIGH_POWER: u32 = 0x01;
         }
     }
     #[doc = "Supply Voltage Reference Source Select"]
@@ -295,10 +295,10 @@ pub mod C1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Vin1 is selected as resistor ladder network supply reference Vin. Vin1 is from internal PMC."]
-            pub const VRSEL_0: u32 = 0;
-            #[doc = "Vin2 is selected as resistor ladder network supply reference Vin. Vin2 is from PAD."]
-            pub const VRSEL_1: u32 = 0x01;
+            #[doc = "Vin1"]
+            pub const VIN1: u32 = 0;
+            #[doc = "Vin2"]
+            pub const VIN2: u32 = 0x01;
         }
     }
     #[doc = "DAC Enable"]
@@ -308,10 +308,10 @@ pub mod C1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DAC is disabled."]
-            pub const DACEN_0: u32 = 0;
-            #[doc = "DAC is enabled."]
-            pub const DACEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Channel 0 Input Enable"]
@@ -445,7 +445,7 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Comparator and DAC initialization delay modulus."]
+    #[doc = "Comparator and DAC Initialization Delay Modulus"]
     pub mod INITMOD {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x3f << offset;
@@ -453,24 +453,24 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Number of sample clocks"]
+    #[doc = "Number of Sample Clocks"]
     pub mod NSAM {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x03 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The comparison result is sampled as soon as the active channel is scanned in one round-robin clock."]
-            pub const NSAM_0: u32 = 0;
-            #[doc = "The sampling takes place 1 round-robin clock cycle after the next cycle of the round-robin clock."]
-            pub const NSAM_1: u32 = 0x01;
-            #[doc = "The sampling takes place 2 round-robin clock cycles after the next cycle of the round-robin clock."]
-            pub const NSAM_2: u32 = 0x02;
-            #[doc = "The sampling takes place 3 round-robin clock cycles after the next cycle of the round-robin clock."]
-            pub const NSAM_3: u32 = 0x03;
+            #[doc = "As soon as the active channel is scanned in one round-robin clock"]
+            pub const VALUE_0: u32 = 0;
+            #[doc = "After one round-robin clock cycle"]
+            pub const VALUE_1: u32 = 0x01;
+            #[doc = "After two round-robin clock cycles"]
+            pub const VALUE_2: u32 = 0x02;
+            #[doc = "After three round-robin clock cycles"]
+            pub const VALUE_3: u32 = 0x03;
         }
     }
-    #[doc = "CH0F"]
+    #[doc = "External Channel 0 Input Changed Flag"]
     pub mod CH0F {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -478,7 +478,7 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CH1F"]
+    #[doc = "External Channel 1 Input Changed Flag"]
     pub mod CH1F {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -486,7 +486,7 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CH2F"]
+    #[doc = "External Channel 2 Input Changed Flag"]
     pub mod CH2F {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -494,7 +494,7 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CH3F"]
+    #[doc = "External Channel 3 Input Changed Flag"]
     pub mod CH3F {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -502,7 +502,7 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CH4F"]
+    #[doc = "External Channel 4 Input Changed Flag"]
     pub mod CH4F {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -510,7 +510,7 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CH5F"]
+    #[doc = "External Channel 5 Input Changed Flag"]
     pub mod CH5F {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -518,27 +518,27 @@ pub mod C2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Fixed channel selection"]
+    #[doc = "Fixed Channel Select"]
     pub mod FXMXCH {
         pub const offset: u32 = 25;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "External Reference Input 0 is selected as the fixed reference input for the fixed mux port."]
-            pub const FXMXCH_0: u32 = 0;
-            #[doc = "External Reference Input 1 is selected as the fixed reference input for the fixed mux port."]
-            pub const FXMXCH_1: u32 = 0x01;
-            #[doc = "External Reference Input 2 is selected as the fixed reference input for the fixed mux port."]
-            pub const FXMXCH_2: u32 = 0x02;
-            #[doc = "External Reference Input 3 is selected as the fixed reference input for the fixed mux port."]
-            pub const FXMXCH_3: u32 = 0x03;
-            #[doc = "External Reference Input 4 is selected as the fixed reference input for the fixed mux port."]
-            pub const FXMXCH_4: u32 = 0x04;
-            #[doc = "External Reference Input 5 is selected as the fixed reference input for the fixed mux port."]
-            pub const FXMXCH_5: u32 = 0x05;
-            #[doc = "The 8bit DAC is selected as the fixed reference input for the fixed mux port."]
-            pub const FXMXCH_7: u32 = 0x07;
+            #[doc = "External reference input 0"]
+            pub const INPUT_0: u32 = 0;
+            #[doc = "External reference input 1"]
+            pub const INPUT_1: u32 = 0x01;
+            #[doc = "External reference input 2"]
+            pub const INPUT_2: u32 = 0x02;
+            #[doc = "External reference input 3"]
+            pub const INPUT_3: u32 = 0x03;
+            #[doc = "External reference input 4"]
+            pub const INPUT_4: u32 = 0x04;
+            #[doc = "External reference input 5"]
+            pub const INPUT_5: u32 = 0x05;
+            #[doc = "8-bit DAC"]
+            pub const DAC: u32 = 0x07;
         }
     }
     #[doc = "Fixed MUX Port"]
@@ -548,79 +548,79 @@ pub mod C2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The Plus port is fixed. Only the inputs to the Minus port are swept in each round."]
-            pub const FXMP_0: u32 = 0;
-            #[doc = "The Minus port is fixed. Only the inputs to the Plus port are swept in each round."]
-            pub const FXMP_1: u32 = 0x01;
+            #[doc = "Fix plus port"]
+            pub const FIXED_PLUS_PORT: u32 = 0;
+            #[doc = "Fix minus port"]
+            pub const FIXED_MINUS_PORT: u32 = 0x01;
         }
     }
-    #[doc = "Round-Robin interrupt enable"]
+    #[doc = "Round-Robin Interrupt Enable"]
     pub mod RRIE {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The round-robin interrupt is disabled."]
-            pub const RRIE_0: u32 = 0;
-            #[doc = "The round-robin interrupt is enabled when a comparison result changes from the last sample."]
-            pub const RRIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
 }
 #[doc = "CMP Control 3"]
 pub mod C3 {
-    #[doc = "Analog Comparator Phase2 Timing Control."]
+    #[doc = "Analog Comparator Phase 2 Timing Control"]
     pub mod ACPH2TC {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Phase2 active time in one sampling period equals to T"]
-            pub const ACPH2TC_0: u32 = 0;
-            #[doc = "Phase2 active time in one sampling period equals to 2*T"]
-            pub const ACPH2TC_1: u32 = 0x01;
-            #[doc = "Phase2 active time in one sampling period equals to 4*T"]
-            pub const ACPH2TC_2: u32 = 0x02;
-            #[doc = "Phase2 active time in one sampling period equals to 8*T"]
-            pub const ACPH2TC_3: u32 = 0x03;
-            #[doc = "Phase2 active time in one sampling period equals to 16*T"]
-            pub const ACPH2TC_4: u32 = 0x04;
-            #[doc = "Phase2 active time in one sampling period equals to 32*T"]
-            pub const ACPH2TC_5: u32 = 0x05;
-            #[doc = "Phase2 active time in one sampling period equals to 64*T"]
-            pub const ACPH2TC_6: u32 = 0x06;
-            #[doc = "Phase2 active time in one sampling period equals to 16*T"]
-            pub const ACPH2TC_7: u32 = 0x07;
+            #[doc = "Phase 2 active time in one sampling period equals to T"]
+            pub const VALUE_T: u32 = 0;
+            #[doc = "Phase 2 active time in one sampling period equals to 2 * T"]
+            pub const VALUE_2T: u32 = 0x01;
+            #[doc = "Phase 2 active time in one sampling period equals to 4 * T"]
+            pub const VALUE_4T: u32 = 0x02;
+            #[doc = "Phase 2 active time in one sampling period equals to 8 * T"]
+            pub const VALUE_8T: u32 = 0x03;
+            #[doc = "Phase 2 active time in one sampling period equals to 16 * T"]
+            pub const VALUE_16T: u32 = 0x04;
+            #[doc = "Phase 2 active time in one sampling period equals to 32 * T"]
+            pub const VALUE_32T: u32 = 0x05;
+            #[doc = "Phase 2 active time in one sampling period equals to 64 * T"]
+            pub const VALUE_64T: u32 = 0x06;
+            #[doc = "Phase 2 active time in one sampling period equals to 16 * T"]
+            pub const VALUE7_16T: u32 = 0x07;
         }
     }
-    #[doc = "Analog Comparator Phase1 Timing Control."]
+    #[doc = "Analog Comparator Phase 1 Timing Control"]
     pub mod ACPH1TC {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Phase1 active time in one sampling period equals to T"]
-            pub const ACPH1TC_0: u32 = 0;
-            #[doc = "Phase1 active time in one sampling period equals to 2*T"]
-            pub const ACPH1TC_1: u32 = 0x01;
-            #[doc = "Phase1 active time in one sampling period equals to 4*T"]
-            pub const ACPH1TC_2: u32 = 0x02;
-            #[doc = "Phase1 active time in one sampling period equals to 8*T"]
-            pub const ACPH1TC_3: u32 = 0x03;
-            #[doc = "Phase1 active time in one sampling period equals to T"]
-            pub const ACPH1TC_4: u32 = 0x04;
-            #[doc = "Phase1 active time in one sampling period equals to T"]
-            pub const ACPH1TC_5: u32 = 0x05;
-            #[doc = "Phase1 active time in one sampling period equals to T"]
-            pub const ACPH1TC_6: u32 = 0x06;
-            #[doc = "Phase1 active time in one sampling period equals to 0"]
-            pub const ACPH1TC_7: u32 = 0x07;
+            #[doc = "Phase 1 active time in one sampling period equals to T"]
+            pub const VALUE_T: u32 = 0;
+            #[doc = "Phase 1 active time in one sampling period equals to 2 * T"]
+            pub const VALUE_2T: u32 = 0x01;
+            #[doc = "Phase 1 active time in one sampling period equals to 4 * T"]
+            pub const VALUE_4T: u32 = 0x02;
+            #[doc = "Phase 1 active time in one sampling period equals to 8 * T"]
+            pub const VALUE_8T: u32 = 0x03;
+            #[doc = "Phase 1 active time in one sampling period equals to T"]
+            pub const VALUE4_T: u32 = 0x04;
+            #[doc = "Phase 1 active time in one sampling period equals to T"]
+            pub const VALUE5_T: u32 = 0x05;
+            #[doc = "Phase 1 active time in one sampling period equals to T"]
+            pub const VALUE6_T: u32 = 0x06;
+            #[doc = "Phase 1 active time in one sampling period equals to 0"]
+            pub const VALUE_0: u32 = 0x07;
         }
     }
-    #[doc = "Analog Comparator Sampling Time control."]
+    #[doc = "Analog Comparator Sampling Time Control"]
     pub mod ACSAT {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x07 << offset;
@@ -628,24 +628,24 @@ pub mod C3 {
         pub mod W {}
         pub mod RW {
             #[doc = "The sampling time equals to T"]
-            pub const ACSAT_0: u32 = 0;
-            #[doc = "The sampling time equasl to 2*T"]
-            pub const ACSAT_1: u32 = 0x01;
-            #[doc = "The sampling time equasl to 4*T"]
-            pub const ACSAT_2: u32 = 0x02;
-            #[doc = "The sampling time equasl to 8*T"]
-            pub const ACSAT_3: u32 = 0x03;
-            #[doc = "The sampling time equasl to 16*T"]
-            pub const ACSAT_4: u32 = 0x04;
-            #[doc = "The sampling time equasl to 32*T"]
-            pub const ACSAT_5: u32 = 0x05;
-            #[doc = "The sampling time equasl to 64*T"]
-            pub const ACSAT_6: u32 = 0x06;
-            #[doc = "The sampling time equasl to 256*T"]
-            pub const ACSAT_7: u32 = 0x07;
+            pub const VALUE_T: u32 = 0;
+            #[doc = "The sampling time equals to 2 * T"]
+            pub const VALUE_2T: u32 = 0x01;
+            #[doc = "The sampling time equals to 4 * T"]
+            pub const VALUE_4T: u32 = 0x02;
+            #[doc = "The sampling time equals to 8 * T"]
+            pub const VALUE_8T: u32 = 0x03;
+            #[doc = "The sampling time equals to 16 * T"]
+            pub const VALUE_16T: u32 = 0x04;
+            #[doc = "The sampling time equals to 32 * T"]
+            pub const VALUE_32T: u32 = 0x05;
+            #[doc = "The sampling time equals to 64 * T"]
+            pub const VALUE_64T: u32 = 0x06;
+            #[doc = "The sampling time equals to 256 * T"]
+            pub const VALUE_256T: u32 = 0x07;
         }
     }
-    #[doc = "Discrete Mode Clock Selection"]
+    #[doc = "Discrete Mode Clock Select"]
     pub mod DMCS {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -653,9 +653,9 @@ pub mod C3 {
         pub mod W {}
         pub mod RW {
             #[doc = "Slow clock is selected for the timing generation."]
-            pub const DMCS_0: u32 = 0;
+            pub const SLOW_CLOCK: u32 = 0;
             #[doc = "Fast clock is selected for the timing generation."]
-            pub const DMCS_1: u32 = 0x01;
+            pub const FAST_CLOCK: u32 = 0x01;
         }
     }
     #[doc = "Resistor Divider Enable"]
@@ -665,36 +665,36 @@ pub mod C3 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The resistor is not enabled even when either NCHEN or PCHEN is set to1 but the actual input is in the range of 0 - 1.8v."]
-            pub const RDIVE_0: u32 = 0;
-            #[doc = "The resistor is enabled because the inputs are above 1.8v."]
-            pub const RDIVE_1: u32 = 0x01;
+            #[doc = "Disable even when either NCHEN or PCHEN is set to1 but the actual input is in the range of 0 to 1.8v."]
+            pub const NOT_ENABLED: u32 = 0;
+            #[doc = "Enable because the inputs are above 1.8v."]
+            pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Negative Channel Continuous Mode Enable."]
+    #[doc = "Negative Channel Continuous Mode Enable"]
     pub mod NCHCTEN {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Negative channel is in Discrete Mode and special timing needs to be configured."]
-            pub const NCHCTEN_0: u32 = 0;
-            #[doc = "Negative channel is in Continuous Mode and no special timing is requried."]
-            pub const NCHCTEN_1: u32 = 0x01;
+            #[doc = "in Discrete Mode and special timing needs to be configured."]
+            pub const DISABLED: u32 = 0;
+            #[doc = "in Continuous Mode and no special timing is required."]
+            pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Positive Channel Continuous Mode Enable."]
+    #[doc = "Positive Channel Continuous Mode Enable"]
     pub mod PCHCTEN {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Positive channel is in Discrete Mode and special timing needs to be configured."]
-            pub const PCHCTEN_0: u32 = 0;
-            #[doc = "Positive channel is in Continuous Mode and no special timing is requried."]
-            pub const PCHCTEN_1: u32 = 0x01;
+            #[doc = "in Discrete Mode and special timing needs to be configured"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "in Continuous Mode and no special timing is required"]
+            pub const CONTINUOUS_MODE: u32 = 0x01;
         }
     }
 }

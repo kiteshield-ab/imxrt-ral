@@ -136,9 +136,9 @@ pub mod MCR {
         pub mod W {}
         pub mod RW {
             #[doc = "No reset"]
-            pub const SWRST_0: u32 = 0;
+            pub const NO_RESET: u32 = 0;
             #[doc = "Reset"]
-            pub const SWRST_1: u32 = 0x01;
+            pub const RESET: u32 = 0x01;
         }
     }
     #[doc = "Module Disable"]
@@ -149,9 +149,9 @@ pub mod MCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Module enabled"]
-            pub const MDIS_0: u32 = 0;
-            #[doc = "Master disabled."]
-            pub const MDIS_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0;
+            #[doc = "Module disabled"]
+            pub const DISABLE: u32 = 0x01;
         }
     }
     #[doc = "DQS (read strobe) mode"]
@@ -162,9 +162,9 @@ pub mod MCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Dummy read strobe loopbacked internally"]
-            pub const DQSMD_0: u32 = 0;
+            pub const INTERNAL: u32 = 0;
             #[doc = "Dummy read strobe loopbacked from DQS pad"]
-            pub const DQSMD_1: u32 = 0x01;
+            pub const DQS_PAD: u32 = 0x01;
         }
     }
     #[doc = "WAIT/RDY polarity for SRAM/NOR"]
@@ -174,10 +174,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Low active"]
-            pub const WPOL0_0: u32 = 0;
-            #[doc = "High active"]
-            pub const WPOL0_1: u32 = 0x01;
+            #[doc = "WAIT/RDY polarity is not changed."]
+            pub const UNCHANGED: u32 = 0;
+            #[doc = "WAIT/RDY polarity is inverted."]
+            pub const INVERTED: u32 = 0x01;
         }
     }
     #[doc = "R/B# polarity for NAND device"]
@@ -187,10 +187,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Low active"]
-            pub const WPOL1_0: u32 = 0;
-            #[doc = "High active"]
-            pub const WPOL1_1: u32 = 0x01;
+            #[doc = "R/B# polarity is not changed."]
+            pub const UNCHANGED: u32 = 0;
+            #[doc = "R/B# polarity is inverted."]
+            pub const INVERTED: u32 = 0x01;
         }
     }
     #[doc = "Command Execution timeout cycles"]
@@ -212,8 +212,8 @@ pub mod MCR {
             pub const BTO_0: u32 = 0;
             #[doc = "255*2"]
             pub const BTO_1: u32 = 0x01;
-            #[doc = "255*231"]
-            pub const BTO_31: u32 = 0x1f;
+            #[doc = "255*2^31"]
+            pub const BTO_1F: u32 = 0x1f;
         }
     }
 }
@@ -227,37 +227,37 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_0: u32 = 0;
+            pub const SDRAM8_NORSRAM24_03_0: u32 = 0;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_1: u32 = 0x01;
+            pub const SDRAM8_NORSRAM24_03_1: u32 = 0x01;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_2: u32 = 0x02;
+            pub const SDRAM8_NORSRAM24_03_2: u32 = 0x02;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_3: u32 = 0x03;
+            pub const SDRAM8_NORSRAM24_03_3: u32 = 0x03;
             #[doc = "NAND CE#"]
-            pub const MUX_A8_4: u32 = 0x04;
+            pub const NAND_CEB: u32 = 0x04;
             #[doc = "NOR CE#"]
-            pub const MUX_A8_5: u32 = 0x05;
+            pub const NOR_CEB: u32 = 0x05;
             #[doc = "SRAM CE# 0"]
-            pub const MUX_A8_6: u32 = 0x06;
+            pub const SRAM_CEB0: u32 = 0x06;
             #[doc = "DBI CSX"]
-            pub const MUX_A8_7: u32 = 0x07;
+            pub const DBI_CSX: u32 = 0x07;
             #[doc = "SRAM CE# 1"]
-            pub const MUX_A8_8: u32 = 0x08;
+            pub const SRAM_CEB1: u32 = 0x08;
             #[doc = "SRAM CE# 2"]
-            pub const MUX_A8_9: u32 = 0x09;
+            pub const SRAM_CEB2: u32 = 0x09;
             #[doc = "SRAM CE# 3"]
-            pub const MUX_A8_10: u32 = 0x0a;
+            pub const SRAM_CEB3: u32 = 0x0a;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_11: u32 = 0x0b;
+            pub const SDRAM8_NORSRAM24_BF_11: u32 = 0x0b;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_12: u32 = 0x0c;
+            pub const SDRAM8_NORSRAM24_BF_12: u32 = 0x0c;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_13: u32 = 0x0d;
+            pub const SDRAM8_NORSRAM24_BF_13: u32 = 0x0d;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_14: u32 = 0x0e;
+            pub const SDRAM8_NORSRAM24_BF_14: u32 = 0x0e;
             #[doc = "SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode"]
-            pub const MUX_A8_15: u32 = 0x0f;
+            pub const SDRAM8_NORSRAM24_BF_15: u32 = 0x0f;
         }
     }
     #[doc = "SEMC_CSX0 output selection"]
@@ -268,37 +268,37 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode"]
-            pub const MUX_CSX0_0: u32 = 0;
+            pub const NORSRAM24_03: u32 = 0;
             #[doc = "SDRAM CS1"]
-            pub const MUX_CSX0_1: u32 = 0x01;
+            pub const SDRAM_CS1: u32 = 0x01;
             #[doc = "SDRAM CS2"]
-            pub const MUX_CSX0_2: u32 = 0x02;
+            pub const SDRAM_CS2: u32 = 0x02;
             #[doc = "SDRAM CS3"]
-            pub const MUX_CSX0_3: u32 = 0x03;
+            pub const SDRAM_CS3: u32 = 0x03;
             #[doc = "NAND CE#"]
-            pub const MUX_CSX0_4: u32 = 0x04;
+            pub const NAND_CEB: u32 = 0x04;
             #[doc = "NOR CE#"]
-            pub const MUX_CSX0_5: u32 = 0x05;
+            pub const NOR_CEB: u32 = 0x05;
             #[doc = "SRAM CE# 0"]
-            pub const MUX_CSX0_6: u32 = 0x06;
+            pub const SRAM_CEB0: u32 = 0x06;
             #[doc = "DBI CSX"]
-            pub const MUX_CSX0_7: u32 = 0x07;
+            pub const DBI_CSX: u32 = 0x07;
             #[doc = "SRAM CE# 1"]
-            pub const MUX_CSX0_8: u32 = 0x08;
+            pub const SRAM_CEB1: u32 = 0x08;
             #[doc = "SRAM CE# 2"]
-            pub const MUX_CSX0_9: u32 = 0x09;
+            pub const SRAM_CEB2: u32 = 0x09;
             #[doc = "SRAM CE# 3"]
-            pub const MUX_CSX0_10: u32 = 0x0a;
-            #[doc = "NOR/SRAM Address bit 24 (A24)"]
-            pub const MUX_CSX0_11: u32 = 0x0b;
-            #[doc = "NOR/SRAM Address bit 24 (A24)"]
-            pub const MUX_CSX0_12: u32 = 0x0c;
-            #[doc = "NOR/SRAM Address bit 24 (A24)"]
-            pub const MUX_CSX0_13: u32 = 0x0d;
-            #[doc = "NOR/SRAM Address bit 24 (A24)"]
-            pub const MUX_CSX0_14: u32 = 0x0e;
-            #[doc = "NOR/SRAM Address bit 24 (A24)"]
-            pub const MUX_CSX0_15: u32 = 0x0f;
+            pub const SRAM_CEB3: u32 = 0x0a;
+            #[doc = "NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode"]
+            pub const NORSRAM24_BF_11: u32 = 0x0b;
+            #[doc = "NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode"]
+            pub const NORSRAM24_BF_12: u32 = 0x0c;
+            #[doc = "NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode"]
+            pub const NORSRAM24_BF_13: u32 = 0x0d;
+            #[doc = "NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode"]
+            pub const NORSRAM24_BF_14: u32 = 0x0e;
+            #[doc = "NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode"]
+            pub const NORSRAM24_BF_15: u32 = 0x0f;
         }
     }
     #[doc = "SEMC_CSX1 output selection"]
@@ -309,37 +309,37 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode"]
-            pub const MUX_CSX1_0: u32 = 0;
+            pub const NORSRAM25_0: u32 = 0;
             #[doc = "SDRAM CS1"]
-            pub const MUX_CSX1_1: u32 = 0x01;
+            pub const SDRAM_CS1: u32 = 0x01;
             #[doc = "SDRAM CS2"]
-            pub const MUX_CSX1_2: u32 = 0x02;
+            pub const SDRAM_CS2: u32 = 0x02;
             #[doc = "SDRAM CS3"]
-            pub const MUX_CSX1_3: u32 = 0x03;
+            pub const SDRAM_CS3: u32 = 0x03;
             #[doc = "NAND CE#"]
-            pub const MUX_CSX1_4: u32 = 0x04;
+            pub const NAND_CEB: u32 = 0x04;
             #[doc = "NOR CE#"]
-            pub const MUX_CSX1_5: u32 = 0x05;
+            pub const NOR_CEB: u32 = 0x05;
             #[doc = "SRAM CE# 0"]
-            pub const MUX_CSX1_6: u32 = 0x06;
+            pub const SRAM_CEB0: u32 = 0x06;
             #[doc = "DBI CSX"]
-            pub const MUX_CSX1_7: u32 = 0x07;
+            pub const DBI_CSX: u32 = 0x07;
             #[doc = "SRAM CE# 1"]
-            pub const MUX_CSX1_8: u32 = 0x08;
+            pub const SRAM_CEB1: u32 = 0x08;
             #[doc = "SRAM CE# 2"]
-            pub const MUX_CSX1_9: u32 = 0x09;
+            pub const SRAM_CEB2: u32 = 0x09;
             #[doc = "SRAM CE# 3"]
-            pub const MUX_CSX1_10: u32 = 0x0a;
-            #[doc = "NOR/SRAM Address bit 25 (A25)"]
-            pub const MUX_CSX1_11: u32 = 0x0b;
-            #[doc = "NOR/SRAM Address bit 25 (A25)"]
-            pub const MUX_CSX1_12: u32 = 0x0c;
-            #[doc = "NOR/SRAM Address bit 25 (A25)"]
-            pub const MUX_CSX1_13: u32 = 0x0d;
-            #[doc = "NOR/SRAM Address bit 25 (A25)"]
-            pub const MUX_CSX1_14: u32 = 0x0e;
-            #[doc = "NOR/SRAM Address bit 25 (A25)"]
-            pub const MUX_CSX1_15: u32 = 0x0f;
+            pub const SRAM_CEB3: u32 = 0x0a;
+            #[doc = "NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode"]
+            pub const NORSRAM25_BF_11: u32 = 0x0b;
+            #[doc = "NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode"]
+            pub const NORSRAM25_BF_12: u32 = 0x0c;
+            #[doc = "NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode"]
+            pub const NORSRAM25_BF_13: u32 = 0x0d;
+            #[doc = "NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode"]
+            pub const NORSRAM25_BF_14: u32 = 0x0e;
+            #[doc = "NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode"]
+            pub const NORSRAM25_BF_15: u32 = 0x0f;
         }
     }
     #[doc = "SEMC_CSX2 output selection"]
@@ -350,37 +350,37 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode"]
-            pub const MUX_CSX2_0: u32 = 0;
+            pub const NORSRAM26_0: u32 = 0;
             #[doc = "SDRAM CS1"]
-            pub const MUX_CSX2_1: u32 = 0x01;
+            pub const SDRAM_CS1: u32 = 0x01;
             #[doc = "SDRAM CS2"]
-            pub const MUX_CSX2_2: u32 = 0x02;
+            pub const SDRAM_CS2: u32 = 0x02;
             #[doc = "SDRAM CS3"]
-            pub const MUX_CSX2_3: u32 = 0x03;
+            pub const SDRAM_CS3: u32 = 0x03;
             #[doc = "NAND CE#"]
-            pub const MUX_CSX2_4: u32 = 0x04;
+            pub const NAND_CEB: u32 = 0x04;
             #[doc = "NOR CE#"]
-            pub const MUX_CSX2_5: u32 = 0x05;
+            pub const NOR_CEB: u32 = 0x05;
             #[doc = "SRAM CE# 0"]
-            pub const MUX_CSX2_6: u32 = 0x06;
+            pub const SRAM_CEB0: u32 = 0x06;
             #[doc = "DBI CSX"]
-            pub const MUX_CSX2_7: u32 = 0x07;
+            pub const DBI_CSX: u32 = 0x07;
             #[doc = "SRAM CE# 1"]
-            pub const MUX_CSX2_8: u32 = 0x08;
+            pub const SRAM_CEB1: u32 = 0x08;
             #[doc = "SRAM CE# 2"]
-            pub const MUX_CSX2_9: u32 = 0x09;
+            pub const SRAM_CEB2: u32 = 0x09;
             #[doc = "SRAM CE# 3"]
-            pub const MUX_CSX2_10: u32 = 0x0a;
-            #[doc = "NOR/SRAM Address bit 26 (A26)"]
-            pub const MUX_CSX2_11: u32 = 0x0b;
-            #[doc = "NOR/SRAM Address bit 26 (A26)"]
-            pub const MUX_CSX2_12: u32 = 0x0c;
-            #[doc = "NOR/SRAM Address bit 26 (A26)"]
-            pub const MUX_CSX2_13: u32 = 0x0d;
-            #[doc = "NOR/SRAM Address bit 26 (A26)"]
-            pub const MUX_CSX2_14: u32 = 0x0e;
-            #[doc = "NOR/SRAM Address bit 26 (A26)"]
-            pub const MUX_CSX2_15: u32 = 0x0f;
+            pub const SRAM_CEB3: u32 = 0x0a;
+            #[doc = "NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode"]
+            pub const NORSRAM26_BF_11: u32 = 0x0b;
+            #[doc = "NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode"]
+            pub const NORSRAM26_BF_12: u32 = 0x0c;
+            #[doc = "NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode"]
+            pub const NORSRAM26_BF_13: u32 = 0x0d;
+            #[doc = "NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode"]
+            pub const NORSRAM26_BF_14: u32 = 0x0e;
+            #[doc = "NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode"]
+            pub const NORSRAM26_BF_15: u32 = 0x0f;
         }
     }
     #[doc = "SEMC_CSX3 output selection"]
@@ -391,37 +391,37 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode"]
-            pub const MUX_CSX3_0: u32 = 0;
+            pub const NORSRAM27_0: u32 = 0;
             #[doc = "SDRAM CS1"]
-            pub const MUX_CSX3_1: u32 = 0x01;
+            pub const SDRAM_CS1: u32 = 0x01;
             #[doc = "SDRAM CS2"]
-            pub const MUX_CSX3_2: u32 = 0x02;
+            pub const SDRAM_CS2: u32 = 0x02;
             #[doc = "SDRAM CS3"]
-            pub const MUX_CSX3_3: u32 = 0x03;
+            pub const SDRAM_CS3: u32 = 0x03;
             #[doc = "NAND CE#"]
-            pub const MUX_CSX3_4: u32 = 0x04;
+            pub const NAND_CEB: u32 = 0x04;
             #[doc = "NOR CE#"]
-            pub const MUX_CSX3_5: u32 = 0x05;
+            pub const NOR_CEB: u32 = 0x05;
             #[doc = "SRAM CE# 0"]
-            pub const MUX_CSX3_6: u32 = 0x06;
+            pub const SRAM_CEB0: u32 = 0x06;
             #[doc = "DBI CSX"]
-            pub const MUX_CSX3_7: u32 = 0x07;
+            pub const DBI_CSX: u32 = 0x07;
             #[doc = "SRAM CE# 1"]
-            pub const MUX_CSX3_8: u32 = 0x08;
+            pub const SRAM_CEB1: u32 = 0x08;
             #[doc = "SRAM CE# 2"]
-            pub const MUX_CSX3_9: u32 = 0x09;
+            pub const SRAM_CEB2: u32 = 0x09;
             #[doc = "SRAM CE# 3"]
-            pub const MUX_CSX3_10: u32 = 0x0a;
-            #[doc = "NOR/SRAM Address bit 27 (A27)"]
-            pub const MUX_CSX3_11: u32 = 0x0b;
-            #[doc = "NOR/SRAM Address bit 27 (A27)"]
-            pub const MUX_CSX3_12: u32 = 0x0c;
-            #[doc = "NOR/SRAM Address bit 27 (A27)"]
-            pub const MUX_CSX3_13: u32 = 0x0d;
-            #[doc = "NOR/SRAM Address bit 27 (A27)"]
-            pub const MUX_CSX3_14: u32 = 0x0e;
-            #[doc = "NOR/SRAM Address bit 27 (A27)"]
-            pub const MUX_CSX3_15: u32 = 0x0f;
+            pub const SRAM_CEB3: u32 = 0x0a;
+            #[doc = "NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_11: u32 = 0x0b;
+            #[doc = "NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_12: u32 = 0x0c;
+            #[doc = "NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_13: u32 = 0x0d;
+            #[doc = "NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_14: u32 = 0x0e;
+            #[doc = "NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_15: u32 = 0x0f;
         }
     }
     #[doc = "SEMC_RDY function selection"]
@@ -432,37 +432,37 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "NAND R/B# input"]
-            pub const MUX_RDY_0: u32 = 0;
+            pub const NAND_RBB: u32 = 0;
             #[doc = "SDRAM CS1"]
-            pub const MUX_RDY_1: u32 = 0x01;
+            pub const SDRAM_CS1: u32 = 0x01;
             #[doc = "SDRAM CS2"]
-            pub const MUX_RDY_2: u32 = 0x02;
+            pub const SDRAM_CS2: u32 = 0x02;
             #[doc = "SDRAM CS3"]
-            pub const MUX_RDY_3: u32 = 0x03;
+            pub const SDRAM_CS3: u32 = 0x03;
             #[doc = "NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode"]
-            pub const MUX_RDY_4: u32 = 0x04;
+            pub const NORSRAM27_4: u32 = 0x04;
             #[doc = "NOR CE#"]
-            pub const MUX_RDY_5: u32 = 0x05;
+            pub const NOR_CEB: u32 = 0x05;
             #[doc = "SRAM CE# 0"]
-            pub const MUX_RDY_6: u32 = 0x06;
+            pub const SRAM_CEB0: u32 = 0x06;
             #[doc = "DBI CSX"]
-            pub const MUX_RDY_7: u32 = 0x07;
+            pub const DBI_CSX: u32 = 0x07;
             #[doc = "SRAM CE# 1"]
-            pub const MUX_RDY_8: u32 = 0x08;
+            pub const SRAM_CEB1: u32 = 0x08;
             #[doc = "SRAM CE# 2"]
-            pub const MUX_RDY_9: u32 = 0x09;
+            pub const SRAM_CEB2: u32 = 0x09;
             #[doc = "SRAM CE# 3"]
-            pub const MUX_RDY_10: u32 = 0x0a;
-            #[doc = "NOR/SRAM Address bit 27"]
-            pub const MUX_RDY_11: u32 = 0x0b;
-            #[doc = "NOR/SRAM Address bit 27"]
-            pub const MUX_RDY_12: u32 = 0x0c;
-            #[doc = "NOR/SRAM Address bit 27"]
-            pub const MUX_RDY_13: u32 = 0x0d;
-            #[doc = "NOR/SRAM Address bit 27"]
-            pub const MUX_RDY_14: u32 = 0x0e;
-            #[doc = "NOR/SRAM Address bit 27"]
-            pub const MUX_RDY_15: u32 = 0x0f;
+            pub const SRAM_CEB3: u32 = 0x0a;
+            #[doc = "NOR/SRAM Address bit 27 in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_11: u32 = 0x0b;
+            #[doc = "NOR/SRAM Address bit 27 in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_12: u32 = 0x0c;
+            #[doc = "NOR/SRAM Address bit 27 in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_13: u32 = 0x0d;
+            #[doc = "NOR/SRAM Address bit 27 in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_14: u32 = 0x0e;
+            #[doc = "NOR/SRAM Address bit 27 in Non-ADMUX mode"]
+            pub const NORSRAM27_BF_15: u32 = 0x0f;
         }
     }
     #[doc = "SEMC_CLKX0 function selection"]
@@ -473,13 +473,13 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Keep low"]
-            pub const MUX_CLKX0_0: u32 = 0;
+            pub const KEEPLOW: u32 = 0;
             #[doc = "NOR clock"]
-            pub const MUX_CLKX0_1: u32 = 0x01;
+            pub const NOR_CLK: u32 = 0x01;
             #[doc = "SRAM clock"]
-            pub const MUX_CLKX0_2: u32 = 0x02;
+            pub const SRAM_CLK: u32 = 0x02;
             #[doc = "NOR and SRAM clock, suitable for Multi-Chip Product package"]
-            pub const MUX_CLKX0_3: u32 = 0x03;
+            pub const NORSRAM_CLK: u32 = 0x03;
         }
     }
     #[doc = "SEMC_CLKX1 function selection"]
@@ -490,13 +490,13 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Keep low"]
-            pub const MUX_CLKX1_0: u32 = 0;
+            pub const KEEPLOW: u32 = 0;
             #[doc = "NOR clock"]
-            pub const MUX_CLKX1_1: u32 = 0x01;
+            pub const NOR_CLK: u32 = 0x01;
             #[doc = "SRAM clock"]
-            pub const MUX_CLKX1_2: u32 = 0x02;
+            pub const SRAM_CLK: u32 = 0x02;
             #[doc = "NOR and SRAM clock, suitable for Multi-Chip Product package"]
-            pub const MUX_CLKX1_3: u32 = 0x03;
+            pub const NOR_SRAM_CLK: u32 = 0x03;
         }
     }
     #[doc = "SEMC_CLKX0 Always On"]
@@ -507,9 +507,9 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "SEMC_CLKX0 is controlled by MUX_CLKX0"]
-            pub const CLKX0_AO_0: u32 = 0;
+            pub const MUX_CLKX0_CTL: u32 = 0;
             #[doc = "SEMC_CLKX0 is always on"]
-            pub const CLKX0_AO_1: u32 = 0x01;
+            pub const ALWAYS_ON: u32 = 0x01;
         }
     }
     #[doc = "SEMC_CLKX1 Always On"]
@@ -520,15 +520,15 @@ pub mod IOCR {
         pub mod W {}
         pub mod RW {
             #[doc = "SEMC_CLKX1 is controlled by MUX_CLKX1"]
-            pub const CLKX1_AO_0: u32 = 0;
+            pub const MUX_CLKX1_CTL: u32 = 0;
             #[doc = "SEMC_CLKX1 is always on"]
-            pub const CLKX1_AO_1: u32 = 0x01;
+            pub const ALWAYS_ON: u32 = 0x01;
         }
     }
 }
 #[doc = "Bus (AXI) Master Control Register 0"]
 pub mod BMCR0 {
-    #[doc = "Weight of QoS"]
+    #[doc = "Weight of QOS"]
     pub mod WQOS {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -536,7 +536,7 @@ pub mod BMCR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Weight of Aging"]
+    #[doc = "Weight of AGE"]
     pub mod WAGE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -544,7 +544,7 @@ pub mod BMCR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Weight of Slave Hit (no read/write switch)"]
+    #[doc = "Weight of Slave Hit without read/write switch"]
     pub mod WSH {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0xff << offset;
@@ -552,7 +552,7 @@ pub mod BMCR0 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Weight of Slave Hit (Read/Write switch)"]
+    #[doc = "Weight of slave hit with Read/Write Switch"]
     pub mod WRWS {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -563,7 +563,7 @@ pub mod BMCR0 {
 }
 #[doc = "Bus (AXI) Master Control Register 1"]
 pub mod BMCR1 {
-    #[doc = "Weight of QoS"]
+    #[doc = "Weight of QOS"]
     pub mod WQOS {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -571,7 +571,7 @@ pub mod BMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Weight of Aging"]
+    #[doc = "Weight of AGE"]
     pub mod WAGE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -587,7 +587,7 @@ pub mod BMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Weight of Read/Write switch"]
+    #[doc = "Weight of slave hit without Read/Write Switch"]
     pub mod WRWS {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -614,9 +614,9 @@ pub mod BR {
         pub mod W {}
         pub mod RW {
             #[doc = "The memory is invalid, can not be accessed."]
-            pub const VLD_0: u32 = 0;
+            pub const INVALID: u32 = 0;
             #[doc = "The memory is valid, can be accessed."]
-            pub const VLD_1: u32 = 0x01;
+            pub const VALID: u32 = 0x01;
         }
     }
     #[doc = "Memory size"]
@@ -627,69 +627,69 @@ pub mod BR {
         pub mod W {}
         pub mod RW {
             #[doc = "4KB"]
-            pub const MS_0: u32 = 0;
+            pub const SIZE_4KB: u32 = 0;
             #[doc = "8KB"]
-            pub const MS_1: u32 = 0x01;
+            pub const SIZE_8KB: u32 = 0x01;
             #[doc = "16KB"]
-            pub const MS_2: u32 = 0x02;
+            pub const SIZE_16KB: u32 = 0x02;
             #[doc = "32KB"]
-            pub const MS_3: u32 = 0x03;
+            pub const SIZE_32KB: u32 = 0x03;
             #[doc = "64KB"]
-            pub const MS_4: u32 = 0x04;
+            pub const SIZE_64KB: u32 = 0x04;
             #[doc = "128KB"]
-            pub const MS_5: u32 = 0x05;
+            pub const SIZE_128KB: u32 = 0x05;
             #[doc = "256KB"]
-            pub const MS_6: u32 = 0x06;
+            pub const SIZE_256KB: u32 = 0x06;
             #[doc = "512KB"]
-            pub const MS_7: u32 = 0x07;
+            pub const SIZE_512KB: u32 = 0x07;
             #[doc = "1MB"]
-            pub const MS_8: u32 = 0x08;
+            pub const SIZE_1MB: u32 = 0x08;
             #[doc = "2MB"]
-            pub const MS_9: u32 = 0x09;
+            pub const SIZE_2MB: u32 = 0x09;
             #[doc = "4MB"]
-            pub const MS_10: u32 = 0x0a;
+            pub const SIZE_4MB: u32 = 0x0a;
             #[doc = "8MB"]
-            pub const MS_11: u32 = 0x0b;
+            pub const SIZE_8MB: u32 = 0x0b;
             #[doc = "16MB"]
-            pub const MS_12: u32 = 0x0c;
+            pub const SIZE_16MB: u32 = 0x0c;
             #[doc = "32MB"]
-            pub const MS_13: u32 = 0x0d;
+            pub const SIZE_32MB: u32 = 0x0d;
             #[doc = "64MB"]
-            pub const MS_14: u32 = 0x0e;
+            pub const SIZE_64MB: u32 = 0x0e;
             #[doc = "128MB"]
-            pub const MS_15: u32 = 0x0f;
+            pub const SIZE_128MB: u32 = 0x0f;
             #[doc = "256MB"]
-            pub const MS_16: u32 = 0x10;
+            pub const SIZE_256MB: u32 = 0x10;
             #[doc = "512MB"]
-            pub const MS_17: u32 = 0x11;
+            pub const SIZE_512MB: u32 = 0x11;
             #[doc = "1GB"]
-            pub const MS_18: u32 = 0x12;
+            pub const SIZE_1GB: u32 = 0x12;
             #[doc = "2GB"]
-            pub const MS_19: u32 = 0x13;
+            pub const SIZE_2GB: u32 = 0x13;
             #[doc = "4GB"]
-            pub const MS_20: u32 = 0x14;
+            pub const SIZE_4GB_20: u32 = 0x14;
             #[doc = "4GB"]
-            pub const MS_21: u32 = 0x15;
+            pub const SIZE_4GB_21: u32 = 0x15;
             #[doc = "4GB"]
-            pub const MS_22: u32 = 0x16;
+            pub const SIZE_4GB_22: u32 = 0x16;
             #[doc = "4GB"]
-            pub const MS_23: u32 = 0x17;
+            pub const SIZE_4GB_23: u32 = 0x17;
             #[doc = "4GB"]
-            pub const MS_24: u32 = 0x18;
+            pub const SIZE_4GB_24: u32 = 0x18;
             #[doc = "4GB"]
-            pub const MS_25: u32 = 0x19;
+            pub const SIZE_4GB_25: u32 = 0x19;
             #[doc = "4GB"]
-            pub const MS_26: u32 = 0x1a;
+            pub const SIZE_4GB_26: u32 = 0x1a;
             #[doc = "4GB"]
-            pub const MS_27: u32 = 0x1b;
+            pub const SIZE_4GB_27: u32 = 0x1b;
             #[doc = "4GB"]
-            pub const MS_28: u32 = 0x1c;
+            pub const SIZE_4GB_28: u32 = 0x1c;
             #[doc = "4GB"]
-            pub const MS_29: u32 = 0x1d;
+            pub const SIZE_4GB_29: u32 = 0x1d;
             #[doc = "4GB"]
-            pub const MS_30: u32 = 0x1e;
+            pub const SIZE_4GB_30: u32 = 0x1e;
             #[doc = "4GB"]
-            pub const MS_31: u32 = 0x1f;
+            pub const SIZE_4GB_31: u32 = 0x1f;
         }
     }
     #[doc = "Base Address"]
@@ -711,9 +711,9 @@ pub mod DLLCR {
         pub mod W {}
         pub mod RW {
             #[doc = "DLL calibration is disabled."]
-            pub const DLLEN_0: u32 = 0;
+            pub const CAL_DISABLE: u32 = 0;
             #[doc = "DLL calibration is enabled."]
-            pub const DLLEN_1: u32 = 0x01;
+            pub const CAL_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "DLL Reset"]
@@ -724,9 +724,9 @@ pub mod DLLCR {
         pub mod W {}
         pub mod RW {
             #[doc = "DLL is not reset."]
-            pub const DLLRESET_0: u32 = 0;
+            pub const NO_RESET: u32 = 0;
             #[doc = "DLL is reset."]
-            pub const DLLRESET_1: u32 = 0x01;
+            pub const RESET: u32 = 0x01;
         }
     }
     #[doc = "Delay Target for Slave"]
@@ -745,9 +745,9 @@ pub mod DLLCR {
         pub mod W {}
         pub mod RW {
             #[doc = "The delay cell number is not overridden."]
-            pub const OVRDEN_0: u32 = 0;
+            pub const NO_OVERRIDE: u32 = 0;
             #[doc = "The delay cell number is overridden."]
-            pub const OVRDEN_1: u32 = 0x01;
+            pub const OVERRIDE: u32 = 0x01;
         }
     }
     #[doc = "Override Value"]
@@ -769,9 +769,9 @@ pub mod INTEN {
         pub mod W {}
         pub mod RW {
             #[doc = "Interrupt is disabled"]
-            pub const IPCMDDONEEN_0: u32 = 0;
+            pub const INTERRUPT_DISABLE: u32 = 0;
             #[doc = "Interrupt is enabled"]
-            pub const IPCMDDONEEN_1: u32 = 0x01;
+            pub const INTERRUPT_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "IP command error interrupt enable"]
@@ -782,9 +782,9 @@ pub mod INTEN {
         pub mod W {}
         pub mod RW {
             #[doc = "Interrupt is disabled"]
-            pub const IPCMDERREN_0: u32 = 0;
+            pub const INTERRUPT_DISABLE: u32 = 0;
             #[doc = "Interrupt is enabled"]
-            pub const IPCMDERREN_1: u32 = 0x01;
+            pub const INTERRUPT_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "AXI command error interrupt enable"]
@@ -795,9 +795,9 @@ pub mod INTEN {
         pub mod W {}
         pub mod RW {
             #[doc = "Interrupt is disabled"]
-            pub const AXICMDERREN_0: u32 = 0;
+            pub const INTERRUPT_DISABLE: u32 = 0;
             #[doc = "Interrupt is enabled"]
-            pub const AXICMDERREN_1: u32 = 0x01;
+            pub const INTERRUPT_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "AXI bus error interrupt enable"]
@@ -808,9 +808,9 @@ pub mod INTEN {
         pub mod W {}
         pub mod RW {
             #[doc = "Interrupt is disabled"]
-            pub const AXIBUSERREN_0: u32 = 0;
+            pub const INTERRUPT_DISABLE: u32 = 0;
             #[doc = "Interrupt is enabled"]
-            pub const AXIBUSERREN_1: u32 = 0x01;
+            pub const INTERRUPT_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "NAND page end interrupt enable"]
@@ -820,10 +820,10 @@ pub mod INTEN {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disable"]
-            pub const NDPAGEENDEN_0: u32 = 0;
-            #[doc = "Enable"]
-            pub const NDPAGEENDEN_1: u32 = 0x01;
+            #[doc = "Interrupt is disabled"]
+            pub const INTERRUPT_DISABLE: u32 = 0;
+            #[doc = "Interrupt is enabled"]
+            pub const INTERRUPT_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "NAND no pending AXI access interrupt enable"]
@@ -833,10 +833,10 @@ pub mod INTEN {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disable"]
-            pub const NDNOPENDEN_0: u32 = 0;
-            #[doc = "Enable"]
-            pub const NDNOPENDEN_1: u32 = 0x01;
+            #[doc = "Interrupt is disabled"]
+            pub const INTERRUPT_DISABLE: u32 = 0;
+            #[doc = "Interrupt is enabled"]
+            pub const INTERRUPT_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "NAND ECC fail interrupt enable"]
@@ -876,9 +876,9 @@ pub mod INTR {
         pub mod W {}
         pub mod RW {
             #[doc = "IP command is not done."]
-            pub const IPCMDDONE_0: u32 = 0;
+            pub const NOT_DONE: u32 = 0;
             #[doc = "IP command is done."]
-            pub const IPCMDDONE_1: u32 = 0x01;
+            pub const DONE: u32 = 0x01;
         }
     }
     #[doc = "IP command error done interrupt"]
@@ -889,9 +889,9 @@ pub mod INTR {
         pub mod W {}
         pub mod RW {
             #[doc = "No IP command error."]
-            pub const IPCMDERR_0: u32 = 0;
+            pub const NO_ERROR: u32 = 0;
             #[doc = "IP command error occurs."]
-            pub const IPCMDERR_1: u32 = 0x01;
+            pub const ERROR: u32 = 0x01;
         }
     }
     #[doc = "AXI command error interrupt"]
@@ -902,9 +902,9 @@ pub mod INTR {
         pub mod W {}
         pub mod RW {
             #[doc = "No AXI command error."]
-            pub const AXICMDERR_0: u32 = 0;
+            pub const NO_ERROR: u32 = 0;
             #[doc = "AXI command error occurs."]
-            pub const AXICMDERR_1: u32 = 0x01;
+            pub const ERROR: u32 = 0x01;
         }
     }
     #[doc = "AXI bus error interrupt"]
@@ -915,9 +915,9 @@ pub mod INTR {
         pub mod W {}
         pub mod RW {
             #[doc = "No AXI bus error."]
-            pub const AXIBUSERR_0: u32 = 0;
+            pub const NO_ERROR: u32 = 0;
             #[doc = "AXI bus error occurs."]
-            pub const AXIBUSERR_1: u32 = 0x01;
+            pub const ERROR: u32 = 0x01;
         }
     }
     #[doc = "NAND page end interrupt"]
@@ -928,9 +928,9 @@ pub mod INTR {
         pub mod W {}
         pub mod RW {
             #[doc = "The last address of main space in the NAND is not written by AXI command."]
-            pub const NDPAGEEND_0: u32 = 0;
+            pub const NO_WRITE: u32 = 0;
             #[doc = "The last address of main space in the NAND is written by AXI command."]
-            pub const NDPAGEEND_1: u32 = 0x01;
+            pub const WRITE: u32 = 0x01;
         }
     }
     #[doc = "NAND no pending AXI write transaction interrupt"]
@@ -941,9 +941,9 @@ pub mod INTR {
         pub mod W {}
         pub mod RW {
             #[doc = "At least one NAND AXI write transaction is pending or no NAND write transaction is sent to the queue."]
-            pub const NDNOPEND_0: u32 = 0;
+            pub const NO_WRITE: u32 = 0;
             #[doc = "All NAND AXI write pending transactions are finished."]
-            pub const NDNOPEND_1: u32 = 0x01;
+            pub const WRITE: u32 = 0x01;
         }
     }
     #[doc = "NAND ECC fail interrupt"]
@@ -983,11 +983,11 @@ pub mod SDRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "8bit"]
-            pub const PS_0: u32 = 0;
+            pub const PS_8BIT: u32 = 0;
             #[doc = "16bit"]
-            pub const PS_1: u32 = 0x01;
+            pub const PS_16BIT: u32 = 0x01;
             #[doc = "32bit"]
-            pub const PS_2: u32 = 0x02;
+            pub const PS_32BIT: u32 = 0x02;
         }
     }
     #[doc = "Burst Length"]
@@ -998,21 +998,21 @@ pub mod SDRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const BL_0: u32 = 0;
+            pub const BURST1: u32 = 0;
             #[doc = "2"]
-            pub const BL_1: u32 = 0x01;
+            pub const BURST2: u32 = 0x01;
             #[doc = "4"]
-            pub const BL_2: u32 = 0x02;
+            pub const BURST4: u32 = 0x02;
             #[doc = "8"]
-            pub const BL_3: u32 = 0x03;
+            pub const BURST8_3: u32 = 0x03;
             #[doc = "8"]
-            pub const BL_4: u32 = 0x04;
+            pub const BURST8_4: u32 = 0x04;
             #[doc = "8"]
-            pub const BL_5: u32 = 0x05;
+            pub const BURST8_5: u32 = 0x05;
             #[doc = "8"]
-            pub const BL_6: u32 = 0x06;
+            pub const BURST8_6: u32 = 0x06;
             #[doc = "8"]
-            pub const BL_7: u32 = 0x07;
+            pub const BURST8_7: u32 = 0x07;
         }
     }
     #[doc = "Column 8 selection"]
@@ -1023,9 +1023,9 @@ pub mod SDRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Column address bit number is decided by COL field."]
-            pub const COL8_0: u32 = 0;
+            pub const COLFIELD: u32 = 0;
             #[doc = "Column address bit number is 8. COL field is ignored."]
-            pub const COL8_1: u32 = 0x01;
+            pub const BIT8: u32 = 0x01;
         }
     }
     #[doc = "Column address bit number"]
@@ -1035,14 +1035,14 @@ pub mod SDRAMCR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "12 bit"]
-            pub const COL_0: u32 = 0;
-            #[doc = "11 bit"]
-            pub const COL_1: u32 = 0x01;
-            #[doc = "10 bit"]
-            pub const COL_2: u32 = 0x02;
-            #[doc = "9 bit"]
-            pub const COL_3: u32 = 0x03;
+            #[doc = "12"]
+            pub const BIT12: u32 = 0;
+            #[doc = "11"]
+            pub const BIT11: u32 = 0x01;
+            #[doc = "10"]
+            pub const BIT10: u32 = 0x02;
+            #[doc = "9"]
+            pub const BIT9: u32 = 0x03;
         }
     }
     #[doc = "CAS Latency"]
@@ -1053,13 +1053,13 @@ pub mod SDRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const CL_0: u32 = 0;
+            pub const CL1_0: u32 = 0;
             #[doc = "1"]
-            pub const CL_1: u32 = 0x01;
+            pub const CL1_1: u32 = 0x01;
             #[doc = "2"]
-            pub const CL_2: u32 = 0x02;
+            pub const CL2: u32 = 0x02;
             #[doc = "3"]
-            pub const CL_3: u32 = 0x03;
+            pub const CL3: u32 = 0x03;
         }
     }
     #[doc = "2 Bank selection bit"]
@@ -1070,15 +1070,15 @@ pub mod SDRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "SDRAM device has 4 banks."]
-            pub const BANK2_0: u32 = 0;
+            pub const BANK4: u32 = 0;
             #[doc = "SDRAM device has 2 banks."]
-            pub const BANK2_1: u32 = 0x01;
+            pub const BANK2: u32 = 0x01;
         }
     }
 }
 #[doc = "SDRAM Control Register 1"]
 pub mod SDRAMCR1 {
-    #[doc = "PRECHARGE to ACT/Refresh wait time"]
+    #[doc = "PRECHARGE to ACTIVE/REFRESH command wait time"]
     pub mod PRE2ACT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -1086,7 +1086,7 @@ pub mod SDRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACT to Read/Write wait time"]
+    #[doc = "ACTIVE to READ/WRITE delay"]
     pub mod ACT2RW {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -1094,7 +1094,7 @@ pub mod SDRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Refresh recovery time"]
+    #[doc = "REFRESH recovery time"]
     pub mod RFRC {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x1f << offset;
@@ -1102,7 +1102,7 @@ pub mod SDRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Write recovery time"]
+    #[doc = "WRITE recovery time"]
     pub mod WRC {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x07 << offset;
@@ -1110,7 +1110,7 @@ pub mod SDRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CKE OFF minimum time"]
+    #[doc = "CKE off minimum time"]
     pub mod CKEOFF {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -1118,7 +1118,7 @@ pub mod SDRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACT to Precharge minimum time"]
+    #[doc = "ACTIVE to PRECHARGE minimum time"]
     pub mod ACT2PRE {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -1129,7 +1129,7 @@ pub mod SDRAMCR1 {
 }
 #[doc = "SDRAM Control Register 2"]
 pub mod SDRAMCR2 {
-    #[doc = "Self Refresh Recovery time"]
+    #[doc = "SELF REFRESH recovery time"]
     pub mod SRRC {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xff << offset;
@@ -1137,7 +1137,7 @@ pub mod SDRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Refresh to Refresh wait time"]
+    #[doc = "REFRESH to REFRESH delay"]
     pub mod REF2REF {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0xff << offset;
@@ -1145,7 +1145,7 @@ pub mod SDRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACT to ACT wait time"]
+    #[doc = "ACTIVE to ACTIVE delay"]
     pub mod ACT2ACT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -1153,7 +1153,7 @@ pub mod SDRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "SDRAM Idle timeout"]
+    #[doc = "SDRAM idle timeout"]
     pub mod ITO {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0xff << offset;
@@ -1161,25 +1161,25 @@ pub mod SDRAMCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "IDLE timeout period is 256*Prescale period."]
-            pub const ITO_0: u32 = 0;
+            pub const PRESCALEX256: u32 = 0;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_1: u32 = 0x01;
+            pub const PRESCALEXITO_1: u32 = 0x01;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_2: u32 = 0x02;
+            pub const PRESCALEXITO_2: u32 = 0x02;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_3: u32 = 0x03;
+            pub const PRESCALEXITO_3: u32 = 0x03;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_4: u32 = 0x04;
+            pub const PRESCALEXITO_4: u32 = 0x04;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_5: u32 = 0x05;
+            pub const PRESCALEXITO_5: u32 = 0x05;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_6: u32 = 0x06;
+            pub const PRESCALEXITO_6: u32 = 0x06;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_7: u32 = 0x07;
+            pub const PRESCALEXITO_7: u32 = 0x07;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_8: u32 = 0x08;
+            pub const PRESCALEXITO_8: u32 = 0x08;
             #[doc = "IDLE timeout period is ITO*Prescale period."]
-            pub const ITO_9: u32 = 0x09;
+            pub const PRESCALEXITO_9: u32 = 0x09;
         }
     }
 }
@@ -1193,9 +1193,9 @@ pub mod SDRAMCR3 {
         pub mod W {}
         pub mod RW {
             #[doc = "The SEMC does not send AUTO REFRESH command automatically"]
-            pub const REN_0: u32 = 0;
+            pub const NO_AUTO_REFRESH: u32 = 0;
             #[doc = "The SEMC sends AUTO REFRESH command automatically"]
-            pub const REN_1: u32 = 0x01;
+            pub const AUTO_REFRESH: u32 = 0x01;
         }
     }
     #[doc = "Refresh burst length"]
@@ -1206,21 +1206,21 @@ pub mod SDRAMCR3 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const REBL_0: u32 = 0;
+            pub const REFRESH_BURST1: u32 = 0;
             #[doc = "2"]
-            pub const REBL_1: u32 = 0x01;
+            pub const REFRESH_BURST2: u32 = 0x01;
             #[doc = "3"]
-            pub const REBL_2: u32 = 0x02;
+            pub const REFRESH_BURST3: u32 = 0x02;
             #[doc = "4"]
-            pub const REBL_3: u32 = 0x03;
+            pub const REFRESH_BURST4: u32 = 0x03;
             #[doc = "5"]
-            pub const REBL_4: u32 = 0x04;
+            pub const REFRESH_BURST5: u32 = 0x04;
             #[doc = "6"]
-            pub const REBL_5: u32 = 0x05;
+            pub const REFRESH_BURST6: u32 = 0x05;
             #[doc = "7"]
-            pub const REBL_6: u32 = 0x06;
+            pub const REFRESH_BURST7: u32 = 0x06;
             #[doc = "8"]
-            pub const REBL_7: u32 = 0x07;
+            pub const REFRESH_BURST8: u32 = 0x07;
         }
     }
     #[doc = "Prescaler period"]
@@ -1230,26 +1230,26 @@ pub mod SDRAMCR3 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "256*16 cycle"]
-            pub const PRESCALE_0: u32 = 0;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_1: u32 = 0x01;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_2: u32 = 0x02;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_3: u32 = 0x03;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_4: u32 = 0x04;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_5: u32 = 0x05;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_6: u32 = 0x06;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_7: u32 = 0x07;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_8: u32 = 0x08;
-            #[doc = "PRESCALE*16 cycle"]
-            pub const PRESCALE_9: u32 = 0x09;
+            #[doc = "(256*16+1) clock cycles"]
+            pub const PRESCALE_256X16PLUS1: u32 = 0;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_1: u32 = 0x01;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_2: u32 = 0x02;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_3: u32 = 0x03;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_4: u32 = 0x04;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_5: u32 = 0x05;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_6: u32 = 0x06;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_7: u32 = 0x07;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_8: u32 = 0x08;
+            #[doc = "(PRESCALE*16+1) clock cycles"]
+            pub const PRESCALE_16PLUS1_9: u32 = 0x09;
         }
     }
     #[doc = "Refresh timer period"]
@@ -1259,26 +1259,26 @@ pub mod SDRAMCR3 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "256*Prescaler period"]
-            pub const RT_0: u32 = 0;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_1: u32 = 0x01;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_2: u32 = 0x02;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_3: u32 = 0x03;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_4: u32 = 0x04;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_5: u32 = 0x05;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_6: u32 = 0x06;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_7: u32 = 0x07;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_8: u32 = 0x08;
-            #[doc = "RT*Prescaler period"]
-            pub const RT_9: u32 = 0x09;
+            #[doc = "(256+1)*(Prescaler period)"]
+            pub const RT_256PLUS1XPRESCALE: u32 = 0;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_1: u32 = 0x01;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_2: u32 = 0x02;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_3: u32 = 0x03;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_4: u32 = 0x04;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_5: u32 = 0x05;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_6: u32 = 0x06;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_7: u32 = 0x07;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_8: u32 = 0x08;
+            #[doc = "(RT+1)*(Prescaler period)"]
+            pub const RT_RTPLUS1XPRESCALE_9: u32 = 0x09;
         }
     }
     #[doc = "Urgent refresh threshold"]
@@ -1288,26 +1288,26 @@ pub mod SDRAMCR3 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "256*Prescaler period"]
-            pub const UT_0: u32 = 0;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_1: u32 = 0x01;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_2: u32 = 0x02;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_3: u32 = 0x03;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_4: u32 = 0x04;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_5: u32 = 0x05;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_6: u32 = 0x06;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_7: u32 = 0x07;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_8: u32 = 0x08;
-            #[doc = "UT*Prescaler period"]
-            pub const UT_9: u32 = 0x09;
+            #[doc = "256*(Prescaler period)"]
+            pub const PRESCALEX256: u32 = 0;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_1: u32 = 0x01;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_2: u32 = 0x02;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_3: u32 = 0x03;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_4: u32 = 0x04;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_5: u32 = 0x05;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_6: u32 = 0x06;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_7: u32 = 0x07;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_8: u32 = 0x08;
+            #[doc = "UT*(Prescaler period)"]
+            pub const PRESCALEXUT_9: u32 = 0x09;
         }
     }
 }
@@ -1321,9 +1321,9 @@ pub mod NANDCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "8bit"]
-            pub const PS_0: u32 = 0;
+            pub const PS_8BIT: u32 = 0;
             #[doc = "16bit"]
-            pub const PS_1: u32 = 0x01;
+            pub const PS_16BIT: u32 = 0x01;
         }
     }
     #[doc = "Synchronous Mode Enable"]
@@ -1334,9 +1334,9 @@ pub mod NANDCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Asynchronous mode is enabled."]
-            pub const SYNCEN_0: u32 = 0;
+            pub const ASYNC: u32 = 0;
             #[doc = "Synchronous mode is enabled."]
-            pub const SYNCEN_1: u32 = 0x01;
+            pub const SYNC: u32 = 0x01;
         }
     }
     #[doc = "Burst Length"]
@@ -1347,21 +1347,21 @@ pub mod NANDCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const BL_0: u32 = 0;
+            pub const BURST1: u32 = 0;
             #[doc = "2"]
-            pub const BL_1: u32 = 0x01;
+            pub const BURST2: u32 = 0x01;
             #[doc = "4"]
-            pub const BL_2: u32 = 0x02;
+            pub const BURST4: u32 = 0x02;
             #[doc = "8"]
-            pub const BL_3: u32 = 0x03;
+            pub const BURST8: u32 = 0x03;
             #[doc = "16"]
-            pub const BL_4: u32 = 0x04;
+            pub const BURST16: u32 = 0x04;
             #[doc = "32"]
-            pub const BL_5: u32 = 0x05;
+            pub const BURST32: u32 = 0x05;
             #[doc = "64"]
-            pub const BL_6: u32 = 0x06;
+            pub const BURST64_6: u32 = 0x06;
             #[doc = "64"]
-            pub const BL_7: u32 = 0x07;
+            pub const BURST64_7: u32 = 0x07;
         }
     }
     #[doc = "EDO mode enabled"]
@@ -1372,9 +1372,9 @@ pub mod NANDCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "EDO mode disabled"]
-            pub const EDO_0: u32 = 0;
+            pub const EDO_DISABLE: u32 = 0;
             #[doc = "EDO mode enabled"]
-            pub const EDO_1: u32 = 0x01;
+            pub const EDO_ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Column address bit number"]
@@ -1385,21 +1385,21 @@ pub mod NANDCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "16"]
-            pub const COL_0: u32 = 0;
+            pub const BIT16: u32 = 0;
             #[doc = "15"]
-            pub const COL_1: u32 = 0x01;
+            pub const BIT15: u32 = 0x01;
             #[doc = "14"]
-            pub const COL_2: u32 = 0x02;
+            pub const BIT14: u32 = 0x02;
             #[doc = "13"]
-            pub const COL_3: u32 = 0x03;
+            pub const BIT13: u32 = 0x03;
             #[doc = "12"]
-            pub const COL_4: u32 = 0x04;
+            pub const BIT12: u32 = 0x04;
             #[doc = "11"]
-            pub const COL_5: u32 = 0x05;
+            pub const BIT11: u32 = 0x05;
             #[doc = "10"]
-            pub const COL_6: u32 = 0x06;
+            pub const BIT10: u32 = 0x06;
             #[doc = "9"]
-            pub const COL_7: u32 = 0x07;
+            pub const BIT9: u32 = 0x07;
         }
     }
     #[doc = "NAND buffer enable for AXI access"]
@@ -1456,7 +1456,7 @@ pub mod NANDCR0 {
 }
 #[doc = "NAND Control Register 1"]
 pub mod NANDCR1 {
-    #[doc = "CE setup time"]
+    #[doc = "CE# setup time"]
     pub mod CES {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -1464,7 +1464,7 @@ pub mod NANDCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CE hold time"]
+    #[doc = "CE# hold time"]
     pub mod CEH {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -1472,7 +1472,7 @@ pub mod NANDCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "WE# LOW time"]
+    #[doc = "WE# low time"]
     pub mod WEL {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -1480,7 +1480,7 @@ pub mod NANDCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "WE# HIGH time"]
+    #[doc = "WE# high time"]
     pub mod WEH {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
@@ -1488,7 +1488,7 @@ pub mod NANDCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RE# LOW time"]
+    #[doc = "RE# low time"]
     pub mod REL {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -1496,7 +1496,7 @@ pub mod NANDCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RE# HIGH time"]
+    #[doc = "RE# high time"]
     pub mod REH {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -1523,7 +1523,7 @@ pub mod NANDCR1 {
 }
 #[doc = "NAND Control Register 2"]
 pub mod NANDCR2 {
-    #[doc = "WE# HIGH to RE# LOW wait time"]
+    #[doc = "WE# high to RE# low time"]
     pub mod TWHR {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x3f << offset;
@@ -1531,7 +1531,7 @@ pub mod NANDCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RE# HIGH to WE# LOW wait time"]
+    #[doc = "RE# high to WE# low time"]
     pub mod TRHW {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x3f << offset;
@@ -1539,7 +1539,7 @@ pub mod NANDCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ALE to WRITE Data start wait time"]
+    #[doc = "Address cycle to data loading time"]
     pub mod TADL {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x3f << offset;
@@ -1547,7 +1547,7 @@ pub mod NANDCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Ready to RE# LOW min wait time"]
+    #[doc = "Ready to RE# low time"]
     pub mod TRR {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x3f << offset;
@@ -1555,7 +1555,7 @@ pub mod NANDCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "WE# HIGH to busy wait time"]
+    #[doc = "WE# high to busy time"]
     pub mod TWB {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x3f << offset;
@@ -1598,7 +1598,7 @@ pub mod NANDCR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Read Data Setup cycle time."]
+    #[doc = "Read Data Setup time"]
     pub mod RDS {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -1606,7 +1606,7 @@ pub mod NANDCR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Read Data Hold cycle time."]
+    #[doc = "Read Data Hold time"]
     pub mod RDH {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -1614,7 +1614,7 @@ pub mod NANDCR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Write Data Setup cycle time."]
+    #[doc = "Write Data Setup time"]
     pub mod WDS {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -1622,7 +1622,7 @@ pub mod NANDCR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Write Data Hold cycle time."]
+    #[doc = "Write Data Hold time"]
     pub mod WDH {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;
@@ -1641,12 +1641,12 @@ pub mod NORCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "8bit"]
-            pub const PS_0: u32 = 0;
+            pub const PS_8BIT: u32 = 0;
             #[doc = "16bit"]
-            pub const PS_1: u32 = 0x01;
+            pub const PS_16BIT: u32 = 0x01;
         }
     }
-    #[doc = "Select NOR controller mode."]
+    #[doc = "Synchronous Mode Enable"]
     pub mod SYNCEN {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -1654,9 +1654,9 @@ pub mod NORCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Asynchronous mode is enabled."]
-            pub const SYNCEN_0: u32 = 0;
-            #[doc = "Synchronous mode is enabled."]
-            pub const SYNCEN_1: u32 = 0x01;
+            pub const ASYNC: u32 = 0;
+            #[doc = "Synchronous mode is enabled. Only fixed latency mode is supported."]
+            pub const SYNC: u32 = 0x01;
         }
     }
     #[doc = "Burst Length"]
@@ -1667,21 +1667,21 @@ pub mod NORCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const BL_0: u32 = 0;
+            pub const BURST1: u32 = 0;
             #[doc = "2"]
-            pub const BL_1: u32 = 0x01;
+            pub const BURST2: u32 = 0x01;
             #[doc = "4"]
-            pub const BL_2: u32 = 0x02;
+            pub const BURST4: u32 = 0x02;
             #[doc = "8"]
-            pub const BL_3: u32 = 0x03;
+            pub const BURST8: u32 = 0x03;
             #[doc = "16"]
-            pub const BL_4: u32 = 0x04;
+            pub const BURST16: u32 = 0x04;
             #[doc = "32"]
-            pub const BL_5: u32 = 0x05;
+            pub const BURST32: u32 = 0x05;
             #[doc = "64"]
-            pub const BL_6: u32 = 0x06;
+            pub const BURST64_6: u32 = 0x06;
             #[doc = "64"]
-            pub const BL_7: u32 = 0x07;
+            pub const BURST64_7: u32 = 0x07;
         }
     }
     #[doc = "Address Mode"]
@@ -1691,27 +1691,27 @@ pub mod NORCR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Address/Data MUX mode"]
-            pub const AM_0: u32 = 0;
-            #[doc = "Advanced Address/Data MUX mode"]
-            pub const AM_1: u32 = 0x01;
-            #[doc = "Address/Data non-MUX mode"]
-            pub const AM_2: u32 = 0x02;
-            #[doc = "Address/Data non-MUX mode"]
-            pub const AM_3: u32 = 0x03;
+            #[doc = "Address/Data MUX mode (ADMUX)"]
+            pub const ADMUX: u32 = 0;
+            #[doc = "Advanced Address/Data MUX mode (AADM)"]
+            pub const AADM: u32 = 0x01;
+            #[doc = "Address/Data non-MUX mode (Non-ADMUX)"]
+            pub const NON_ADMUX_2: u32 = 0x02;
+            #[doc = "Address/Data non-MUX mode (Non-ADMUX)"]
+            pub const NON_ADMUX_3: u32 = 0x03;
         }
     }
-    #[doc = "ADV# polarity"]
+    #[doc = "ADV# Polarity"]
     pub mod ADVP {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ADV# is Low Active. In ASYNC mode, device sample address with ADV# rise edge; In SYNC mode, device sample address when ADV# is LOW."]
-            pub const ADVP_0: u32 = 0;
-            #[doc = "ADV# is High Active. In ASYNC mode, device sample address with ADV# fall edge; In SYNC mode, device sample address when ADV# is HIGH."]
-            pub const ADVP_1: u32 = 0x01;
+            #[doc = "ADV# is active low."]
+            pub const ACTIVE_LOW: u32 = 0;
+            #[doc = "ADV# is active high."]
+            pub const ACTIVE_HIGH: u32 = 0x01;
         }
     }
     #[doc = "ADV# level control during address hold state"]
@@ -1722,9 +1722,9 @@ pub mod NORCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "ADV# is high during address hold state."]
-            pub const ADVH_0: u32 = 0;
+            pub const HIGH: u32 = 0;
             #[doc = "ADV# is low during address hold state."]
-            pub const ADVH_1: u32 = 0x01;
+            pub const LOW: u32 = 0x01;
         }
     }
     #[doc = "Column Address bit width"]
@@ -1735,43 +1735,43 @@ pub mod NORCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "12 Bits"]
-            pub const COL_0: u32 = 0;
+            pub const BITWIDTH12_0: u32 = 0;
             #[doc = "11 Bits"]
-            pub const COL_1: u32 = 0x01;
+            pub const BITWIDTH11: u32 = 0x01;
             #[doc = "10 Bits"]
-            pub const COL_2: u32 = 0x02;
+            pub const BITWIDTH10: u32 = 0x02;
             #[doc = "9 Bits"]
-            pub const COL_3: u32 = 0x03;
+            pub const BITWIDTH9: u32 = 0x03;
             #[doc = "8 Bits"]
-            pub const COL_4: u32 = 0x04;
+            pub const BITWIDTH8: u32 = 0x04;
             #[doc = "7 Bits"]
-            pub const COL_5: u32 = 0x05;
+            pub const BITWIDTH7: u32 = 0x05;
             #[doc = "6 Bits"]
-            pub const COL_6: u32 = 0x06;
+            pub const BITWIDTH6: u32 = 0x06;
             #[doc = "5 Bits"]
-            pub const COL_7: u32 = 0x07;
+            pub const BITWIDTH5: u32 = 0x07;
             #[doc = "4 Bits"]
-            pub const COL_8: u32 = 0x08;
+            pub const BITWIDTH4: u32 = 0x08;
             #[doc = "3 Bits"]
-            pub const COL_9: u32 = 0x09;
+            pub const BITWIDTH3: u32 = 0x09;
             #[doc = "2 Bits"]
-            pub const COL_10: u32 = 0x0a;
+            pub const BITWIDTH2: u32 = 0x0a;
             #[doc = "12 Bits"]
-            pub const COL_11: u32 = 0x0b;
+            pub const BITWIDTH12_B: u32 = 0x0b;
             #[doc = "12 Bits"]
-            pub const COL_12: u32 = 0x0c;
+            pub const BITWIDTH12_C: u32 = 0x0c;
             #[doc = "12 Bits"]
-            pub const COL_13: u32 = 0x0d;
+            pub const BITWIDTH12_D: u32 = 0x0d;
             #[doc = "12 Bits"]
-            pub const COL_14: u32 = 0x0e;
+            pub const BITWIDTH12_E: u32 = 0x0e;
             #[doc = "12 Bits"]
-            pub const COL_15: u32 = 0x0f;
+            pub const BITWIDTH12_F: u32 = 0x0f;
         }
     }
 }
 #[doc = "NOR Control Register 1"]
 pub mod NORCR1 {
-    #[doc = "CE setup time cycle"]
+    #[doc = "CE setup time"]
     pub mod CES {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -1779,7 +1779,7 @@ pub mod NORCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CE hold min time (CEH+1) cycle"]
+    #[doc = "CE hold time"]
     pub mod CEH {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -1803,7 +1803,7 @@ pub mod NORCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "WE LOW time (WEL+1) cycle"]
+    #[doc = "WE low time"]
     pub mod WEL {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -1811,7 +1811,7 @@ pub mod NORCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "WE HIGH time (WEH+1) cycle"]
+    #[doc = "WE high time"]
     pub mod WEH {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -1819,7 +1819,7 @@ pub mod NORCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RE LOW time (REL+1) cycle"]
+    #[doc = "RE low time"]
     pub mod REL {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -1827,7 +1827,7 @@ pub mod NORCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RE HIGH time (REH+1) cycle"]
+    #[doc = "RE high time"]
     pub mod REH {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;
@@ -1838,7 +1838,7 @@ pub mod NORCR1 {
 }
 #[doc = "NOR Control Register 2"]
 pub mod NORCR2 {
-    #[doc = "Turnaround time cycle"]
+    #[doc = "Turnaround time"]
     pub mod TA {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -1846,7 +1846,7 @@ pub mod NORCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Address to write data hold time cycle"]
+    #[doc = "Address to write data hold time"]
     pub mod AWDH {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
@@ -1862,7 +1862,7 @@ pub mod NORCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Read cycle time"]
+    #[doc = "Read time"]
     pub mod RD {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -1870,7 +1870,7 @@ pub mod NORCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CE# interval min time"]
+    #[doc = "CE# interval time"]
     pub mod CEITV {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -1878,7 +1878,7 @@ pub mod NORCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Read cycle hold time"]
+    #[doc = "Read hold time"]
     pub mod RDH {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;
@@ -1889,7 +1889,7 @@ pub mod NORCR2 {
 }
 #[doc = "NOR Control Register 3"]
 pub mod NORCR3 {
-    #[doc = "Address setup time for synchronous read"]
+    #[doc = "Address setup time for SYNC read"]
     pub mod ASSR {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -1897,7 +1897,7 @@ pub mod NORCR3 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Address hold time for synchronous read"]
+    #[doc = "Address hold time for SYNC read"]
     pub mod AHSR {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -1916,9 +1916,9 @@ pub mod SRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "8bit"]
-            pub const PS_0: u32 = 0;
+            pub const PS_8BIT: u32 = 0;
             #[doc = "16bit"]
-            pub const PS_1: u32 = 0x01;
+            pub const PS_16BIT: u32 = 0x01;
         }
     }
     #[doc = "Synchronous Mode Enable"]
@@ -1929,9 +1929,9 @@ pub mod SRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Asynchronous mode is enabled."]
-            pub const SYNCEN_0: u32 = 0;
-            #[doc = "Synchronous mode is enabled."]
-            pub const SYNCEN_1: u32 = 0x01;
+            pub const ASYNC: u32 = 0;
+            #[doc = "Synchronous mode is enabled. Only fixed latency mode is supported."]
+            pub const SYNC: u32 = 0x01;
         }
     }
     #[doc = "Wait Enable"]
@@ -1942,9 +1942,9 @@ pub mod SRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "The SEMC does not monitor wait pin."]
-            pub const WAITEN_0: u32 = 0;
+            pub const NO_MONITOR_WAIT: u32 = 0;
             #[doc = "The SEMC monitors wait pin. The SEMC does not transfer/receive data when wait pin is asserted."]
-            pub const WAITEN_1: u32 = 0x01;
+            pub const MONITOR_WAIT: u32 = 0x01;
         }
     }
     #[doc = "Wait Sample"]
@@ -1955,9 +1955,9 @@ pub mod SRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Wait pin is directly used by the SEMC."]
-            pub const WAITSP_0: u32 = 0;
+            pub const WAIT_DIRECT: u32 = 0;
             #[doc = "Wait pin is sampled by internal clock before it is used."]
-            pub const WAITSP_1: u32 = 0x01;
+            pub const WAIT_SAMPLED: u32 = 0x01;
         }
     }
     #[doc = "Burst Length"]
@@ -1968,21 +1968,21 @@ pub mod SRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const BL_0: u32 = 0;
+            pub const BURST1: u32 = 0;
             #[doc = "2"]
-            pub const BL_1: u32 = 0x01;
+            pub const BURST2: u32 = 0x01;
             #[doc = "4"]
-            pub const BL_2: u32 = 0x02;
+            pub const BURST4: u32 = 0x02;
             #[doc = "8"]
-            pub const BL_3: u32 = 0x03;
+            pub const BURST8: u32 = 0x03;
             #[doc = "16"]
-            pub const BL_4: u32 = 0x04;
+            pub const BURST16: u32 = 0x04;
             #[doc = "32"]
-            pub const BL_5: u32 = 0x05;
+            pub const BURST32: u32 = 0x05;
             #[doc = "64"]
-            pub const BL_6: u32 = 0x06;
+            pub const BURST64_6: u32 = 0x06;
             #[doc = "64"]
-            pub const BL_7: u32 = 0x07;
+            pub const BURST64_7: u32 = 0x07;
         }
     }
     #[doc = "Address Mode"]
@@ -1992,14 +1992,14 @@ pub mod SRAMCR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Address/Data MUX mode"]
-            pub const AM_0: u32 = 0;
-            #[doc = "Advanced Address/Data MUX mode"]
-            pub const AM_1: u32 = 0x01;
-            #[doc = "Address/Data non-MUX mode"]
-            pub const AM_2: u32 = 0x02;
-            #[doc = "Address/Data non-MUX mode"]
-            pub const AM_3: u32 = 0x03;
+            #[doc = "Address/Data MUX mode (ADMUX)"]
+            pub const ADMUX: u32 = 0;
+            #[doc = "Advanced Address/Data MUX mode (AADM)"]
+            pub const AADM: u32 = 0x01;
+            #[doc = "Address/Data non-MUX mode (Non-ADMUX)"]
+            pub const NON_ADMUX_2: u32 = 0x02;
+            #[doc = "Address/Data non-MUX mode (Non-ADMUX)"]
+            pub const NON_ADMUX_3: u32 = 0x03;
         }
     }
     #[doc = "ADV# polarity"]
@@ -2009,10 +2009,10 @@ pub mod SRAMCR0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ADV# is Low Active. In ASYNC mode, device sample address with ADV# rise edge; In SYNC mode, device sample address when ADV# is LOW."]
-            pub const ADVP_0: u32 = 0;
-            #[doc = "ADV# is High Active. In ASYNC mode, device sample address with ADV# fall edge; In SYNC mode, device sample address when ADV# is HIGH."]
-            pub const ADVP_1: u32 = 0x01;
+            #[doc = "ADV# is active low."]
+            pub const ACTIVE_LOW: u32 = 0;
+            #[doc = "ADV# is active high."]
+            pub const ACTIVE_HIGH: u32 = 0x01;
         }
     }
     #[doc = "ADV# level control during address hold state"]
@@ -2023,9 +2023,9 @@ pub mod SRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "ADV# is high during address hold state."]
-            pub const ADVH_0: u32 = 0;
+            pub const HIGH_HOLD: u32 = 0;
             #[doc = "ADV# is low during address hold state."]
-            pub const ADVH_1: u32 = 0x01;
+            pub const LOW_HOLD: u32 = 0x01;
         }
     }
     #[doc = "Column Address bit width"]
@@ -2036,43 +2036,43 @@ pub mod SRAMCR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "12 Bits"]
-            pub const COL_0: u32 = 0;
+            pub const BITWIDTH12_0: u32 = 0;
             #[doc = "11 Bits"]
-            pub const COL_1: u32 = 0x01;
+            pub const BITWIDTH11: u32 = 0x01;
             #[doc = "10 Bits"]
-            pub const COL_2: u32 = 0x02;
+            pub const BITWIDTH10: u32 = 0x02;
             #[doc = "9 Bits"]
-            pub const COL_3: u32 = 0x03;
+            pub const BITWIDTH9: u32 = 0x03;
             #[doc = "8 Bits"]
-            pub const COL_4: u32 = 0x04;
+            pub const BITWIDTH8: u32 = 0x04;
             #[doc = "7 Bits"]
-            pub const COL_5: u32 = 0x05;
+            pub const BITWIDTH7: u32 = 0x05;
             #[doc = "6 Bits"]
-            pub const COL_6: u32 = 0x06;
+            pub const BITWIDTH6: u32 = 0x06;
             #[doc = "5 Bits"]
-            pub const COL_7: u32 = 0x07;
+            pub const BITWIDTH5: u32 = 0x07;
             #[doc = "4 Bits"]
-            pub const COL_8: u32 = 0x08;
+            pub const BITWIDTH4: u32 = 0x08;
             #[doc = "3 Bits"]
-            pub const COL_9: u32 = 0x09;
+            pub const BITWIDTH3: u32 = 0x09;
             #[doc = "2 Bits"]
-            pub const COL_10: u32 = 0x0a;
+            pub const BITWIDTH2: u32 = 0x0a;
             #[doc = "12 Bits"]
-            pub const COL_11: u32 = 0x0b;
+            pub const BITWIDTH12_B: u32 = 0x0b;
             #[doc = "12 Bits"]
-            pub const COL_12: u32 = 0x0c;
+            pub const BITWIDTH12_C: u32 = 0x0c;
             #[doc = "12 Bits"]
-            pub const COL_13: u32 = 0x0d;
+            pub const BITWIDTH12_D: u32 = 0x0d;
             #[doc = "12 Bits"]
-            pub const COL_14: u32 = 0x0e;
+            pub const BITWIDTH12_E: u32 = 0x0e;
             #[doc = "12 Bits"]
-            pub const COL_15: u32 = 0x0f;
+            pub const BITWIDTH12_F: u32 = 0x0f;
         }
     }
 }
 #[doc = "SRAM Control Register 1"]
 pub mod SRAMCR1 {
-    #[doc = "CE setup time cycle"]
+    #[doc = "CE setup time"]
     pub mod CES {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -2080,7 +2080,7 @@ pub mod SRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CE hold min time (CEH+1) cycle"]
+    #[doc = "CE hold time"]
     pub mod CEH {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -2104,7 +2104,7 @@ pub mod SRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "WE LOW time (WEL+1) cycle"]
+    #[doc = "WE low time"]
     pub mod WEL {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -2112,7 +2112,7 @@ pub mod SRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "WE HIGH time (WEH+1) cycle"]
+    #[doc = "WE high time"]
     pub mod WEH {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -2120,7 +2120,7 @@ pub mod SRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RE LOW time (REL+1) cycle"]
+    #[doc = "RE low time"]
     pub mod REL {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -2128,7 +2128,7 @@ pub mod SRAMCR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RE HIGH time (REH+1) cycle"]
+    #[doc = "RE high time"]
     pub mod REH {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;
@@ -2139,7 +2139,7 @@ pub mod SRAMCR1 {
 }
 #[doc = "SRAM Control Register 2"]
 pub mod SRAMCR2 {
-    #[doc = "Write Data setup time (WDS+1) cycle"]
+    #[doc = "Write Data setup time"]
     pub mod WDS {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -2147,7 +2147,7 @@ pub mod SRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Write Data hold time WDH cycle"]
+    #[doc = "Write Data hold time"]
     pub mod WDH {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -2155,7 +2155,7 @@ pub mod SRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Turnaround time cycle"]
+    #[doc = "Turnaround time"]
     pub mod TA {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -2163,7 +2163,7 @@ pub mod SRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Address to write data hold time cycle"]
+    #[doc = "Address to write data hold time"]
     pub mod AWDH {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
@@ -2179,7 +2179,7 @@ pub mod SRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Read cycle time"]
+    #[doc = "Read time"]
     pub mod RD {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -2187,7 +2187,7 @@ pub mod SRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CE# interval min time"]
+    #[doc = "CE# interval time"]
     pub mod CEITV {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -2195,7 +2195,7 @@ pub mod SRAMCR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Read cycle hold time"]
+    #[doc = "Read hold time"]
     pub mod RDH {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;
@@ -2214,9 +2214,9 @@ pub mod DBICR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "8bit"]
-            pub const PS_0: u32 = 0;
+            pub const PS_8BIT: u32 = 0;
             #[doc = "16bit"]
-            pub const PS_1: u32 = 0x01;
+            pub const PS_16BIT: u32 = 0x01;
         }
     }
     #[doc = "Burst Length"]
@@ -2227,21 +2227,21 @@ pub mod DBICR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const BL_0: u32 = 0;
+            pub const BURST1: u32 = 0;
             #[doc = "2"]
-            pub const BL_1: u32 = 0x01;
+            pub const BURST2: u32 = 0x01;
             #[doc = "4"]
-            pub const BL_2: u32 = 0x02;
+            pub const BURST4: u32 = 0x02;
             #[doc = "8"]
-            pub const BL_3: u32 = 0x03;
+            pub const BURST8: u32 = 0x03;
             #[doc = "16"]
-            pub const BL_4: u32 = 0x04;
+            pub const BURST16: u32 = 0x04;
             #[doc = "32"]
-            pub const BL_5: u32 = 0x05;
+            pub const BURST32: u32 = 0x05;
             #[doc = "64"]
-            pub const BL_6: u32 = 0x06;
+            pub const BURST64_6: u32 = 0x06;
             #[doc = "64"]
-            pub const BL_7: u32 = 0x07;
+            pub const BURST64_7: u32 = 0x07;
         }
     }
     #[doc = "Column Address bit width"]
@@ -2252,37 +2252,37 @@ pub mod DBICR0 {
         pub mod W {}
         pub mod RW {
             #[doc = "12 Bits"]
-            pub const COL_0: u32 = 0;
+            pub const BITWIDTH12_0: u32 = 0;
             #[doc = "11 Bits"]
-            pub const COL_1: u32 = 0x01;
+            pub const BITWIDTH11: u32 = 0x01;
             #[doc = "10 Bits"]
-            pub const COL_2: u32 = 0x02;
+            pub const BITWIDTH10: u32 = 0x02;
             #[doc = "9 Bits"]
-            pub const COL_3: u32 = 0x03;
+            pub const BITWIDTH9: u32 = 0x03;
             #[doc = "8 Bits"]
-            pub const COL_4: u32 = 0x04;
+            pub const BITWIDTH8: u32 = 0x04;
             #[doc = "7 Bits"]
-            pub const COL_5: u32 = 0x05;
+            pub const BITWIDTH7: u32 = 0x05;
             #[doc = "6 Bits"]
-            pub const COL_6: u32 = 0x06;
+            pub const BITWIDTH6: u32 = 0x06;
             #[doc = "5 Bits"]
-            pub const COL_7: u32 = 0x07;
+            pub const BITWIDTH5: u32 = 0x07;
             #[doc = "4 Bits"]
-            pub const COL_8: u32 = 0x08;
+            pub const BITWIDTH4: u32 = 0x08;
             #[doc = "3 Bits"]
-            pub const COL_9: u32 = 0x09;
+            pub const BITWIDTH3: u32 = 0x09;
             #[doc = "2 Bits"]
-            pub const COL_10: u32 = 0x0a;
+            pub const BITWIDTH2: u32 = 0x0a;
             #[doc = "12 Bits"]
-            pub const COL_11: u32 = 0x0b;
+            pub const BITWIDTH12_B: u32 = 0x0b;
             #[doc = "12 Bits"]
-            pub const COL_12: u32 = 0x0c;
+            pub const BITWIDTH12_C: u32 = 0x0c;
             #[doc = "12 Bits"]
-            pub const COL_13: u32 = 0x0d;
+            pub const BITWIDTH12_D: u32 = 0x0d;
             #[doc = "12 Bits"]
-            pub const COL_14: u32 = 0x0e;
+            pub const BITWIDTH12_E: u32 = 0x0e;
             #[doc = "12 Bits"]
-            pub const COL_15: u32 = 0x0f;
+            pub const BITWIDTH12_F: u32 = 0x0f;
         }
     }
 }
@@ -2369,21 +2369,21 @@ pub mod IPCR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "4"]
-            pub const DATSZ_0: u32 = 0;
+            pub const DATASZ_4BYTE: u32 = 0;
             #[doc = "1"]
-            pub const DATSZ_1: u32 = 0x01;
+            pub const DATASZ_1BYTE: u32 = 0x01;
             #[doc = "2"]
-            pub const DATSZ_2: u32 = 0x02;
+            pub const DATASZ_2BYTE: u32 = 0x02;
             #[doc = "3"]
-            pub const DATSZ_3: u32 = 0x03;
+            pub const DATASZ_3BYTE: u32 = 0x03;
             #[doc = "4"]
-            pub const DATSZ_4: u32 = 0x04;
+            pub const DATASZ_4BYTE_4: u32 = 0x04;
             #[doc = "4"]
-            pub const DATSZ_5: u32 = 0x05;
+            pub const DATASZ_4BYTE_5: u32 = 0x05;
             #[doc = "4"]
-            pub const DATSZ_6: u32 = 0x06;
+            pub const DATASZ_4BYTE_6: u32 = 0x06;
             #[doc = "4"]
-            pub const DATSZ_7: u32 = 0x07;
+            pub const DATASZ_4BYTE_7: u32 = 0x07;
         }
     }
     #[doc = "NAND Extended Address"]
@@ -2397,62 +2397,62 @@ pub mod IPCR1 {
 }
 #[doc = "IP Command Control Register 2"]
 pub mod IPCR2 {
-    #[doc = "Byte Mask for Byte 0 (IPTXD bit 7:0)"]
+    #[doc = "Byte Mask for Byte 0 (IPTXDAT bit 7:0)"]
     pub mod BM0 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Byte Unmasked"]
-            pub const BM0_0: u32 = 0;
-            #[doc = "Byte Masked"]
-            pub const BM0_1: u32 = 0x01;
+            #[doc = "Byte is unmasked"]
+            pub const UNMASKED: u32 = 0;
+            #[doc = "Byte is masked"]
+            pub const MASKED: u32 = 0x01;
         }
     }
-    #[doc = "Byte Mask for Byte 1 (IPTXD bit 15:8)"]
+    #[doc = "Byte Mask for Byte 1 (IPTXDAT bit 15:8)"]
     pub mod BM1 {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Byte Unmasked"]
-            pub const BM1_0: u32 = 0;
-            #[doc = "Byte Masked"]
-            pub const BM1_1: u32 = 0x01;
+            #[doc = "Byte is unmasked"]
+            pub const UNMASKED: u32 = 0;
+            #[doc = "Byte is masked"]
+            pub const MASKED: u32 = 0x01;
         }
     }
-    #[doc = "Byte Mask for Byte 2 (IPTXD bit 23:16)"]
+    #[doc = "Byte Mask for Byte 2 (IPTXDAT bit 23:16)"]
     pub mod BM2 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Byte Unmasked"]
-            pub const BM2_0: u32 = 0;
-            #[doc = "Byte Masked"]
-            pub const BM2_1: u32 = 0x01;
+            #[doc = "Byte is unmasked"]
+            pub const UNMASKED: u32 = 0;
+            #[doc = "Byte is masked"]
+            pub const MASKED: u32 = 0x01;
         }
     }
-    #[doc = "Byte Mask for Byte 3 (IPTXD bit 31:24)"]
+    #[doc = "Byte Mask for Byte 3 (IPTXDAT bit 31:24)"]
     pub mod BM3 {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Byte Unmasked"]
-            pub const BM3_0: u32 = 0;
-            #[doc = "Byte Masked"]
-            pub const BM3_1: u32 = 0x01;
+            #[doc = "Byte is unmasked"]
+            pub const UNMASKED: u32 = 0;
+            #[doc = "Byte is masked"]
+            pub const MASKED: u32 = 0x01;
         }
     }
 }
 #[doc = "IP Command Register"]
 pub mod IPCMD {
-    #[doc = "SDRAM Commands: 0x8: READ 0x9: WRITE 0xA: MODESET 0xB: ACTIVE 0xC: AUTO REFRESH 0xD: SELF REFRESH 0xE: PRECHARGE 0xF: PRECHARGE ALL Others: RSVD SELF REFRESH will be sent to all SDRAM devices because they shared same SEMC_CLK pin"]
+    #[doc = "SDRAM Commands: 0x5: Extended Mode Register Set 0x6: Deep Power Down 0x8: Read 0x9: Write 0xA: Mode Register Set 0xB: Active 0xC: Auto Refresh 0xD: Self Refresh 0xE: Precharge 0xF: Precharge All Others: Reserved Self Refresh is sent to all SDRAM devices because they share the same SEMC_CLK pin"]
     pub mod CMD {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -2460,7 +2460,7 @@ pub mod IPCMD {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "This field should be written with 0xA55A when trigging an IP command."]
+    #[doc = "This field should be written with 0xA55A when trigging an IP command for all device types"]
     pub mod KEY {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -2471,7 +2471,7 @@ pub mod IPCMD {
 }
 #[doc = "TX DATA Register"]
 pub mod IPTXDAT {
-    #[doc = "no description available"]
+    #[doc = "Data value to use for an IP write command"]
     pub mod DAT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -2482,7 +2482,7 @@ pub mod IPTXDAT {
 }
 #[doc = "RX DATA Register"]
 pub mod IPRXDAT {
-    #[doc = "no description available"]
+    #[doc = "Data returned by device for an IP read command."]
     pub mod DAT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -2493,7 +2493,7 @@ pub mod IPRXDAT {
 }
 #[doc = "Status Register 0"]
 pub mod STS0 {
-    #[doc = "Indicating whether SEMC is in IDLE state."]
+    #[doc = "Indicating whether the SEMC is in idle state."]
     pub mod IDLE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -2509,9 +2509,9 @@ pub mod STS0 {
         pub mod W {}
         pub mod RW {
             #[doc = "NAND device is not ready"]
-            pub const NARDY_0: u32 = 0;
+            pub const NOTREADY: u32 = 0;
             #[doc = "NAND device is ready"]
-            pub const NARDY_1: u32 = 0x01;
+            pub const READY: u32 = 0x01;
         }
     }
 }
@@ -2525,9 +2525,9 @@ pub mod STS2 {
         pub mod W {}
         pub mod RW {
             #[doc = "No pending"]
-            pub const NDWRPEND_0: u32 = 0;
+            pub const NO_PENDING: u32 = 0;
             #[doc = "Pending"]
-            pub const NDWRPEND_1: u32 = 0x01;
+            pub const PENDING: u32 = 0x01;
         }
     }
 }
@@ -2552,9 +2552,9 @@ pub mod STS13 {
         pub mod W {}
         pub mod RW {
             #[doc = "Slave delay line is not locked."]
-            pub const SLVLOCK_0: u32 = 0;
+            pub const NOT_LOCKED: u32 = 0;
             #[doc = "Slave delay line is locked."]
-            pub const SLVLOCK_1: u32 = 0x01;
+            pub const LOCKED: u32 = 0x01;
         }
     }
     #[doc = "Sample clock reference delay line locked."]
@@ -2565,9 +2565,9 @@ pub mod STS13 {
         pub mod W {}
         pub mod RW {
             #[doc = "Reference delay line is not locked."]
-            pub const REFLOCK_0: u32 = 0;
+            pub const NOT_LOCKED: u32 = 0;
             #[doc = "Reference delay line is locked."]
-            pub const REFLOCK_1: u32 = 0x01;
+            pub const LOCKED: u32 = 0x01;
         }
     }
     #[doc = "Sample clock slave delay line delay cell number selection."]
@@ -2597,9 +2597,9 @@ pub mod BR9 {
         pub mod W {}
         pub mod RW {
             #[doc = "The memory is invalid, can not be accessed."]
-            pub const VLD_0: u32 = 0;
+            pub const INVALID: u32 = 0;
             #[doc = "The memory is valid, can be accessed."]
-            pub const VLD_1: u32 = 0x01;
+            pub const VALID: u32 = 0x01;
         }
     }
     #[doc = "Memory size"]
@@ -2610,69 +2610,69 @@ pub mod BR9 {
         pub mod W {}
         pub mod RW {
             #[doc = "4KB"]
-            pub const MS_0: u32 = 0;
+            pub const SIZE_4KB: u32 = 0;
             #[doc = "8KB"]
-            pub const MS_1: u32 = 0x01;
+            pub const SIZE_8KB: u32 = 0x01;
             #[doc = "16KB"]
-            pub const MS_2: u32 = 0x02;
+            pub const SIZE_16KB: u32 = 0x02;
             #[doc = "32KB"]
-            pub const MS_3: u32 = 0x03;
+            pub const SIZE_32KB: u32 = 0x03;
             #[doc = "64KB"]
-            pub const MS_4: u32 = 0x04;
+            pub const SIZE_64KB: u32 = 0x04;
             #[doc = "128KB"]
-            pub const MS_5: u32 = 0x05;
+            pub const SIZE_128KB: u32 = 0x05;
             #[doc = "256KB"]
-            pub const MS_6: u32 = 0x06;
+            pub const SIZE_256KB: u32 = 0x06;
             #[doc = "512KB"]
-            pub const MS_7: u32 = 0x07;
+            pub const SIZE_512KB: u32 = 0x07;
             #[doc = "1MB"]
-            pub const MS_8: u32 = 0x08;
+            pub const SIZE_1MB: u32 = 0x08;
             #[doc = "2MB"]
-            pub const MS_9: u32 = 0x09;
+            pub const SIZE_2MB: u32 = 0x09;
             #[doc = "4MB"]
-            pub const MS_10: u32 = 0x0a;
+            pub const SIZE_4MB: u32 = 0x0a;
             #[doc = "8MB"]
-            pub const MS_11: u32 = 0x0b;
+            pub const SIZE_8MB: u32 = 0x0b;
             #[doc = "16MB"]
-            pub const MS_12: u32 = 0x0c;
+            pub const SIZE_16MB: u32 = 0x0c;
             #[doc = "32MB"]
-            pub const MS_13: u32 = 0x0d;
+            pub const SIZE_32MB: u32 = 0x0d;
             #[doc = "64MB"]
-            pub const MS_14: u32 = 0x0e;
+            pub const SIZE_64MB: u32 = 0x0e;
             #[doc = "128MB"]
-            pub const MS_15: u32 = 0x0f;
+            pub const SIZE_128MB: u32 = 0x0f;
             #[doc = "256MB"]
-            pub const MS_16: u32 = 0x10;
+            pub const SIZE_256MB: u32 = 0x10;
             #[doc = "512MB"]
-            pub const MS_17: u32 = 0x11;
+            pub const SIZE_512MB: u32 = 0x11;
             #[doc = "1GB"]
-            pub const MS_18: u32 = 0x12;
+            pub const SIZE_1GB: u32 = 0x12;
             #[doc = "2GB"]
-            pub const MS_19: u32 = 0x13;
+            pub const SIZE_2GB: u32 = 0x13;
             #[doc = "4GB"]
-            pub const MS_20: u32 = 0x14;
+            pub const SIZE_4GB_20: u32 = 0x14;
             #[doc = "4GB"]
-            pub const MS_21: u32 = 0x15;
+            pub const SIZE_4GB_21: u32 = 0x15;
             #[doc = "4GB"]
-            pub const MS_22: u32 = 0x16;
+            pub const SIZE_4GB_22: u32 = 0x16;
             #[doc = "4GB"]
-            pub const MS_23: u32 = 0x17;
+            pub const SIZE_4GB_23: u32 = 0x17;
             #[doc = "4GB"]
-            pub const MS_24: u32 = 0x18;
+            pub const SIZE_4GB_24: u32 = 0x18;
             #[doc = "4GB"]
-            pub const MS_25: u32 = 0x19;
+            pub const SIZE_4GB_25: u32 = 0x19;
             #[doc = "4GB"]
-            pub const MS_26: u32 = 0x1a;
+            pub const SIZE_4GB_26: u32 = 0x1a;
             #[doc = "4GB"]
-            pub const MS_27: u32 = 0x1b;
+            pub const SIZE_4GB_27: u32 = 0x1b;
             #[doc = "4GB"]
-            pub const MS_28: u32 = 0x1c;
+            pub const SIZE_4GB_28: u32 = 0x1c;
             #[doc = "4GB"]
-            pub const MS_29: u32 = 0x1d;
+            pub const SIZE_4GB_29: u32 = 0x1d;
             #[doc = "4GB"]
-            pub const MS_30: u32 = 0x1e;
+            pub const SIZE_4GB_30: u32 = 0x1e;
             #[doc = "4GB"]
-            pub const MS_31: u32 = 0x1f;
+            pub const SIZE_4GB_31: u32 = 0x1f;
         }
     }
     #[doc = "Base Address"]
@@ -2694,9 +2694,9 @@ pub mod BR10 {
         pub mod W {}
         pub mod RW {
             #[doc = "The memory is invalid, can not be accessed."]
-            pub const VLD_0: u32 = 0;
+            pub const INVALID: u32 = 0;
             #[doc = "The memory is valid, can be accessed."]
-            pub const VLD_1: u32 = 0x01;
+            pub const VALID: u32 = 0x01;
         }
     }
     #[doc = "Memory size"]
@@ -2707,69 +2707,69 @@ pub mod BR10 {
         pub mod W {}
         pub mod RW {
             #[doc = "4KB"]
-            pub const MS_0: u32 = 0;
+            pub const SIZE_4KB: u32 = 0;
             #[doc = "8KB"]
-            pub const MS_1: u32 = 0x01;
+            pub const SIZE_8KB: u32 = 0x01;
             #[doc = "16KB"]
-            pub const MS_2: u32 = 0x02;
+            pub const SIZE_16KB: u32 = 0x02;
             #[doc = "32KB"]
-            pub const MS_3: u32 = 0x03;
+            pub const SIZE_32KB: u32 = 0x03;
             #[doc = "64KB"]
-            pub const MS_4: u32 = 0x04;
+            pub const SIZE_64KB: u32 = 0x04;
             #[doc = "128KB"]
-            pub const MS_5: u32 = 0x05;
+            pub const SIZE_128KB: u32 = 0x05;
             #[doc = "256KB"]
-            pub const MS_6: u32 = 0x06;
+            pub const SIZE_256KB: u32 = 0x06;
             #[doc = "512KB"]
-            pub const MS_7: u32 = 0x07;
+            pub const SIZE_512KB: u32 = 0x07;
             #[doc = "1MB"]
-            pub const MS_8: u32 = 0x08;
+            pub const SIZE_1MB: u32 = 0x08;
             #[doc = "2MB"]
-            pub const MS_9: u32 = 0x09;
+            pub const SIZE_2MB: u32 = 0x09;
             #[doc = "4MB"]
-            pub const MS_10: u32 = 0x0a;
+            pub const SIZE_4MB: u32 = 0x0a;
             #[doc = "8MB"]
-            pub const MS_11: u32 = 0x0b;
+            pub const SIZE_8MB: u32 = 0x0b;
             #[doc = "16MB"]
-            pub const MS_12: u32 = 0x0c;
+            pub const SIZE_16MB: u32 = 0x0c;
             #[doc = "32MB"]
-            pub const MS_13: u32 = 0x0d;
+            pub const SIZE_32MB: u32 = 0x0d;
             #[doc = "64MB"]
-            pub const MS_14: u32 = 0x0e;
+            pub const SIZE_64MB: u32 = 0x0e;
             #[doc = "128MB"]
-            pub const MS_15: u32 = 0x0f;
+            pub const SIZE_128MB: u32 = 0x0f;
             #[doc = "256MB"]
-            pub const MS_16: u32 = 0x10;
+            pub const SIZE_256MB: u32 = 0x10;
             #[doc = "512MB"]
-            pub const MS_17: u32 = 0x11;
+            pub const SIZE_512MB: u32 = 0x11;
             #[doc = "1GB"]
-            pub const MS_18: u32 = 0x12;
+            pub const SIZE_1GB: u32 = 0x12;
             #[doc = "2GB"]
-            pub const MS_19: u32 = 0x13;
+            pub const SIZE_2GB: u32 = 0x13;
             #[doc = "4GB"]
-            pub const MS_20: u32 = 0x14;
+            pub const SIZE_4GB_20: u32 = 0x14;
             #[doc = "4GB"]
-            pub const MS_21: u32 = 0x15;
+            pub const SIZE_4GB_21: u32 = 0x15;
             #[doc = "4GB"]
-            pub const MS_22: u32 = 0x16;
+            pub const SIZE_4GB_22: u32 = 0x16;
             #[doc = "4GB"]
-            pub const MS_23: u32 = 0x17;
+            pub const SIZE_4GB_23: u32 = 0x17;
             #[doc = "4GB"]
-            pub const MS_24: u32 = 0x18;
+            pub const SIZE_4GB_24: u32 = 0x18;
             #[doc = "4GB"]
-            pub const MS_25: u32 = 0x19;
+            pub const SIZE_4GB_25: u32 = 0x19;
             #[doc = "4GB"]
-            pub const MS_26: u32 = 0x1a;
+            pub const SIZE_4GB_26: u32 = 0x1a;
             #[doc = "4GB"]
-            pub const MS_27: u32 = 0x1b;
+            pub const SIZE_4GB_27: u32 = 0x1b;
             #[doc = "4GB"]
-            pub const MS_28: u32 = 0x1c;
+            pub const SIZE_4GB_28: u32 = 0x1c;
             #[doc = "4GB"]
-            pub const MS_29: u32 = 0x1d;
+            pub const SIZE_4GB_29: u32 = 0x1d;
             #[doc = "4GB"]
-            pub const MS_30: u32 = 0x1e;
+            pub const SIZE_4GB_30: u32 = 0x1e;
             #[doc = "4GB"]
-            pub const MS_31: u32 = 0x1f;
+            pub const SIZE_4GB_31: u32 = 0x1f;
         }
     }
     #[doc = "Base Address"]
@@ -2791,9 +2791,9 @@ pub mod BR11 {
         pub mod W {}
         pub mod RW {
             #[doc = "The memory is invalid, can not be accessed."]
-            pub const VLD_0: u32 = 0;
+            pub const INVALID: u32 = 0;
             #[doc = "The memory is valid, can be accessed."]
-            pub const VLD_1: u32 = 0x01;
+            pub const VALID: u32 = 0x01;
         }
     }
     #[doc = "Memory size"]
@@ -2804,69 +2804,69 @@ pub mod BR11 {
         pub mod W {}
         pub mod RW {
             #[doc = "4KB"]
-            pub const MS_0: u32 = 0;
+            pub const SIZE_4KB: u32 = 0;
             #[doc = "8KB"]
-            pub const MS_1: u32 = 0x01;
+            pub const SIZE_8KB: u32 = 0x01;
             #[doc = "16KB"]
-            pub const MS_2: u32 = 0x02;
+            pub const SIZE_16KB: u32 = 0x02;
             #[doc = "32KB"]
-            pub const MS_3: u32 = 0x03;
+            pub const SIZE_32KB: u32 = 0x03;
             #[doc = "64KB"]
-            pub const MS_4: u32 = 0x04;
+            pub const SIZE_64KB: u32 = 0x04;
             #[doc = "128KB"]
-            pub const MS_5: u32 = 0x05;
+            pub const SIZE_128KB: u32 = 0x05;
             #[doc = "256KB"]
-            pub const MS_6: u32 = 0x06;
+            pub const SIZE_256KB: u32 = 0x06;
             #[doc = "512KB"]
-            pub const MS_7: u32 = 0x07;
+            pub const SIZE_512KB: u32 = 0x07;
             #[doc = "1MB"]
-            pub const MS_8: u32 = 0x08;
+            pub const SIZE_1MB: u32 = 0x08;
             #[doc = "2MB"]
-            pub const MS_9: u32 = 0x09;
+            pub const SIZE_2MB: u32 = 0x09;
             #[doc = "4MB"]
-            pub const MS_10: u32 = 0x0a;
+            pub const SIZE_4MB: u32 = 0x0a;
             #[doc = "8MB"]
-            pub const MS_11: u32 = 0x0b;
+            pub const SIZE_8MB: u32 = 0x0b;
             #[doc = "16MB"]
-            pub const MS_12: u32 = 0x0c;
+            pub const SIZE_16MB: u32 = 0x0c;
             #[doc = "32MB"]
-            pub const MS_13: u32 = 0x0d;
+            pub const SIZE_32MB: u32 = 0x0d;
             #[doc = "64MB"]
-            pub const MS_14: u32 = 0x0e;
+            pub const SIZE_64MB: u32 = 0x0e;
             #[doc = "128MB"]
-            pub const MS_15: u32 = 0x0f;
+            pub const SIZE_128MB: u32 = 0x0f;
             #[doc = "256MB"]
-            pub const MS_16: u32 = 0x10;
+            pub const SIZE_256MB: u32 = 0x10;
             #[doc = "512MB"]
-            pub const MS_17: u32 = 0x11;
+            pub const SIZE_512MB: u32 = 0x11;
             #[doc = "1GB"]
-            pub const MS_18: u32 = 0x12;
+            pub const SIZE_1GB: u32 = 0x12;
             #[doc = "2GB"]
-            pub const MS_19: u32 = 0x13;
+            pub const SIZE_2GB: u32 = 0x13;
             #[doc = "4GB"]
-            pub const MS_20: u32 = 0x14;
+            pub const SIZE_4GB_20: u32 = 0x14;
             #[doc = "4GB"]
-            pub const MS_21: u32 = 0x15;
+            pub const SIZE_4GB_21: u32 = 0x15;
             #[doc = "4GB"]
-            pub const MS_22: u32 = 0x16;
+            pub const SIZE_4GB_22: u32 = 0x16;
             #[doc = "4GB"]
-            pub const MS_23: u32 = 0x17;
+            pub const SIZE_4GB_23: u32 = 0x17;
             #[doc = "4GB"]
-            pub const MS_24: u32 = 0x18;
+            pub const SIZE_4GB_24: u32 = 0x18;
             #[doc = "4GB"]
-            pub const MS_25: u32 = 0x19;
+            pub const SIZE_4GB_25: u32 = 0x19;
             #[doc = "4GB"]
-            pub const MS_26: u32 = 0x1a;
+            pub const SIZE_4GB_26: u32 = 0x1a;
             #[doc = "4GB"]
-            pub const MS_27: u32 = 0x1b;
+            pub const SIZE_4GB_27: u32 = 0x1b;
             #[doc = "4GB"]
-            pub const MS_28: u32 = 0x1c;
+            pub const SIZE_4GB_28: u32 = 0x1c;
             #[doc = "4GB"]
-            pub const MS_29: u32 = 0x1d;
+            pub const SIZE_4GB_29: u32 = 0x1d;
             #[doc = "4GB"]
-            pub const MS_30: u32 = 0x1e;
+            pub const SIZE_4GB_30: u32 = 0x1e;
             #[doc = "4GB"]
-            pub const MS_31: u32 = 0x1f;
+            pub const SIZE_4GB_31: u32 = 0x1f;
         }
     }
     #[doc = "Base Address"]
@@ -2888,9 +2888,9 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "8bit"]
-            pub const PS_0: u32 = 0;
+            pub const PS_8BIT: u32 = 0;
             #[doc = "16bit"]
-            pub const PS_1: u32 = 0x01;
+            pub const PS_16BIT: u32 = 0x01;
         }
     }
     #[doc = "Synchronous Mode Enable"]
@@ -2901,9 +2901,9 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Asynchronous mode is enabled."]
-            pub const SYNCEN_0: u32 = 0;
+            pub const ASYNC: u32 = 0;
             #[doc = "Synchronous mode is enabled. Only fixed latency mode is supported."]
-            pub const SYNCEN_1: u32 = 0x01;
+            pub const SYNC: u32 = 0x01;
         }
     }
     #[doc = "Wait Enable"]
@@ -2914,9 +2914,9 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "The SEMC does not monitor wait pin."]
-            pub const WAITEN_0: u32 = 0;
+            pub const NO_MONITOR_WAIT: u32 = 0;
             #[doc = "The SEMC monitors wait pin. The SEMC does not transfer/receive data when wait pin is asserted."]
-            pub const WAITEN_1: u32 = 0x01;
+            pub const MONITOR_WAIT: u32 = 0x01;
         }
     }
     #[doc = "Wait Sample"]
@@ -2927,9 +2927,9 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Wait pin is directly used by the SEMC."]
-            pub const WAITSP_0: u32 = 0;
+            pub const WAIT_DIRECT: u32 = 0;
             #[doc = "Wait pin is sampled by internal clock before it is used."]
-            pub const WAITSP_1: u32 = 0x01;
+            pub const WAIT_SAMPLED: u32 = 0x01;
         }
     }
     #[doc = "Burst Length"]
@@ -2940,21 +2940,21 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "1"]
-            pub const BL_0: u32 = 0;
+            pub const BURST1: u32 = 0;
             #[doc = "2"]
-            pub const BL_1: u32 = 0x01;
+            pub const BURST2: u32 = 0x01;
             #[doc = "4"]
-            pub const BL_2: u32 = 0x02;
+            pub const BURST4: u32 = 0x02;
             #[doc = "8"]
-            pub const BL_3: u32 = 0x03;
+            pub const BURST8: u32 = 0x03;
             #[doc = "16"]
-            pub const BL_4: u32 = 0x04;
+            pub const BURST16: u32 = 0x04;
             #[doc = "32"]
-            pub const BL_5: u32 = 0x05;
+            pub const BURST32: u32 = 0x05;
             #[doc = "64"]
-            pub const BL_6: u32 = 0x06;
+            pub const BURST64_6: u32 = 0x06;
             #[doc = "64"]
-            pub const BL_7: u32 = 0x07;
+            pub const BURST64_7: u32 = 0x07;
         }
     }
     #[doc = "Address Mode"]
@@ -2965,13 +2965,13 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Address/Data MUX mode (ADMUX)"]
-            pub const AM_0: u32 = 0;
+            pub const ADMUX: u32 = 0;
             #[doc = "Advanced Address/Data MUX mode (AADM)"]
-            pub const AM_1: u32 = 0x01;
+            pub const AADM: u32 = 0x01;
             #[doc = "Address/Data non-MUX mode (Non-ADMUX)"]
-            pub const AM_2: u32 = 0x02;
+            pub const NON_ADMUX_2: u32 = 0x02;
             #[doc = "Address/Data non-MUX mode (Non-ADMUX)"]
-            pub const AM_3: u32 = 0x03;
+            pub const NON_ADMUX_3: u32 = 0x03;
         }
     }
     #[doc = "ADV# polarity"]
@@ -2982,9 +2982,9 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "ADV# is active low."]
-            pub const ADVP_0: u32 = 0;
+            pub const ACTIVE_LOW: u32 = 0;
             #[doc = "ADV# is active high."]
-            pub const ADVP_1: u32 = 0x01;
+            pub const ACTIVE_HIGH: u32 = 0x01;
         }
     }
     #[doc = "ADV# level control during address hold state"]
@@ -2995,9 +2995,9 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "ADV# is high during address hold state."]
-            pub const ADVH_0: u32 = 0;
+            pub const HIGH_HOLD: u32 = 0;
             #[doc = "ADV# is low during address hold state."]
-            pub const ADVH_1: u32 = 0x01;
+            pub const LOW_HOLD: u32 = 0x01;
         }
     }
     #[doc = "Column Address bit width"]
@@ -3008,37 +3008,37 @@ pub mod SRAMCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "12 Bits"]
-            pub const COL_0: u32 = 0;
+            pub const BITWIDTH12_0: u32 = 0;
             #[doc = "11 Bits"]
-            pub const COL_1: u32 = 0x01;
+            pub const BITWIDTH11: u32 = 0x01;
             #[doc = "10 Bits"]
-            pub const COL_2: u32 = 0x02;
+            pub const BITWIDTH10: u32 = 0x02;
             #[doc = "9 Bits"]
-            pub const COL_3: u32 = 0x03;
+            pub const BITWIDTH9: u32 = 0x03;
             #[doc = "8 Bits"]
-            pub const COL_4: u32 = 0x04;
+            pub const BITWIDTH8: u32 = 0x04;
             #[doc = "7 Bits"]
-            pub const COL_5: u32 = 0x05;
+            pub const BITWIDTH7: u32 = 0x05;
             #[doc = "6 Bits"]
-            pub const COL_6: u32 = 0x06;
+            pub const BITWIDTH6: u32 = 0x06;
             #[doc = "5 Bits"]
-            pub const COL_7: u32 = 0x07;
+            pub const BITWIDTH5: u32 = 0x07;
             #[doc = "4 Bits"]
-            pub const COL_8: u32 = 0x08;
+            pub const BITWIDTH4: u32 = 0x08;
             #[doc = "3 Bits"]
-            pub const COL_9: u32 = 0x09;
+            pub const BITWIDTH3: u32 = 0x09;
             #[doc = "2 Bits"]
-            pub const COL_10: u32 = 0x0a;
+            pub const BITWIDTH2: u32 = 0x0a;
             #[doc = "12 Bits"]
-            pub const COL_11: u32 = 0x0b;
+            pub const BITWIDTH12_B: u32 = 0x0b;
             #[doc = "12 Bits"]
-            pub const COL_12: u32 = 0x0c;
+            pub const BITWIDTH12_C: u32 = 0x0c;
             #[doc = "12 Bits"]
-            pub const COL_13: u32 = 0x0d;
+            pub const BITWIDTH12_D: u32 = 0x0d;
             #[doc = "12 Bits"]
-            pub const COL_14: u32 = 0x0e;
+            pub const BITWIDTH12_E: u32 = 0x0e;
             #[doc = "12 Bits"]
-            pub const COL_15: u32 = 0x0f;
+            pub const BITWIDTH12_F: u32 = 0x0f;
         }
     }
 }
@@ -3208,9 +3208,9 @@ pub mod DCCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Delay chain is not inserted."]
-            pub const SDRAMEN_0: u32 = 0;
+            pub const NO_DLY_CHAIN: u32 = 0;
             #[doc = "Delay chain is inserted."]
-            pub const SDRAMEN_1: u32 = 0x01;
+            pub const DLY_CHAIN: u32 = 0x01;
         }
     }
     #[doc = "Clock delay line delay cell number selection value for SDRAM device."]
@@ -3229,9 +3229,9 @@ pub mod DCCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Delay chain is not inserted."]
-            pub const NOREN_0: u32 = 0;
+            pub const NO_DLY_CHAIN: u32 = 0;
             #[doc = "Delay chain is inserted."]
-            pub const NOREN_1: u32 = 0x01;
+            pub const DLY_CHAIN: u32 = 0x01;
         }
     }
     #[doc = "Clock delay line delay cell number selection value for NOR device."]
@@ -3250,9 +3250,9 @@ pub mod DCCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Delay chain is not inserted."]
-            pub const SRAM0EN_0: u32 = 0;
+            pub const NO_DLY_CHAIN: u32 = 0;
             #[doc = "Delay chain is inserted."]
-            pub const SRAM0EN_1: u32 = 0x01;
+            pub const DLY_CHAIN: u32 = 0x01;
         }
     }
     #[doc = "Clock delay line delay cell number selection value for SRAM device 0."]
@@ -3271,9 +3271,9 @@ pub mod DCCR {
         pub mod W {}
         pub mod RW {
             #[doc = "Delay chain is not inserted."]
-            pub const SRAMXEN_0: u32 = 0;
+            pub const NO_DLY_CHAIN: u32 = 0;
             #[doc = "Delay chain is inserted."]
-            pub const SRAMXEN_1: u32 = 0x01;
+            pub const DLY_CHAIN: u32 = 0x01;
         }
     }
     #[doc = "Clock delay line delay cell number selection value for SRAM device 1-3."]

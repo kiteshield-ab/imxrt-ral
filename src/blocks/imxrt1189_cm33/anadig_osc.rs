@@ -145,7 +145,7 @@ pub mod OSC_24M_CTRL {
         pub mod RW {
             #[doc = "Software mode (default)"]
             pub const SW: u32 = 0;
-            #[doc = "GPC mode (Setpoint)"]
+            #[doc = "GPC mode"]
             pub const GPC: u32 = 0x01;
         }
     }
@@ -198,7 +198,7 @@ pub mod OSC_400M_CTRL1 {
         pub mod RW {
             #[doc = "Software mode (default)"]
             pub const SW: u32 = 0;
-            #[doc = "GPC mode (Setpoint)"]
+            #[doc = "GPC mode"]
             pub const GPC: u32 = 0x01;
         }
     }

@@ -40,9 +40,9 @@ pub mod REG0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Zero cross detetion function powered up"]
+            #[doc = "Zero cross detection function powered up"]
             pub const POWERED_UP: u32 = 0;
-            #[doc = "Zero cross detetion function powered down"]
+            #[doc = "Zero cross detection function powered down"]
             pub const POWERED_DOWN: u32 = 0x01;
         }
     }
@@ -53,7 +53,7 @@ pub mod REG0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "If DISABLE_AUTO_CLK_SWITCH is set to 0 and 24M xtal is OK, the clock source will switch from internal ring oscillator to 24M xtal automatically"]
+            #[doc = "If DISABLE_AUTO_CLK_SWITCH is set to 0 and 24M xtal is OK, the clock source will switch from internal ring OSC to 24M xtal automatically"]
             pub const XTAL_CLK: u32 = 0;
             #[doc = "If DISABLE_AUTO_CLK_SWITCH is set to 1, SEL_CLK will determine which clock source the DCDC uses"]
             pub const SEL_CLK: u32 = 0x01;
@@ -79,9 +79,9 @@ pub mod REG0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Internal ring oscillator powered up"]
+            #[doc = "Internal oscillator powered up"]
             pub const POWERED_UP: u32 = 0;
-            #[doc = "Internal ring oscillator powered down"]
+            #[doc = "Internal oscillator powered down"]
             pub const POWERED_DOWN: u32 = 0x01;
         }
     }
@@ -187,7 +187,7 @@ pub mod REG0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DCDC uses internal ring oscillator"]
+            #[doc = "DCDC uses internal ring OSC"]
             pub const INT_RNG_OSC: u32 = 0;
             #[doc = "DCDC uses xtal 24M"]
             pub const XTAL_24M: u32 = 0x01;
@@ -518,9 +518,9 @@ pub mod CTRL0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Sample trim input"]
+            #[doc = "Sample trim value from FUSE or value from REG1\\[VBG_TRIM\\] depending on FUSE select bit."]
             pub const SAMPLE: u32 = 0;
-            #[doc = "Hold trim input"]
+            #[doc = "Use value from REG1\\[VBG_TRIM\\] as trim value."]
             pub const HOLD: u32 = 0x01;
         }
     }

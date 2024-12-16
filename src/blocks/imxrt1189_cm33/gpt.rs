@@ -25,10 +25,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "GPT is disabled."]
-            pub const EN_0: u32 = 0;
-            #[doc = "GPT is enabled."]
-            pub const EN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "GPT Enable Mode"]
@@ -38,10 +38,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "GPT counter will retain its value when it is disabled."]
-            pub const ENMOD_0: u32 = 0;
-            #[doc = "GPT counter value is reset to 0 when it is disabled."]
-            pub const ENMOD_1: u32 = 0x01;
+            #[doc = "Restart counting from frozen values after GPT is enabled (EN=1)."]
+            pub const RESUME_COUNT: u32 = 0;
+            #[doc = "Reset counting from 0 after GPT is enabled (EN=1)."]
+            pub const ZERO_COUNT: u32 = 0x01;
         }
     }
     #[doc = "GPT Debug Mode Enable"]
@@ -51,10 +51,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "GPT is disabled in debug mode."]
-            pub const DBGEN_0: u32 = 0;
-            #[doc = "GPT is enabled in debug mode."]
-            pub const DBGEN_1: u32 = 0x01;
+            #[doc = "Disable in Debug mode"]
+            pub const DEBUG_DIS: u32 = 0;
+            #[doc = "Enable in Debug mode"]
+            pub const DEBUG_EN: u32 = 0x01;
         }
     }
     #[doc = "GPT Wait Mode Enable"]
@@ -64,10 +64,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "GPT is disabled in wait mode."]
-            pub const WAITEN_0: u32 = 0;
-            #[doc = "GPT is enabled in wait mode."]
-            pub const WAITEN_1: u32 = 0x01;
+            #[doc = "Disable in Wait mode"]
+            pub const WAIT_DIS: u32 = 0;
+            #[doc = "Enable in Wait mode"]
+            pub const WAIT_EN: u32 = 0x01;
         }
     }
     #[doc = "GPT Doze Mode Enable"]
@@ -77,10 +77,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "GPT is disabled in doze mode."]
-            pub const DOZEEN_0: u32 = 0;
-            #[doc = "GPT is enabled in doze mode."]
-            pub const DOZEEN_1: u32 = 0x01;
+            #[doc = "Disable in Doze mode"]
+            pub const DOZE_DIS: u32 = 0;
+            #[doc = "Enable in Doze mode"]
+            pub const DOZE_EN: u32 = 0x01;
         }
     }
     #[doc = "GPT Stop Mode Enable"]
@@ -90,10 +90,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "GPT is disabled in Stop mode."]
-            pub const STOPEN_0: u32 = 0;
-            #[doc = "GPT is enabled in Stop mode."]
-            pub const STOPEN_1: u32 = 0x01;
+            #[doc = "Disable in Stop mode"]
+            pub const STOP_DIS: u32 = 0;
+            #[doc = "Enable in Stop mode"]
+            pub const STOP_EN: u32 = 0x01;
         }
     }
     #[doc = "Clock Source Select"]
@@ -122,10 +122,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Restart mode"]
-            pub const FRR_0: u32 = 0;
-            #[doc = "Free-Run mode"]
-            pub const FRR_1: u32 = 0x01;
+            #[doc = "Restart mode. After a compare event, the counter resets to 0000_0000h and resumes counting."]
+            pub const RESTART: u32 = 0;
+            #[doc = "Free-Run mode. After a compare event, the counter continues counting until FFFF_FFFFh and then rolls over to 0."]
+            pub const FREE_RUN: u32 = 0x01;
         }
     }
     #[doc = "Enable Oscillator Clock Input"]
@@ -135,10 +135,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "24M clock disabled"]
-            pub const EN_24M_0: u32 = 0;
-            #[doc = "24M clock enabled"]
-            pub const EN_24M_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Software Reset"]
@@ -148,10 +148,10 @@ pub mod CR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "GPT is not in reset state"]
-            pub const SWR_0: u32 = 0;
-            #[doc = "GPT is in reset state"]
-            pub const SWR_1: u32 = 0x01;
+            #[doc = "GPT is not in software reset state"]
+            pub const NOT_SWRESET: u32 = 0;
+            #[doc = "GPT is in software reset state"]
+            pub const SWRESET: u32 = 0x01;
         }
     }
     #[doc = "Input Capture Operating Mode for Channel 1"]
@@ -221,7 +221,7 @@ pub mod CR {
 }
 #[doc = "Prescaler"]
 pub mod PR {
-    #[doc = "Prescaler bits"]
+    #[doc = "Prescaler Divide Value"]
     pub mod PRESCALER {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0fff << offset;
@@ -229,14 +229,14 @@ pub mod PR {
         pub mod W {}
         pub mod RW {
             #[doc = "Divide by 1"]
-            pub const PRESCALER_0: u32 = 0;
+            pub const DIV_BY_1: u32 = 0;
             #[doc = "Divide by 2"]
-            pub const PRESCALER_1: u32 = 0x01;
+            pub const DIV_BY_2: u32 = 0x01;
             #[doc = "Divide by 4096"]
-            pub const PRESCALER_4095: u32 = 0x0fff;
+            pub const DIV_BY_4096: u32 = 0x0fff;
         }
     }
-    #[doc = "Prescaler bits"]
+    #[doc = "Prescaler Divide Value for the Oscillator Clock"]
     pub mod PRESCALER24M {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
@@ -244,17 +244,17 @@ pub mod PR {
         pub mod W {}
         pub mod RW {
             #[doc = "Divide by 1"]
-            pub const PRESCALER24M_0: u32 = 0;
+            pub const DIV_BY_1: u32 = 0;
             #[doc = "Divide by 2"]
-            pub const PRESCALER24M_1: u32 = 0x01;
+            pub const DIV_BY_2: u32 = 0x01;
             #[doc = "Divide by 16"]
-            pub const PRESCALER24M_15: u32 = 0x0f;
+            pub const DIV_BY_16: u32 = 0x0f;
         }
     }
 }
 #[doc = "Status"]
 pub mod SR {
-    #[doc = "See OF3"]
+    #[doc = "Output Compare Flag for Channel 1"]
     pub mod OF1 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -262,7 +262,7 @@ pub mod SR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "See OF3"]
+    #[doc = "Output Compare Flag for Channel 2"]
     pub mod OF2 {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -270,7 +270,7 @@ pub mod SR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "OF3 Output Compare 3 Flag OF2 Output Compare 2 Flag OF1 Output Compare 1 Flag The OFn bit indicates that a compare event has occurred on Output Compare channel n"]
+    #[doc = "Output Compare Flag for Channel 3"]
     pub mod OF3 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -278,7 +278,7 @@ pub mod SR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "See IF2"]
+    #[doc = "Input Capture Flag for Channel 1"]
     pub mod IF1 {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -286,7 +286,7 @@ pub mod SR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "IF2 Input capture 2 Flag IF1 Input capture 1 Flag The IFn bit indicates that a capture event has occurred on Input Capture channel n"]
+    #[doc = "Input Capture Flag for Channel 2"]
     pub mod IF2 {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -302,15 +302,15 @@ pub mod SR {
         pub mod W {}
         pub mod RW {
             #[doc = "Rollover has not occurred."]
-            pub const ROV_0: u32 = 0;
+            pub const NO_ROLLOVER: u32 = 0;
             #[doc = "Rollover has occurred."]
-            pub const ROV_1: u32 = 0x01;
+            pub const ROLLOVER: u32 = 0x01;
         }
     }
 }
 #[doc = "Interrupt"]
 pub mod IR {
-    #[doc = "See OF3IE"]
+    #[doc = "Output Compare Flag for Channel 1 Interrupt Enable"]
     pub mod OF1IE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -318,7 +318,7 @@ pub mod IR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "See OF3IE"]
+    #[doc = "Output Compare Flag for Channel 2 Interrupt Enable"]
     pub mod OF2IE {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -326,7 +326,7 @@ pub mod IR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "OF3IE Output Compare 3 Interrupt Enable OF2IE Output Compare 2 Interrupt Enable OF1IE Output Compare 1 Interrupt Enable The OFnIE bit controls the Output Compare Channel n interrupt"]
+    #[doc = "Output Compare Flag for Channel 3 Interrupt Enable"]
     pub mod OF3IE {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -334,7 +334,7 @@ pub mod IR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "See IF2IE"]
+    #[doc = "Input Capture Flag for Channel 1 Interrupt Enable"]
     pub mod IF1IE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -342,7 +342,7 @@ pub mod IR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "IF2IE Input capture 2 Interrupt Enable IF1IE Input capture 1 Interrupt Enable The IFnIE bit controls the IFnIE Input Capture n Interrupt Enable"]
+    #[doc = "Input Capture Flag for Channel 2 Interrupt Enable"]
     pub mod IF2IE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -350,17 +350,17 @@ pub mod IR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Rollover Interrupt Enable. The ROVIE bit controls the Rollover interrupt."]
+    #[doc = "Rollover Interrupt Enable"]
     pub mod ROVIE {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Rollover interrupt is disabled."]
-            pub const ROVIE_0: u32 = 0;
-            #[doc = "Rollover interrupt enabled."]
-            pub const ROVIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
 }
@@ -388,7 +388,7 @@ pub mod ICR {
 }
 #[doc = "Counter"]
 pub mod CNT {
-    #[doc = "Counter Value. The COUNT bits show the current count value of the GPT counter."]
+    #[doc = "Counter Value"]
     pub mod COUNT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;

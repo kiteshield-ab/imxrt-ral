@@ -73,59 +73,59 @@ pub struct RegisterBlock {
 }
 #[doc = "ASRC Control"]
 pub mod ASRCTR {
-    #[doc = "ASRCEN"]
+    #[doc = "ASRC Enable"]
     pub mod ASRCEN {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "operation of ASRC disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "operation ASRC is enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ASREA"]
+    #[doc = "ASRC Enable A"]
     pub mod ASREA {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "operation of conversion A is disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "operation of conversion A is enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ASREB"]
+    #[doc = "ASRC Enable B"]
     pub mod ASREB {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "operation of conversion B is disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "operation of conversion B is enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ASREC"]
+    #[doc = "ASRC Enable C"]
     pub mod ASREC {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "operation of conversion C is disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "operation of conversion C is enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "SRST"]
+    #[doc = "Software Reset"]
     pub mod SRST {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -138,7 +138,7 @@ pub mod ASRCTR {
             pub const RESET: u32 = 0x01;
         }
     }
-    #[doc = "IDRA"]
+    #[doc = "Use Ideal Ratio for Pair A"]
     pub mod IDRA {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
@@ -151,7 +151,7 @@ pub mod ASRCTR {
             pub const IDRA_IDEAL: u32 = 0x01;
         }
     }
-    #[doc = "USRA"]
+    #[doc = "Use Ratio for Pair A"]
     pub mod USRA {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
@@ -164,7 +164,7 @@ pub mod ASRCTR {
             pub const USE_RATIO: u32 = 0x01;
         }
     }
-    #[doc = "IDRB"]
+    #[doc = "Use Ideal Ratio for Pair B"]
     pub mod IDRB {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
@@ -177,7 +177,7 @@ pub mod ASRCTR {
             pub const IDRA_IDEAL: u32 = 0x01;
         }
     }
-    #[doc = "USRB"]
+    #[doc = "Use Ratio for Pair B"]
     pub mod USRB {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -190,7 +190,7 @@ pub mod ASRCTR {
             pub const USE_RATIO: u32 = 0x01;
         }
     }
-    #[doc = "IDRC"]
+    #[doc = "Use Ideal Ratio for Pair C"]
     pub mod IDRC {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -203,7 +203,7 @@ pub mod ASRCTR {
             pub const IDRA_IDEAL: u32 = 0x01;
         }
     }
-    #[doc = "USRC"]
+    #[doc = "Use Ratio for Pair C"]
     pub mod USRC {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -216,7 +216,7 @@ pub mod ASRCTR {
             pub const USE_RATIO: u32 = 0x01;
         }
     }
-    #[doc = "ATSA"]
+    #[doc = "ASRC Pair A Automatic Selection For Processing Options"]
     pub mod ATSA {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -229,7 +229,7 @@ pub mod ASRCTR {
             pub const AUTO_SELECT: u32 = 0x01;
         }
     }
-    #[doc = "ATSB"]
+    #[doc = "ASRC Pair B Automatic Selection For Processing Options"]
     pub mod ATSB {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -242,7 +242,7 @@ pub mod ASRCTR {
             pub const AUTO_SELECT: u32 = 0x01;
         }
     }
-    #[doc = "ATSC"]
+    #[doc = "ASRC Pair C Automatic Selection For Processing Options"]
     pub mod ATSC {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -258,107 +258,107 @@ pub mod ASRCTR {
 }
 #[doc = "ASRC Interrupt Enable"]
 pub mod ASRIER {
-    #[doc = "ADIEA"]
+    #[doc = "Pair A Data Input Interrupt Enable"]
     pub mod ADIEA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ADIEB"]
+    #[doc = "Pair B Data Input Interrupt Enable"]
     pub mod ADIEB {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ADIEC"]
+    #[doc = "Pair C Data Input Interrupt Enable"]
     pub mod ADIEC {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ADOEA"]
+    #[doc = "Pair A Data Output Interrupt Enable"]
     pub mod ADOEA {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ADOEB"]
+    #[doc = "Pair B Data Output Interrupt Enable"]
     pub mod ADOEB {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "ADOEC"]
+    #[doc = "Pair C Data Output Interrupt Enable"]
     pub mod ADOEC {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "AOLIE"]
+    #[doc = "Overload Interrupt Enable"]
     pub mod AOLIE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "AFPWE"]
+    #[doc = "FP in Wait State Interrupt Enable"]
     pub mod AFPWE {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "interrupt disabled"]
+            #[doc = "Disabled"]
             pub const DISABLED: u32 = 0;
-            #[doc = "interrupt enabled"]
+            #[doc = "Enabled"]
             pub const ENABLED: u32 = 0x01;
         }
     }
@@ -491,7 +491,7 @@ pub mod ASRCNCR {
 }
 #[doc = "ASRC Filter Configuration Status"]
 pub mod ASRCFG {
-    #[doc = "PREMODA"]
+    #[doc = "Pre-Processing Configuration for Conversion Pair A"]
     pub mod PREMODA {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x03 << offset;
@@ -508,7 +508,7 @@ pub mod ASRCFG {
             pub const PASSTHRU: u32 = 0x03;
         }
     }
-    #[doc = "POSTMODA"]
+    #[doc = "Post-Processing Configuration for Conversion Pair A"]
     pub mod POSTMODA {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x03 << offset;
@@ -523,7 +523,7 @@ pub mod ASRCFG {
             pub const DOWNSAMP_2: u32 = 0x02;
         }
     }
-    #[doc = "PREMODB"]
+    #[doc = "Pre-Processing Configuration for Conversion Pair B"]
     pub mod PREMODB {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x03 << offset;
@@ -540,7 +540,7 @@ pub mod ASRCFG {
             pub const PASSTHRU: u32 = 0x03;
         }
     }
-    #[doc = "POSTMODB"]
+    #[doc = "Post-Processing Configuration for Conversion Pair B"]
     pub mod POSTMODB {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x03 << offset;
@@ -555,7 +555,7 @@ pub mod ASRCFG {
             pub const DOWNSAMP_2: u32 = 0x02;
         }
     }
-    #[doc = "PREMODC"]
+    #[doc = "Pre-Processing Configuration for Conversion Pair C"]
     pub mod PREMODC {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x03 << offset;
@@ -572,7 +572,7 @@ pub mod ASRCFG {
             pub const PASSTHRU: u32 = 0x03;
         }
     }
-    #[doc = "POSTMODC"]
+    #[doc = "Post-Processing Configuration for Conversion Pair C"]
     pub mod POSTMODC {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x03 << offset;
@@ -587,7 +587,7 @@ pub mod ASRCFG {
             pub const DOWNSAMP_2: u32 = 0x02;
         }
     }
-    #[doc = "NDPRA"]
+    #[doc = "Not Use Default Parameters for RAM-stored Parameters For Conversion Pair A"]
     pub mod NDPRA {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -600,7 +600,7 @@ pub mod ASRCFG {
             pub const NOT_DEFAULT: u32 = 0x01;
         }
     }
-    #[doc = "NDPRB"]
+    #[doc = "Not Use Default Parameters for RAM-Stored Parameters For Conversion Pair B"]
     pub mod NDPRB {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -613,7 +613,7 @@ pub mod ASRCFG {
             pub const NOT_DEFAULT: u32 = 0x01;
         }
     }
-    #[doc = "NDPRC"]
+    #[doc = "Not Use Default Parameters for RAM-Stored Parameters For Conversion Pair C"]
     pub mod NDPRC {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -626,7 +626,7 @@ pub mod ASRCFG {
             pub const NOT_DEFAULT: u32 = 0x01;
         }
     }
-    #[doc = "INIRQA"]
+    #[doc = "Initialization for Conversion Pair A is served"]
     pub mod INIRQA {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -639,7 +639,7 @@ pub mod ASRCFG {
             pub const INIT_SERVED: u32 = 0x01;
         }
     }
-    #[doc = "INIRQB"]
+    #[doc = "Initialization for Conversion Pair B is Served"]
     pub mod INIRQB {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -652,7 +652,7 @@ pub mod ASRCFG {
             pub const INIT_SERVED: u32 = 0x01;
         }
     }
-    #[doc = "INIRQC"]
+    #[doc = "Initialization for Conversion Pair C is Served"]
     pub mod INIRQC {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
@@ -668,256 +668,256 @@ pub mod ASRCFG {
 }
 #[doc = "ASRC Clock Source"]
 pub mod ASRCSR {
-    #[doc = "AICSA"]
+    #[doc = "Input Clock Source A"]
     pub mod AICSA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "bit clock 0"]
+            #[doc = "Bit clock 0"]
             pub const BITCLK0: u32 = 0;
-            #[doc = "bit clock 1"]
+            #[doc = "Bit clock 1"]
             pub const BITCLK1: u32 = 0x01;
-            #[doc = "bit clock 2"]
+            #[doc = "Bit clock 2"]
             pub const BITCLK2: u32 = 0x02;
-            #[doc = "bit clock 3"]
+            #[doc = "Bit clock 3"]
             pub const BITCLK3: u32 = 0x03;
-            #[doc = "bit clock 4"]
+            #[doc = "Bit clock 4"]
             pub const BITCLK4: u32 = 0x04;
-            #[doc = "bit clock 5"]
+            #[doc = "Bit clock 5"]
             pub const BITCLK5: u32 = 0x05;
-            #[doc = "bit clock 6"]
+            #[doc = "Bit clock 6"]
             pub const BITCLK6: u32 = 0x06;
-            #[doc = "bit clock 7"]
+            #[doc = "Bit clock 7"]
             pub const BITCLK7: u32 = 0x07;
-            #[doc = "bit clock 8"]
+            #[doc = "Bit clock 8"]
             pub const BITCLK8: u32 = 0x08;
-            #[doc = "bit clock 9"]
+            #[doc = "Bit clock 9"]
             pub const BITCLK9: u32 = 0x09;
-            #[doc = "bit clock A"]
+            #[doc = "Bit clock A"]
             pub const BITCLKA: u32 = 0x0a;
-            #[doc = "bit clock B"]
+            #[doc = "Bit clock B"]
             pub const BITCLKB: u32 = 0x0b;
-            #[doc = "bit clock C"]
+            #[doc = "Bit clock C"]
             pub const BITCLKC: u32 = 0x0c;
-            #[doc = "bit clock D"]
+            #[doc = "Bit clock D"]
             pub const BITCLKD: u32 = 0x0d;
-            #[doc = "bit clock E"]
+            #[doc = "Bit clock E"]
             pub const BITCLKE: u32 = 0x0e;
-            #[doc = "clock disabled, connected to zero"]
+            #[doc = "Clock disabled, connected to zero"]
             pub const CLK_DISABLED: u32 = 0x0f;
         }
     }
-    #[doc = "AICSB"]
+    #[doc = "Input Clock Source B"]
     pub mod AICSB {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "bit clock 0"]
+            #[doc = "Bit clock 0"]
             pub const BITCLK0: u32 = 0;
-            #[doc = "bit clock 1"]
+            #[doc = "Bit clock 1"]
             pub const BITCLK1: u32 = 0x01;
-            #[doc = "bit clock 2"]
+            #[doc = "Bit clock 2"]
             pub const BITCLK2: u32 = 0x02;
-            #[doc = "bit clock 3"]
+            #[doc = "Bit clock 3"]
             pub const BITCLK3: u32 = 0x03;
-            #[doc = "bit clock 4"]
+            #[doc = "Bit clock 4"]
             pub const BITCLK4: u32 = 0x04;
-            #[doc = "bit clock 5"]
+            #[doc = "Bit clock 5"]
             pub const BITCLK5: u32 = 0x05;
-            #[doc = "bit clock 6"]
+            #[doc = "Bit clock 6"]
             pub const BITCLK6: u32 = 0x06;
-            #[doc = "bit clock 7"]
+            #[doc = "Bit clock 7"]
             pub const BITCLK7: u32 = 0x07;
-            #[doc = "bit clock 8"]
+            #[doc = "Bit clock 8"]
             pub const BITCLK8: u32 = 0x08;
-            #[doc = "bit clock 9"]
+            #[doc = "Bit clock 9"]
             pub const BITCLK9: u32 = 0x09;
-            #[doc = "bit clock A"]
+            #[doc = "Bit clock A"]
             pub const BITCLKA: u32 = 0x0a;
-            #[doc = "bit clock B"]
+            #[doc = "Bit clock B"]
             pub const BITCLKB: u32 = 0x0b;
-            #[doc = "bit clock C"]
+            #[doc = "Bit clock C"]
             pub const BITCLKC: u32 = 0x0c;
-            #[doc = "bit clock D"]
+            #[doc = "Bit clock D"]
             pub const BITCLKD: u32 = 0x0d;
-            #[doc = "bit clock E"]
+            #[doc = "Bit clock E"]
             pub const BITCLKE: u32 = 0x0e;
-            #[doc = "clock disabled, connected to zero"]
+            #[doc = "Clock disabled, connected to zero"]
             pub const CLK_DISABLED: u32 = 0x0f;
         }
     }
-    #[doc = "AICSC"]
+    #[doc = "Input Clock Source C"]
     pub mod AICSC {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "bit clock 0"]
+            #[doc = "Bit clock 0"]
             pub const BITCLK0: u32 = 0;
-            #[doc = "bit clock 1"]
+            #[doc = "Bit clock 1"]
             pub const BITCLK1: u32 = 0x01;
-            #[doc = "bit clock 2"]
+            #[doc = "Bit clock 2"]
             pub const BITCLK2: u32 = 0x02;
-            #[doc = "bit clock 3"]
+            #[doc = "Bit clock 3"]
             pub const BITCLK3: u32 = 0x03;
-            #[doc = "bit clock 4"]
+            #[doc = "Bit clock 4"]
             pub const BITCLK4: u32 = 0x04;
-            #[doc = "bit clock 5"]
+            #[doc = "Bit clock 5"]
             pub const BITCLK5: u32 = 0x05;
-            #[doc = "bit clock 6"]
+            #[doc = "Bit clock 6"]
             pub const BITCLK6: u32 = 0x06;
-            #[doc = "bit clock 7"]
+            #[doc = "Bit clock 7"]
             pub const BITCLK7: u32 = 0x07;
-            #[doc = "bit clock 8"]
+            #[doc = "Bit clock 8"]
             pub const BITCLK8: u32 = 0x08;
-            #[doc = "bit clock 9"]
+            #[doc = "Bit clock 9"]
             pub const BITCLK9: u32 = 0x09;
-            #[doc = "bit clock A"]
+            #[doc = "Bit clock A"]
             pub const BITCLKA: u32 = 0x0a;
-            #[doc = "bit clock B"]
+            #[doc = "Bit clock B"]
             pub const BITCLKB: u32 = 0x0b;
-            #[doc = "bit clock C"]
+            #[doc = "Bit clock C"]
             pub const BITCLKC: u32 = 0x0c;
-            #[doc = "bit clock D"]
+            #[doc = "Bit clock D"]
             pub const BITCLKD: u32 = 0x0d;
-            #[doc = "bit clock E"]
+            #[doc = "Bit clock E"]
             pub const BITCLKE: u32 = 0x0e;
-            #[doc = "clock disabled, connected to zero"]
+            #[doc = "Clock disabled, connected to zero"]
             pub const CLK_DISABLED: u32 = 0x0f;
         }
     }
-    #[doc = "AOCSA"]
+    #[doc = "Output Clock Source A"]
     pub mod AOCSA {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "bit clock 0"]
+            #[doc = "Bit clock 0"]
             pub const BITCLK0: u32 = 0;
-            #[doc = "bit clock 1"]
+            #[doc = "Bit clock 1"]
             pub const BITCLK1: u32 = 0x01;
-            #[doc = "bit clock 2"]
+            #[doc = "Bit clock 2"]
             pub const BITCLK2: u32 = 0x02;
-            #[doc = "bit clock 3"]
+            #[doc = "Bit clock 3"]
             pub const BITCLK3: u32 = 0x03;
-            #[doc = "bit clock 4"]
+            #[doc = "Bit clock 4"]
             pub const BITCLK4: u32 = 0x04;
-            #[doc = "bit clock 5"]
+            #[doc = "Bit clock 5"]
             pub const BITCLK5: u32 = 0x05;
-            #[doc = "bit clock 6"]
+            #[doc = "Bit clock 6"]
             pub const BITCLK6: u32 = 0x06;
-            #[doc = "bit clock 7"]
+            #[doc = "Bit clock 7"]
             pub const BITCLK7: u32 = 0x07;
-            #[doc = "bit clock 8"]
+            #[doc = "Bit clock 8"]
             pub const BITCLK8: u32 = 0x08;
-            #[doc = "bit clock 9"]
+            #[doc = "Bit clock 9"]
             pub const BITCLK9: u32 = 0x09;
-            #[doc = "bit clock A"]
+            #[doc = "Bit clock A"]
             pub const BITCLKA: u32 = 0x0a;
-            #[doc = "bit clock B"]
+            #[doc = "Bit clock B"]
             pub const BITCLKB: u32 = 0x0b;
-            #[doc = "bit clock C"]
+            #[doc = "Bit clock C"]
             pub const BITCLKC: u32 = 0x0c;
-            #[doc = "bit clock D"]
+            #[doc = "Bit clock D"]
             pub const BITCLKD: u32 = 0x0d;
-            #[doc = "bit clock E"]
+            #[doc = "Bit clock E"]
             pub const BITCLKE: u32 = 0x0e;
-            #[doc = "clock disabled, connected to zero"]
+            #[doc = "Clock disabled, connected to zero"]
             pub const CLK_DISABLED: u32 = 0x0f;
         }
     }
-    #[doc = "AOCSB"]
+    #[doc = "Output Clock Source B"]
     pub mod AOCSB {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "bit clock 0"]
+            #[doc = "Bit clock 0"]
             pub const BITCLK0: u32 = 0;
-            #[doc = "bit clock 1"]
+            #[doc = "Bit clock 1"]
             pub const BITCLK1: u32 = 0x01;
-            #[doc = "bit clock 2"]
+            #[doc = "Bit clock 2"]
             pub const BITCLK2: u32 = 0x02;
-            #[doc = "bit clock 3"]
+            #[doc = "Bit clock 3"]
             pub const BITCLK3: u32 = 0x03;
-            #[doc = "bit clock 4"]
+            #[doc = "Bit clock 4"]
             pub const BITCLK4: u32 = 0x04;
-            #[doc = "bit clock 5"]
+            #[doc = "Bit clock 5"]
             pub const BITCLK5: u32 = 0x05;
-            #[doc = "bit clock 6"]
+            #[doc = "Bit clock 6"]
             pub const BITCLK6: u32 = 0x06;
-            #[doc = "bit clock 7"]
+            #[doc = "Bit clock 7"]
             pub const BITCLK7: u32 = 0x07;
-            #[doc = "bit clock 8"]
+            #[doc = "Bit clock 8"]
             pub const BITCLK8: u32 = 0x08;
-            #[doc = "bit clock 9"]
+            #[doc = "Bit clock 9"]
             pub const BITCLK9: u32 = 0x09;
-            #[doc = "bit clock A"]
+            #[doc = "Bit clock A"]
             pub const BITCLKA: u32 = 0x0a;
-            #[doc = "bit clock B"]
+            #[doc = "Bit clock B"]
             pub const BITCLKB: u32 = 0x0b;
-            #[doc = "bit clock C"]
+            #[doc = "Bit clock C"]
             pub const BITCLKC: u32 = 0x0c;
-            #[doc = "bit clock D"]
+            #[doc = "Bit clock D"]
             pub const BITCLKD: u32 = 0x0d;
-            #[doc = "bit clock E"]
+            #[doc = "Bit clock E"]
             pub const BITCLKE: u32 = 0x0e;
-            #[doc = "clock disabled, connected to zero"]
+            #[doc = "Clock disabled, connected to zero"]
             pub const CLK_DISABLED: u32 = 0x0f;
         }
     }
-    #[doc = "AOCSC"]
+    #[doc = "Output Clock Source C"]
     pub mod AOCSC {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "bit clock 0"]
+            #[doc = "Bit clock 0"]
             pub const BITCLK0: u32 = 0;
-            #[doc = "bit clock 1"]
+            #[doc = "Bit clock 1"]
             pub const BITCLK1: u32 = 0x01;
-            #[doc = "bit clock 2"]
+            #[doc = "Bit clock 2"]
             pub const BITCLK2: u32 = 0x02;
-            #[doc = "bit clock 3"]
+            #[doc = "Bit clock 3"]
             pub const BITCLK3: u32 = 0x03;
-            #[doc = "bit clock 4"]
+            #[doc = "Bit clock 4"]
             pub const BITCLK4: u32 = 0x04;
-            #[doc = "bit clock 5"]
+            #[doc = "Bit clock 5"]
             pub const BITCLK5: u32 = 0x05;
-            #[doc = "bit clock 6"]
+            #[doc = "Bit clock 6"]
             pub const BITCLK6: u32 = 0x06;
-            #[doc = "bit clock 7"]
+            #[doc = "Bit clock 7"]
             pub const BITCLK7: u32 = 0x07;
-            #[doc = "bit clock 8"]
+            #[doc = "Bit clock 8"]
             pub const BITCLK8: u32 = 0x08;
-            #[doc = "bit clock 9"]
+            #[doc = "Bit clock 9"]
             pub const BITCLK9: u32 = 0x09;
-            #[doc = "bit clock A"]
+            #[doc = "Bit clock A"]
             pub const BITCLKA: u32 = 0x0a;
-            #[doc = "bit clock B"]
+            #[doc = "Bit clock B"]
             pub const BITCLKB: u32 = 0x0b;
-            #[doc = "bit clock C"]
+            #[doc = "Bit clock C"]
             pub const BITCLKC: u32 = 0x0c;
-            #[doc = "bit clock D"]
+            #[doc = "Bit clock D"]
             pub const BITCLKD: u32 = 0x0d;
-            #[doc = "bit clock E"]
+            #[doc = "Bit clock E"]
             pub const BITCLKE: u32 = 0x0e;
-            #[doc = "clock disabled, connected to zero"]
+            #[doc = "Clock disabled, connected to zero"]
             pub const CLK_DISABLED: u32 = 0x0f;
         }
     }
 }
 #[doc = "ASRC Clock Divider 1"]
 pub mod ASRCDR1 {
-    #[doc = "AICPA"]
+    #[doc = "Input Clock Prescaler A"]
     pub mod AICPA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -925,7 +925,7 @@ pub mod ASRCDR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AICDA"]
+    #[doc = "Input Clock Divider A"]
     pub mod AICDA {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x07 << offset;
@@ -933,7 +933,7 @@ pub mod ASRCDR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AICPB"]
+    #[doc = "Input Clock Prescaler B"]
     pub mod AICPB {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x07 << offset;
@@ -941,7 +941,7 @@ pub mod ASRCDR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AICDB"]
+    #[doc = "Input Clock Divider B"]
     pub mod AICDB {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x07 << offset;
@@ -949,7 +949,7 @@ pub mod ASRCDR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AOCPA"]
+    #[doc = "Output Clock Prescaler A"]
     pub mod AOCPA {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x07 << offset;
@@ -957,7 +957,7 @@ pub mod ASRCDR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AOCDA"]
+    #[doc = "Output Clock Divider A"]
     pub mod AOCDA {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x07 << offset;
@@ -965,7 +965,7 @@ pub mod ASRCDR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AOCPB"]
+    #[doc = "Output Clock Prescaler B"]
     pub mod AOCPB {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x07 << offset;
@@ -973,7 +973,7 @@ pub mod ASRCDR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AOCDB"]
+    #[doc = "Output Clock Divider B"]
     pub mod AOCDB {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x07 << offset;
@@ -984,7 +984,7 @@ pub mod ASRCDR1 {
 }
 #[doc = "ASRC Clock Divider 2"]
 pub mod ASRCDR2 {
-    #[doc = "AICPC"]
+    #[doc = "Input Clock Prescaler C"]
     pub mod AICPC {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -992,7 +992,7 @@ pub mod ASRCDR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AICDC"]
+    #[doc = "Input Clock Divider C"]
     pub mod AICDC {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x07 << offset;
@@ -1000,7 +1000,7 @@ pub mod ASRCDR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AOCPC"]
+    #[doc = "Output Clock Prescaler C"]
     pub mod AOCPC {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x07 << offset;
@@ -1008,7 +1008,7 @@ pub mod ASRCDR2 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "AOCDC"]
+    #[doc = "Output Clock Divider C"]
     pub mod AOCDC {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x07 << offset;
@@ -1019,7 +1019,7 @@ pub mod ASRCDR2 {
 }
 #[doc = "ASRC Status"]
 pub mod ASRSTR {
-    #[doc = "AIDEA"]
+    #[doc = "Number of Data in Input Data Buffer A is Less than Threshold"]
     pub mod AIDEA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -1032,7 +1032,7 @@ pub mod ASRSTR {
             pub const LESSTHAN_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "AIDEB"]
+    #[doc = "Number of Data in Input Data Buffer B is Less than Threshold"]
     pub mod AIDEB {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -1045,7 +1045,7 @@ pub mod ASRSTR {
             pub const LESSTHAN_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "AIDEC"]
+    #[doc = "Number of Data in Input Data Buffer C is Less than Threshold"]
     pub mod AIDEC {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -1058,7 +1058,7 @@ pub mod ASRSTR {
             pub const LESSTHAN_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "AODFA"]
+    #[doc = "Number of Data in Output Data Buffer A is Greater than Threshold"]
     pub mod AODFA {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -1071,7 +1071,7 @@ pub mod ASRSTR {
             pub const GREATERTHAN_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "AODFB"]
+    #[doc = "Number of data in Output Data Buffer B is Greater than Threshold"]
     pub mod AODFB {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -1084,7 +1084,7 @@ pub mod ASRSTR {
             pub const GREATERTHAN_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "AODFC"]
+    #[doc = "Number of data in Output Data Buffer C is Greater than Threshold"]
     pub mod AODFC {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -1097,7 +1097,7 @@ pub mod ASRSTR {
             pub const GREATERTHAN_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "AOLE"]
+    #[doc = "Overload Error Flag"]
     pub mod AOLE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -1110,7 +1110,7 @@ pub mod ASRSTR {
             pub const TOO_HIGH: u32 = 0x01;
         }
     }
-    #[doc = "FPWT"]
+    #[doc = "FP is in Wait States"]
     pub mod FPWT {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -1123,7 +1123,7 @@ pub mod ASRSTR {
             pub const WAITSTATE: u32 = 0x01;
         }
     }
-    #[doc = "AIDUA"]
+    #[doc = "Input Data Buffer A has Underflowed"]
     pub mod AIDUA {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -1136,7 +1136,7 @@ pub mod ASRSTR {
             pub const UNDERFLOW: u32 = 0x01;
         }
     }
-    #[doc = "AIDUB"]
+    #[doc = "Input Data Buffer B has Underflowed"]
     pub mod AIDUB {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x01 << offset;
@@ -1149,7 +1149,7 @@ pub mod ASRSTR {
             pub const UNDERFLOW: u32 = 0x01;
         }
     }
-    #[doc = "AIDUC"]
+    #[doc = "Input Data Buffer C has Underflowed"]
     pub mod AIDUC {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -1162,7 +1162,7 @@ pub mod ASRSTR {
             pub const UNDERFLOW: u32 = 0x01;
         }
     }
-    #[doc = "AODOA"]
+    #[doc = "Output Data Buffer A has Overflowed"]
     pub mod AODOA {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -1175,7 +1175,7 @@ pub mod ASRSTR {
             pub const OVERFLOW: u32 = 0x01;
         }
     }
-    #[doc = "AODOB"]
+    #[doc = "Output Data Buffer B has Overflowed"]
     pub mod AODOB {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -1188,7 +1188,7 @@ pub mod ASRSTR {
             pub const OVERFLOW: u32 = 0x01;
         }
     }
-    #[doc = "AODOC"]
+    #[doc = "Output Data Buffer C has Overflowed"]
     pub mod AODOC {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
@@ -1201,98 +1201,98 @@ pub mod ASRSTR {
             pub const OVERFLOW: u32 = 0x01;
         }
     }
-    #[doc = "AIOLA"]
+    #[doc = "Pair A Input Task Overload"]
     pub mod AIOLA {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pair A input task is not oveloaded"]
+            #[doc = "Pair A input task is not overloaded"]
             pub const NO_OVERLOAD: u32 = 0;
-            #[doc = "Pair A input task is oveloaded"]
+            #[doc = "Pair A input task is overloaded"]
             pub const OVERLOAD: u32 = 0x01;
         }
     }
-    #[doc = "AIOLB"]
+    #[doc = "Pair B Input Task Overload"]
     pub mod AIOLB {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pair B input task is not oveloaded"]
+            #[doc = "Pair B input task is not overloaded"]
             pub const NO_OVERLOAD: u32 = 0;
-            #[doc = "Pair B input task is oveloaded"]
+            #[doc = "Pair B input task is overloaded"]
             pub const OVERLOAD: u32 = 0x01;
         }
     }
-    #[doc = "AIOLC"]
+    #[doc = "Pair C Input Task Overload"]
     pub mod AIOLC {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pair C input task is not oveloaded"]
+            #[doc = "Pair C input task is not overloaded"]
             pub const NO_OVERLOAD: u32 = 0;
-            #[doc = "Pair C input task is oveloaded"]
+            #[doc = "Pair C input task is overloaded"]
             pub const OVERLOAD: u32 = 0x01;
         }
     }
-    #[doc = "AOOLA"]
+    #[doc = "Pair A Output Task Overload"]
     pub mod AOOLA {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pair A output task is not oveloaded"]
+            #[doc = "Pair A output task is not overloaded"]
             pub const NO_OVERLOAD: u32 = 0;
-            #[doc = "Pair A output task is oveloaded"]
+            #[doc = "Pair A output task is overloaded"]
             pub const OVERLOAD: u32 = 0x01;
         }
     }
-    #[doc = "AOOLB"]
+    #[doc = "Pair B Output Task Overload"]
     pub mod AOOLB {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pair B output task is not oveloaded"]
+            #[doc = "Pair B output task is not overloaded"]
             pub const NO_OVERLOAD: u32 = 0;
-            #[doc = "Pair B output task is oveloaded"]
+            #[doc = "Pair B output task is overloaded"]
             pub const OVERLOAD: u32 = 0x01;
         }
     }
-    #[doc = "AOOLC"]
+    #[doc = "Pair C Output Task Overload"]
     pub mod AOOLC {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Pair C output task is not oveloaded"]
+            #[doc = "Pair C output task is not overloaded"]
             pub const NO_OVERLOAD: u32 = 0;
-            #[doc = "Pair C output task is oveloaded"]
+            #[doc = "Pair C output task is overloaded"]
             pub const OVERLOAD: u32 = 0x01;
         }
     }
-    #[doc = "ATQOL"]
+    #[doc = "Task Queue FIFO overload"]
     pub mod ATQOL {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Task queue FIFO logic is not oveloaded"]
+            #[doc = "Task queue FIFO logic is not overloaded"]
             pub const NO_OVERLOAD: u32 = 0;
-            #[doc = "Task queue FIFO logic is oveloaded"]
+            #[doc = "Task queue FIFO logic is overloaded"]
             pub const OVERLOAD: u32 = 0x01;
         }
     }
-    #[doc = "DSLCNT"]
+    #[doc = "Digital Servo Loop (DSL) Counter Input to FIFO Ready"]
     pub mod DSLCNT {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -1308,7 +1308,7 @@ pub mod ASRSTR {
 }
 #[doc = "ASRC Parameter x"]
 pub mod ASRPM {
-    #[doc = "PARAMETER_VALUE"]
+    #[doc = "Parameter Value"]
     pub mod PARAMETER_VALUE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1319,7 +1319,7 @@ pub mod ASRPM {
 }
 #[doc = "ASRC Task Queue FIFO 1"]
 pub mod ASRTFR1 {
-    #[doc = "TF_BASE"]
+    #[doc = "Base Address for Task Queue FIFO"]
     pub mod TF_BASE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x7f << offset;
@@ -1327,7 +1327,7 @@ pub mod ASRTFR1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TF_FILL"]
+    #[doc = "Current Number of Entries in Task Queue FIFO"]
     pub mod TF_FILL {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x7f << offset;
@@ -1338,7 +1338,7 @@ pub mod ASRTFR1 {
 }
 #[doc = "ASRC Channel Counter"]
 pub mod ASRCCR {
-    #[doc = "ACIA"]
+    #[doc = "Channel Counter for Pair A's Input FIFO"]
     pub mod ACIA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -1346,7 +1346,7 @@ pub mod ASRCCR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACIB"]
+    #[doc = "Channel Counter for Pair B's Input FIFO"]
     pub mod ACIB {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x0f << offset;
@@ -1354,7 +1354,7 @@ pub mod ASRCCR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACIC"]
+    #[doc = "Channel Counter for Pair C's Input FIFO"]
     pub mod ACIC {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -1362,7 +1362,7 @@ pub mod ASRCCR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACOA"]
+    #[doc = "Channel Counter for Pair A's Output FIFO"]
     pub mod ACOA {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x0f << offset;
@@ -1370,7 +1370,7 @@ pub mod ASRCCR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACOB"]
+    #[doc = "Channel Counter for Pair B's Output FIFO"]
     pub mod ACOB {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -1378,7 +1378,7 @@ pub mod ASRCCR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "ACOC"]
+    #[doc = "Channel Counter for Pair C's Output FIFO"]
     pub mod ACOC {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -1389,7 +1389,7 @@ pub mod ASRCCR {
 }
 #[doc = "ASRC Data Input for Pair x"]
 pub mod ASRDIA {
-    #[doc = "DATA"]
+    #[doc = "Data"]
     pub mod DATA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1400,7 +1400,7 @@ pub mod ASRDIA {
 }
 #[doc = "ASRC Data Output for Pair x"]
 pub mod ASRDOA {
-    #[doc = "DATA"]
+    #[doc = "Data"]
     pub mod DATA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1411,7 +1411,7 @@ pub mod ASRDOA {
 }
 #[doc = "ASRC Data Input for Pair x"]
 pub mod ASRDIB {
-    #[doc = "DATA"]
+    #[doc = "Data"]
     pub mod DATA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1422,7 +1422,7 @@ pub mod ASRDIB {
 }
 #[doc = "ASRC Data Output for Pair x"]
 pub mod ASRDOB {
-    #[doc = "DATA"]
+    #[doc = "Data"]
     pub mod DATA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1433,7 +1433,7 @@ pub mod ASRDOB {
 }
 #[doc = "ASRC Data Input for Pair x"]
 pub mod ASRDIC {
-    #[doc = "DATA"]
+    #[doc = "Data"]
     pub mod DATA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1444,7 +1444,7 @@ pub mod ASRDIC {
 }
 #[doc = "ASRC Data Output for Pair x"]
 pub mod ASRDOC {
-    #[doc = "DATA"]
+    #[doc = "Data"]
     pub mod DATA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1455,7 +1455,7 @@ pub mod ASRDOC {
 }
 #[doc = "ASRC Ideal Ratio for Pair A-High Part"]
 pub mod ASRIDRHA {
-    #[doc = "IDRATIOA_H"]
+    #[doc = "Ideal Ratio A High"]
     pub mod IDRATIOA_H {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xff << offset;
@@ -1466,7 +1466,7 @@ pub mod ASRIDRHA {
 }
 #[doc = "ASRC Ideal Ratio for Pair A -Low Part"]
 pub mod ASRIDRLA {
-    #[doc = "IDRATIOA_L"]
+    #[doc = "Ideal Ratio A Low"]
     pub mod IDRATIOA_L {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1477,7 +1477,7 @@ pub mod ASRIDRLA {
 }
 #[doc = "ASRC Ideal Ratio for Pair B-High Part"]
 pub mod ASRIDRHB {
-    #[doc = "IDRATIOB_H"]
+    #[doc = "Ideal Ratio B High"]
     pub mod IDRATIOB_H {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xff << offset;
@@ -1488,7 +1488,7 @@ pub mod ASRIDRHB {
 }
 #[doc = "ASRC Ideal Ratio for Pair B-Low Part"]
 pub mod ASRIDRLB {
-    #[doc = "IDRATIOB_L"]
+    #[doc = "Ideal Ratio B Low"]
     pub mod IDRATIOB_L {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1499,7 +1499,7 @@ pub mod ASRIDRLB {
 }
 #[doc = "ASRC Ideal Ratio for Pair C-High Part"]
 pub mod ASRIDRHC {
-    #[doc = "IDRATIOC_H"]
+    #[doc = "Ideal Ratio C High"]
     pub mod IDRATIOC_H {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xff << offset;
@@ -1510,7 +1510,7 @@ pub mod ASRIDRHC {
 }
 #[doc = "ASRC Ideal Ratio for Pair C-Low Part"]
 pub mod ASRIDRLC {
-    #[doc = "IDRATIOC_L"]
+    #[doc = "Ideal Ratio C Low"]
     pub mod IDRATIOC_L {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x00ff_ffff << offset;
@@ -1521,7 +1521,7 @@ pub mod ASRIDRLC {
 }
 #[doc = "ASRC 76 kHz Period"]
 pub mod ASR76K {
-    #[doc = "ASR76K"]
+    #[doc = "Value for the Period of the 76 kHz Sampling Clock"]
     pub mod ASR76K {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0001_ffff << offset;
@@ -1532,7 +1532,7 @@ pub mod ASR76K {
 }
 #[doc = "ASRC 56 kHz Period"]
 pub mod ASR56K {
-    #[doc = "ASR56K"]
+    #[doc = "Value for the Period of the 56 kHz Sampling Clock"]
     pub mod ASR56K {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0001_ffff << offset;
@@ -1543,7 +1543,7 @@ pub mod ASR56K {
 }
 #[doc = "ASRC Misc Control for Pair A"]
 pub mod ASRMCRA {
-    #[doc = "INFIFO_THRESHOLDA"]
+    #[doc = "Threshold for Pair A's Input FIFO per Channel"]
     pub mod INFIFO_THRESHOLDA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x3f << offset;
@@ -1551,7 +1551,7 @@ pub mod ASRMCRA {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RSYNOFA"]
+    #[doc = "Re-sync Output FIFO Channel Counter"]
     pub mod RSYNOFA {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -1564,7 +1564,7 @@ pub mod ASRMCRA {
             pub const RESYNC: u32 = 0x01;
         }
     }
-    #[doc = "RSYNIFA"]
+    #[doc = "Re-sync Input FIFO Channel Counter"]
     pub mod RSYNIFA {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -1577,7 +1577,7 @@ pub mod ASRMCRA {
             pub const RESYNC: u32 = 0x01;
         }
     }
-    #[doc = "OUTFIFO_THRESHOLDA"]
+    #[doc = "Threshold for Pair A's Output FIFO per Channel"]
     pub mod OUTFIFO_THRESHOLDA {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x3f << offset;
@@ -1585,7 +1585,7 @@ pub mod ASRMCRA {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "BYPASSPOLYA"]
+    #[doc = "Bypass Polyphase Filtering for Pair A"]
     pub mod BYPASSPOLYA {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -1598,7 +1598,7 @@ pub mod ASRMCRA {
             pub const BYPASS: u32 = 0x01;
         }
     }
-    #[doc = "BUFSTALLA"]
+    #[doc = "Stall Pair A Conversion in Case of Buffer Near Empty/Full Condition"]
     pub mod BUFSTALLA {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -1611,7 +1611,7 @@ pub mod ASRMCRA {
             pub const STALL: u32 = 0x01;
         }
     }
-    #[doc = "EXTTHRSHA"]
+    #[doc = "Use External Thresholds for FIFO Control of Pair A"]
     pub mod EXTTHRSHA {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -1624,7 +1624,7 @@ pub mod ASRMCRA {
             pub const USE_EXT_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "ZEROBUFA"]
+    #[doc = "Zero Buffer A"]
     pub mod ZEROBUFA {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
@@ -1640,7 +1640,7 @@ pub mod ASRMCRA {
 }
 #[doc = "ASRC FIFO Status for Pair A"]
 pub mod ASRFSTA {
-    #[doc = "INFIFO_FILLA"]
+    #[doc = "Fillings for Pair A's Input FIFO per Channel"]
     pub mod INFIFO_FILLA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x7f << offset;
@@ -1648,7 +1648,7 @@ pub mod ASRFSTA {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "IAEA"]
+    #[doc = "Input FIFO is Near Empty for Pair A"]
     pub mod IAEA {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -1661,7 +1661,7 @@ pub mod ASRFSTA {
             pub const NEAR_EMPTY: u32 = 0x01;
         }
     }
-    #[doc = "OUTFIFO_FILLA"]
+    #[doc = "Fillings for Pair A's Output FIFO per Channel"]
     pub mod OUTFIFO_FILLA {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x7f << offset;
@@ -1669,7 +1669,7 @@ pub mod ASRFSTA {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "OAFA"]
+    #[doc = "Output FIFO is Near Full for Pair A"]
     pub mod OAFA {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
@@ -1685,7 +1685,7 @@ pub mod ASRFSTA {
 }
 #[doc = "ASRC Misc Control for Pair B"]
 pub mod ASRMCRB {
-    #[doc = "INFIFO_THRESHOLDB"]
+    #[doc = "Threshold for Pair B's Input FIFO per Channel"]
     pub mod INFIFO_THRESHOLDB {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x3f << offset;
@@ -1693,7 +1693,7 @@ pub mod ASRMCRB {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RSYNOFB"]
+    #[doc = "Re-sync Output FIFO Channel Counter"]
     pub mod RSYNOFB {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -1706,7 +1706,7 @@ pub mod ASRMCRB {
             pub const RESYNC: u32 = 0x01;
         }
     }
-    #[doc = "RSYNIFB"]
+    #[doc = "Re-sync Input FIFO Channel Counter"]
     pub mod RSYNIFB {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -1719,7 +1719,7 @@ pub mod ASRMCRB {
             pub const RESYNC: u32 = 0x01;
         }
     }
-    #[doc = "OUTFIFO_THRESHOLDB"]
+    #[doc = "Threshold for Pair B's Output FIFO per Channel"]
     pub mod OUTFIFO_THRESHOLDB {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x3f << offset;
@@ -1727,7 +1727,7 @@ pub mod ASRMCRB {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "BYPASSPOLYB"]
+    #[doc = "Bypass Polyphase Filtering for Pair B"]
     pub mod BYPASSPOLYB {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -1740,7 +1740,7 @@ pub mod ASRMCRB {
             pub const BYPASS: u32 = 0x01;
         }
     }
-    #[doc = "BUFSTALLB"]
+    #[doc = "Stall Pair B Conversion in Case of Buffer Near Empty/Full Condition"]
     pub mod BUFSTALLB {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -1753,7 +1753,7 @@ pub mod ASRMCRB {
             pub const STALL: u32 = 0x01;
         }
     }
-    #[doc = "EXTTHRSHB"]
+    #[doc = "Use External Thresholds for FIFO Control of Pair B"]
     pub mod EXTTHRSHB {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -1766,7 +1766,7 @@ pub mod ASRMCRB {
             pub const USE_EXT_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "ZEROBUFB"]
+    #[doc = "Zero Buffer B"]
     pub mod ZEROBUFB {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
@@ -1782,7 +1782,7 @@ pub mod ASRMCRB {
 }
 #[doc = "ASRC FIFO Status for Pair B"]
 pub mod ASRFSTB {
-    #[doc = "INFIFO_FILLB"]
+    #[doc = "Fillings for Pair B's Input FIFO per Channel"]
     pub mod INFIFO_FILLB {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x7f << offset;
@@ -1790,7 +1790,7 @@ pub mod ASRFSTB {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "IAEB"]
+    #[doc = "Input FIFO is Near Empty for Pair B"]
     pub mod IAEB {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -1803,7 +1803,7 @@ pub mod ASRFSTB {
             pub const NEAR_EMPTY: u32 = 0x01;
         }
     }
-    #[doc = "OUTFIFO_FILLB"]
+    #[doc = "Fillings for Pair B's Output FIFO per Channel"]
     pub mod OUTFIFO_FILLB {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x7f << offset;
@@ -1811,7 +1811,7 @@ pub mod ASRFSTB {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "OAFB"]
+    #[doc = "Output FIFO is Near Full for Pair B"]
     pub mod OAFB {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
@@ -1827,7 +1827,7 @@ pub mod ASRFSTB {
 }
 #[doc = "ASRC Misc Control for Pair C"]
 pub mod ASRMCRC {
-    #[doc = "INFIFO_THRESHOLDC"]
+    #[doc = "Threshold for Pair C's Input FIFO per Channel"]
     pub mod INFIFO_THRESHOLDC {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x3f << offset;
@@ -1835,7 +1835,7 @@ pub mod ASRMCRC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "RSYNOFC"]
+    #[doc = "Re-sync Output FIFO Channel Counter"]
     pub mod RSYNOFC {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -1848,7 +1848,7 @@ pub mod ASRMCRC {
             pub const RESYNC: u32 = 0x01;
         }
     }
-    #[doc = "RSYNIFC"]
+    #[doc = "Re-sync Input FIFO Channel Counter"]
     pub mod RSYNIFC {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -1861,7 +1861,7 @@ pub mod ASRMCRC {
             pub const RESYNC: u32 = 0x01;
         }
     }
-    #[doc = "OUTFIFO_THRESHOLDC"]
+    #[doc = "Threshold for Pair C's Output FIFO per Channel"]
     pub mod OUTFIFO_THRESHOLDC {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x3f << offset;
@@ -1869,7 +1869,7 @@ pub mod ASRMCRC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "BYPASSPOLYC"]
+    #[doc = "Bypass Polyphase Filtering for Pair C"]
     pub mod BYPASSPOLYC {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -1882,7 +1882,7 @@ pub mod ASRMCRC {
             pub const BYPASS: u32 = 0x01;
         }
     }
-    #[doc = "BUFSTALLC"]
+    #[doc = "Stall Pair C Conversion in Case of Buffer Near Empty/Full Condition"]
     pub mod BUFSTALLC {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -1895,7 +1895,7 @@ pub mod ASRMCRC {
             pub const STALL: u32 = 0x01;
         }
     }
-    #[doc = "EXTTHRSHC"]
+    #[doc = "Use External Thresholds for FIFO Control of Pair C"]
     pub mod EXTTHRSHC {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -1908,7 +1908,7 @@ pub mod ASRMCRC {
             pub const USE_EXT_THRESH: u32 = 0x01;
         }
     }
-    #[doc = "ZEROBUFC"]
+    #[doc = "Zero Buffer C"]
     pub mod ZEROBUFC {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
@@ -1924,7 +1924,7 @@ pub mod ASRMCRC {
 }
 #[doc = "ASRC FIFO Status for Pair C"]
 pub mod ASRFSTC {
-    #[doc = "INFIFO_FILLC"]
+    #[doc = "Fillings for Pair C's Input FIFO per Channel"]
     pub mod INFIFO_FILLC {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x7f << offset;
@@ -1932,7 +1932,7 @@ pub mod ASRFSTC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "IAEC"]
+    #[doc = "Input FIFO is Near Empty for Pair C"]
     pub mod IAEC {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -1945,7 +1945,7 @@ pub mod ASRFSTC {
             pub const NEAR_EMPTY: u32 = 0x01;
         }
     }
-    #[doc = "OUTFIFO_FILLC"]
+    #[doc = "Fillings for Pair C's Output FIFO per Channel"]
     pub mod OUTFIFO_FILLC {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x7f << offset;
@@ -1953,7 +1953,7 @@ pub mod ASRFSTC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "OAFC"]
+    #[doc = "Output FIFO is Near Full for Pair C"]
     pub mod OAFC {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
@@ -1969,59 +1969,59 @@ pub mod ASRFSTC {
 }
 #[doc = "ASRC Misc Control 1 for Pair X"]
 pub mod ASRMCR1 {
-    #[doc = "OW16"]
+    #[doc = "Bit Width Option of the Output FIFO"]
     pub mod OW16 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "24-bit output data."]
+            #[doc = "24-bit output data"]
             pub const OUT_24BIT: u32 = 0;
             #[doc = "16-bit output data"]
             pub const OUT_16BIT: u32 = 0x01;
         }
     }
-    #[doc = "OSGN"]
+    #[doc = "Sign Extension Option of the Output FIFO"]
     pub mod OSGN {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No sign extension."]
+            #[doc = "No sign extension"]
             pub const NO_SIGN_EXT: u32 = 0;
-            #[doc = "Sign extension."]
+            #[doc = "Sign extension"]
             pub const SIGN_EXT: u32 = 0x01;
         }
     }
-    #[doc = "OMSB"]
+    #[doc = "Data Alignment of the Output FIFO"]
     pub mod OMSB {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "LSB aligned."]
+            #[doc = "LSB aligned"]
             pub const LSB_ALIGNED: u32 = 0;
-            #[doc = "MSB aligned."]
+            #[doc = "MSB aligned"]
             pub const MSB_ALIGNED: u32 = 0x01;
         }
     }
-    #[doc = "IMSB"]
+    #[doc = "Data Alignment of the Input FIFO"]
     pub mod IMSB {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "LSB aligned."]
+            #[doc = "LSB aligned"]
             pub const LSB_ALIGNED: u32 = 0;
-            #[doc = "MSB aligned."]
+            #[doc = "MSB aligned"]
             pub const MSB_ALIGNED: u32 = 0x01;
         }
     }
-    #[doc = "IWD"]
+    #[doc = "Data Width of the Input FIFO"]
     pub mod IWD {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x03 << offset;

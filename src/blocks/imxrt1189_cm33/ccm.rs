@@ -14615,10 +14615,10 @@ pub mod clockroot {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Turn on clock"]
-                pub const ON: u32 = 0;
-                #[doc = "Turn off clock"]
-                pub const OFF: u32 = 0x01;
+                #[doc = "Clock root is enabled"]
+                pub const ENABLED: u32 = 0;
+                #[doc = "Clock root is disabled"]
+                pub const DISABLED: u32 = 0x01;
             }
         }
     }
@@ -14728,10 +14728,10 @@ pub mod clockroot {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Clock is running"]
-                pub const OFF_0: u32 = 0;
-                #[doc = "Clock is disabled/off"]
-                pub const OFF_1: u32 = 0x01;
+                #[doc = "Clock root is enabled"]
+                pub const ENABLED: u32 = 0;
+                #[doc = "Clock root is disabled"]
+                pub const DISABLED: u32 = 0x01;
             }
         }
         #[doc = "Internal updating in generation logic Indication for clock generation logic is applying new setting."]
@@ -14770,10 +14770,10 @@ pub mod clockroot {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Clock cannot be changed in user mode"]
-                pub const TZ_USER_0: u32 = 0;
-                #[doc = "Clock can be changed in user mode"]
-                pub const TZ_USER_1: u32 = 0x01;
+                #[doc = "Clock Root settings cannot be changed in user mode."]
+                pub const USRMODE_N0: u32 = 0;
+                #[doc = "Clock Root settings can be changed in user mode."]
+                pub const USRMODE_YES: u32 = 0x01;
             }
         }
         #[doc = "Non-secure access permission"]
@@ -14783,10 +14783,10 @@ pub mod clockroot {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Cannot be changed in Non-secure mode"]
-                pub const TZ_NS_0: u32 = 0;
-                #[doc = "Can be changed in Non-secure mode"]
-                pub const TZ_NS_1: u32 = 0x01;
+                #[doc = "Cannot be changed in Non-secure mode."]
+                pub const NONSEC_NO: u32 = 0;
+                #[doc = "Can be changed in Non-secure mode."]
+                pub const NONSEC_YES: u32 = 0x01;
             }
         }
         #[doc = "Lock TrustZone settings"]
@@ -14796,10 +14796,10 @@ pub mod clockroot {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Trustzone setting is not locked"]
-                pub const LOCK_TZ_0: u32 = 0;
-                #[doc = "Trustzone setting is locked"]
-                pub const LOCK_TZ_1: u32 = 0x01;
+                #[doc = "TrustZone settings is not locked."]
+                pub const UNLOCKED: u32 = 0;
+                #[doc = "TrustZone settings is locked."]
+                pub const LOCKED: u32 = 0x01;
             }
         }
         #[doc = "Lock white list"]
@@ -14809,10 +14809,10 @@ pub mod clockroot {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Whitelist is not locked"]
-                pub const LOCK_LIST_0: u32 = 0;
-                #[doc = "Whitelist is locked"]
-                pub const LOCK_LIST_1: u32 = 0x01;
+                #[doc = "Whitelist is not locked."]
+                pub const UNLOCKED: u32 = 0;
+                #[doc = "Whitelist is locked."]
+                pub const LOCKED: u32 = 0x01;
             }
         }
         #[doc = "Whitelist settings"]
@@ -15836,17 +15836,17 @@ pub mod oscpll {
     }
     #[doc = "Clock source direct control"]
     pub mod OSCPLL_DIRECT {
-        #[doc = "turn on clock source"]
+        #[doc = "Turn on clock source"]
         pub mod ON {
             pub const offset: u32 = 0;
             pub const mask: u32 = 0x01 << offset;
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "OSCPLL is OFF"]
-                pub const ON_0: u32 = 0;
-                #[doc = "OSCPLL is ON"]
-                pub const ON_1: u32 = 0x01;
+                #[doc = "Clock source is OFF."]
+                pub const CLKSRC_OFF: u32 = 0;
+                #[doc = "Clock source is ON."]
+                pub const CLKSRC_ON: u32 = 0x01;
             }
         }
     }
@@ -16157,10 +16157,10 @@ pub mod oscpll {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Clock source is OFF"]
-                pub const ON_0: u32 = 0;
-                #[doc = "Clock source is ON"]
-                pub const ON_1: u32 = 0x01;
+                #[doc = "Clock source is OFF."]
+                pub const OFF: u32 = 0;
+                #[doc = "Clock source is ON."]
+                pub const ON: u32 = 0x01;
             }
         }
         #[doc = "Clock source active"]
@@ -16171,9 +16171,9 @@ pub mod oscpll {
             pub mod W {}
             pub mod RW {
                 #[doc = "Clock source is not active"]
-                pub const DIS: u32 = 0;
+                pub const NOT_ACTIVE: u32 = 0;
                 #[doc = "Clock source is active"]
-                pub const ENABLE: u32 = 0x01;
+                pub const ACTIVE: u32 = 0x01;
             }
         }
         #[doc = "Clock source ready"]
@@ -16184,9 +16184,9 @@ pub mod oscpll {
             pub mod W {}
             pub mod RW {
                 #[doc = "Clock source is not ready to use"]
-                pub const DIS: u32 = 0;
+                pub const NOT_READY: u32 = 0;
                 #[doc = "Clock source is ready to use"]
-                pub const ENABLE: u32 = 0x01;
+                pub const READY: u32 = 0x01;
             }
         }
         #[doc = "This Clock Source is being used or not."]
@@ -16196,10 +16196,10 @@ pub mod oscpll {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Clock source is not being used by clock roots"]
-                pub const DIS: u32 = 0;
-                #[doc = "Clock source is being used by clock roots"]
-                pub const ENABLE: u32 = 0x01;
+                #[doc = "Clock Source is not being used."]
+                pub const CLKSRC_NOTUSED: u32 = 0;
+                #[doc = "Clock Source is being used."]
+                pub const CLKSRC_USED: u32 = 0x01;
             }
         }
     }
@@ -16257,10 +16257,10 @@ pub mod oscpll {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Clock cannot be changed in user mode."]
-                pub const TZ_USER_0: u32 = 0;
-                #[doc = "Clock can be changed in user mode."]
-                pub const TZ_USER_1: u32 = 0x01;
+                #[doc = "Clock Source settings cannot be changed in user mode."]
+                pub const USR_MODE_NO: u32 = 0;
+                #[doc = "Clock Source settings can be changed in user mode."]
+                pub const USR_MODE_YES: u32 = 0x01;
             }
         }
         #[doc = "Non-secure access permission"]
@@ -16271,9 +16271,9 @@ pub mod oscpll {
             pub mod W {}
             pub mod RW {
                 #[doc = "Cannot be changed in Non-secure mode."]
-                pub const TZ_NS_0: u32 = 0;
+                pub const NONSEC_NO: u32 = 0;
                 #[doc = "Can be changed in Non-secure mode."]
-                pub const TZ_NS_1: u32 = 0x01;
+                pub const NONSEC_YES: u32 = 0x01;
             }
         }
         #[doc = "Lock TrustZone settings"]
@@ -16283,10 +16283,10 @@ pub mod oscpll {
             pub mod R {}
             pub mod W {}
             pub mod RW {
-                #[doc = "Trustzone setting is not locked."]
-                pub const LOCK_TZ_0: u32 = 0;
-                #[doc = "Trustzone setting is locked."]
-                pub const LOCK_TZ_1: u32 = 0x01;
+                #[doc = "TrustZone settings is not locked."]
+                pub const UNLOCKED: u32 = 0;
+                #[doc = "TrustZone settings is locked."]
+                pub const LOCKED: u32 = 0x01;
             }
         }
         #[doc = "Lock white list"]
@@ -16297,9 +16297,9 @@ pub mod oscpll {
             pub mod W {}
             pub mod RW {
                 #[doc = "Whitelist is not locked."]
-                pub const LOCK_LIST_0: u32 = 0;
+                pub const UNLOCKED: u32 = 0;
                 #[doc = "Whitelist is locked."]
-                pub const LOCK_LIST_1: u32 = 0x01;
+                pub const LOCKED: u32 = 0x01;
             }
         }
         #[doc = "Whitelist"]

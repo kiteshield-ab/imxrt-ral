@@ -27,7 +27,7 @@ pub mod CONTROL {
         pub mod RW {
             #[doc = "Do not clear the interrupt."]
             pub const INT_NOCLEAR: u32 = 0;
-            #[doc = "Clear the IF bit (interrupt flag)."]
+            #[doc = "Clear the IF field (interrupt flag)."]
             pub const INT_CLEAR: u32 = 0x01;
         }
     }
@@ -57,7 +57,7 @@ pub mod CONTROL {
             pub const EN_INT: u32 = 0x01;
         }
     }
-    #[doc = "BC12"]
+    #[doc = "Battery Charging Revision 1.2 Compatibility"]
     pub mod BC12 {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -106,7 +106,7 @@ pub mod CLOCK {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "kHz Speed (between 1 kHz and 1023 kHz)"]
+            #[doc = "kHz Speed (between 4 kHz and 1023 kHz)"]
             pub const KHZ_CLK: u32 = 0;
             #[doc = "MHz Speed (between 1 MHz and 1023 MHz)"]
             pub const MHZ_CLK: u32 = 0x01;
@@ -134,7 +134,7 @@ pub mod STATUS {
             pub const NO_RESULT: u32 = 0;
             #[doc = "Attached to an SDP. Must comply with USB 2.0 by drawing only 2.5 mA (max) until connected."]
             pub const CONN_SDP: u32 = 0x01;
-            #[doc = "Attached to a charging port. The exact meaning depends on bit 18 (value 0: Attached to either a CDP or a DCP. The charger type detection has not completed. value 1: Attached to a CDP. The charger type detection has completed.)"]
+            #[doc = "Attached to a charging port. The exact meaning depends on the STATUS\\[SEQ_STAT\\] field (value 0: Attached to either a CDP or a DCP. The charger type detection has not completed. value 1: Attached to a CDP. The charger type detection has completed.)"]
             pub const CONN_CP: u32 = 0x02;
             #[doc = "Attached to a DCP."]
             pub const CONN_DCP: u32 = 0x03;
@@ -166,7 +166,7 @@ pub mod STATUS {
         pub mod RW {
             #[doc = "No sequence errors."]
             pub const NO_SEQ_ERR: u32 = 0;
-            #[doc = "Error in the detection sequence. See the SEQ_STAT field to determine the phase in which the error occurred."]
+            #[doc = "Error in the detection sequence."]
             pub const SEQ_ERR: u32 = 0x01;
         }
     }
@@ -177,9 +177,9 @@ pub mod STATUS {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The detection sequence has not been running for over 1s."]
+            #[doc = "The detection sequence is not running for over 1 s."]
             pub const NO_TIMEOUT: u32 = 0;
-            #[doc = "It has been over 1 s since the data pin contact was detected and debounced."]
+            #[doc = "It is over 1 s since the data pin contact was detected and debounced."]
             pub const TIMEOUT: u32 = 0x01;
         }
     }
@@ -206,7 +206,7 @@ pub mod SIGNAL_OVERRIDE {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No overrides. Bit field must remain at this value during normal USB data communication to prevent unexpected conditions on USB_DP and USB_DM pins. (Default)"]
+            #[doc = "No overrides. Field must remain at this value during normal USB data communication to prevent unexpected conditions on USB_DP and USB_DM pins. (Default)"]
             pub const NO_OVERRIDE: u32 = 0;
             #[doc = "Enables VDP_SRC voltage source for the USB_DP pin and IDM_SINK current source for the USB_DM pin."]
             pub const PRI_DET_OVERRIDE: u32 = 0x02;

@@ -113,10 +113,10 @@ pub mod GLOBAL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Module is not reset."]
-            pub const RST_0: u32 = 0;
-            #[doc = "Module is reset."]
-            pub const RST_1: u32 = 0x01;
+            #[doc = "Not reset"]
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "Reset"]
+            pub const RESET: u32 = 0x01;
         }
     }
 }
@@ -129,20 +129,20 @@ pub mod PINCFG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Input trigger is disabled."]
-            pub const TRGSEL_0: u32 = 0;
-            #[doc = "Input trigger is used instead of RXD pin input."]
-            pub const TRGSEL_1: u32 = 0x01;
-            #[doc = "Input trigger is used instead of CTS_B pin input."]
-            pub const TRGSEL_2: u32 = 0x02;
-            #[doc = "Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is ANDed with the input trigger."]
-            pub const TRGSEL_3: u32 = 0x03;
+            #[doc = "Input trigger disabled"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Input trigger used instead of the RXD pin input"]
+            pub const TRG_RXD: u32 = 0x01;
+            #[doc = "Input trigger used instead of the CTS_B pin input"]
+            pub const TRG_CTS: u32 = 0x02;
+            #[doc = "Input trigger used to modulate the TXD pin output, which (after TXINV configuration) is internally ANDed with the input trigger"]
+            pub const TRG_TXD: u32 = 0x03;
         }
     }
 }
 #[doc = "Baud Rate"]
 pub mod BAUD {
-    #[doc = "Baud Rate Modulo Divisor."]
+    #[doc = "Baud Rate Modulo Divisor"]
     pub mod SBR {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x1fff << offset;
@@ -157,10 +157,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "One stop bit."]
-            pub const SBNS_0: u32 = 0;
-            #[doc = "Two stop bits."]
-            pub const SBNS_1: u32 = 0x01;
+            #[doc = "One stop bit"]
+            pub const ONE: u32 = 0;
+            #[doc = "Two stop bits"]
+            pub const TWO: u32 = 0x01;
         }
     }
     #[doc = "RX Input Active Edge Interrupt Enable"]
@@ -170,10 +170,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Hardware interrupts from STAT\\[RXEDGIF\\] are disabled."]
-            pub const RXEDGIE_0: u32 = 0;
-            #[doc = "Hardware interrupt is requested when STAT\\[RXEDGIF\\] flag is 1."]
-            pub const RXEDGIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "LIN Break Detect Interrupt Enable"]
@@ -183,10 +183,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Hardware interrupts from STAT\\[LBKDIF\\] flag are disabled (use polling)."]
-            pub const LBKDIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when STAT\\[LBKDIF\\] flag is 1."]
-            pub const LBKDIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Resynchronization Disable"]
@@ -196,10 +196,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Resynchronization during received data word is supported"]
-            pub const RESYNCDIS_0: u32 = 0;
-            #[doc = "Resynchronization during received data word is disabled"]
-            pub const RESYNCDIS_1: u32 = 0x01;
+            #[doc = "Enable"]
+            pub const RESYNC: u32 = 0;
+            #[doc = "Disable"]
+            pub const NO_RESYNC: u32 = 0x01;
         }
     }
     #[doc = "Both Edge Sampling"]
@@ -209,10 +209,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receiver samples input data using the rising edge of the baud rate clock."]
-            pub const BOTHEDGE_0: u32 = 0;
-            #[doc = "Receiver samples input data using the rising and falling edge of the baud rate clock."]
-            pub const BOTHEDGE_1: u32 = 0x01;
+            #[doc = "Rising edge"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Both rising and falling edges"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Match Configuration"]
@@ -222,14 +222,14 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Address Match Wakeup"]
-            pub const MATCFG_0: u32 = 0;
-            #[doc = "Idle Match Wakeup"]
-            pub const MATCFG_1: u32 = 0x01;
-            #[doc = "Match On and Match Off"]
-            pub const MATCFG_2: u32 = 0x02;
-            #[doc = "Enables RWU on Data Match and Match On/Off for transmitter CTS input"]
-            pub const MATCFG_3: u32 = 0x03;
+            #[doc = "Address match wake-up"]
+            pub const ADDR_MATCH: u32 = 0;
+            #[doc = "Idle match wake-up"]
+            pub const IDLE_MATCH: u32 = 0x01;
+            #[doc = "Match on and match off"]
+            pub const ONOFF_MATCH: u32 = 0x02;
+            #[doc = "Enables RWU on data match and match on or off for the transmitter CTS input"]
+            pub const RWU_MATCH: u32 = 0x03;
         }
     }
     #[doc = "Receiver Idle DMA Enable"]
@@ -239,10 +239,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request disabled."]
-            pub const RIDMAE_0: u32 = 0;
-            #[doc = "DMA request enabled."]
-            pub const RIDMAE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receiver Full DMA Enable"]
@@ -252,10 +252,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request disabled."]
-            pub const RDMAE_0: u32 = 0;
-            #[doc = "DMA request enabled."]
-            pub const RDMAE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmitter DMA Enable"]
@@ -265,10 +265,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA request disabled."]
-            pub const TDMAE_0: u32 = 0;
-            #[doc = "DMA request enabled."]
-            pub const TDMAE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Oversampling Ratio"]
@@ -278,79 +278,79 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Writing 0 to this field will result in an oversampling ratio of 16"]
-            pub const OSR_0: u32 = 0;
-            #[doc = "Oversampling ratio of 4, requires BOTHEDGE to be set."]
-            pub const OSR_3: u32 = 0x03;
-            #[doc = "Oversampling ratio of 5, requires BOTHEDGE to be set."]
-            pub const OSR_4: u32 = 0x04;
-            #[doc = "Oversampling ratio of 6, requires BOTHEDGE to be set."]
-            pub const OSR_5: u32 = 0x05;
-            #[doc = "Oversampling ratio of 7, requires BOTHEDGE to be set."]
-            pub const OSR_6: u32 = 0x06;
-            #[doc = "Oversampling ratio of 8."]
-            pub const OSR_7: u32 = 0x07;
-            #[doc = "Oversampling ratio of 9."]
-            pub const OSR_8: u32 = 0x08;
-            #[doc = "Oversampling ratio of 10."]
-            pub const OSR_9: u32 = 0x09;
-            #[doc = "Oversampling ratio of 11."]
-            pub const OSR_10: u32 = 0x0a;
-            #[doc = "Oversampling ratio of 12."]
-            pub const OSR_11: u32 = 0x0b;
-            #[doc = "Oversampling ratio of 13."]
-            pub const OSR_12: u32 = 0x0c;
-            #[doc = "Oversampling ratio of 14."]
-            pub const OSR_13: u32 = 0x0d;
-            #[doc = "Oversampling ratio of 15."]
-            pub const OSR_14: u32 = 0x0e;
-            #[doc = "Oversampling ratio of 16."]
-            pub const OSR_15: u32 = 0x0f;
-            #[doc = "Oversampling ratio of 17."]
-            pub const OSR_16: u32 = 0x10;
-            #[doc = "Oversampling ratio of 18."]
-            pub const OSR_17: u32 = 0x11;
-            #[doc = "Oversampling ratio of 19."]
-            pub const OSR_18: u32 = 0x12;
-            #[doc = "Oversampling ratio of 20."]
-            pub const OSR_19: u32 = 0x13;
-            #[doc = "Oversampling ratio of 21."]
-            pub const OSR_20: u32 = 0x14;
-            #[doc = "Oversampling ratio of 22."]
-            pub const OSR_21: u32 = 0x15;
-            #[doc = "Oversampling ratio of 23."]
-            pub const OSR_22: u32 = 0x16;
-            #[doc = "Oversampling ratio of 24."]
-            pub const OSR_23: u32 = 0x17;
-            #[doc = "Oversampling ratio of 25."]
-            pub const OSR_24: u32 = 0x18;
-            #[doc = "Oversampling ratio of 26."]
-            pub const OSR_25: u32 = 0x19;
-            #[doc = "Oversampling ratio of 27."]
-            pub const OSR_26: u32 = 0x1a;
-            #[doc = "Oversampling ratio of 28."]
-            pub const OSR_27: u32 = 0x1b;
-            #[doc = "Oversampling ratio of 29."]
-            pub const OSR_28: u32 = 0x1c;
-            #[doc = "Oversampling ratio of 30."]
-            pub const OSR_29: u32 = 0x1d;
-            #[doc = "Oversampling ratio of 31."]
-            pub const OSR_30: u32 = 0x1e;
-            #[doc = "Oversampling ratio of 32."]
-            pub const OSR_31: u32 = 0x1f;
+            #[doc = "Results in an OSR of 16"]
+            pub const DEFAULT: u32 = 0;
+            #[doc = "Results in an OSR of 4 (requires BAUD\\[BOTHEDGE\\] to be 1)"]
+            pub const OSR_4: u32 = 0x03;
+            #[doc = "Results in an OSR of 5 (requires BAUD\\[BOTHEDGE\\] to be 1)"]
+            pub const OSR_5: u32 = 0x04;
+            #[doc = "Results in an OSR of 6 (requires BAUD\\[BOTHEDGE\\] to be 1)"]
+            pub const OSR_6: u32 = 0x05;
+            #[doc = "Results in an OSR of 7 (requires BAUD\\[BOTHEDGE\\] to be 1)"]
+            pub const OSR_7: u32 = 0x06;
+            #[doc = "Results in an OSR of 8"]
+            pub const OSR_8: u32 = 0x07;
+            #[doc = "Results in an OSR of 9"]
+            pub const OSR_9: u32 = 0x08;
+            #[doc = "Results in an OSR of 10"]
+            pub const OSR_10: u32 = 0x09;
+            #[doc = "Results in an OSR of 11"]
+            pub const OSR_11: u32 = 0x0a;
+            #[doc = "Results in an OSR of 12"]
+            pub const OSR_12: u32 = 0x0b;
+            #[doc = "Results in an OSR of 13"]
+            pub const OSR_13: u32 = 0x0c;
+            #[doc = "Results in an OSR of 14"]
+            pub const OSR_14: u32 = 0x0d;
+            #[doc = "Results in an OSR of 15"]
+            pub const OSR_15: u32 = 0x0e;
+            #[doc = "Results in an OSR of 16"]
+            pub const OSR_16: u32 = 0x0f;
+            #[doc = "Results in an OSR of 17"]
+            pub const OSR_17: u32 = 0x10;
+            #[doc = "Results in an OSR of 18"]
+            pub const OSR_18: u32 = 0x11;
+            #[doc = "Results in an OSR of 19"]
+            pub const OSR_19: u32 = 0x12;
+            #[doc = "Results in an OSR of 20"]
+            pub const OSR_20: u32 = 0x13;
+            #[doc = "Results in an OSR of 21"]
+            pub const OSR_21: u32 = 0x14;
+            #[doc = "Results in an OSR of 22"]
+            pub const OSR_22: u32 = 0x15;
+            #[doc = "Results in an OSR of 23"]
+            pub const OSR_23: u32 = 0x16;
+            #[doc = "Results in an OSR of 24"]
+            pub const OSR_24: u32 = 0x17;
+            #[doc = "Results in an OSR of 25"]
+            pub const OSR_25: u32 = 0x18;
+            #[doc = "Results in an OSR of 26"]
+            pub const OSR_26: u32 = 0x19;
+            #[doc = "Results in an OSR of 27"]
+            pub const OSR_27: u32 = 0x1a;
+            #[doc = "Results in an OSR of 28"]
+            pub const OSR_28: u32 = 0x1b;
+            #[doc = "Results in an OSR of 29"]
+            pub const OSR_29: u32 = 0x1c;
+            #[doc = "Results in an OSR of 30"]
+            pub const OSR_30: u32 = 0x1d;
+            #[doc = "Results in an OSR of 31"]
+            pub const OSR_31: u32 = 0x1e;
+            #[doc = "Results in an OSR of 32"]
+            pub const OSR_32: u32 = 0x1f;
         }
     }
-    #[doc = "10-bit Mode select"]
+    #[doc = "10-Bit Mode Select"]
     pub mod M10 {
         pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receiver and transmitter use 7-bit to 9-bit data characters."]
-            pub const M10_0: u32 = 0;
-            #[doc = "Receiver and transmitter use 10-bit data characters."]
-            pub const M10_1: u32 = 0x01;
+            #[doc = "Receiver and transmitter use 7-bit to 9-bit data characters"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Receiver and transmitter use 10-bit data characters"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Match Address Mode Enable 2"]
@@ -360,10 +360,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
-            pub const MAEN2_0: u32 = 0;
-            #[doc = "Enables automatic address matching or data matching mode for MATCH\\[MA2\\]."]
-            pub const MAEN2_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Match Address Mode Enable 1"]
@@ -373,10 +373,10 @@ pub mod BAUD {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
-            pub const MAEN1_0: u32 = 0;
-            #[doc = "Enables automatic address matching or data matching mode for MATCH\\[MA1\\]."]
-            pub const MAEN1_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
 }
@@ -439,10 +439,10 @@ pub mod STAT {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Received data is not equal to MA2"]
-            pub const MA2F_0: u32 = 0;
-            #[doc = "Received data is equal to MA2"]
-            pub const MA2F_1: u32 = 0x01;
+            #[doc = "Not equal to MA2"]
+            pub const NOMATCH: u32 = 0;
+            #[doc = "Equal to MA2"]
+            pub const MATCH: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -452,10 +452,10 @@ pub mod STAT {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "Received data is not equal to MA1"]
-            pub const MA1F_0: u32 = 0;
-            #[doc = "Received data is equal to MA1"]
-            pub const MA1F_1: u32 = 0x01;
+            #[doc = "Not equal to MA1"]
+            pub const NOMATCH: u32 = 0;
+            #[doc = "Equal to MA1"]
+            pub const MATCH: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -465,10 +465,10 @@ pub mod STAT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No parity error."]
-            pub const PF_0: u32 = 0;
-            #[doc = "Parity error."]
-            pub const PF_1: u32 = 0x01;
+            #[doc = "No parity error detected"]
+            pub const NOPARITY: u32 = 0;
+            #[doc = "Parity error detected"]
+            pub const PARITY: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -478,10 +478,10 @@ pub mod STAT {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No framing error detected. This does not guarantee the framing is correct."]
-            pub const FE_0: u32 = 0;
-            #[doc = "Framing error."]
-            pub const FE_1: u32 = 0x01;
+            #[doc = "No framing error detected (this does not guarantee that the framing is correct)"]
+            pub const NOERROR: u32 = 0;
+            #[doc = "Framing error detected"]
+            pub const ERROR: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -491,10 +491,10 @@ pub mod STAT {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No noise detected."]
-            pub const NF_0: u32 = 0;
-            #[doc = "Noise detected in the received character in the DATA register."]
-            pub const NF_1: u32 = 0x01;
+            #[doc = "No noise detected"]
+            pub const NONOISE: u32 = 0;
+            #[doc = "Noise detected"]
+            pub const NOISE: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -504,10 +504,10 @@ pub mod STAT {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No overrun."]
-            pub const OR_0: u32 = 0;
-            #[doc = "Receive overrun (new LPUART data lost)."]
-            pub const OR_1: u32 = 0x01;
+            #[doc = "No overrun"]
+            pub const NO_OVERRUN: u32 = 0;
+            #[doc = "Receive overrun (new LPUART data is lost)"]
+            pub const OVERRUN: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -517,10 +517,10 @@ pub mod STAT {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No idle line detected."]
-            pub const IDLE_0: u32 = 0;
-            #[doc = "Idle line was detected."]
-            pub const IDLE_1: u32 = 0x01;
+            #[doc = "Idle line detected"]
+            pub const NOIDLE: u32 = 0;
+            #[doc = "Idle line not detected"]
+            pub const IDLE: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -532,10 +532,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive data buffer empty."]
-            pub const RDRF_0: u32 = 0;
-            #[doc = "Receive data buffer full."]
-            pub const RDRF_1: u32 = 0x01;
+            #[doc = "Equal to or less than watermark"]
+            pub const NO_RXDATA: u32 = 0;
+            #[doc = "Greater than watermark"]
+            pub const RXDATA: u32 = 0x01;
         }
     }
     #[doc = "Transmission Complete Flag"]
@@ -545,10 +545,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmitter active (sending data, a preamble, or a break)."]
-            pub const TC_0: u32 = 0;
-            #[doc = "Transmitter idle (transmission activity complete)."]
-            pub const TC_1: u32 = 0x01;
+            #[doc = "Transmitter active"]
+            pub const ACTIVE: u32 = 0;
+            #[doc = "Transmitter idle"]
+            pub const COMPLETE: u32 = 0x01;
         }
     }
     #[doc = "Transmit Data Register Empty Flag"]
@@ -558,10 +558,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit data buffer full."]
-            pub const TDRE_0: u32 = 0;
-            #[doc = "Transmit data buffer empty."]
-            pub const TDRE_1: u32 = 0x01;
+            #[doc = "Greater than watermark"]
+            pub const TXDATA: u32 = 0;
+            #[doc = "Equal to or less than watermark"]
+            pub const NO_TXDATA: u32 = 0x01;
         }
     }
     #[doc = "Receiver Active Flag"]
@@ -571,10 +571,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "LPUART receiver idle waiting for a start bit."]
-            pub const RAF_0: u32 = 0;
-            #[doc = "LPUART receiver active (RXD input not idle)."]
-            pub const RAF_1: u32 = 0x01;
+            #[doc = "Idle, waiting for a start bit"]
+            pub const IDLE: u32 = 0;
+            #[doc = "Receiver active (RXD pin input not idle)"]
+            pub const ACTIVE: u32 = 0x01;
         }
     }
     #[doc = "LIN Break Detection Enable"]
@@ -584,10 +584,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "LIN break detect is disabled, normal break character can be detected."]
-            pub const LBKDE_0: u32 = 0;
-            #[doc = "LIN break detect is enabled. LIN break character is detected at length of 11 bit times (if M = 0) or 12 (if M = 1) or 13 (M10 = 1)."]
-            pub const LBKDE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Break Character Generation Length"]
@@ -597,10 +597,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Break character is transmitted with length of 9 to 13 bit times."]
-            pub const BRK13_0: u32 = 0;
-            #[doc = "Break character is transmitted with length of 12 to 15 bit times."]
-            pub const BRK13_1: u32 = 0x01;
+            #[doc = "9 to 13 bit times"]
+            pub const SHORT: u32 = 0;
+            #[doc = "12 to 15 bit times"]
+            pub const LONG: u32 = 0x01;
         }
     }
     #[doc = "Receive Wake Up Idle Detect"]
@@ -610,10 +610,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "During receive standby state (RWU = 1), the IDLE bit does not get set upon detection of an idle character. During address match wakeup, the IDLE bit does not set when an address does not match."]
-            pub const RWUID_0: u32 = 0;
-            #[doc = "During receive standby state (RWU = 1), the IDLE bit gets set upon detection of an idle character. During address match wakeup, the IDLE bit does set when an address does not match."]
-            pub const RWUID_1: u32 = 0x01;
+            #[doc = "STAT\\[IDLE\\] does not become 1"]
+            pub const IDLE_NOTSET: u32 = 0;
+            #[doc = "STAT\\[IDLE\\] becomes 1"]
+            pub const IDLE_SET: u32 = 0x01;
         }
     }
     #[doc = "Receive Data Inversion"]
@@ -623,10 +623,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive data not inverted."]
-            pub const RXINV_0: u32 = 0;
-            #[doc = "Receive data inverted."]
-            pub const RXINV_1: u32 = 0x01;
+            #[doc = "Inverted"]
+            pub const NOT_INVERTED: u32 = 0;
+            #[doc = "Not inverted"]
+            pub const INVERTED: u32 = 0x01;
         }
     }
     #[doc = "MSB First"]
@@ -636,10 +636,10 @@ pub mod STAT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "LSB (bit0) is the first bit that is transmitted following the start bit. Further, the first bit received after the start bit is identified as bit0."]
-            pub const MSBF_0: u32 = 0;
-            #[doc = "MSB (bit9, bit8, bit7 or bit6) is the first bit that is transmitted following the start bit depending on the setting of CTRL\\[M\\], CTRL\\[PE\\] and BAUD\\[M10\\]. Further, the first bit received after the start bit is identified as bit9, bit8, bit7 or bit6 depending on the setting of CTRL\\[M\\] and CTRL\\[PE\\]."]
-            pub const MSBF_1: u32 = 0x01;
+            #[doc = "LSB"]
+            pub const LSB_FIRST: u32 = 0;
+            #[doc = "MSB"]
+            pub const MSB_FIRST: u32 = 0x01;
         }
     }
     #[doc = "RXD Pin Active Edge Interrupt Flag"]
@@ -647,10 +647,10 @@ pub mod STAT {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No active edge on the receive pin has occurred."]
-            pub const RXEDGIF_0: u32 = 0;
-            #[doc = "An active edge on the receive pin has occurred."]
-            pub const RXEDGIF_1: u32 = 0x01;
+            #[doc = "Not occurred"]
+            pub const NO_EDGE: u32 = 0;
+            #[doc = "Occurred"]
+            pub const EDGE: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -660,10 +660,10 @@ pub mod STAT {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No LIN break character has been detected."]
-            pub const LBKDIF_0: u32 = 0;
-            #[doc = "LIN break character has been detected."]
-            pub const LBKDIF_1: u32 = 0x01;
+            #[doc = "Not detected"]
+            pub const NOT_DETECTED: u32 = 0;
+            #[doc = "Detected"]
+            pub const DETECTED: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -678,10 +678,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Even parity."]
-            pub const PT_0: u32 = 0;
-            #[doc = "Odd parity."]
-            pub const PT_1: u32 = 0x01;
+            #[doc = "Even parity"]
+            pub const EVEN: u32 = 0;
+            #[doc = "Odd parity"]
+            pub const ODD: u32 = 0x01;
         }
     }
     #[doc = "Parity Enable"]
@@ -691,10 +691,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No hardware parity generation or checking."]
-            pub const PE_0: u32 = 0;
-            #[doc = "Parity enabled."]
-            pub const PE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Idle Line Type Select"]
@@ -704,36 +704,36 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Idle character bit count starts after start bit."]
-            pub const ILT_0: u32 = 0;
-            #[doc = "Idle character bit count starts after stop bit."]
-            pub const ILT_1: u32 = 0x01;
+            #[doc = "After the start bit"]
+            pub const FROM_START: u32 = 0;
+            #[doc = "After the stop bit"]
+            pub const FROM_STOP: u32 = 0x01;
         }
     }
-    #[doc = "Receiver Wakeup Method Select"]
+    #[doc = "Receiver Wake-Up Method Select"]
     pub mod WAKE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Configures RWU for idle-line wakeup."]
-            pub const WAKE_0: u32 = 0;
-            #[doc = "Configures RWU with address-mark wakeup."]
-            pub const WAKE_1: u32 = 0x01;
+            #[doc = "Idle"]
+            pub const IDLE: u32 = 0;
+            #[doc = "Mark"]
+            pub const MARK: u32 = 0x01;
         }
     }
-    #[doc = "9-Bit or 8-Bit Mode Select"]
+    #[doc = "9-Bit Or 8-Bit Mode Select"]
     pub mod M {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receiver and transmitter use 8-bit data characters."]
-            pub const M_0: u32 = 0;
-            #[doc = "Receiver and transmitter use 9-bit data characters."]
-            pub const M_1: u32 = 0x01;
+            #[doc = "8-bit"]
+            pub const DATA8: u32 = 0;
+            #[doc = "9-bit"]
+            pub const DATA9: u32 = 0x01;
         }
     }
     #[doc = "Receiver Source Select"]
@@ -743,23 +743,23 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the LPUART does not use the RXD pin."]
-            pub const RSRC_0: u32 = 0;
-            #[doc = "Single-wire LPUART mode where the TXD pin is connected to the transmitter output and receiver input."]
-            pub const RSRC_1: u32 = 0x01;
+            #[doc = "Internal Loopback mode"]
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "Single-wire mode"]
+            pub const ONEWIRE: u32 = 0x01;
         }
     }
-    #[doc = "Doze Enable"]
+    #[doc = "Doze Mode"]
     pub mod DOZEEN {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "LPUART is enabled in Doze mode."]
-            pub const DOZEEN_0: u32 = 0;
-            #[doc = "LPUART is disabled in Doze mode."]
-            pub const DOZEEN_1: u32 = 0x01;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0x01;
         }
     }
     #[doc = "Loop Mode Select"]
@@ -769,10 +769,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation - RXD and TXD use separate pins."]
-            pub const LOOPS_0: u32 = 0;
-            #[doc = "Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit)."]
-            pub const LOOPS_1: u32 = 0x01;
+            #[doc = "Normal operation: RXD and TXD use separate pins"]
+            pub const NOFFECT: u32 = 0;
+            #[doc = "Loop mode or Single-Wire mode"]
+            pub const LOOPBACK: u32 = 0x01;
         }
     }
     #[doc = "Idle Configuration"]
@@ -782,22 +782,22 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "1 idle character"]
-            pub const IDLECFG_0: u32 = 0;
-            #[doc = "2 idle characters"]
-            pub const IDLECFG_1: u32 = 0x01;
-            #[doc = "4 idle characters"]
-            pub const IDLECFG_2: u32 = 0x02;
-            #[doc = "8 idle characters"]
-            pub const IDLECFG_3: u32 = 0x03;
-            #[doc = "16 idle characters"]
-            pub const IDLECFG_4: u32 = 0x04;
-            #[doc = "32 idle characters"]
-            pub const IDLECFG_5: u32 = 0x05;
-            #[doc = "64 idle characters"]
-            pub const IDLECFG_6: u32 = 0x06;
-            #[doc = "128 idle characters"]
-            pub const IDLECFG_7: u32 = 0x07;
+            #[doc = "1"]
+            pub const IDLE_1: u32 = 0;
+            #[doc = "2"]
+            pub const IDLE_2: u32 = 0x01;
+            #[doc = "4"]
+            pub const IDLE_4: u32 = 0x02;
+            #[doc = "8"]
+            pub const IDLE_8: u32 = 0x03;
+            #[doc = "16"]
+            pub const IDLE_16: u32 = 0x04;
+            #[doc = "32"]
+            pub const IDLE_32: u32 = 0x05;
+            #[doc = "64"]
+            pub const IDLE_64: u32 = 0x06;
+            #[doc = "128"]
+            pub const IDLE_128: u32 = 0x07;
         }
     }
     #[doc = "7-Bit Mode Select"]
@@ -807,36 +807,36 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receiver and transmitter use 8-bit to 10-bit data characters."]
-            pub const M7_0: u32 = 0;
-            #[doc = "Receiver and transmitter use 7-bit data characters."]
-            pub const M7_1: u32 = 0x01;
+            #[doc = "8-bit to 10-bit"]
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "7-bit"]
+            pub const DATA7: u32 = 0x01;
         }
     }
-    #[doc = "Match 2 Interrupt Enable"]
+    #[doc = "Match 2 (MA2F) Interrupt Enable"]
     pub mod MA2IE {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "MA2F interrupt disabled"]
-            pub const MA2IE_0: u32 = 0;
-            #[doc = "MA2F interrupt enabled"]
-            pub const MA2IE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Match 1 Interrupt Enable"]
+    #[doc = "Match 1 (MA1F) Interrupt Enable"]
     pub mod MA1IE {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "MA1F interrupt disabled"]
-            pub const MA1IE_0: u32 = 0;
-            #[doc = "MA1F interrupt enabled"]
-            pub const MA1IE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Send Break"]
@@ -846,23 +846,23 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal transmitter operation."]
-            pub const SBK_0: u32 = 0;
-            #[doc = "Queue break character(s) to be sent."]
-            pub const SBK_1: u32 = 0x01;
+            #[doc = "Normal transmitter operation"]
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "Queue break character(s) to be sent"]
+            pub const TX_BREAK: u32 = 0x01;
         }
     }
-    #[doc = "Receiver Wakeup Control"]
+    #[doc = "Receiver Wake-Up Control"]
     pub mod RWU {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal receiver operation."]
-            pub const RWU_0: u32 = 0;
-            #[doc = "LPUART receiver in standby waiting for wakeup condition."]
-            pub const RWU_1: u32 = 0x01;
+            #[doc = "Normal receiver operation"]
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "LPUART receiver in standby, waiting for a wake-up condition"]
+            pub const RX_WAKEUP: u32 = 0x01;
         }
     }
     #[doc = "Receiver Enable"]
@@ -872,10 +872,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receiver disabled."]
-            pub const RE_0: u32 = 0;
-            #[doc = "Receiver enabled."]
-            pub const RE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmitter Enable"]
@@ -885,10 +885,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmitter disabled."]
-            pub const TE_0: u32 = 0;
-            #[doc = "Transmitter enabled."]
-            pub const TE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Idle Line Interrupt Enable"]
@@ -898,10 +898,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Hardware interrupts from IDLE disabled; use polling."]
-            pub const ILIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when IDLE flag is 1."]
-            pub const ILIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receiver Interrupt Enable"]
@@ -911,23 +911,23 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Hardware interrupts from RDRF disabled; use polling."]
-            pub const RIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when RDRF flag is 1."]
-            pub const RIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Transmission Complete Interrupt Enable for"]
+    #[doc = "Transmission Complete Interrupt Enable"]
     pub mod TCIE {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Hardware interrupts from TC disabled; use polling."]
-            pub const TCIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when TC flag is 1."]
-            pub const TCIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmit Interrupt Enable"]
@@ -937,10 +937,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Hardware interrupts from TDRE disabled; use polling."]
-            pub const TIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when TDRE flag is 1."]
-            pub const TIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Parity Error Interrupt Enable"]
@@ -950,10 +950,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "PF interrupts disabled; use polling)."]
-            pub const PEIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when PF is set."]
-            pub const PEIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Framing Error Interrupt Enable"]
@@ -963,10 +963,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FE interrupts disabled; use polling."]
-            pub const FEIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when FE is set."]
-            pub const FEIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Noise Error Interrupt Enable"]
@@ -976,10 +976,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "NF interrupts disabled; use polling."]
-            pub const NEIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when NF is set."]
-            pub const NEIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Overrun Interrupt Enable"]
@@ -989,10 +989,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "OR interrupts disabled; use polling."]
-            pub const ORIE_0: u32 = 0;
-            #[doc = "Hardware interrupt requested when OR is set."]
-            pub const ORIE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmit Data Inversion"]
@@ -1002,10 +1002,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit data not inverted."]
-            pub const TXINV_0: u32 = 0;
-            #[doc = "Transmit data inverted."]
-            pub const TXINV_1: u32 = 0x01;
+            #[doc = "Not inverted"]
+            pub const NOT_INVERTED: u32 = 0;
+            #[doc = "Inverted"]
+            pub const INVERTED: u32 = 0x01;
         }
     }
     #[doc = "TXD Pin Direction in Single-Wire Mode"]
@@ -1015,13 +1015,13 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "TXD pin is an input in single-wire mode."]
-            pub const TXDIR_0: u32 = 0;
-            #[doc = "TXD pin is an output in single-wire mode."]
-            pub const TXDIR_1: u32 = 0x01;
+            #[doc = "Input"]
+            pub const TX_INPUT: u32 = 0;
+            #[doc = "Output"]
+            pub const TX_OUTPUT: u32 = 0x01;
         }
     }
-    #[doc = "Receive Bit 9 / Transmit Bit 8"]
+    #[doc = "Receive Bit 9 Transmit Bit 8"]
     pub mod R9T8 {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;
@@ -1029,7 +1029,7 @@ pub mod CTRL {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Receive Bit 8 / Transmit Bit 9"]
+    #[doc = "Receive Bit 8 Transmit Bit 9"]
     pub mod R8T9 {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -1140,10 +1140,10 @@ pub mod DATA {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receiver was not idle before receiving this character."]
-            pub const IDLINE_0: u32 = 0;
-            #[doc = "Receiver was idle before receiving this character."]
-            pub const IDLINE_1: u32 = 0x01;
+            #[doc = "Not idle"]
+            pub const NO_IDLE: u32 = 0;
+            #[doc = "Idle"]
+            pub const IDLE: u32 = 0x01;
         }
     }
     #[doc = "Receive Buffer Empty"]
@@ -1153,10 +1153,10 @@ pub mod DATA {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive buffer contains valid data."]
-            pub const RXEMPT_0: u32 = 0;
-            #[doc = "Receive buffer is empty, data returned on read is not valid."]
-            pub const RXEMPT_1: u32 = 0x01;
+            #[doc = "Valid data"]
+            pub const NOT_EMPTY: u32 = 0;
+            #[doc = "Invalid data and empty"]
+            pub const EMPTY: u32 = 0x01;
         }
     }
     #[doc = "Frame Error Transmit Special Character"]
@@ -1166,10 +1166,10 @@ pub mod DATA {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The dataword was received without a frame error on read, or transmit a normal character on write."]
-            pub const FRETSC_0: u32 = 0;
-            #[doc = "The dataword was received with a frame error, or transmit an idle or break character on transmit."]
-            pub const FRETSC_1: u32 = 0x01;
+            #[doc = "Received without a frame error on reads or transmits a normal character on writes"]
+            pub const NO_ERROR: u32 = 0;
+            #[doc = "Received with a frame error on reads or transmits an idle or break character on writes"]
+            pub const ERROR: u32 = 0x01;
         }
     }
     #[doc = "Parity Error"]
@@ -1179,10 +1179,10 @@ pub mod DATA {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The dataword was received without a parity error."]
-            pub const PARITYE_0: u32 = 0;
-            #[doc = "The dataword was received with a parity error."]
-            pub const PARITYE_1: u32 = 0x01;
+            #[doc = "Received without a parity error"]
+            pub const NO_PARITY: u32 = 0;
+            #[doc = "Received with a parity error"]
+            pub const PARITY: u32 = 0x01;
         }
     }
     #[doc = "Noisy Data Received"]
@@ -1192,10 +1192,10 @@ pub mod DATA {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The dataword was received without noise."]
-            pub const NOISY_0: u32 = 0;
-            #[doc = "The data was received with noise."]
-            pub const NOISY_1: u32 = 0x01;
+            #[doc = "Received without noise"]
+            pub const NO_NOISE: u32 = 0;
+            #[doc = "Received with noise"]
+            pub const NOISE: u32 = 0x01;
         }
     }
 }
@@ -1227,10 +1227,10 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "CTS has no effect on the transmitter."]
-            pub const TXCTSE_0: u32 = 0;
-            #[doc = "Enables clear-to-send operation. The transmitter checks the state of CTS each time it is ready to send a character. If CTS is asserted, the character is sent. If CTS is deasserted, the signal TXD remains in the mark state and transmission is delayed until CTS is asserted. Changes in CTS as a character is being sent do not affect its transmission."]
-            pub const TXCTSE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmitter RTS Enable"]
@@ -1240,10 +1240,10 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The transmitter has no effect on RTS."]
-            pub const TXRTSE_0: u32 = 0;
-            #[doc = "When a character is placed into an empty transmitter data buffer , RTS asserts one bit time before the start bit is transmitted. RTS deasserts one bit time after all characters in the transmitter data buffer and shift register are completely sent, including the last stop bit."]
-            pub const TXRTSE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmitter RTS Polarity"]
@@ -1253,10 +1253,10 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmitter RTS is active low."]
-            pub const TXRTSPOL_0: u32 = 0;
-            #[doc = "Transmitter RTS is active high."]
-            pub const TXRTSPOL_1: u32 = 0x01;
+            #[doc = "Active low"]
+            pub const LOW: u32 = 0;
+            #[doc = "Active high"]
+            pub const HIGH: u32 = 0x01;
         }
     }
     #[doc = "Receiver RTS Enable"]
@@ -1266,10 +1266,10 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The receiver has no effect on RTS."]
-            pub const RXRTSE_0: u32 = 0;
-            #[doc = "RTS is deasserted if the receiver data register is full or a start bit has been detected that would cause the receiver data register to become full. RTS is asserted if the receiver data register is not full and has not detected a start bit that would cause the receiver data register to become full."]
-            pub const RXRTSE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmit CTS Configuration"]
@@ -1279,10 +1279,10 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "CTS input is sampled at the start of each character."]
-            pub const TXCTSC_0: u32 = 0;
-            #[doc = "CTS input is sampled when the transmitter is idle."]
-            pub const TXCTSC_1: u32 = 0x01;
+            #[doc = "Sampled at the start of each character"]
+            pub const START: u32 = 0;
+            #[doc = "Sampled when the transmitter is idle"]
+            pub const IDLE: u32 = 0x01;
         }
     }
     #[doc = "Transmit CTS Source"]
@@ -1292,10 +1292,10 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "CTS input is the CTS_B pin."]
-            pub const TXCTSSRC_0: u32 = 0;
-            #[doc = "CTS input is the inverted Receiver Match result."]
-            pub const TXCTSSRC_1: u32 = 0x01;
+            #[doc = "The CTS_B pin"]
+            pub const CTS: u32 = 0;
+            #[doc = "An internal connection to the receiver address match result"]
+            pub const MATCH: u32 = 0x01;
         }
     }
     #[doc = "Receive RTS Configuration"]
@@ -1313,14 +1313,14 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "1/OSR."]
-            pub const TNP_0: u32 = 0;
-            #[doc = "2/OSR."]
-            pub const TNP_1: u32 = 0x01;
-            #[doc = "3/OSR."]
-            pub const TNP_2: u32 = 0x02;
-            #[doc = "4/OSR."]
-            pub const TNP_3: u32 = 0x03;
+            #[doc = "1 / OSR"]
+            pub const ONE_SAMPLE: u32 = 0;
+            #[doc = "2 / OSR"]
+            pub const TWO_SAMPLE: u32 = 0x01;
+            #[doc = "3 / OSR"]
+            pub const THREE_SAMPLE: u32 = 0x02;
+            #[doc = "4 / OSR"]
+            pub const FOUR_SAMPLE: u32 = 0x03;
         }
     }
     #[doc = "IR Enable"]
@@ -1330,10 +1330,10 @@ pub mod MODIR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "IR disabled."]
-            pub const IREN_0: u32 = 0;
-            #[doc = "IR enabled."]
-            pub const IREN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
 }
@@ -1346,22 +1346,22 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive FIFO/Buffer depth = 1 dataword."]
-            pub const RXFIFOSIZE_0: u32 = 0;
-            #[doc = "Receive FIFO/Buffer depth = 4 datawords."]
-            pub const RXFIFOSIZE_1: u32 = 0x01;
-            #[doc = "Receive FIFO/Buffer depth = 8 datawords."]
-            pub const RXFIFOSIZE_2: u32 = 0x02;
-            #[doc = "Receive FIFO/Buffer depth = 16 datawords."]
-            pub const RXFIFOSIZE_3: u32 = 0x03;
-            #[doc = "Receive FIFO/Buffer depth = 32 datawords."]
-            pub const RXFIFOSIZE_4: u32 = 0x04;
-            #[doc = "Receive FIFO/Buffer depth = 64 datawords."]
-            pub const RXFIFOSIZE_5: u32 = 0x05;
-            #[doc = "Receive FIFO/Buffer depth = 128 datawords."]
-            pub const RXFIFOSIZE_6: u32 = 0x06;
-            #[doc = "Receive FIFO/Buffer depth = 256 datawords."]
-            pub const RXFIFOSIZE_7: u32 = 0x07;
+            #[doc = "1"]
+            pub const FIFO_1: u32 = 0;
+            #[doc = "4"]
+            pub const FIFO_4: u32 = 0x01;
+            #[doc = "8"]
+            pub const FIFO_8: u32 = 0x02;
+            #[doc = "16"]
+            pub const FIFO_16: u32 = 0x03;
+            #[doc = "32"]
+            pub const FIFO_32: u32 = 0x04;
+            #[doc = "64"]
+            pub const FIFO_64: u32 = 0x05;
+            #[doc = "128"]
+            pub const FIFO_128: u32 = 0x06;
+            #[doc = "256"]
+            pub const FIFO_256: u32 = 0x07;
         }
     }
     #[doc = "Receive FIFO Enable"]
@@ -1371,10 +1371,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive FIFO is not enabled. Buffer is depth 1."]
-            pub const RXFE_0: u32 = 0;
-            #[doc = "Receive FIFO is enabled. Buffer is depth indicted by RXFIFOSIZE."]
-            pub const RXFE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmit FIFO Buffer Depth"]
@@ -1384,22 +1384,22 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit FIFO/Buffer depth = 1 dataword."]
-            pub const TXFIFOSIZE_0: u32 = 0;
-            #[doc = "Transmit FIFO/Buffer depth = 4 datawords."]
-            pub const TXFIFOSIZE_1: u32 = 0x01;
-            #[doc = "Transmit FIFO/Buffer depth = 8 datawords."]
-            pub const TXFIFOSIZE_2: u32 = 0x02;
-            #[doc = "Transmit FIFO/Buffer depth = 16 datawords."]
-            pub const TXFIFOSIZE_3: u32 = 0x03;
-            #[doc = "Transmit FIFO/Buffer depth = 32 datawords."]
-            pub const TXFIFOSIZE_4: u32 = 0x04;
-            #[doc = "Transmit FIFO/Buffer depth = 64 datawords."]
-            pub const TXFIFOSIZE_5: u32 = 0x05;
-            #[doc = "Transmit FIFO/Buffer depth = 128 datawords."]
-            pub const TXFIFOSIZE_6: u32 = 0x06;
-            #[doc = "Transmit FIFO/Buffer depth = 256 datawords"]
-            pub const TXFIFOSIZE_7: u32 = 0x07;
+            #[doc = "1"]
+            pub const FIFO_1: u32 = 0;
+            #[doc = "4"]
+            pub const FIFO_4: u32 = 0x01;
+            #[doc = "8"]
+            pub const FIFO_8: u32 = 0x02;
+            #[doc = "16"]
+            pub const FIFO_16: u32 = 0x03;
+            #[doc = "32"]
+            pub const FIFO_32: u32 = 0x04;
+            #[doc = "64"]
+            pub const FIFO_64: u32 = 0x05;
+            #[doc = "128"]
+            pub const FIFO_128: u32 = 0x06;
+            #[doc = "256"]
+            pub const FIFO_256: u32 = 0x07;
         }
     }
     #[doc = "Transmit FIFO Enable"]
@@ -1409,10 +1409,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit FIFO is not enabled. Buffer is depth 1."]
-            pub const TXFE_0: u32 = 0;
-            #[doc = "Transmit FIFO is enabled. Buffer is depth indicated by TXFIFOSIZE."]
-            pub const TXFE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receive FIFO Underflow Interrupt Enable"]
@@ -1422,10 +1422,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "RXUF flag does not generate an interrupt to the host."]
-            pub const RXUFE_0: u32 = 0;
-            #[doc = "RXUF flag generates an interrupt to the host."]
-            pub const RXUFE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Transmit FIFO Overflow Interrupt Enable"]
@@ -1435,10 +1435,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "TXOF flag does not generate an interrupt to the host."]
-            pub const TXOFE_0: u32 = 0;
-            #[doc = "TXOF flag generates an interrupt to the host."]
-            pub const TXOFE_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Receiver Idle Empty Enable"]
@@ -1448,22 +1448,22 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disable RDRF assertion due to partially filled FIFO when receiver is idle."]
-            pub const RXIDEN_0: u32 = 0;
-            #[doc = "Enable RDRF assertion due to partially filled FIFO when receiver is idle for 1 character."]
-            pub const RXIDEN_1: u32 = 0x01;
-            #[doc = "Enable RDRF assertion due to partially filled FIFO when receiver is idle for 2 characters."]
-            pub const RXIDEN_2: u32 = 0x02;
-            #[doc = "Enable RDRF assertion due to partially filled FIFO when receiver is idle for 4 characters."]
-            pub const RXIDEN_3: u32 = 0x03;
-            #[doc = "Enable RDRF assertion due to partially filled FIFO when receiver is idle for 8 characters."]
-            pub const RXIDEN_4: u32 = 0x04;
-            #[doc = "Enable RDRF assertion due to partially filled FIFO when receiver is idle for 16 characters."]
-            pub const RXIDEN_5: u32 = 0x05;
-            #[doc = "Enable RDRF assertion due to partially filled FIFO when receiver is idle for 32 characters."]
-            pub const RXIDEN_6: u32 = 0x06;
-            #[doc = "Enable RDRF assertion due to partially filled FIFO when receiver is idle for 64 characters."]
-            pub const RXIDEN_7: u32 = 0x07;
+            #[doc = "Disable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle"]
+            pub const DISABLED: u32 = 0;
+            #[doc = "Enable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle for one character"]
+            pub const IDLE_1: u32 = 0x01;
+            #[doc = "Enable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle for two characters"]
+            pub const IDLE_2: u32 = 0x02;
+            #[doc = "Enable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle for four characters"]
+            pub const IDLE_4: u32 = 0x03;
+            #[doc = "Enable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle for eight characters"]
+            pub const IDLE_8: u32 = 0x04;
+            #[doc = "Enable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle for 16 characters"]
+            pub const IDLE_16: u32 = 0x05;
+            #[doc = "Enable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle for 32 characters"]
+            pub const IDLE_32: u32 = 0x06;
+            #[doc = "Enable STAT\\[RDRF\\] to become 1 because of partially filled FIFO when the receiver is idle for 64 characters"]
+            pub const IDLE_64: u32 = 0x07;
         }
     }
     #[doc = "Receive FIFO Flush"]
@@ -1473,10 +1473,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No flush operation occurs."]
-            pub const RXFLUSH_0: u32 = 0;
-            #[doc = "All data in the receive FIFO/buffer is cleared out."]
-            pub const RXFLUSH_1: u32 = 0x01;
+            #[doc = "No effect"]
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "All data flushed out"]
+            pub const RXFIFO_RST: u32 = 0x01;
         }
     }
     #[doc = "Transmit FIFO Flush"]
@@ -1486,10 +1486,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No flush operation occurs."]
-            pub const TXFLUSH_0: u32 = 0;
-            #[doc = "All data in the transmit FIFO/Buffer is cleared out."]
-            pub const TXFLUSH_1: u32 = 0x01;
+            #[doc = "No effect"]
+            pub const NO_EFFECT: u32 = 0;
+            #[doc = "All data flushed out"]
+            pub const TXFIFO_RST: u32 = 0x01;
         }
     }
     #[doc = "Receiver FIFO Underflow Flag"]
@@ -1497,10 +1497,10 @@ pub mod FIFO {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No receive buffer underflow has occurred since the last time the flag was cleared."]
-            pub const RXUF_0: u32 = 0;
-            #[doc = "At least one receive buffer underflow has occurred since the last time the flag was cleared."]
-            pub const RXUF_1: u32 = 0x01;
+            #[doc = "No underflow"]
+            pub const NO_UNDERFLOW: u32 = 0;
+            #[doc = "Underflow"]
+            pub const UNDERFLOW: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -1510,10 +1510,10 @@ pub mod FIFO {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {
-            #[doc = "No transmit buffer overflow has occurred since the last time the flag was cleared."]
-            pub const TXOF_0: u32 = 0;
-            #[doc = "At least one transmit buffer overflow has occurred since the last time the flag was cleared."]
-            pub const TXOF_1: u32 = 0x01;
+            #[doc = "No overflow"]
+            pub const NO_OVERFLOW: u32 = 0;
+            #[doc = "Overflow"]
+            pub const OVERFLOW: u32 = 0x01;
         }
         pub mod W {}
         pub mod RW {}
@@ -1525,10 +1525,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Receive buffer is not empty."]
-            pub const RXEMPT_0: u32 = 0;
-            #[doc = "Receive buffer is empty."]
-            pub const RXEMPT_1: u32 = 0x01;
+            #[doc = "Not empty"]
+            pub const NOT_EMPTY: u32 = 0;
+            #[doc = "Empty"]
+            pub const EMPTY: u32 = 0x01;
         }
     }
     #[doc = "Transmit FIFO Or Buffer Empty"]
@@ -1538,10 +1538,10 @@ pub mod FIFO {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit buffer is not empty."]
-            pub const TXEMPT_0: u32 = 0;
-            #[doc = "Transmit buffer is empty."]
-            pub const TXEMPT_1: u32 = 0x01;
+            #[doc = "Not empty"]
+            pub const NOT_EMPTY: u32 = 0;
+            #[doc = "Empty"]
+            pub const EMPTY: u32 = 0x01;
         }
     }
 }

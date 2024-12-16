@@ -57,7 +57,7 @@ pub mod VERID {
         pub mod W {}
         pub mod RW {
             #[doc = "Standard feature set."]
-            pub const FEATURE_0: u32 = 0;
+            pub const STD: u32 = 0;
         }
     }
     #[doc = "Minor Version Number"]
@@ -79,7 +79,7 @@ pub mod VERID {
 }
 #[doc = "Parameter"]
 pub mod PARAM {
-    #[doc = "Number of Datalines"]
+    #[doc = "Number of Datalinks"]
     pub mod DATALINE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -114,9 +114,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the DMA request."]
-            pub const FRDE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the DMA request."]
-            pub const FRDE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Warning DMA Enable"]
@@ -126,10 +126,10 @@ pub mod TCSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disables the DMA request."]
-            pub const FWDE_0: u32 = 0;
-            #[doc = "Enables the DMA request."]
-            pub const FWDE_1: u32 = 0x01;
+            #[doc = "Disables the DMA warning."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enables the DMA warning."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Request Interrupt Enable"]
@@ -140,9 +140,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the interrupt."]
-            pub const FRIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the interrupt."]
-            pub const FRIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Warning Interrupt Enable"]
@@ -153,9 +153,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the interrupt."]
-            pub const FWIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the interrupt."]
-            pub const FWIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Error Interrupt Enable"]
@@ -166,9 +166,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the interrupt."]
-            pub const FEIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the interrupt."]
-            pub const FEIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Sync Error Interrupt Enable"]
@@ -179,9 +179,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables interrupt."]
-            pub const SEIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables interrupt."]
-            pub const SEIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Word Start Interrupt Enable"]
@@ -192,9 +192,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables interrupt."]
-            pub const WSIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables interrupt."]
-            pub const WSIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Request Flag"]
@@ -205,9 +205,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Transmit FIFO watermark has not been reached."]
-            pub const FRF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Transmit FIFO watermark has been reached."]
-            pub const FRF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "FIFO Warning Flag"]
@@ -218,9 +218,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "No enabled transmit FIFO is empty."]
-            pub const FWF_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enabled transmit FIFO is empty."]
-            pub const FWF_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Error Flag"]
@@ -231,9 +231,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Transmit underrun not detected."]
-            pub const FEF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Transmit underrun detected."]
-            pub const FEF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Sync Error Flag"]
@@ -244,9 +244,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Sync error not detected."]
-            pub const SEF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Frame sync error detected."]
-            pub const SEF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Word Start Flag"]
@@ -257,9 +257,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Start of word not detected."]
-            pub const WSF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Start of word detected."]
-            pub const WSF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Software Reset"]
@@ -269,10 +269,10 @@ pub mod TCSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No effect."]
-            pub const SR_0: u32 = 0;
-            #[doc = "Software reset."]
-            pub const SR_1: u32 = 0x01;
+            #[doc = "No effect"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Software reset"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Reset"]
@@ -283,9 +283,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect."]
-            pub const FR_0: u32 = 0;
+            pub const NO_EFFECT: u32 = 0;
             #[doc = "FIFO reset."]
-            pub const FR_1: u32 = 0x01;
+            pub const RESET: u32 = 0x01;
         }
     }
     #[doc = "Bit Clock Enable"]
@@ -296,9 +296,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Transmit bit clock is disabled."]
-            pub const BCE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Transmit bit clock is enabled."]
-            pub const BCE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Debug Enable"]
@@ -309,9 +309,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Transmitter is disabled in Debug mode, after completing the current frame."]
-            pub const DBGE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Transmitter is enabled in Debug mode."]
-            pub const DBGE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Stop Enable"]
@@ -322,9 +322,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Transmitter disabled in Stop mode."]
-            pub const STOPE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Transmitter enabled in Stop mode."]
-            pub const STOPE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Transmitter Enable"]
@@ -335,9 +335,9 @@ pub mod TCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Transmitter is disabled."]
-            pub const TE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Transmitter is enabled, or transmitter has been disabled and has not yet reached end of frame."]
-            pub const TE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
 }
@@ -394,7 +394,7 @@ pub mod TCR2 {
         pub mod RW {
             #[doc = "Internal bit clock is generated from bit clock divider."]
             pub const DISABLE: u32 = 0;
-            #[doc = "Internal bit clock is divide by one of the audio master clock."]
+            #[doc = "Internal bit clock is divide-by-one of the audio master clock."]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -406,9 +406,9 @@ pub mod TCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "Bit clock is generated externally in Slave mode."]
-            pub const BCD_0: u32 = 0;
+            pub const EXT_IN_SLAVE: u32 = 0;
             #[doc = "Bit clock is generated internally in Master mode."]
-            pub const BCD_1: u32 = 0x01;
+            pub const INT_IN_MASTER: u32 = 0x01;
         }
     }
     #[doc = "Bit Clock Polarity"]
@@ -419,9 +419,9 @@ pub mod TCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "Bit clock is active high with drive outputs on rising edge and sample inputs on falling edge."]
-            pub const BCP_0: u32 = 0;
+            pub const ACTIVE_HIGH: u32 = 0;
             #[doc = "Bit clock is active low with drive outputs on falling edge and sample inputs on rising edge."]
-            pub const BCP_1: u32 = 0x01;
+            pub const ACTIVE_LOW: u32 = 0x01;
         }
     }
     #[doc = "MCLK Select"]
@@ -432,13 +432,13 @@ pub mod TCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "Bus Clock selected."]
-            pub const MSEL_0: u32 = 0;
+            pub const BUS_CLOCK: u32 = 0;
             #[doc = "Master Clock (MCLK) 1 option selected."]
-            pub const MSEL_1: u32 = 0x01;
+            pub const MCLK1: u32 = 0x01;
             #[doc = "Master Clock (MCLK) 2 option selected."]
-            pub const MSEL_2: u32 = 0x02;
+            pub const MCLK2: u32 = 0x02;
             #[doc = "Master Clock (MCLK) 3 option selected."]
-            pub const MSEL_3: u32 = 0x03;
+            pub const MCLK3: u32 = 0x03;
         }
     }
     #[doc = "Bit Clock Input"]
@@ -449,9 +449,9 @@ pub mod TCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect."]
-            pub const BCI_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Internal logic is clocked as if bit clock was externally generated."]
-            pub const BCI_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Bit Clock Swap"]
@@ -462,9 +462,9 @@ pub mod TCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "Use the normal bit clock source."]
-            pub const BCS_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Swap the bit clock source."]
-            pub const BCS_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Synchronous Mode"]
@@ -474,10 +474,10 @@ pub mod TCR2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Asynchronous mode."]
-            pub const SYNC_0: u32 = 0;
-            #[doc = "Synchronous with receiver."]
-            pub const SYNC_1: u32 = 0x01;
+            #[doc = "Asynchronous mode"]
+            pub const ASYNC: u32 = 0;
+            #[doc = "Synchronous with receiver"]
+            pub const SYNC_W_RX: u32 = 0x01;
         }
     }
 }
@@ -510,9 +510,9 @@ pub mod TCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Frame sync is generated externally in Slave mode."]
-            pub const FSD_0: u32 = 0;
+            pub const EXT_IN_SLAVE_MODE: u32 = 0;
             #[doc = "Frame sync is generated internally in Master mode."]
-            pub const FSD_1: u32 = 0x01;
+            pub const INT_IN_MASTER_MODE: u32 = 0x01;
         }
     }
     #[doc = "Frame Sync Polarity"]
@@ -523,9 +523,9 @@ pub mod TCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Frame sync is active high."]
-            pub const FSP_0: u32 = 0;
+            pub const ACTIVE_HIGH: u32 = 0;
             #[doc = "Frame sync is active low."]
-            pub const FSP_1: u32 = 0x01;
+            pub const ACTIVE_LOW: u32 = 0x01;
         }
     }
     #[doc = "On Demand Mode"]
@@ -536,9 +536,9 @@ pub mod TCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Internal frame sync is generated continuously."]
-            pub const ONDEM_0: u32 = 0;
-            #[doc = "Internal frame sync is generated when the FIFO warning flag is clear."]
-            pub const ONDEM_1: u32 = 0x01;
+            pub const CONTINUOUS_FRAME_SYNC: u32 = 0;
+            #[doc = "Internal frame sync is generated when the FIFO warning flag is 0."]
+            pub const ON_DEMAND_FRAME_SYNC: u32 = 0x01;
         }
     }
     #[doc = "Frame Sync Early"]
@@ -549,9 +549,9 @@ pub mod TCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Frame sync asserts with the first bit of the frame."]
-            pub const FSE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Frame sync asserts one bit before the first bit of the frame."]
-            pub const FSE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "MSB First"]
@@ -562,9 +562,9 @@ pub mod TCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "LSB is transmitted first."]
-            pub const MF_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "MSB is transmitted first."]
-            pub const MF_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Channel Mode"]
@@ -574,10 +574,10 @@ pub mod TCR4 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "TDM mode, transmit data pins are tri-stated when slots are masked or channels are disabled."]
-            pub const CHMOD_0: u32 = 0;
-            #[doc = "Output mode, transmit data pins are never tri-stated and will output zero when slots are masked or channels are disabled."]
-            pub const CHMOD_1: u32 = 0x01;
+            #[doc = "TDM mode, transmit data pins are 3-stated when slots are masked or channels are disabled."]
+            pub const TDM_MODE: u32 = 0;
+            #[doc = "Output mode, transmit data pins are never 3-stated and output zero when slots are masked or channels are disabled."]
+            pub const OUTPUT_MODE: u32 = 0x01;
         }
     }
     #[doc = "Sync Width"]
@@ -603,12 +603,12 @@ pub mod TCR4 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FIFO packing is disabled"]
-            pub const FPACK_0: u32 = 0;
-            #[doc = "8-bit FIFO packing is enabled"]
-            pub const FPACK_2: u32 = 0x02;
-            #[doc = "16-bit FIFO packing is enabled"]
-            pub const FPACK_3: u32 = 0x03;
+            #[doc = "FIFO packing is disabled."]
+            pub const DISABLED: u32 = 0;
+            #[doc = "8-bit FIFO packing is enabled."]
+            pub const EIGHT_BIT_FIFO_PACKING: u32 = 0x02;
+            #[doc = "16-bit FIFO packing is enabled."]
+            pub const SIXTEEN_BIT_FIFO_PACKING: u32 = 0x03;
         }
     }
     #[doc = "FIFO Continue on Error"]
@@ -618,10 +618,10 @@ pub mod TCR4 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "On FIFO error, the SAI will continue from the start of the next frame after the FIFO error flag has been cleared."]
-            pub const FCONT_0: u32 = 0;
-            #[doc = "On FIFO error, the SAI will continue from the same word that caused the FIFO error to set after the FIFO warning flag has been cleared."]
-            pub const FCONT_1: u32 = 0x01;
+            #[doc = "On FIFO error, SAI continues from the start of the next frame after the FIFO error flag has been cleared."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "On FIFO error, SAI continues from the same word that caused the FIFO error to become 1 after the FIFO warning flag returns to 0."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
 }
@@ -761,9 +761,9 @@ pub mod TMR {
         pub mod W {}
         pub mod RW {
             #[doc = "Word N is enabled."]
-            pub const TWM_0: u32 = 0;
-            #[doc = "Word N is masked. The transmit data pins are tri-stated or drive zero when masked."]
-            pub const TWM_1: u32 = 0x01;
+            pub const WORD_N_ENABLED: u32 = 0;
+            #[doc = "Word N is masked. The transmit data pins are 3-stated or drive zero when masked."]
+            pub const WORD_N_MASKED: u32 = 0x01;
         }
     }
 }
@@ -777,9 +777,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the DMA request."]
-            pub const FRDE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the DMA request."]
-            pub const FRDE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Warning DMA Enable"]
@@ -789,10 +789,10 @@ pub mod RCSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disables the DMA request."]
-            pub const FWDE_0: u32 = 0;
-            #[doc = "Enables the DMA request."]
-            pub const FWDE_1: u32 = 0x01;
+            #[doc = "Disables DMA warnings."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enables DMA warnings."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Request Interrupt Enable"]
@@ -803,9 +803,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the interrupt."]
-            pub const FRIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the interrupt."]
-            pub const FRIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Warning Interrupt Enable"]
@@ -816,9 +816,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the interrupt."]
-            pub const FWIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the interrupt."]
-            pub const FWIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Error Interrupt Enable"]
@@ -829,9 +829,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables the interrupt."]
-            pub const FEIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables the interrupt."]
-            pub const FEIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Sync Error Interrupt Enable"]
@@ -842,9 +842,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables interrupt."]
-            pub const SEIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables interrupt."]
-            pub const SEIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Word Start Interrupt Enable"]
@@ -855,9 +855,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Disables interrupt."]
-            pub const WSIE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Enables interrupt."]
-            pub const WSIE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "FIFO Request Flag"]
@@ -868,9 +868,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Receive FIFO watermark not reached."]
-            pub const FRF_0: u32 = 0;
+            pub const BELOW_WATERMARK: u32 = 0;
             #[doc = "Receive FIFO watermark has been reached."]
-            pub const FRF_1: u32 = 0x01;
+            pub const WATERMARK_REACHED: u32 = 0x01;
         }
     }
     #[doc = "FIFO Warning Flag"]
@@ -881,9 +881,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "No enabled receive FIFO is full."]
-            pub const FWF_0: u32 = 0;
+            pub const NOT_FULL: u32 = 0;
             #[doc = "Enabled receive FIFO is full."]
-            pub const FWF_1: u32 = 0x01;
+            pub const FULL: u32 = 0x01;
         }
     }
     #[doc = "FIFO Error Flag"]
@@ -894,9 +894,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Receive overflow not detected."]
-            pub const FEF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Receive overflow detected."]
-            pub const FEF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Sync Error Flag"]
@@ -907,9 +907,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Sync error not detected."]
-            pub const SEF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Frame sync error detected."]
-            pub const SEF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Word Start Flag"]
@@ -920,9 +920,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Start of word not detected."]
-            pub const WSF_0: u32 = 0;
+            pub const NO_FLAG: u32 = 0;
             #[doc = "Start of word detected."]
-            pub const WSF_1: u32 = 0x01;
+            pub const FLAG: u32 = 0x01;
         }
     }
     #[doc = "Software Reset"]
@@ -933,9 +933,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect."]
-            pub const SR_0: u32 = 0;
+            pub const NO_EFFECT: u32 = 0;
             #[doc = "Software reset."]
-            pub const SR_1: u32 = 0x01;
+            pub const SW_RESET: u32 = 0x01;
         }
     }
     #[doc = "FIFO Reset"]
@@ -946,9 +946,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect."]
-            pub const FR_0: u32 = 0;
+            pub const NO_EFFECT: u32 = 0;
             #[doc = "FIFO reset."]
-            pub const FR_1: u32 = 0x01;
+            pub const FIFO_RESET: u32 = 0x01;
         }
     }
     #[doc = "Bit Clock Enable"]
@@ -959,9 +959,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Receive bit clock is disabled."]
-            pub const BCE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Receive bit clock is enabled."]
-            pub const BCE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Debug Enable"]
@@ -972,9 +972,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Receiver is disabled in Debug mode, after completing the current frame."]
-            pub const DBGE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Receiver is enabled in Debug mode."]
-            pub const DBGE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Stop Enable"]
@@ -985,9 +985,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Receiver disabled in Stop mode."]
-            pub const STOPE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Receiver enabled in Stop mode."]
-            pub const STOPE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Receiver Enable"]
@@ -998,9 +998,9 @@ pub mod RCSR {
         pub mod W {}
         pub mod RW {
             #[doc = "Receiver is disabled."]
-            pub const RE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Receiver is enabled, or receiver has been disabled and has not yet reached end of frame."]
-            pub const RE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
 }
@@ -1057,7 +1057,7 @@ pub mod RCR2 {
         pub mod RW {
             #[doc = "Internal bit clock is generated from bit clock divider."]
             pub const DISABLE: u32 = 0;
-            #[doc = "Internal bit clock is divide by one of the audio master clock."]
+            #[doc = "Internal bit clock is divide-by-one of the audio master clock."]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -1069,9 +1069,9 @@ pub mod RCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "Bit clock is generated externally in Slave mode."]
-            pub const BCD_0: u32 = 0;
+            pub const EXT_SLAVE_MODE: u32 = 0;
             #[doc = "Bit clock is generated internally in Master mode."]
-            pub const BCD_1: u32 = 0x01;
+            pub const INT_MASTER_MODE: u32 = 0x01;
         }
     }
     #[doc = "Bit Clock Polarity"]
@@ -1081,10 +1081,10 @@ pub mod RCR2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Bit Clock is active high with drive outputs on rising edge and sample inputs on falling edge."]
-            pub const BCP_0: u32 = 0;
-            #[doc = "Bit Clock is active low with drive outputs on falling edge and sample inputs on rising edge."]
-            pub const BCP_1: u32 = 0x01;
+            #[doc = "Bit clock is active high with drive outputs on rising edge and sample inputs on falling edge."]
+            pub const ACTIVE_HIGH: u32 = 0;
+            #[doc = "Bit clock is active low with drive outputs on falling edge and sample inputs on rising edge."]
+            pub const ACTIVE_LOW: u32 = 0x01;
         }
     }
     #[doc = "MCLK Select"]
@@ -1095,13 +1095,13 @@ pub mod RCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "Bus Clock selected."]
-            pub const MSEL_0: u32 = 0;
+            pub const BUS_CLOCK: u32 = 0;
             #[doc = "Master Clock (MCLK) 1 option selected."]
-            pub const MSEL_1: u32 = 0x01;
+            pub const MCLK1: u32 = 0x01;
             #[doc = "Master Clock (MCLK) 2 option selected."]
-            pub const MSEL_2: u32 = 0x02;
+            pub const MCLK2: u32 = 0x02;
             #[doc = "Master Clock (MCLK) 3 option selected."]
-            pub const MSEL_3: u32 = 0x03;
+            pub const MCLK3: u32 = 0x03;
         }
     }
     #[doc = "Bit Clock Input"]
@@ -1112,9 +1112,9 @@ pub mod RCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "No effect."]
-            pub const BCI_0: u32 = 0;
+            pub const NO_EFFECT: u32 = 0;
             #[doc = "Internal logic is clocked as if bit clock was externally generated."]
-            pub const BCI_1: u32 = 0x01;
+            pub const CLOCKED_AS_IF_EXT_GENERATED: u32 = 0x01;
         }
     }
     #[doc = "Bit Clock Swap"]
@@ -1125,9 +1125,9 @@ pub mod RCR2 {
         pub mod W {}
         pub mod RW {
             #[doc = "Use the normal bit clock source."]
-            pub const BCS_0: u32 = 0;
+            pub const NORMAL: u32 = 0;
             #[doc = "Swap the bit clock source."]
-            pub const BCS_1: u32 = 0x01;
+            pub const SWAP_BIT_CLK_SOURCE: u32 = 0x01;
         }
     }
     #[doc = "Synchronous Mode"]
@@ -1137,10 +1137,10 @@ pub mod RCR2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Asynchronous mode."]
-            pub const SYNC_0: u32 = 0;
-            #[doc = "Synchronous with transmitter."]
-            pub const SYNC_1: u32 = 0x01;
+            #[doc = "Asynchronous mode"]
+            pub const ASYNC: u32 = 0;
+            #[doc = "Synchronous with transmitter"]
+            pub const SYNC_W_TX: u32 = 0x01;
         }
     }
 }
@@ -1196,9 +1196,9 @@ pub mod RCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Frame Sync is generated externally in Slave mode."]
-            pub const FSD_0: u32 = 0;
+            pub const EXT_SLAVE_MODE: u32 = 0;
             #[doc = "Frame Sync is generated internally in Master mode."]
-            pub const FSD_1: u32 = 0x01;
+            pub const INT_MASTER_MODE: u32 = 0x01;
         }
     }
     #[doc = "Frame Sync Polarity"]
@@ -1209,9 +1209,9 @@ pub mod RCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Frame sync is active high."]
-            pub const FSP_0: u32 = 0;
+            pub const ACTIVE_HIGH: u32 = 0;
             #[doc = "Frame sync is active low."]
-            pub const FSP_1: u32 = 0x01;
+            pub const ACTIVE_LOW: u32 = 0x01;
         }
     }
     #[doc = "On Demand Mode"]
@@ -1222,9 +1222,9 @@ pub mod RCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Internal frame sync is generated continuously."]
-            pub const ONDEM_0: u32 = 0;
-            #[doc = "Internal frame sync is generated when the FIFO warning flag is clear."]
-            pub const ONDEM_1: u32 = 0x01;
+            pub const DISABLE: u32 = 0;
+            #[doc = "Internal frame sync is generated when the FIFO warning flag is 0."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Frame Sync Early"]
@@ -1235,9 +1235,9 @@ pub mod RCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "Frame sync asserts with the first bit of the frame."]
-            pub const FSE_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Frame sync asserts one bit before the first bit of the frame."]
-            pub const FSE_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "MSB First"]
@@ -1248,9 +1248,9 @@ pub mod RCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "LSB is received first."]
-            pub const MF_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "MSB is received first."]
-            pub const MF_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Sync Width"]
@@ -1323,11 +1323,11 @@ pub mod RCR4 {
         pub mod W {}
         pub mod RW {
             #[doc = "FIFO packing is disabled"]
-            pub const FPACK_0: u32 = 0;
+            pub const DISABLED: u32 = 0;
             #[doc = "8-bit FIFO packing is enabled"]
-            pub const FPACK_2: u32 = 0x02;
+            pub const EIGHT_BIT_PACKING: u32 = 0x02;
             #[doc = "16-bit FIFO packing is enabled"]
-            pub const FPACK_3: u32 = 0x03;
+            pub const SIXTEEN_BIT_PACKING: u32 = 0x03;
         }
     }
     #[doc = "FIFO Continue on Error"]
@@ -1337,10 +1337,10 @@ pub mod RCR4 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "On FIFO error, the SAI will continue from the start of the next frame after the FIFO error flag has been cleared."]
-            pub const FCONT_0: u32 = 0;
-            #[doc = "On FIFO error, the SAI will continue from the same word that caused the FIFO error to set after the FIFO warning flag has been cleared."]
-            pub const FCONT_1: u32 = 0x01;
+            #[doc = "On FIFO error, SAI continues from the start of the next frame after the FIFO error flag returns to 0."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "On FIFO error, SAI continues from the same word that caused the FIFO error to become 1 after the FIFO warning flag returns to 0."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
 }
@@ -1480,9 +1480,9 @@ pub mod RMR {
         pub mod W {}
         pub mod RW {
             #[doc = "Word N is enabled."]
-            pub const RWM_0: u32 = 0;
+            pub const WORD_N_ENABLED: u32 = 0;
             #[doc = "Word N is masked."]
-            pub const RWM_1: u32 = 0x01;
+            pub const WORD_N_MASKED: u32 = 0x01;
         }
     }
 }

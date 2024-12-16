@@ -124,101 +124,101 @@ pub struct RegisterBlock {
 }
 #[doc = "USBPHY Powerdown"]
 pub mod PWD {
-    #[doc = "TXPWDFS"]
+    #[doc = "FS Transmitter Powerdown"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
+            #[doc = "Provide bias to enable for normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Power-down the USB full-speed drivers. This turns off the current starvation sources and puts the drivers into high-impedance output"]
+            #[doc = "Disable or power down"]
             pub const PWR_DOWN: u32 = 0x01;
         }
     }
-    #[doc = "TXPWDIBIAS"]
+    #[doc = "Transmitter Bias Powerdown"]
     pub mod TXPWDIBIAS {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation"]
+            #[doc = "Enable for normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Power-down the USB PHY current bias block for the transmitter. This bit should be set only when the USB is in suspend mode. This effectively powers down the entire USB transmit path"]
+            #[doc = "Disable or power down"]
             pub const PWR_DOWN: u32 = 0x01;
         }
     }
-    #[doc = "TXPWDV2I"]
+    #[doc = "USBPHY TX V-I Converter and Current Mirror Powerdown"]
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
+            #[doc = "Enable for normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Power-down the USB PHY transmit V-to-I converter and the current mirror"]
+            #[doc = "Disable or power down"]
             pub const PWR_DOWN: u32 = 0x01;
         }
     }
-    #[doc = "RXPWDENV"]
+    #[doc = "Receiver Envelope Powerdown"]
     pub mod RXPWDENV {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
+            #[doc = "Enable for normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Power-down the USB high-speed receiver envelope detector (squelch signal)"]
+            #[doc = "Disable or power down"]
             pub const PWR_DOWN: u32 = 0x01;
         }
     }
-    #[doc = "RXPWD1PT1"]
+    #[doc = "FS Receiver Powerdown"]
     pub mod RXPWD1PT1 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation"]
+            #[doc = "Enable for normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Power-down the USB full-speed differential receiver."]
+            #[doc = "Disable or power down"]
             pub const PWR_DOWN: u32 = 0x01;
         }
     }
-    #[doc = "RXPWDDIFF"]
+    #[doc = "HS Receiver Powerdown"]
     pub mod RXPWDDIFF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
+            #[doc = "Enable for normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Power-down the USB high-speed differential receiver"]
+            #[doc = "Disable or power down"]
             pub const PWR_DOWN: u32 = 0x01;
         }
     }
-    #[doc = "RXPWDRX"]
+    #[doc = "Receiver Powerdown"]
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation"]
+            #[doc = "Enable for normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Power-down the entire USB PHY receiver block except for the full-speed differential receiver"]
+            #[doc = "Disable or power down RX circuits"]
             pub const PWR_DOWN: u32 = 0x01;
         }
     }
 }
 #[doc = "USBPHY Powerdown"]
 pub mod PWD_SET {
-    #[doc = "0 = Normal operation"]
+    #[doc = "FS Transmitter Powerdown"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -226,7 +226,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Transmitter Bias Powerdown"]
     pub mod TXPWDIBIAS {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -234,7 +234,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "USBPHY TX V-I Converter and Current Mirror Powerdown"]
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -242,7 +242,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Receiver Envelope Powerdown"]
     pub mod RXPWDENV {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -250,7 +250,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "FS Receiver Powerdown"]
     pub mod RXPWD1PT1 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -258,7 +258,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "HS Receiver Powerdown"]
     pub mod RXPWDDIFF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -266,7 +266,7 @@ pub mod PWD_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Receiver Powerdown"]
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -277,7 +277,7 @@ pub mod PWD_SET {
 }
 #[doc = "USBPHY Powerdown"]
 pub mod PWD_CLR {
-    #[doc = "0 = Normal operation"]
+    #[doc = "FS Transmitter Powerdown"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -285,7 +285,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Transmitter Bias Powerdown"]
     pub mod TXPWDIBIAS {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -293,7 +293,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "USBPHY TX V-I Converter and Current Mirror Powerdown"]
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -301,7 +301,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Receiver Envelope Powerdown"]
     pub mod RXPWDENV {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -309,7 +309,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "FS Receiver Powerdown"]
     pub mod RXPWD1PT1 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -317,7 +317,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "HS Receiver Powerdown"]
     pub mod RXPWDDIFF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -325,7 +325,7 @@ pub mod PWD_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Receiver Powerdown"]
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -336,7 +336,7 @@ pub mod PWD_CLR {
 }
 #[doc = "USBPHY Powerdown"]
 pub mod PWD_TOG {
-    #[doc = "0 = Normal operation"]
+    #[doc = "FS Transmitter Powerdown"]
     pub mod TXPWDFS {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -344,7 +344,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Transmitter Bias Powerdown"]
     pub mod TXPWDIBIAS {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -352,7 +352,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "USBPHY TX V-I Converter and Current Mirror Powerdown"]
     pub mod TXPWDV2I {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -360,7 +360,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Receiver Envelope Powerdown"]
     pub mod RXPWDENV {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -368,7 +368,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "FS Receiver Powerdown"]
     pub mod RXPWD1PT1 {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -376,7 +376,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "HS Receiver Powerdown"]
     pub mod RXPWDDIFF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -384,7 +384,7 @@ pub mod PWD_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Receiver Powerdown"]
     pub mod RXPWDRX {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -521,7 +521,7 @@ pub mod TX {
 }
 #[doc = "USBPHY Transmitter Control"]
 pub mod TX_SET {
-    #[doc = "D_CAL"]
+    #[doc = "HS Transmit Output Current Trim"]
     pub mod D_CAL {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -529,7 +529,7 @@ pub mod TX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXCAL45DN"]
+    #[doc = "Transmit Calculation 45 ohm DN"]
     pub mod TXCAL45DN {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -537,7 +537,7 @@ pub mod TX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXCAL45DP"]
+    #[doc = "Transmit Calculation 45 ohm DP"]
     pub mod TXCAL45DP {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -548,7 +548,7 @@ pub mod TX_SET {
 }
 #[doc = "USBPHY Transmitter Control"]
 pub mod TX_CLR {
-    #[doc = "D_CAL"]
+    #[doc = "HS Transmit Output Current Trim"]
     pub mod D_CAL {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -556,7 +556,7 @@ pub mod TX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXCAL45DN"]
+    #[doc = "Transmit Calculation 45 ohm DN"]
     pub mod TXCAL45DN {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -564,7 +564,7 @@ pub mod TX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXCAL45DP"]
+    #[doc = "Transmit Calculation 45 ohm DP"]
     pub mod TXCAL45DP {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -575,7 +575,7 @@ pub mod TX_CLR {
 }
 #[doc = "USBPHY Transmitter Control"]
 pub mod TX_TOG {
-    #[doc = "D_CAL"]
+    #[doc = "HS Transmit Output Current Trim"]
     pub mod D_CAL {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -583,7 +583,7 @@ pub mod TX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXCAL45DN"]
+    #[doc = "Transmit Calculation 45 ohm DN"]
     pub mod TXCAL45DN {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -591,7 +591,7 @@ pub mod TX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TXCAL45DP"]
+    #[doc = "Transmit Calculation 45 ohm DP"]
     pub mod TXCAL45DP {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x0f << offset;
@@ -602,57 +602,57 @@ pub mod TX_TOG {
 }
 #[doc = "USBPHY Receiver Control"]
 pub mod RX {
-    #[doc = "ENVADJ"]
+    #[doc = "Envelope Adjustment"]
     pub mod ENVADJ {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Trip-Level Voltage is 0.1000 V"]
+            #[doc = "0.1000 V"]
             pub const LVL_P1: u32 = 0;
-            #[doc = "Trip-Level Voltage is 0.1125 V"]
+            #[doc = "0.1125 V"]
             pub const LVL_P1125: u32 = 0x01;
-            #[doc = "Trip-Level Voltage is 0.1250 V"]
+            #[doc = "0.1250 V"]
             pub const LVL_P1250: u32 = 0x02;
-            #[doc = "Trip-Level Voltage is 0.0875 V"]
+            #[doc = "0.0875 V"]
             pub const LVL_P0875: u32 = 0x03;
         }
     }
-    #[doc = "DISCONADJ"]
+    #[doc = "Disconnect Adjustment"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Trip-Level Voltage is 0.56875 V"]
+            #[doc = "0.56875 V"]
             pub const LVL_P56875: u32 = 0;
-            #[doc = "Trip-Level Voltage is 0.55000 V"]
+            #[doc = "0.55000 V"]
             pub const LVL_P55: u32 = 0x01;
-            #[doc = "Trip-Level Voltage is 0.58125 V"]
+            #[doc = "0.58125 V"]
             pub const LVL_P58125: u32 = 0x02;
-            #[doc = "Trip-Level Voltage is 0.60000 V"]
+            #[doc = "0.60000 V"]
             pub const LVL_P6: u32 = 0x03;
         }
     }
-    #[doc = "RXDBYPASS"]
+    #[doc = "Differential Receiver Bypass"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal operation."]
+            #[doc = "Operate normally"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Use the output of the USB_DP single-ended receiver in place of the full-speed differential receiver"]
+            #[doc = "Bypass"]
             pub const OUT_SINGLE_END: u32 = 0x01;
         }
     }
 }
 #[doc = "USBPHY Receiver Control"]
 pub mod RX_SET {
-    #[doc = "The ENVADJ field adjusts the trip point for the envelope detector"]
+    #[doc = "Envelope Adjustment"]
     pub mod ENVADJ {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -660,7 +660,7 @@ pub mod RX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
+    #[doc = "Disconnect Adjustment"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
@@ -668,7 +668,7 @@ pub mod RX_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Differential Receiver Bypass"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -679,7 +679,7 @@ pub mod RX_SET {
 }
 #[doc = "USBPHY Receiver Control"]
 pub mod RX_CLR {
-    #[doc = "The ENVADJ field adjusts the trip point for the envelope detector"]
+    #[doc = "Envelope Adjustment"]
     pub mod ENVADJ {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -687,7 +687,7 @@ pub mod RX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
+    #[doc = "Disconnect Adjustment"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
@@ -695,7 +695,7 @@ pub mod RX_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Differential Receiver Bypass"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -706,7 +706,7 @@ pub mod RX_CLR {
 }
 #[doc = "USBPHY Receiver Control"]
 pub mod RX_TOG {
-    #[doc = "The ENVADJ field adjusts the trip point for the envelope detector"]
+    #[doc = "Envelope Adjustment"]
     pub mod ENVADJ {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -714,7 +714,7 @@ pub mod RX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "The DISCONADJ field adjusts the trip point for the disconnect detector: 000 = Trip-Level Voltage is 0"]
+    #[doc = "Disconnect Adjustment"]
     pub mod DISCONADJ {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x07 << offset;
@@ -722,7 +722,7 @@ pub mod RX_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "0 = Normal operation"]
+    #[doc = "Differential Receiver Bypass"]
     pub mod RXDBYPASS {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
@@ -792,9 +792,9 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disables 200kohm pullup resistors on DP and DN pins"]
+            #[doc = "Disables"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Enables 200kohm pullup resistors on DP and DN pins"]
+            #[doc = "Enables"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -1714,9 +1714,9 @@ pub mod STATUS {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "USB cable disconnect has not been detected at the local host"]
+            #[doc = "Do not detect"]
             pub const NOT_DET: u32 = 0;
-            #[doc = "USB cable disconnect has been detected at the local host"]
+            #[doc = "Detect"]
             pub const DET: u32 = 0x01;
         }
     }
@@ -1727,9 +1727,9 @@ pub mod STATUS {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No attachment to a USB host is detected"]
+            #[doc = "No attachment detected"]
             pub const NO_ATTACH: u32 = 0;
-            #[doc = "Cable attachment to a USB host is detected"]
+            #[doc = "Cable attachment detected"]
             pub const ATTACH: u32 = 0x01;
         }
     }
@@ -2132,7 +2132,7 @@ pub mod DEBUG_TOG {
 }
 #[doc = "UTMI Debug Status 0"]
 pub mod DEBUG0_STATUS {
-    #[doc = "Running count of the failed pseudo-random generator loopback"]
+    #[doc = "Loopback Fail Count"]
     pub mod LOOP_BACK_FAIL_COUNT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -2140,7 +2140,7 @@ pub mod DEBUG0_STATUS {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Running count of the UTMI_RXERROR."]
+    #[doc = "UTMI Receive Error Fail Count"]
     pub mod UTMI_RXERROR_FAIL_COUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x03ff << offset;
@@ -2148,7 +2148,7 @@ pub mod DEBUG0_STATUS {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Running count of the squelch reset instead of normal end for HS RX."]
+    #[doc = "Squelch Count"]
     pub mod SQUELCH_COUNT {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x3f << offset;
@@ -2166,14 +2166,14 @@ pub mod DEBUG1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Delay is nominal"]
-            pub const NOM_DELAY: u32 = 0;
-            #[doc = "Delay is +20%"]
-            pub const DELAY_20_P: u32 = 0x01;
-            #[doc = "Delay is -20%"]
-            pub const DELAY_20_N: u32 = 0x02;
-            #[doc = "Delay is -40%"]
-            pub const DELAY_40_N: u32 = 0x03;
+            #[doc = "Squelch rising edge delay is nominal"]
+            pub const ENV_RT_NOMINAL: u32 = 0;
+            #[doc = "+20% delay compared to nominal"]
+            pub const ENV_RT_1P2X: u32 = 0x01;
+            #[doc = "-20% delay compared to nominal"]
+            pub const ENV_RT_0P8X: u32 = 0x02;
+            #[doc = "-40% delay compared to nominal"]
+            pub const ENV_RT_0P6X: u32 = 0x03;
         }
     }
     #[doc = "Self-Bias Off for Reference Bias Amplifiers and Comparators"]
@@ -2260,7 +2260,7 @@ pub mod DEBUG1 {
 }
 #[doc = "UTMI Debug Status 1"]
 pub mod DEBUG1_SET {
-    #[doc = "ENTAILADJVD"]
+    #[doc = "HS RX Squelch Rise Time Delay Trim"]
     pub mod ENTAILADJVD {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
@@ -2268,7 +2268,7 @@ pub mod DEBUG1_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power."]
+    #[doc = "Self-Bias Off for Reference Bias Amplifiers and Comparators"]
     pub mod USB2_REFBIAS_SELFBIASOFF {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
@@ -2276,7 +2276,7 @@ pub mod DEBUG1_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Powers down the bandgap detect logic, will affect vbgup on misc1 register."]
+    #[doc = "Bandgap Voltage Status Comparator Powerdown"]
     pub mod USB2_REFBIAS_PWDVBGUP {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -2284,7 +2284,7 @@ pub mod DEBUG1_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "to be added"]
+    #[doc = "Reference Bias Low Power Configuration"]
     pub mod USB2_REFBIAS_LOWPWR {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -2292,7 +2292,7 @@ pub mod DEBUG1_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Adjustment bits on bandgap"]
+    #[doc = "Bandgap Voltage Adjustment"]
     pub mod USB2_REFBIAS_VBGADJ {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x07 << offset;
@@ -2300,7 +2300,7 @@ pub mod DEBUG1_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Bias current control for usb2_phy"]
+    #[doc = "Bias Current Control Adjustment"]
     pub mod USB2_REFBIAS_TST {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x03 << offset;
@@ -2311,7 +2311,7 @@ pub mod DEBUG1_SET {
 }
 #[doc = "UTMI Debug Status 1"]
 pub mod DEBUG1_CLR {
-    #[doc = "ENTAILADJVD"]
+    #[doc = "HS RX Squelch Rise Time Delay Trim"]
     pub mod ENTAILADJVD {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
@@ -2319,7 +2319,7 @@ pub mod DEBUG1_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power."]
+    #[doc = "Self-Bias Off for Reference Bias Amplifiers and Comparators"]
     pub mod USB2_REFBIAS_SELFBIASOFF {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
@@ -2327,7 +2327,7 @@ pub mod DEBUG1_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Powers down the bandgap detect logic, will affect vbgup on misc1 register."]
+    #[doc = "Bandgap Voltage Status Comparator Powerdown"]
     pub mod USB2_REFBIAS_PWDVBGUP {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -2335,7 +2335,7 @@ pub mod DEBUG1_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "to be added"]
+    #[doc = "Reference Bias Low Power Configuration"]
     pub mod USB2_REFBIAS_LOWPWR {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -2343,7 +2343,7 @@ pub mod DEBUG1_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Adjustment bits on bandgap"]
+    #[doc = "Bandgap Voltage Adjustment"]
     pub mod USB2_REFBIAS_VBGADJ {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x07 << offset;
@@ -2351,7 +2351,7 @@ pub mod DEBUG1_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Bias current control for usb2_phy"]
+    #[doc = "Bias Current Control Adjustment"]
     pub mod USB2_REFBIAS_TST {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x03 << offset;
@@ -2362,7 +2362,7 @@ pub mod DEBUG1_CLR {
 }
 #[doc = "UTMI Debug Status 1"]
 pub mod DEBUG1_TOG {
-    #[doc = "ENTAILADJVD"]
+    #[doc = "HS RX Squelch Rise Time Delay Trim"]
     pub mod ENTAILADJVD {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
@@ -2370,7 +2370,7 @@ pub mod DEBUG1_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power."]
+    #[doc = "Self-Bias Off for Reference Bias Amplifiers and Comparators"]
     pub mod USB2_REFBIAS_SELFBIASOFF {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
@@ -2378,7 +2378,7 @@ pub mod DEBUG1_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Powers down the bandgap detect logic, will affect vbgup on misc1 register."]
+    #[doc = "Bandgap Voltage Status Comparator Powerdown"]
     pub mod USB2_REFBIAS_PWDVBGUP {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -2386,7 +2386,7 @@ pub mod DEBUG1_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "to be added"]
+    #[doc = "Reference Bias Low Power Configuration"]
     pub mod USB2_REFBIAS_LOWPWR {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -2394,7 +2394,7 @@ pub mod DEBUG1_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Adjustment bits on bandgap"]
+    #[doc = "Bandgap Voltage Adjustment"]
     pub mod USB2_REFBIAS_VBGADJ {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x07 << offset;
@@ -2402,7 +2402,7 @@ pub mod DEBUG1_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Bias current control for usb2_phy"]
+    #[doc = "Bias Current Control Adjustment"]
     pub mod USB2_REFBIAS_TST {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x03 << offset;
@@ -2413,7 +2413,7 @@ pub mod DEBUG1_TOG {
 }
 #[doc = "USBPHY Version"]
 pub mod VERSION {
-    #[doc = "Fixed read-only value reflecting the stepping of the RTL version."]
+    #[doc = "Step"]
     pub mod STEP {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -2421,7 +2421,7 @@ pub mod VERSION {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Fixed read-only value reflecting the MINOR field of the RTL version."]
+    #[doc = "Minor"]
     pub mod MINOR {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -2429,7 +2429,7 @@ pub mod VERSION {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Fixed read-only value reflecting the MAJOR field of the RTL version."]
+    #[doc = "Major"]
     pub mod MAJOR {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0xff << offset;
@@ -2522,9 +2522,9 @@ pub mod PLL_SIC {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selects PLL_POWER to control the reference bias"]
+            #[doc = "PLL_POWER"]
             pub const PLL_PWR: u32 = 0;
-            #[doc = "Selects REFBIAS_PWD to control the reference bias."]
+            #[doc = "REFBIAS_PWD"]
             pub const REFBIAS_PWD: u32 = 0x01;
         }
     }
@@ -2586,16 +2586,16 @@ pub mod PLL_SIC {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "PLL is not currently locked"]
+            #[doc = "Not locked"]
             pub const NOT_LOCKED: u32 = 0;
-            #[doc = "PLL is currently locked"]
+            #[doc = "Locked"]
             pub const LOCKED: u32 = 0x01;
         }
     }
 }
 #[doc = "USBPHY PLL Control and Status"]
 pub mod PLL_SIC_SET {
-    #[doc = "PLL_POSTDIV"]
+    #[doc = "PLL Post-Divider Output Value Configuration"]
     pub mod PLL_POSTDIV {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x07 << offset;
@@ -2603,7 +2603,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_EN_USB_CLKS"]
+    #[doc = "PLL USB Clocks Enable"]
     pub mod PLL_EN_USB_CLKS {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -2611,7 +2611,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_POWER"]
+    #[doc = "PLL Power"]
     pub mod PLL_POWER {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -2619,7 +2619,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_ENABLE"]
+    #[doc = "PLL Enable"]
     pub mod PLL_ENABLE {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
@@ -2627,7 +2627,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_BYPASS"]
+    #[doc = "PLL Bypass"]
     pub mod PLL_BYPASS {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -2635,7 +2635,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "REFBIAS_PWD_SEL"]
+    #[doc = "Reference Bias Powerdown Selection"]
     pub mod REFBIAS_PWD_SEL {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -2643,7 +2643,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Power down the reference bias"]
+    #[doc = "Reference Bias Powerdown"]
     pub mod REFBIAS_PWD {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -2651,7 +2651,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_REG_ENABLE"]
+    #[doc = "PLL Regulator Enable"]
     pub mod PLL_REG_ENABLE {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -2659,7 +2659,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_DIV_SEL"]
+    #[doc = "PLL Divider Selection"]
     pub mod PLL_DIV_SEL {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x07 << offset;
@@ -2667,7 +2667,7 @@ pub mod PLL_SIC_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_LOCK"]
+    #[doc = "PLL Lock"]
     pub mod PLL_LOCK {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -2678,7 +2678,7 @@ pub mod PLL_SIC_SET {
 }
 #[doc = "USBPHY PLL Control and Status"]
 pub mod PLL_SIC_CLR {
-    #[doc = "PLL_POSTDIV"]
+    #[doc = "PLL Post-Divider Output Value Configuration"]
     pub mod PLL_POSTDIV {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x07 << offset;
@@ -2686,7 +2686,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_EN_USB_CLKS"]
+    #[doc = "PLL USB Clocks Enable"]
     pub mod PLL_EN_USB_CLKS {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -2694,7 +2694,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_POWER"]
+    #[doc = "PLL Power"]
     pub mod PLL_POWER {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -2702,7 +2702,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_ENABLE"]
+    #[doc = "PLL Enable"]
     pub mod PLL_ENABLE {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
@@ -2710,7 +2710,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_BYPASS"]
+    #[doc = "PLL Bypass"]
     pub mod PLL_BYPASS {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -2718,7 +2718,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "REFBIAS_PWD_SEL"]
+    #[doc = "Reference Bias Powerdown Selection"]
     pub mod REFBIAS_PWD_SEL {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -2726,7 +2726,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Power down the reference bias"]
+    #[doc = "Reference Bias Powerdown"]
     pub mod REFBIAS_PWD {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -2734,7 +2734,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_REG_ENABLE"]
+    #[doc = "PLL Regulator Enable"]
     pub mod PLL_REG_ENABLE {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -2742,7 +2742,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_DIV_SEL"]
+    #[doc = "PLL Divider Selection"]
     pub mod PLL_DIV_SEL {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x07 << offset;
@@ -2750,7 +2750,7 @@ pub mod PLL_SIC_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_LOCK"]
+    #[doc = "PLL Lock"]
     pub mod PLL_LOCK {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -2761,7 +2761,7 @@ pub mod PLL_SIC_CLR {
 }
 #[doc = "USBPHY PLL Control and Status"]
 pub mod PLL_SIC_TOG {
-    #[doc = "PLL_POSTDIV"]
+    #[doc = "PLL Post-Divider Output Value Configuration"]
     pub mod PLL_POSTDIV {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x07 << offset;
@@ -2769,7 +2769,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_EN_USB_CLKS"]
+    #[doc = "PLL USB Clocks Enable"]
     pub mod PLL_EN_USB_CLKS {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -2777,7 +2777,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_POWER"]
+    #[doc = "PLL Power"]
     pub mod PLL_POWER {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -2785,7 +2785,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_ENABLE"]
+    #[doc = "PLL Enable"]
     pub mod PLL_ENABLE {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
@@ -2793,7 +2793,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_BYPASS"]
+    #[doc = "PLL Bypass"]
     pub mod PLL_BYPASS {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -2801,7 +2801,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "REFBIAS_PWD_SEL"]
+    #[doc = "Reference Bias Powerdown Selection"]
     pub mod REFBIAS_PWD_SEL {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
@@ -2809,7 +2809,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Power down the reference bias"]
+    #[doc = "Reference Bias Powerdown"]
     pub mod REFBIAS_PWD {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -2817,7 +2817,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_REG_ENABLE"]
+    #[doc = "PLL Regulator Enable"]
     pub mod PLL_REG_ENABLE {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
@@ -2825,7 +2825,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_DIV_SEL"]
+    #[doc = "PLL Divider Selection"]
     pub mod PLL_DIV_SEL {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x07 << offset;
@@ -2833,7 +2833,7 @@ pub mod PLL_SIC_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PLL_LOCK"]
+    #[doc = "PLL Lock"]
     pub mod PLL_LOCK {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -2859,7 +2859,7 @@ pub mod USB1_VBUS_DETECT {
             pub const VOLT_4P2: u32 = 0x02;
             #[doc = "4.3 V"]
             pub const VOLT_4P3: u32 = 0x03;
-            #[doc = "4.4 V (Default)"]
+            #[doc = "4.4 V"]
             pub const VOLT_4P4: u32 = 0x04;
             #[doc = "4.5 V"]
             pub const VOLT_4P5: u32 = 0x05;
@@ -2876,9 +2876,9 @@ pub mod USB1_VBUS_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Use the results of the internal VBUS_VALID and Session Valid comparators for VBUS_VALID, AVALID, BVALID, and SESSEND (Default)"]
+            #[doc = "Results of VBUS_VALID and session valid comparators for VBUS_VALID, AVALID, BVALID, and SESSEND"]
             pub const INTERNAL: u32 = 0;
-            #[doc = "Use the override values for VBUS_VALID, AVALID, BVALID, and SESSEND"]
+            #[doc = "Override values for VBUS_VALID, AVALID, BVALID, and SESSEND"]
             pub const OVERRIDE: u32 = 0x01;
         }
     }
@@ -2941,9 +2941,9 @@ pub mod USB1_VBUS_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Use the VBUS_VALID comparator results for signal reported to the USB controller (Default)"]
+            #[doc = "VBUS_VALID comparator results"]
             pub const COMP: u32 = 0;
-            #[doc = "Use the VBUS_VALID_3V detector results for signal reported to the USB controller"]
+            #[doc = "VBUS_VALID_3V detector results"]
             pub const DET_3V: u32 = 0x01;
         }
     }
@@ -2954,11 +2954,11 @@ pub mod USB1_VBUS_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Use the VBUS_VALID comparator results for signal reported to the USB controller (Default)"]
+            #[doc = "VBUS_VALID comparator results"]
             pub const VBUS_VALID_COMP: u32 = 0;
-            #[doc = "Use the Session Valid comparator results for signal reported to the USB controller"]
+            #[doc = "Session valid comparator results"]
             pub const SESSION_VALID_COMP: u32 = 0x01;
-            #[doc = "Use the Session Valid comparator results for signal reported to the USB controller"]
+            #[doc = "Session valid comparator result"]
             pub const SESSION_VALID_COMP_1: u32 = 0x02;
         }
     }
@@ -2990,9 +2990,9 @@ pub mod USB1_VBUS_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Use the VBUS_VALID comparator for VBUS_VALID results"]
+            #[doc = "VBUS_VALID comparator for the VBUS_VALID results"]
             pub const VBUS_VALID: u32 = 0;
-            #[doc = "Use the Session End comparator for VBUS_VALID results. The Session End threshold is >0.8V and <4.0V."]
+            #[doc = "Session end comparator for the VBUS_VALID results"]
             pub const SESSION_VALID: u32 = 0x01;
         }
     }
@@ -3003,11 +3003,11 @@ pub mod USB1_VBUS_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Powers down the VBUS_VALID comparator"]
+            #[doc = "Disable the VBUS_VALID comparator"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Enables the SESS_VALID comparator (default)"]
+            #[doc = "Enable the SESS_VALID comparator"]
             pub const ENABLE: u32 = 0x01;
-            #[doc = "Enables the 3Vdetect (default)"]
+            #[doc = "Enable 3V detection"]
             pub const VDETECT: u32 = 0x02;
         }
     }
@@ -3018,9 +3018,9 @@ pub mod USB1_VBUS_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "VBUS discharge resistor is disabled (Default)"]
+            #[doc = "Disables"]
             pub const DISABLE: u32 = 0;
-            #[doc = "VBUS discharge resistor is enabled"]
+            #[doc = "Enables"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -3031,16 +3031,16 @@ pub mod USB1_VBUS_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disable resistive charger detection resistors on DP and DP"]
+            #[doc = "Disables"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Enable resistive charger detection resistors on DP and DP"]
+            #[doc = "Enables"]
             pub const ENABLE: u32 = 0x01;
         }
     }
 }
 #[doc = "USBPHY VBUS Detect Control"]
 pub mod USB1_VBUS_DETECT_SET {
-    #[doc = "VBUSVALID_THRESH"]
+    #[doc = "VBUSVALID Threshold"]
     pub mod VBUSVALID_THRESH {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -3048,7 +3048,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "VBUS detect signal override enable"]
+    #[doc = "VBUS Detect Signal Override Enable"]
     pub mod VBUS_OVERRIDE_EN {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -3056,7 +3056,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for SESSEND"]
+    #[doc = "Override Value for SESSEND"]
     pub mod SESSEND_OVERRIDE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -3064,7 +3064,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for B-Device Session Valid"]
+    #[doc = "Override Value for B-Device Session Valid"]
     pub mod BVALID_OVERRIDE {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -3072,7 +3072,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for A-Device Session Valid"]
+    #[doc = "Override Value for A-Device Session Valid"]
     pub mod AVALID_OVERRIDE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -3080,7 +3080,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for VBUS_VALID signal sent to USB controller"]
+    #[doc = "Override Value for the VBUS_VALID Signal"]
     pub mod VBUSVALID_OVERRIDE {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -3088,7 +3088,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller"]
+    #[doc = "VBUS_VALID Source Selection"]
     pub mod VBUSVALID_SEL {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -3096,7 +3096,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller"]
+    #[doc = "VBUS_VALID Source Selection"]
     pub mod VBUS_SOURCE_SEL {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x03 << offset;
@@ -3104,7 +3104,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TBA"]
+    #[doc = "Enable Local ID Pin Status Override"]
     pub mod ID_OVERRIDE_EN {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -3112,7 +3112,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TBA"]
+    #[doc = "ID Pin Status Local Override Value"]
     pub mod ID_OVERRIDE {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -3120,7 +3120,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the comparator used for VBUS_VALID"]
+    #[doc = "VBUS_VALID Comparator Selection"]
     pub mod VBUSVALID_TO_SESSVALID {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -3128,7 +3128,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enables the VBUS_VALID comparator"]
+    #[doc = "VBUS_VALID Comparator Enable"]
     pub mod PWRUP_CMPS {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x07 << offset;
@@ -3136,7 +3136,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Controls VBUS discharge resistor"]
+    #[doc = "VBUS Discharge Resistor Controller"]
     pub mod DISCHARGE_VBUS {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x01 << offset;
@@ -3144,7 +3144,7 @@ pub mod USB1_VBUS_DETECT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enables resistors used for an older method of resistive battery charger detection"]
+    #[doc = "Charger Resistor Enable"]
     pub mod EN_CHARGER_RESISTOR {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -3155,7 +3155,7 @@ pub mod USB1_VBUS_DETECT_SET {
 }
 #[doc = "USBPHY VBUS Detect Control"]
 pub mod USB1_VBUS_DETECT_CLR {
-    #[doc = "VBUSVALID_THRESH"]
+    #[doc = "VBUSVALID Threshold"]
     pub mod VBUSVALID_THRESH {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -3163,7 +3163,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "VBUS detect signal override enable"]
+    #[doc = "VBUS Detect Signal Override Enable"]
     pub mod VBUS_OVERRIDE_EN {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -3171,7 +3171,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for SESSEND"]
+    #[doc = "Override Value for SESSEND"]
     pub mod SESSEND_OVERRIDE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -3179,7 +3179,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for B-Device Session Valid"]
+    #[doc = "Override Value for B-Device Session Valid"]
     pub mod BVALID_OVERRIDE {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -3187,7 +3187,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for A-Device Session Valid"]
+    #[doc = "Override Value for A-Device Session Valid"]
     pub mod AVALID_OVERRIDE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -3195,7 +3195,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for VBUS_VALID signal sent to USB controller"]
+    #[doc = "Override Value for the VBUS_VALID Signal"]
     pub mod VBUSVALID_OVERRIDE {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -3203,7 +3203,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller"]
+    #[doc = "VBUS_VALID Source Selection"]
     pub mod VBUSVALID_SEL {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -3211,7 +3211,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller"]
+    #[doc = "VBUS_VALID Source Selection"]
     pub mod VBUS_SOURCE_SEL {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x03 << offset;
@@ -3219,7 +3219,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TBA"]
+    #[doc = "Enable Local ID Pin Status Override"]
     pub mod ID_OVERRIDE_EN {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -3227,7 +3227,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TBA"]
+    #[doc = "ID Pin Status Local Override Value"]
     pub mod ID_OVERRIDE {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -3235,7 +3235,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the comparator used for VBUS_VALID"]
+    #[doc = "VBUS_VALID Comparator Selection"]
     pub mod VBUSVALID_TO_SESSVALID {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -3243,7 +3243,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enables the VBUS_VALID comparator"]
+    #[doc = "VBUS_VALID Comparator Enable"]
     pub mod PWRUP_CMPS {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x07 << offset;
@@ -3251,7 +3251,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Controls VBUS discharge resistor"]
+    #[doc = "VBUS Discharge Resistor Controller"]
     pub mod DISCHARGE_VBUS {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x01 << offset;
@@ -3259,7 +3259,7 @@ pub mod USB1_VBUS_DETECT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enables resistors used for an older method of resistive battery charger detection"]
+    #[doc = "Charger Resistor Enable"]
     pub mod EN_CHARGER_RESISTOR {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -3270,7 +3270,7 @@ pub mod USB1_VBUS_DETECT_CLR {
 }
 #[doc = "USBPHY VBUS Detect Control"]
 pub mod USB1_VBUS_DETECT_TOG {
-    #[doc = "VBUSVALID_THRESH"]
+    #[doc = "VBUSVALID Threshold"]
     pub mod VBUSVALID_THRESH {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x07 << offset;
@@ -3278,7 +3278,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "VBUS detect signal override enable"]
+    #[doc = "VBUS Detect Signal Override Enable"]
     pub mod VBUS_OVERRIDE_EN {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -3286,7 +3286,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for SESSEND"]
+    #[doc = "Override Value for SESSEND"]
     pub mod SESSEND_OVERRIDE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -3294,7 +3294,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for B-Device Session Valid"]
+    #[doc = "Override Value for B-Device Session Valid"]
     pub mod BVALID_OVERRIDE {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -3302,7 +3302,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for A-Device Session Valid"]
+    #[doc = "Override Value for A-Device Session Valid"]
     pub mod AVALID_OVERRIDE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -3310,7 +3310,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override value for VBUS_VALID signal sent to USB controller"]
+    #[doc = "Override Value for the VBUS_VALID Signal"]
     pub mod VBUSVALID_OVERRIDE {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -3318,7 +3318,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller"]
+    #[doc = "VBUS_VALID Source Selection"]
     pub mod VBUSVALID_SEL {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -3326,7 +3326,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the source of the VBUS_VALID signal reported to the USB controller"]
+    #[doc = "VBUS_VALID Source Selection"]
     pub mod VBUS_SOURCE_SEL {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x03 << offset;
@@ -3334,7 +3334,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TBA"]
+    #[doc = "Enable Local ID Pin Status Override"]
     pub mod ID_OVERRIDE_EN {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
@@ -3342,7 +3342,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TBA"]
+    #[doc = "ID Pin Status Local Override Value"]
     pub mod ID_OVERRIDE {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
@@ -3350,7 +3350,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Selects the comparator used for VBUS_VALID"]
+    #[doc = "VBUS_VALID Comparator Selection"]
     pub mod VBUSVALID_TO_SESSVALID {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
@@ -3358,7 +3358,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enables the VBUS_VALID comparator"]
+    #[doc = "VBUS_VALID Comparator Enable"]
     pub mod PWRUP_CMPS {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x07 << offset;
@@ -3366,7 +3366,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Controls VBUS discharge resistor"]
+    #[doc = "VBUS Discharge Resistor Controller"]
     pub mod DISCHARGE_VBUS {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x01 << offset;
@@ -3374,7 +3374,7 @@ pub mod USB1_VBUS_DETECT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enables resistors used for an older method of resistive battery charger detection"]
+    #[doc = "Charger Resistor Enable"]
     pub mod EN_CHARGER_RESISTOR {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -3385,68 +3385,68 @@ pub mod USB1_VBUS_DETECT_TOG {
 }
 #[doc = "USBPHY VBUS Detector Status"]
 pub mod USB1_VBUS_DET_STAT {
-    #[doc = "Session End indicator"]
+    #[doc = "Session End Indicator"]
     pub mod SESSEND {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The VBUS voltage is above the Session Valid threshold"]
+            #[doc = "Above threshold"]
             pub const ABOVE: u32 = 0;
-            #[doc = "The VBUS voltage is below the Session Valid threshold"]
+            #[doc = "Below threshold"]
             pub const BELOW: u32 = 0x01;
         }
     }
-    #[doc = "B-Device Session Valid status"]
+    #[doc = "B-Device Session Valid Status"]
     pub mod BVALID {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The VBUS voltage is below the Session Valid threshold"]
+            #[doc = "Below threshold"]
             pub const BELOW: u32 = 0;
-            #[doc = "The VBUS voltage is above the Session Valid threshold"]
+            #[doc = "Above threshold"]
             pub const ABOVE: u32 = 0x01;
         }
     }
-    #[doc = "A-Device Session Valid status"]
+    #[doc = "A-Device Session Valid Status"]
     pub mod AVALID {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The VBUS voltage is below the Session Valid threshold"]
+            #[doc = "Below threshold"]
             pub const BELOW: u32 = 0;
-            #[doc = "The VBUS voltage is above the Session Valid threshold"]
+            #[doc = "Above threshold"]
             pub const ABOVE: u32 = 0x01;
         }
     }
-    #[doc = "VBUS voltage status"]
+    #[doc = "VBUS Voltage Status"]
     pub mod VBUS_VALID {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "VBUS is below the comparator threshold"]
+            #[doc = "Below threshold"]
             pub const BELOW: u32 = 0;
-            #[doc = "VBUS is above the comparator threshold"]
+            #[doc = "Above threshold"]
             pub const ABOVE: u32 = 0x01;
         }
     }
-    #[doc = "VBUS_VALID_3V detector status"]
+    #[doc = "VBUS_VALID_3V Detector Status"]
     pub mod VBUS_VALID_3V {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "VBUS voltage is below VBUS_VALID_3V threshold"]
+            #[doc = "Below threshold"]
             pub const BELOW: u32 = 0;
-            #[doc = "VBUS voltage is above VBUS_VALID_3V threshold"]
+            #[doc = "Above threshold"]
             pub const ABOVE: u32 = 0x01;
         }
     }
@@ -3473,9 +3473,9 @@ pub mod USB1_CHRG_DETECT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Use local bias powered from USB1_VBUS for 10uA reference (Default)"]
+            #[doc = "Local bias"]
             pub const LOCAL_BIAS: u32 = 0;
-            #[doc = "Use bandgap bias powered from VREGIN0/VREGIN1 for 10uA reference"]
+            #[doc = "Bandgap bias"]
             pub const BANDGAP: u32 = 0x01;
         }
     }
@@ -3576,91 +3576,91 @@ pub mod USB1_CHRG_DETECT_TOG {
 }
 #[doc = "USBPHY Charger Detect Status"]
 pub mod USB1_CHRG_DET_STAT {
-    #[doc = "Battery Charging Data Contact Detection phase output"]
+    #[doc = "Battery Charging Data Contact Detection Phase Output"]
     pub mod PLUG_CONTACT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No USB cable attachment has been detected"]
+            #[doc = "Not detected"]
             pub const NO_ATTACH: u32 = 0;
-            #[doc = "A USB cable attachment between the device and host has been detected"]
+            #[doc = "Detected"]
             pub const ATTACH: u32 = 0x01;
         }
     }
-    #[doc = "Battery Charging Primary Detection phase output"]
+    #[doc = "Battery Charging Primary Detection Phase Output"]
     pub mod CHRG_DETECTED {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Standard Downstream Port (SDP) has been detected"]
+            #[doc = "SDP detected"]
             pub const SDP: u32 = 0;
-            #[doc = "Charging Port has been detected"]
+            #[doc = "Charging port detected"]
             pub const CHRG_PORT: u32 = 0x01;
         }
     }
-    #[doc = "DN_STATE"]
+    #[doc = "DN State"]
     pub mod DN_STATE {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DN pin voltage is < 0.8V"]
+            #[doc = "< 0.8 V"]
             pub const BELOW_P8: u32 = 0;
-            #[doc = "DN pin voltage is > 2.0V"]
+            #[doc = "> 2.0 V"]
             pub const ABOVE_2: u32 = 0x01;
         }
     }
-    #[doc = "DP_STATE"]
+    #[doc = "DP State"]
     pub mod DP_STATE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DP pin voltage is < 0.8V"]
+            #[doc = "< 0.8 V"]
             pub const BELOW_P8: u32 = 0;
-            #[doc = "DP pin voltage is > 2.0V"]
+            #[doc = "> 2.0 V"]
             pub const ABOVE_2: u32 = 0x01;
         }
     }
-    #[doc = "Battery Charging Secondary Detection phase output"]
+    #[doc = "Battery Charging Secondary Detection Phase Output"]
     pub mod SECDET_DCP {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Charging Downstream Port (CDP) has been detected"]
+            #[doc = "CDP detected"]
             pub const CDP: u32 = 0;
-            #[doc = "Downstream Charging Port (DCP) has been detected"]
+            #[doc = "DCP detected"]
             pub const DCP: u32 = 0x01;
         }
     }
 }
 #[doc = "USBPHY Analog Control"]
 pub mod ANACTRL {
-    #[doc = "DEV_PULLDOWN"]
+    #[doc = "Device Pulldown"]
     pub mod DEV_PULLDOWN {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The 15kohm nominal pulldowns on the DP and DN pinsare disabled in device mode."]
+            #[doc = "Disables"]
             pub const DISABLE: u32 = 0;
-            #[doc = "The 15kohm nominal pulldowns on the DP and DN pinsare enabled in device mode."]
+            #[doc = "Enables"]
             pub const ENABLE: u32 = 0x01;
         }
     }
 }
 #[doc = "USBPHY Analog Control"]
 pub mod ANACTRL_SET {
-    #[doc = "DEV_PULLDOWN"]
+    #[doc = "Device Pulldown"]
     pub mod DEV_PULLDOWN {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -3671,7 +3671,7 @@ pub mod ANACTRL_SET {
 }
 #[doc = "USBPHY Analog Control"]
 pub mod ANACTRL_CLR {
-    #[doc = "DEV_PULLDOWN"]
+    #[doc = "Device Pulldown"]
     pub mod DEV_PULLDOWN {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -3682,7 +3682,7 @@ pub mod ANACTRL_CLR {
 }
 #[doc = "USBPHY Analog Control"]
 pub mod ANACTRL_TOG {
-    #[doc = "DEV_PULLDOWN"]
+    #[doc = "Device Pulldown"]
     pub mod DEV_PULLDOWN {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
@@ -3834,7 +3834,7 @@ pub mod USB1_LOOPBACK {
 }
 #[doc = "USBPHY Loopback Control and Status"]
 pub mod USB1_LOOPBACK_SET {
-    #[doc = "UTMI_TESTSTART"]
+    #[doc = "UTMI Test Start"]
     pub mod UTMI_TESTSTART {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -3842,7 +3842,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMI_DIG_TST0"]
+    #[doc = "UTMI Digital Test 0"]
     pub mod UTMI_DIG_TST0 {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -3850,7 +3850,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMI_DIG_TST1"]
+    #[doc = "UTMI Digital Test 1"]
     pub mod UTMI_DIG_TST1 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -3858,7 +3858,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_HS_MODE"]
+    #[doc = "Loopback Test HS Mode"]
     pub mod TSTI_TX_HS_MODE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -3866,7 +3866,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_LS_MODE"]
+    #[doc = "Loopback Test LS Mode"]
     pub mod TSTI_TX_LS_MODE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -3874,7 +3874,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_EN"]
+    #[doc = "Loopback Test Transmit Enable"]
     pub mod TSTI_TX_EN {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -3882,7 +3882,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_HIZ"]
+    #[doc = "Loopback Test Transmit Hi-Z"]
     pub mod TSTI_TX_HIZ {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -3890,7 +3890,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMO_DIG_TST0"]
+    #[doc = "UTMO Digital Test 0"]
     pub mod UTMO_DIG_TST0 {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -3898,7 +3898,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMO_DIG_TST1"]
+    #[doc = "UTMO Digital Test 1"]
     pub mod UTMO_DIG_TST1 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -3906,7 +3906,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_HSFS_MODE_EN"]
+    #[doc = "Loopback Test HS-FS Mode Enable"]
     pub mod TSTI_HSFS_MODE_EN {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
@@ -3914,7 +3914,7 @@ pub mod USB1_LOOPBACK_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTPKT"]
+    #[doc = "Testing Packet"]
     pub mod TSTPKT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -3925,7 +3925,7 @@ pub mod USB1_LOOPBACK_SET {
 }
 #[doc = "USBPHY Loopback Control and Status"]
 pub mod USB1_LOOPBACK_CLR {
-    #[doc = "UTMI_TESTSTART"]
+    #[doc = "UTMI Test Start"]
     pub mod UTMI_TESTSTART {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -3933,7 +3933,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMI_DIG_TST0"]
+    #[doc = "UTMI Digital Test 0"]
     pub mod UTMI_DIG_TST0 {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -3941,7 +3941,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMI_DIG_TST1"]
+    #[doc = "UTMI Digital Test 1"]
     pub mod UTMI_DIG_TST1 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -3949,7 +3949,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_HS_MODE"]
+    #[doc = "Loopback Test HS Mode"]
     pub mod TSTI_TX_HS_MODE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -3957,7 +3957,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_LS_MODE"]
+    #[doc = "Loopback Test LS Mode"]
     pub mod TSTI_TX_LS_MODE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -3965,7 +3965,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_EN"]
+    #[doc = "Loopback Test Transmit Enable"]
     pub mod TSTI_TX_EN {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -3973,7 +3973,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_HIZ"]
+    #[doc = "Loopback Test Transmit Hi-Z"]
     pub mod TSTI_TX_HIZ {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -3981,7 +3981,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMO_DIG_TST0"]
+    #[doc = "UTMO Digital Test 0"]
     pub mod UTMO_DIG_TST0 {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -3989,7 +3989,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMO_DIG_TST1"]
+    #[doc = "UTMO Digital Test 1"]
     pub mod UTMO_DIG_TST1 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -3997,7 +3997,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_HSFS_MODE_EN"]
+    #[doc = "Loopback Test HS-FS Mode Enable"]
     pub mod TSTI_HSFS_MODE_EN {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
@@ -4005,7 +4005,7 @@ pub mod USB1_LOOPBACK_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTPKT"]
+    #[doc = "Testing Packet"]
     pub mod TSTPKT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -4016,7 +4016,7 @@ pub mod USB1_LOOPBACK_CLR {
 }
 #[doc = "USBPHY Loopback Control and Status"]
 pub mod USB1_LOOPBACK_TOG {
-    #[doc = "UTMI_TESTSTART"]
+    #[doc = "UTMI Test Start"]
     pub mod UTMI_TESTSTART {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -4024,7 +4024,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMI_DIG_TST0"]
+    #[doc = "UTMI Digital Test 0"]
     pub mod UTMI_DIG_TST0 {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -4032,7 +4032,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMI_DIG_TST1"]
+    #[doc = "UTMI Digital Test 1"]
     pub mod UTMI_DIG_TST1 {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -4040,7 +4040,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_HS_MODE"]
+    #[doc = "Loopback Test HS Mode"]
     pub mod TSTI_TX_HS_MODE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -4048,7 +4048,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_LS_MODE"]
+    #[doc = "Loopback Test LS Mode"]
     pub mod TSTI_TX_LS_MODE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -4056,7 +4056,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_EN"]
+    #[doc = "Loopback Test Transmit Enable"]
     pub mod TSTI_TX_EN {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -4064,7 +4064,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_TX_HIZ"]
+    #[doc = "Loopback Test Transmit Hi-Z"]
     pub mod TSTI_TX_HIZ {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -4072,7 +4072,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMO_DIG_TST0"]
+    #[doc = "UTMO Digital Test 0"]
     pub mod UTMO_DIG_TST0 {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
@@ -4080,7 +4080,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "UTMO_DIG_TST1"]
+    #[doc = "UTMO Digital Test 1"]
     pub mod UTMO_DIG_TST1 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -4088,7 +4088,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_HSFS_MODE_EN"]
+    #[doc = "Loopback Test HS-FS Mode Enable"]
     pub mod TSTI_HSFS_MODE_EN {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
@@ -4096,7 +4096,7 @@ pub mod USB1_LOOPBACK_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTPKT"]
+    #[doc = "Testing Packet"]
     pub mod TSTPKT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -4107,7 +4107,7 @@ pub mod USB1_LOOPBACK_TOG {
 }
 #[doc = "USBPHY Loopback Packet Number Selection"]
 pub mod USB1_LOOPBACK_HSFSCNT {
-    #[doc = "TSTI_HS_NUMBER"]
+    #[doc = "Loopback Test HS Packet Number"]
     pub mod TSTI_HS_NUMBER {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -4115,7 +4115,7 @@ pub mod USB1_LOOPBACK_HSFSCNT {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_FS_NUMBER"]
+    #[doc = "Loopback Test FS Packet Number"]
     pub mod TSTI_FS_NUMBER {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -4126,7 +4126,7 @@ pub mod USB1_LOOPBACK_HSFSCNT {
 }
 #[doc = "USBPHY Loopback Packet Number Selection"]
 pub mod USB1_LOOPBACK_HSFSCNT_SET {
-    #[doc = "TSTI_HS_NUMBER"]
+    #[doc = "Loopback Test HS Packet Number"]
     pub mod TSTI_HS_NUMBER {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -4134,7 +4134,7 @@ pub mod USB1_LOOPBACK_HSFSCNT_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_FS_NUMBER"]
+    #[doc = "Loopback Test FS Packet Number"]
     pub mod TSTI_FS_NUMBER {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -4145,7 +4145,7 @@ pub mod USB1_LOOPBACK_HSFSCNT_SET {
 }
 #[doc = "USBPHY Loopback Packet Number Selection"]
 pub mod USB1_LOOPBACK_HSFSCNT_CLR {
-    #[doc = "TSTI_HS_NUMBER"]
+    #[doc = "Loopback Test HS Packet Number"]
     pub mod TSTI_HS_NUMBER {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -4153,7 +4153,7 @@ pub mod USB1_LOOPBACK_HSFSCNT_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_FS_NUMBER"]
+    #[doc = "Loopback Test FS Packet Number"]
     pub mod TSTI_FS_NUMBER {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -4164,7 +4164,7 @@ pub mod USB1_LOOPBACK_HSFSCNT_CLR {
 }
 #[doc = "USBPHY Loopback Packet Number Selection"]
 pub mod USB1_LOOPBACK_HSFSCNT_TOG {
-    #[doc = "TSTI_HS_NUMBER"]
+    #[doc = "Loopback Test HS Packet Number"]
     pub mod TSTI_HS_NUMBER {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -4172,7 +4172,7 @@ pub mod USB1_LOOPBACK_HSFSCNT_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TSTI_FS_NUMBER"]
+    #[doc = "Loopback Test FS Packet Number"]
     pub mod TSTI_FS_NUMBER {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -4340,7 +4340,7 @@ pub mod TRIM_OVERRIDE_EN {
 }
 #[doc = "USBPHY Trim Override Enable"]
 pub mod TRIM_OVERRIDE_EN_SET {
-    #[doc = "TRIM_DIV_SEL_OVERRIDE"]
+    #[doc = "Override Enable for PLL Divider Value"]
     pub mod TRIM_DIV_SEL_OVERRIDE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -4348,7 +4348,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_ENV_TAIL_ADJ_VD_OVERRIDE"]
+    #[doc = "Override Enable for HS RX Squelch Rise Time Delay Trim"]
     pub mod TRIM_ENV_TAIL_ADJ_VD_OVERRIDE {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -4356,7 +4356,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_D_CAL_OVERRIDE"]
+    #[doc = "Override Enable for the HS TX Output Current Trim"]
     pub mod TRIM_TX_D_CAL_OVERRIDE {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -4364,7 +4364,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_CAL45DP_OVERRIDE"]
+    #[doc = "Override Enable for DP Series Termination Trim"]
     pub mod TRIM_TX_CAL45DP_OVERRIDE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -4372,7 +4372,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_CAL45DN_OVERRIDE"]
+    #[doc = "Override Enable for DN Series Termination Trim"]
     pub mod TRIM_TX_CAL45DN_OVERRIDE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -4380,7 +4380,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override enable for bandgap adjustment."]
+    #[doc = "Override Enable for Bandgap Voltage Adjustment"]
     pub mod TRIM_REFBIAS_VBGADJ_OVERRIDE {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -4388,7 +4388,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override enable for bias current control"]
+    #[doc = "Override Enable for Bias Current Control"]
     pub mod TRIM_REFBIAS_TST_OVERRIDE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -4396,7 +4396,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB2_REFBIAS_VBGADJ"]
+    #[doc = "Bandgap Voltage Adjustment Bits from Outside USBPHY"]
     pub mod TRIM_USB2_REFBIAS_VBGADJ {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x07 << offset;
@@ -4404,7 +4404,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB2_REFBIAS_TST"]
+    #[doc = "Bias Current Control Adjustment Bits from Outside USBPHY"]
     pub mod TRIM_USB2_REFBIAS_TST {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
@@ -4412,7 +4412,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_PLL_CTRL0_DIV_SEL"]
+    #[doc = "PLL Divider Value Configuration Bits from Outside USBPHY"]
     pub mod TRIM_PLL_CTRL0_DIV_SEL {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x07 << offset;
@@ -4420,7 +4420,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB_REG_ENV_TAIL_ADJ_VD"]
+    #[doc = "HS RX Squelch Rise Time Delay Trim Bits from Outside USBPHY"]
     pub mod TRIM_USB_REG_ENV_TAIL_ADJ_VD {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -4428,7 +4428,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_D_CAL"]
+    #[doc = "HS TX Output Current Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_D_CAL {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -4436,7 +4436,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_CAL45DP"]
+    #[doc = "DP Series Termination Resistance Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_CAL45DP {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -4444,7 +4444,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_CAL45DN"]
+    #[doc = "DN Series Termination Resistance Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_CAL45DN {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;
@@ -4455,7 +4455,7 @@ pub mod TRIM_OVERRIDE_EN_SET {
 }
 #[doc = "USBPHY Trim Override Enable"]
 pub mod TRIM_OVERRIDE_EN_CLR {
-    #[doc = "TRIM_DIV_SEL_OVERRIDE"]
+    #[doc = "Override Enable for PLL Divider Value"]
     pub mod TRIM_DIV_SEL_OVERRIDE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -4463,7 +4463,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_ENV_TAIL_ADJ_VD_OVERRIDE"]
+    #[doc = "Override Enable for HS RX Squelch Rise Time Delay Trim"]
     pub mod TRIM_ENV_TAIL_ADJ_VD_OVERRIDE {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -4471,7 +4471,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_D_CAL_OVERRIDE"]
+    #[doc = "Override Enable for the HS TX Output Current Trim"]
     pub mod TRIM_TX_D_CAL_OVERRIDE {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -4479,7 +4479,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_CAL45DP_OVERRIDE"]
+    #[doc = "Override Enable for DP Series Termination Trim"]
     pub mod TRIM_TX_CAL45DP_OVERRIDE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -4487,7 +4487,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_CAL45DN_OVERRIDE"]
+    #[doc = "Override Enable for DN Series Termination Trim"]
     pub mod TRIM_TX_CAL45DN_OVERRIDE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -4495,7 +4495,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override enable for bandgap adjustment."]
+    #[doc = "Override Enable for Bandgap Voltage Adjustment"]
     pub mod TRIM_REFBIAS_VBGADJ_OVERRIDE {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -4503,7 +4503,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override enable for bias current control"]
+    #[doc = "Override Enable for Bias Current Control"]
     pub mod TRIM_REFBIAS_TST_OVERRIDE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -4511,7 +4511,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB2_REFBIAS_VBGADJ"]
+    #[doc = "Bandgap Voltage Adjustment Bits from Outside USBPHY"]
     pub mod TRIM_USB2_REFBIAS_VBGADJ {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x07 << offset;
@@ -4519,7 +4519,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB2_REFBIAS_TST"]
+    #[doc = "Bias Current Control Adjustment Bits from Outside USBPHY"]
     pub mod TRIM_USB2_REFBIAS_TST {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
@@ -4527,7 +4527,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_PLL_CTRL0_DIV_SEL"]
+    #[doc = "PLL Divider Value Configuration Bits from Outside USBPHY"]
     pub mod TRIM_PLL_CTRL0_DIV_SEL {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x07 << offset;
@@ -4535,7 +4535,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB_REG_ENV_TAIL_ADJ_VD"]
+    #[doc = "HS RX Squelch Rise Time Delay Trim Bits from Outside USBPHY"]
     pub mod TRIM_USB_REG_ENV_TAIL_ADJ_VD {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -4543,7 +4543,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_D_CAL"]
+    #[doc = "HS TX Output Current Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_D_CAL {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -4551,7 +4551,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_CAL45DP"]
+    #[doc = "DP Series Termination Resistance Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_CAL45DP {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -4559,7 +4559,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_CAL45DN"]
+    #[doc = "DN Series Termination Resistance Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_CAL45DN {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;
@@ -4570,7 +4570,7 @@ pub mod TRIM_OVERRIDE_EN_CLR {
 }
 #[doc = "USBPHY Trim Override Enable"]
 pub mod TRIM_OVERRIDE_EN_TOG {
-    #[doc = "TRIM_DIV_SEL_OVERRIDE"]
+    #[doc = "Override Enable for PLL Divider Value"]
     pub mod TRIM_DIV_SEL_OVERRIDE {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
@@ -4578,7 +4578,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_ENV_TAIL_ADJ_VD_OVERRIDE"]
+    #[doc = "Override Enable for HS RX Squelch Rise Time Delay Trim"]
     pub mod TRIM_ENV_TAIL_ADJ_VD_OVERRIDE {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
@@ -4586,7 +4586,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_D_CAL_OVERRIDE"]
+    #[doc = "Override Enable for the HS TX Output Current Trim"]
     pub mod TRIM_TX_D_CAL_OVERRIDE {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
@@ -4594,7 +4594,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_CAL45DP_OVERRIDE"]
+    #[doc = "Override Enable for DP Series Termination Trim"]
     pub mod TRIM_TX_CAL45DP_OVERRIDE {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
@@ -4602,7 +4602,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_TX_CAL45DN_OVERRIDE"]
+    #[doc = "Override Enable for DN Series Termination Trim"]
     pub mod TRIM_TX_CAL45DN_OVERRIDE {
         pub const offset: u32 = 4;
         pub const mask: u32 = 0x01 << offset;
@@ -4610,7 +4610,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override enable for bandgap adjustment."]
+    #[doc = "Override Enable for Bandgap Voltage Adjustment"]
     pub mod TRIM_REFBIAS_VBGADJ_OVERRIDE {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
@@ -4618,7 +4618,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Override enable for bias current control"]
+    #[doc = "Override Enable for Bias Current Control"]
     pub mod TRIM_REFBIAS_TST_OVERRIDE {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
@@ -4626,7 +4626,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB2_REFBIAS_VBGADJ"]
+    #[doc = "Bandgap Voltage Adjustment Bits from Outside USBPHY"]
     pub mod TRIM_USB2_REFBIAS_VBGADJ {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x07 << offset;
@@ -4634,7 +4634,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB2_REFBIAS_TST"]
+    #[doc = "Bias Current Control Adjustment Bits from Outside USBPHY"]
     pub mod TRIM_USB2_REFBIAS_TST {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x03 << offset;
@@ -4642,7 +4642,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_PLL_CTRL0_DIV_SEL"]
+    #[doc = "PLL Divider Value Configuration Bits from Outside USBPHY"]
     pub mod TRIM_PLL_CTRL0_DIV_SEL {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x07 << offset;
@@ -4650,7 +4650,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USB_REG_ENV_TAIL_ADJ_VD"]
+    #[doc = "HS RX Squelch Rise Time Delay Trim Bits from Outside USBPHY"]
     pub mod TRIM_USB_REG_ENV_TAIL_ADJ_VD {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x03 << offset;
@@ -4658,7 +4658,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_D_CAL"]
+    #[doc = "HS TX Output Current Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_D_CAL {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x0f << offset;
@@ -4666,7 +4666,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_CAL45DP"]
+    #[doc = "DP Series Termination Resistance Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_CAL45DP {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x0f << offset;
@@ -4674,7 +4674,7 @@ pub mod TRIM_OVERRIDE_EN_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "TRIM_USBPHY_TX_CAL45DN"]
+    #[doc = "DN Series Termination Resistance Trim Bits from Outside USBPHY"]
     pub mod TRIM_USBPHY_TX_CAL45DN {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x0f << offset;

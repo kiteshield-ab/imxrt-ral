@@ -113,11 +113,11 @@ pub mod VERID {
         pub mod RW {
             #[doc = "Standard features implemented."]
             pub const STANDARD: u32 = 0;
-            #[doc = "Supports state, logic and parallel modes."]
+            #[doc = "Supports state, logic, and parallel modes."]
             pub const STATE_LOGIC_PARALLEL: u32 = 0x01;
             #[doc = "Supports pin control registers."]
             pub const PINCTRL: u32 = 0x02;
-            #[doc = "Supports state, logic and parallel modes; plus pin control registers."]
+            #[doc = "Supports state, logic, and parallel modes, plus pin control registers."]
             pub const STATE_LOGIC_PARALLEL_PINCTRL: u32 = 0x03;
         }
     }
@@ -175,17 +175,17 @@ pub mod PARAM {
 }
 #[doc = "FLEXIO Control"]
 pub mod CTRL {
-    #[doc = "FlexIO Enable"]
+    #[doc = "FLEXIO Enable"]
     pub mod FLEXEN {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FlexIO module is disabled."]
-            pub const FLEXEN_0: u32 = 0;
-            #[doc = "FlexIO module is enabled."]
-            pub const FLEXEN_1: u32 = 0x01;
+            #[doc = "FLEXIO module is disabled."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "FLEXIO module is enabled."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Software Reset"]
@@ -196,9 +196,9 @@ pub mod CTRL {
         pub mod W {}
         pub mod RW {
             #[doc = "Software reset is disabled"]
-            pub const SWRST_0: u32 = 0;
-            #[doc = "Software reset is enabled, all FlexIO registers except the Control Register are reset."]
-            pub const SWRST_1: u32 = 0x01;
+            pub const DISABLE: u32 = 0;
+            #[doc = "Software reset is enabled. All FLEXIO registers except the Control Register are reset."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Fast Access"]
@@ -208,10 +208,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Configures for normal register accesses to FlexIO"]
-            pub const FASTACC_0: u32 = 0;
-            #[doc = "Configures for fast register accesses to FlexIO"]
-            pub const FASTACC_1: u32 = 0x01;
+            #[doc = "Configures for normal register accesses to FLEXIO"]
+            pub const NORMAL: u32 = 0;
+            #[doc = "Configures for fast register accesses to FLEXIO"]
+            pub const FAST: u32 = 0x01;
         }
     }
     #[doc = "Debug Enable"]
@@ -221,10 +221,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FlexIO is disabled in debug modes."]
-            pub const DBGE_0: u32 = 0;
-            #[doc = "FlexIO is enabled in debug modes"]
-            pub const DBGE_1: u32 = 0x01;
+            #[doc = "FLEXIO is disabled in Debug modes."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "FLEXIO is enabled in Debug modes."]
+            pub const EMABLE: u32 = 0x01;
         }
     }
     #[doc = "Doze Enable"]
@@ -234,10 +234,10 @@ pub mod CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FlexIO enabled in Doze modes."]
-            pub const DOZEN_0: u32 = 0;
-            #[doc = "FlexIO disabled in Doze modes."]
-            pub const DOZEN_1: u32 = 0x01;
+            #[doc = "FLEXIO enabled in Doze modes."]
+            pub const ENABLE: u32 = 0;
+            #[doc = "FLEXIO disabled in Doze modes."]
+            pub const DISABLE: u32 = 0x01;
         }
     }
 }
@@ -493,19 +493,19 @@ pub mod SHIFTCTL {
         pub mod W {}
         pub mod RW {
             #[doc = "Disabled."]
-            pub const SMOD_0: u32 = 0;
-            #[doc = "Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer."]
-            pub const SMOD_1: u32 = 0x01;
-            #[doc = "Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer."]
-            pub const SMOD_2: u32 = 0x02;
-            #[doc = "Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer."]
-            pub const SMOD_4: u32 = 0x04;
+            pub const DISABLE: u32 = 0;
+            #[doc = "Receive mode. Captures the current shifter content into the SHIFTBUF on expiration of the timer."]
+            pub const RECEIVE: u32 = 0x01;
+            #[doc = "Transmit mode. Load SHIFTBUF contents into the shifter on expiration of the timer."]
+            pub const TRANSMIT: u32 = 0x02;
+            #[doc = "Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the timer."]
+            pub const MATCHSTORE: u32 = 0x04;
             #[doc = "Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents."]
-            pub const SMOD_5: u32 = 0x05;
+            pub const MATCHCONT: u32 = 0x05;
             #[doc = "State mode. SHIFTBUF contents are used for storing programmable state attributes."]
-            pub const SMOD_6: u32 = 0x06;
-            #[doc = "Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table."]
-            pub const SMOD_7: u32 = 0x07;
+            pub const STATE: u32 = 0x06;
+            #[doc = "Logic mode. SHIFTBUF contents are used for implementing programmable logic lookup table."]
+            pub const LOGIC: u32 = 0x07;
         }
     }
     #[doc = "Shifter Pin Polarity"]
@@ -516,9 +516,9 @@ pub mod SHIFTCTL {
         pub mod W {}
         pub mod RW {
             #[doc = "Pin is active high"]
-            pub const PINPOL_0: u32 = 0;
+            pub const ACTIVE_HIGH: u32 = 0;
             #[doc = "Pin is active low"]
-            pub const PINPOL_1: u32 = 0x01;
+            pub const ACTIVE_LOW: u32 = 0x01;
         }
     }
     #[doc = "Shifter Pin Select"]
@@ -537,13 +537,13 @@ pub mod SHIFTCTL {
         pub mod W {}
         pub mod RW {
             #[doc = "Shifter pin output disabled"]
-            pub const PINCFG_0: u32 = 0;
-            #[doc = "Shifter pin open drain or bidirectional output enable"]
-            pub const PINCFG_1: u32 = 0x01;
+            pub const DISABLE: u32 = 0;
+            #[doc = "Shifter pin open-drain or bidirectional output enable"]
+            pub const OPEND_BIDIROUTEN: u32 = 0x01;
             #[doc = "Shifter pin bidirectional output data"]
-            pub const PINCFG_2: u32 = 0x02;
+            pub const BIDIR_OUTDATA: u32 = 0x02;
             #[doc = "Shifter pin output"]
-            pub const PINCFG_3: u32 = 0x03;
+            pub const OUTPUT: u32 = 0x03;
         }
     }
     #[doc = "Timer Polarity"]
@@ -553,10 +553,10 @@ pub mod SHIFTCTL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Shift on posedge of Shift clock"]
-            pub const TIMPOL_0: u32 = 0;
-            #[doc = "Shift on negedge of Shift clock"]
-            pub const TIMPOL_1: u32 = 0x01;
+            #[doc = "Shift on posedge of shift clock"]
+            pub const POSEDGE: u32 = 0;
+            #[doc = "Shift on negedge of shift clock"]
+            pub const NEGEDGE: u32 = 0x01;
         }
     }
     #[doc = "Timer Select"]
@@ -577,14 +577,14 @@ pub mod SHIFTCFG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable"]
-            pub const SSTART_0: u32 = 0;
-            #[doc = "Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift"]
-            pub const SSTART_1: u32 = 0x01;
-            #[doc = "Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0"]
-            pub const SSTART_2: u32 = 0x02;
-            #[doc = "Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1"]
-            pub const SSTART_3: u32 = 0x03;
+            #[doc = "Start bit disabled for transmitter/receiver/match store. Transmitter loads data on enable."]
+            pub const VALUE00: u32 = 0;
+            #[doc = "Start bit disabled for transmitter/receiver/match store. Transmitter loads data on first shift."]
+            pub const VALUE01: u32 = 0x01;
+            #[doc = "Transmitter outputs start bit value 0 before loading data on first shift. If start bit is not 0, receiver/match store sets error flag."]
+            pub const VALUE10: u32 = 0x02;
+            #[doc = "Transmitter outputs start bit value 1 before loading data on first shift. If start bit is not 1, receiver/match store sets error flag."]
+            pub const VALUE11: u32 = 0x03;
         }
     }
     #[doc = "Shifter Stop bit"]
@@ -612,9 +612,9 @@ pub mod SHIFTCFG {
         pub mod W {}
         pub mod RW {
             #[doc = "Pin"]
-            pub const INSRC_0: u32 = 0;
+            pub const PIN: u32 = 0;
             #[doc = "Shifter N+1 Output"]
-            pub const INSRC_1: u32 = 0x01;
+            pub const SHIFTER_NPLUS1: u32 = 0x01;
         }
     }
     #[doc = "Late Store"]
@@ -705,7 +705,7 @@ pub mod TIMCTL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Timer Disabled."]
+            #[doc = "Timer disabled."]
             pub const DISABLE: u32 = 0;
             #[doc = "Dual 8-bit counters baud mode."]
             pub const DUAL8BIT_BAUD: u32 = 0x01;
@@ -745,7 +745,7 @@ pub mod TIMCTL {
         pub mod RW {
             #[doc = "Timer pin input and output are selected by PINSEL."]
             pub const PINSEL: u32 = 0;
-            #[doc = "Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL."]
+            #[doc = "Timer pin input is selected by PINSEL+1. Timer pin output remains selected by PINSEL."]
             pub const PINSELPLUS1: u32 = 0x01;
         }
     }
@@ -757,9 +757,9 @@ pub mod TIMCTL {
         pub mod W {}
         pub mod RW {
             #[doc = "Pin is active high"]
-            pub const PINPOL_0: u32 = 0;
+            pub const ACTIVE_HIGH: u32 = 0;
             #[doc = "Pin is active low"]
-            pub const PINPOL_1: u32 = 0x01;
+            pub const ACTIVE_LOW: u32 = 0x01;
         }
     }
     #[doc = "Timer Pin Select"]
@@ -778,13 +778,13 @@ pub mod TIMCTL {
         pub mod W {}
         pub mod RW {
             #[doc = "Timer pin output disabled"]
-            pub const PINCFG_0: u32 = 0;
-            #[doc = "Timer pin open drain or bidirectional output enable"]
-            pub const PINCFG_1: u32 = 0x01;
+            pub const OUTDISABLE: u32 = 0;
+            #[doc = "Timer pin open-drain or bidirectional output enable"]
+            pub const OPEND_BIDIROUTEN: u32 = 0x01;
             #[doc = "Timer pin bidirectional output data"]
-            pub const PINCFG_2: u32 = 0x02;
+            pub const BIDIR_OUTDATA: u32 = 0x02;
             #[doc = "Timer pin output"]
-            pub const PINCFG_3: u32 = 0x03;
+            pub const OUTPUT: u32 = 0x03;
         }
     }
     #[doc = "Trigger Source"]
@@ -795,9 +795,9 @@ pub mod TIMCTL {
         pub mod W {}
         pub mod RW {
             #[doc = "External trigger selected"]
-            pub const TRGSRC_0: u32 = 0;
+            pub const EXT_TRIG: u32 = 0;
             #[doc = "Internal trigger selected"]
-            pub const TRGSRC_1: u32 = 0x01;
+            pub const INTERNAL_TRIG: u32 = 0x01;
         }
     }
     #[doc = "Trigger Polarity"]
@@ -808,9 +808,9 @@ pub mod TIMCTL {
         pub mod W {}
         pub mod RW {
             #[doc = "Trigger active high"]
-            pub const TRGPOL_0: u32 = 0;
+            pub const ACTIVE_HIGH: u32 = 0;
             #[doc = "Trigger active low"]
-            pub const TRGPOL_1: u32 = 0x01;
+            pub const ACTIVE_LOW: u32 = 0x01;
         }
     }
     #[doc = "Trigger Select"]
@@ -832,9 +832,9 @@ pub mod TIMCFG {
         pub mod W {}
         pub mod RW {
             #[doc = "Start bit disabled"]
-            pub const TSTART_0: u32 = 0;
+            pub const DISABLE: u32 = 0;
             #[doc = "Start bit enabled"]
-            pub const TSTART_1: u32 = 0x01;
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Timer Stop Bit"]
@@ -845,13 +845,13 @@ pub mod TIMCFG {
         pub mod W {}
         pub mod RW {
             #[doc = "Stop bit disabled"]
-            pub const TSTOP_0: u32 = 0;
+            pub const STOP_DISABLE: u32 = 0;
             #[doc = "Stop bit is enabled on timer compare"]
-            pub const TSTOP_1: u32 = 0x01;
+            pub const ENABLE_TMRCMP: u32 = 0x01;
             #[doc = "Stop bit is enabled on timer disable"]
-            pub const TSTOP_2: u32 = 0x02;
+            pub const ENABLE_TMRDISABLE: u32 = 0x02;
             #[doc = "Stop bit is enabled on timer compare and timer disable"]
-            pub const TSTOP_3: u32 = 0x03;
+            pub const ENABLE_TMR_CMP_DIS: u32 = 0x03;
         }
     }
     #[doc = "Timer Enable"]
@@ -862,21 +862,21 @@ pub mod TIMCFG {
         pub mod W {}
         pub mod RW {
             #[doc = "Timer always enabled"]
-            pub const TIMENA_0: u32 = 0;
+            pub const ENABLE: u32 = 0;
             #[doc = "Timer enabled on Timer N-1 enable"]
-            pub const TIMENA_1: u32 = 0x01;
+            pub const TMR_NMINUS1_EN: u32 = 0x01;
             #[doc = "Timer enabled on Trigger high"]
-            pub const TIMENA_2: u32 = 0x02;
+            pub const TMR_TRIGHI_EN: u32 = 0x02;
             #[doc = "Timer enabled on Trigger high and Pin high"]
-            pub const TIMENA_3: u32 = 0x03;
+            pub const TMR_TRIG_PIN_HI_EN: u32 = 0x03;
             #[doc = "Timer enabled on Pin rising edge"]
-            pub const TIMENA_4: u32 = 0x04;
+            pub const TMR_PINRISE_EN: u32 = 0x04;
             #[doc = "Timer enabled on Pin rising edge and Trigger high"]
-            pub const TIMENA_5: u32 = 0x05;
+            pub const TMR_PINRISE_TRIGHI_EN: u32 = 0x05;
             #[doc = "Timer enabled on Trigger rising edge"]
-            pub const TIMENA_6: u32 = 0x06;
+            pub const TMR_TRIGRISE_EN: u32 = 0x06;
             #[doc = "Timer enabled on Trigger rising or falling edge"]
-            pub const TIMENA_7: u32 = 0x07;
+            pub const TMR_TRIGEDGE_EN: u32 = 0x07;
         }
     }
     #[doc = "Timer Disable"]
@@ -887,19 +887,19 @@ pub mod TIMCFG {
         pub mod W {}
         pub mod RW {
             #[doc = "Timer never disabled"]
-            pub const TIMDIS_0: u32 = 0;
+            pub const NEVER: u32 = 0;
             #[doc = "Timer disabled on Timer N-1 disable"]
-            pub const TIMDIS_1: u32 = 0x01;
-            #[doc = "Timer disabled on Timer compare (upper 8-bits match and decrement)"]
-            pub const TIMDIS_2: u32 = 0x02;
-            #[doc = "Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low"]
-            pub const TIMDIS_3: u32 = 0x03;
-            #[doc = "Timer disabled on Pin rising or falling edge"]
-            pub const TIMDIS_4: u32 = 0x04;
-            #[doc = "Timer disabled on Pin rising or falling edge provided Trigger is high"]
-            pub const TIMDIS_5: u32 = 0x05;
-            #[doc = "Timer disabled on Trigger falling edge"]
-            pub const TIMDIS_6: u32 = 0x06;
+            pub const TMR_NMINUS1: u32 = 0x01;
+            #[doc = "Timer disabled on timer compare (upper 8-bits match and decrement)"]
+            pub const TMR_CMP: u32 = 0x02;
+            #[doc = "Timer disabled on timer compare (upper 8-bits match and decrement) and trigger low"]
+            pub const TMR_CMP_TRIGLOW: u32 = 0x03;
+            #[doc = "Timer disabled on pin rising or falling edge"]
+            pub const PIN_EDGE: u32 = 0x04;
+            #[doc = "Timer disabled on pin rising or falling edge provided trigger is high"]
+            pub const PIN_EDGE_TRIGHI: u32 = 0x05;
+            #[doc = "Timer disabled on trigger falling edge"]
+            pub const TRIG_FALLEDGE: u32 = 0x06;
         }
     }
     #[doc = "Timer Reset"]
@@ -911,17 +911,17 @@ pub mod TIMCFG {
         pub mod RW {
             #[doc = "Timer never reset"]
             pub const NEVER: u32 = 0;
-            #[doc = "Timer reset on Timer Output high."]
+            #[doc = "Timer reset on timer output high."]
             pub const TMR_OUT_HI: u32 = 0x01;
-            #[doc = "Timer reset on Timer Pin equal to Timer Output"]
+            #[doc = "Timer reset on timer pin equal to timer output"]
             pub const PIN_EQ_TMR_OUT: u32 = 0x02;
-            #[doc = "Timer reset on Timer Trigger equal to Timer Output"]
+            #[doc = "Timer reset on timer trigger equal to timer output"]
             pub const TRIG_EQ_TMR_OUT: u32 = 0x03;
-            #[doc = "Timer reset on Timer Pin rising edge"]
+            #[doc = "Timer reset on timer pin rising edge"]
             pub const PIN_RISE_EDGE: u32 = 0x04;
-            #[doc = "Timer reset on Trigger rising edge"]
+            #[doc = "Timer reset on trigger rising edge"]
             pub const TRIG_RISE_EDGE: u32 = 0x06;
-            #[doc = "Timer reset on Trigger rising or falling edge"]
+            #[doc = "Timer reset on trigger rising or falling edge"]
             pub const TRIG_EDGE: u32 = 0x07;
         }
     }
@@ -932,21 +932,21 @@ pub mod TIMCFG {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Decrement counter on FlexIO clock, Shift clock equals Timer output."]
+            #[doc = "Decrement counter on FLEXIO clock. Shift clock equals timer output."]
             pub const FLEXIO_CLK_SHIFTCLK_TMR_OUT: u32 = 0;
-            #[doc = "Decrement counter on Trigger input (both edges), Shift clock equals Timer output."]
+            #[doc = "Decrement counter on trigger input (both edges). Shift clock equals timer output."]
             pub const TRIG_EDGE_SHIFTCLK_TMR_OUT: u32 = 0x01;
-            #[doc = "Decrement counter on Pin input (both edges), Shift clock equals Pin input."]
+            #[doc = "Decrement counter on pin input (both edges). Shift clock equals pin input."]
             pub const PIN_EDGE_SHIFTCLK_TMR_OUT: u32 = 0x02;
-            #[doc = "Decrement counter on Trigger input (both edges), Shift clock equals Trigger input."]
+            #[doc = "Decrement counter on trigger input (both edges). Shift clock equals trigger input."]
             pub const TRIG_EDGE_SHIFTCLK_TRIG_IN: u32 = 0x03;
-            #[doc = "Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output."]
+            #[doc = "Decrement counter on FLEXIO clock divided by 16. Shift clock equals timer output."]
             pub const FLEXIO_CLK_DIV16_SHIFTCLK_TMR_OUT: u32 = 0x04;
-            #[doc = "Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output."]
+            #[doc = "Decrement counter on FLEXIO clock divided by 256. Shift clock equals timer output."]
             pub const FLEXIO_CLK_DIV256_SHIFTCLK_TMR_OUT: u32 = 0x05;
-            #[doc = "Decrement counter on Pin input (rising edge), Shift clock equals Pin input."]
+            #[doc = "Decrement counter on pin input (rising edge). Shift clock equals pin input."]
             pub const PIN_RISE_SHIFTCLK_PIN_IN: u32 = 0x06;
-            #[doc = "Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input."]
+            #[doc = "Decrement counter on trigger input (rising edge). Shift clock equals trigger input."]
             pub const TRIG_RISE_SHIFTCLK_TRIG_IN: u32 = 0x07;
         }
     }
@@ -958,13 +958,13 @@ pub mod TIMCFG {
         pub mod W {}
         pub mod RW {
             #[doc = "Timer output is logic one when enabled and is not affected by timer reset"]
-            pub const TIMOUT_0: u32 = 0;
+            pub const ONE: u32 = 0;
             #[doc = "Timer output is logic zero when enabled and is not affected by timer reset"]
-            pub const TIMOUT_1: u32 = 0x01;
+            pub const ZERO: u32 = 0x01;
             #[doc = "Timer output is logic one when enabled and on timer reset"]
-            pub const TIMOUT_2: u32 = 0x02;
+            pub const ONE_TMRRESET: u32 = 0x02;
             #[doc = "Timer output is logic zero when enabled and on timer reset"]
-            pub const TIMOUT_3: u32 = 0x03;
+            pub const ZERO_TMRRESET: u32 = 0x03;
         }
     }
 }

@@ -64,7 +64,7 @@ pub mod ARM_PLL_CTRL {
             pub const ENABLE: u32 = 0x01;
         }
     }
-    #[doc = "Powers up the PLL."]
+    #[doc = "Power up the PLL"]
     pub mod POWERUP {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
@@ -97,13 +97,13 @@ pub mod ARM_PLL_CTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Divide by 2"]
+            #[doc = "post_div=2"]
             pub const DIV2: u32 = 0;
-            #[doc = "Divide by 4"]
+            #[doc = "post_div=4"]
             pub const DIV4: u32 = 0x01;
-            #[doc = "Divide by 8"]
+            #[doc = "post_div=8"]
             pub const DIV8: u32 = 0x02;
-            #[doc = "Divide by 1"]
+            #[doc = "post_div=1"]
             pub const DIV1: u32 = 0x03;
         }
     }
@@ -128,9 +128,9 @@ pub mod ARM_PLL_CTRL {
         pub mod W {}
         pub mod RW {
             #[doc = "ARM PLL is not stable"]
-            pub const DISABLE: u32 = 0;
+            pub const NS: u32 = 0;
             #[doc = "ARM PLL is stable"]
-            pub const ENABLE: u32 = 0x01;
+            pub const STABLE: u32 = 0x01;
         }
     }
     #[doc = "ARM_PLL_GATE"]
@@ -405,14 +405,14 @@ pub mod SYS_PLL3_PFD {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PFD0_DIV1_CLKGATE"]
+    #[doc = "PFD0_CLKGATE"]
     pub mod PFD0_DIV1_CLKGATE {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ref_pfd0 fractional divider clock is enabled"]
+            #[doc = "PFD0 fractional divider clock is enabled"]
             pub const ON: u32 = 0;
             #[doc = "Fractional divider clock (reference ref_pfd0) is off (power savings"]
             pub const OFF: u32 = 0x01;
@@ -434,16 +434,16 @@ pub mod SYS_PLL3_PFD {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PFD1_DIV1_CLKGATE"]
+    #[doc = "PFD1_CLKGATE"]
     pub mod PFD1_DIV1_CLKGATE {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ref_pfd1 fractional divider clock is enabled"]
+            #[doc = "PFD1 fractional divider clock is enabled"]
             pub const ON: u32 = 0;
-            #[doc = "Fractional divider clock (reference ref_pfd1) is off (power savings)"]
+            #[doc = "Fractional divider clock (reference PFD1) is off (power savings)"]
             pub const OFF: u32 = 0x01;
         }
     }
@@ -463,16 +463,16 @@ pub mod SYS_PLL3_PFD {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PFD2_DIV1_CLKGATE"]
+    #[doc = "PFD2_CLKGATE"]
     pub mod PFD2_DIV1_CLKGATE {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ref_pfd2 fractional divider clock is enabled"]
+            #[doc = "PFD2 fractional divider clock is enabled"]
             pub const ON: u32 = 0;
-            #[doc = "Fractional divider clock (reference ref_pfd2) is off (power savings)"]
+            #[doc = "Fractional divider clock (reference PFD2) is off (power savings)"]
             pub const OFF: u32 = 0x01;
         }
     }
@@ -492,16 +492,16 @@ pub mod SYS_PLL3_PFD {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "PFD3_DIV1_CLKGATE"]
+    #[doc = "PFD3_CLKGATE"]
     pub mod PFD3_DIV1_CLKGATE {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ref_pfd3 fractional divider clock is enabled"]
+            #[doc = "PFD3 fractional divider clock is enabled"]
             pub const ON: u32 = 0;
-            #[doc = "Fractional divider clock (reference ref_pfd3) is off (power savings)"]
+            #[doc = "Fractional divider clock (reference PFD3) is off (power savings)"]
             pub const OFF: u32 = 0x01;
         }
     }

@@ -864,7 +864,7 @@ pub struct RegisterBlock {
 }
 #[doc = "Module Configuration"]
 pub mod MCR {
-    #[doc = "Number Of The Last Message Buffer"]
+    #[doc = "Number of the Last Message Buffer"]
     pub mod MAXMB {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x7f << offset;
@@ -879,26 +879,26 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Format A One full ID (standard or extended) per ID filter Table element."]
-            pub const IDAM_0: u32 = 0;
-            #[doc = "Format B Two full standard IDs or two partial 14-bit extended IDs per ID filter Table element."]
-            pub const IDAM_1: u32 = 0x01;
-            #[doc = "Format C Four partial 8-bit IDs (standard or extended) per ID filter Table element."]
-            pub const IDAM_2: u32 = 0x02;
-            #[doc = "Format D All frames rejected."]
-            pub const IDAM_3: u32 = 0x03;
+            #[doc = "Format A: One full ID (standard and extended) per ID filter table element."]
+            pub const ONE_FULL_ID: u32 = 0;
+            #[doc = "Format B: Two full standard IDs or two partial 14-bit (standard and extended) IDs per ID filter table element."]
+            pub const TWO_FULL_ID: u32 = 0x01;
+            #[doc = "Format C: Four partial 8-bit standard IDs per ID filter table element."]
+            pub const FOUR_PARTIAL_ID: u32 = 0x02;
+            #[doc = "Format D: All frames rejected."]
+            pub const ALL_FRAMES_REJECTED: u32 = 0x03;
         }
     }
-    #[doc = "CAN FD operation enable"]
+    #[doc = "CAN FD Operation Enable"]
     pub mod FDEN {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "CAN FD is disabled. FlexCAN is able to receive and transmit messages in CAN 2.0 format."]
+            #[doc = "Disable"]
             pub const CAN_FD_DISABLED: u32 = 0;
-            #[doc = "CAN FD is enabled. FlexCAN is able to receive and transmit messages in both CAN FD and CAN 2.0 formats."]
+            #[doc = "Enable"]
             pub const CAN_FD_ENABLED: u32 = 0x01;
         }
     }
@@ -909,10 +909,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Abort disabled"]
-            pub const AEN_0: u32 = 0;
-            #[doc = "Abort enabled"]
-            pub const AEN_1: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const ABORT_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const ABORT_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Local Priority Enable"]
@@ -922,10 +922,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Local Priority disabled"]
-            pub const LPRIOEN_0: u32 = 0;
-            #[doc = "Local Priority enabled"]
-            pub const LPRIOEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const LOCAL_PRIORITY_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const LOCAL_PRIORITY_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "DMA Enable"]
@@ -935,36 +935,36 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "DMA feature for RX FIFO disabled."]
-            pub const ID2: u32 = 0;
-            #[doc = "DMA feature for RX FIFO enabled."]
-            pub const ID4: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const ID1: u32 = 0;
+            #[doc = "Enable"]
+            pub const ID2: u32 = 0x01;
         }
     }
-    #[doc = "Individual Rx Masking And Queue Enable"]
+    #[doc = "Individual RX Masking and Queue Enable"]
     pub mod IRMQ {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Individual Rx masking and queue feature are disabled.For backward compatibility, the reading of C/S word locks the MB even if it is EMPTY."]
-            pub const IRMQ_0: u32 = 0;
-            #[doc = "Individual Rx masking and queue feature are enabled."]
-            pub const IRMQ_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const INDIVIDUAL_RX_MASKING_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const INDIVIDUAL_RX_MASKING_ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Self Reception Disable"]
+    #[doc = "Self-Reception Disable"]
     pub mod SRXDIS {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Self reception enabled"]
-            pub const SRXDIS_0: u32 = 0;
-            #[doc = "Self reception disabled"]
-            pub const SRXDIS_1: u32 = 0x01;
+            #[doc = "Enable"]
+            pub const SELF_RECEPTION_ENABLED: u32 = 0;
+            #[doc = "Disable"]
+            pub const SELF_RECEPTION_DISABLED: u32 = 0x01;
         }
     }
     #[doc = "Doze Mode Enable"]
@@ -974,23 +974,23 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FlexCAN is not enabled to enter low-power mode when Doze mode is requested."]
+            #[doc = "Disable"]
             pub const LOW_POWER_DOZE_DISABLED: u32 = 0;
-            #[doc = "FlexCAN is enabled to enter low-power mode when Doze mode is requested."]
+            #[doc = "Enable"]
             pub const LOW_POWER_DOZE_ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Wake Up Source"]
+    #[doc = "Wake-Up Source"]
     pub mod WAKSRC {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FLEXCAN uses the unfiltered FLEXCAN_RX input to detect recessive to dominant edges on the CAN bus."]
-            pub const WAKSRC_0: u32 = 0;
-            #[doc = "FLEXCAN uses the filtered FLEXCAN_RX input to detect recessive to dominant edges on the CAN bus"]
-            pub const WAKSRC_1: u32 = 0x01;
+            #[doc = "No filter applied"]
+            pub const UNFILTERED_RX_INPUT: u32 = 0;
+            #[doc = "Filter applied"]
+            pub const FILTERED_RX_INPUT: u32 = 0x01;
         }
     }
     #[doc = "Low-Power Mode Acknowledge"]
@@ -1000,10 +1000,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FLEXCAN not in any of the low power modes"]
-            pub const LPMACK_0: u32 = 0;
-            #[doc = "FLEXCAN is either in Disable Mode, or Stop mode"]
-            pub const LPMACK_1: u32 = 0x01;
+            #[doc = "Not in a low-power mode"]
+            pub const LOW_POWER_NO: u32 = 0;
+            #[doc = "In a low-power mode"]
+            pub const LOW_POWER_YES: u32 = 0x01;
         }
     }
     #[doc = "Warning Interrupt Enable"]
@@ -1013,23 +1013,23 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "TWRN_INT and RWRN_INT bits are zero, independent of the values in the error counters."]
-            pub const WRNEN_0: u32 = 0;
-            #[doc = "TWRN_INT and RWRN_INT bits are set when the respective error counter transition from <96 to >= 96."]
-            pub const WRNEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const TWRNINT_RWRNINT_INACTIVE: u32 = 0;
+            #[doc = "Enable"]
+            pub const TWRNINT_RWRNINT_ACTIVE: u32 = 0x01;
         }
     }
-    #[doc = "Self Wake Up"]
+    #[doc = "Self Wake-up"]
     pub mod SLFWAK {
         pub const offset: u32 = 22;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FLEXCAN Self Wake Up feature is disabled"]
-            pub const SLFWAK_0: u32 = 0;
-            #[doc = "FLEXCAN Self Wake Up feature is enabled"]
-            pub const SLFWAK_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const SELF_WAKEUP_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const SELF_WAKEUP_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Supervisor Mode"]
@@ -1039,10 +1039,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FlexCAN is in User Mode. Affected registers allow both Supervisor and Unrestricted accesses"]
-            pub const SUPV_0: u32 = 0;
-            #[doc = "FlexCAN is in Supervisor Mode. Affected registers allow only Supervisor access. Unrestricted access behaves as though the access was done to an unimplemented register location"]
-            pub const SUPV_1: u32 = 0x01;
+            #[doc = "User mode"]
+            pub const ID1: u32 = 0;
+            #[doc = "Supervisor mode"]
+            pub const ID2: u32 = 0x01;
         }
     }
     #[doc = "Freeze Mode Acknowledge"]
@@ -1052,10 +1052,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FLEXCAN not in Freeze Mode, prescaler running"]
-            pub const FRZACK_0: u32 = 0;
-            #[doc = "FLEXCAN in Freeze Mode, prescaler stopped"]
-            pub const FRZACK_1: u32 = 0x01;
+            #[doc = "Not in Freeze mode, prescaler running."]
+            pub const FREEZE_MODE_NO: u32 = 0;
+            #[doc = "In Freeze mode, prescaler stopped."]
+            pub const FREEZE_MODE_YES: u32 = 0x01;
         }
     }
     #[doc = "Soft Reset"]
@@ -1065,23 +1065,23 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No reset request"]
-            pub const SOFTRST_0: u32 = 0;
-            #[doc = "Reset the registers"]
-            pub const SOFTRST_1: u32 = 0x01;
+            #[doc = "No reset"]
+            pub const SOFTRST_NO_RESET_REQUEST: u32 = 0;
+            #[doc = "Soft reset affects reset registers"]
+            pub const SOFTRST_RESET_REGISTERS: u32 = 0x01;
         }
     }
-    #[doc = "Wake Up Interrupt Mask"]
+    #[doc = "Wake-up Interrupt Mask"]
     pub mod WAKMSK {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Wake Up Interrupt is disabled"]
-            pub const WAKMSK_0: u32 = 0;
-            #[doc = "Wake Up Interrupt is enabled"]
-            pub const WAKMSK_1: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const WAKEUP_INTERRUPT_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const WAKEUP_INTERRUPT_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "FlexCAN Not Ready"]
@@ -1091,10 +1091,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FLEXCAN module is either in Normal Mode, Listen-Only Mode or Loop-Back Mode"]
-            pub const NOTRDY_0: u32 = 0;
-            #[doc = "FLEXCAN module is either in Disable Mode, Stop Mode or Freeze Mode"]
-            pub const NOTRDY_1: u32 = 0x01;
+            #[doc = "FlexCAN is in Normal mode, Listen-Only mode, or Loopback mode."]
+            pub const ID1: u32 = 0;
+            #[doc = "FlexCAN is in Disable mode, Doze mode, Stop mode, or Freeze mode."]
+            pub const ID2: u32 = 0x01;
         }
     }
     #[doc = "Halt FlexCAN"]
@@ -1104,23 +1104,23 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No Freeze Mode request."]
-            pub const HALT_0: u32 = 0;
-            #[doc = "Enters Freeze Mode if the FRZ bit is asserted."]
-            pub const HALT_1: u32 = 0x01;
+            #[doc = "No request"]
+            pub const HALT_DISABLE: u32 = 0;
+            #[doc = "Enter Freeze mode, if MCR\\[FRZ\\] = 1."]
+            pub const HALT_ENABLE: u32 = 0x01;
         }
     }
-    #[doc = "Rx FIFO Enable"]
+    #[doc = "Legacy RX FIFO Enable"]
     pub mod RFEN {
         pub const offset: u32 = 29;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FIFO not enabled"]
-            pub const RFEN_0: u32 = 0;
-            #[doc = "FIFO enabled"]
-            pub const RFEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const ID1: u32 = 0;
+            #[doc = "Enable"]
+            pub const ID2: u32 = 0x01;
         }
     }
     #[doc = "Freeze Enable"]
@@ -1130,10 +1130,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Not enabled to enter Freeze Mode"]
-            pub const FRZ_0: u32 = 0;
-            #[doc = "Enabled to enter Freeze Mode"]
-            pub const FRZ_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const FREEZE_MODE_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const FREEZE_MODE_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Module Disable"]
@@ -1143,10 +1143,10 @@ pub mod MCR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Enable the FLEXCAN module"]
-            pub const MDIS_0: u32 = 0;
-            #[doc = "Disable the FLEXCAN module"]
-            pub const MDIS_1: u32 = 0x01;
+            #[doc = "Enable"]
+            pub const FLEXCAN_ENABLED: u32 = 0;
+            #[doc = "Disable"]
+            pub const FLEXCAN_DISABLED: u32 = 0x01;
         }
     }
 }
@@ -1167,10 +1167,10 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Listen Only Mode is deactivated"]
-            pub const LOM_0: u32 = 0;
-            #[doc = "FLEXCAN module operates in Listen Only Mode"]
-            pub const LOM_1: u32 = 0x01;
+            #[doc = "Listen-Only mode is deactivated."]
+            pub const LISTEN_ONLY_MODE_DISABLED: u32 = 0;
+            #[doc = "FlexCAN module operates in Listen-Only mode."]
+            pub const LISTEN_ONLY_MODE_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Lowest Buffer Transmitted First"]
@@ -1180,10 +1180,10 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Buffer with highest priority is transmitted first"]
-            pub const LBUF_0: u32 = 0;
-            #[doc = "Lowest number buffer is transmitted first"]
-            pub const LBUF_1: u32 = 0x01;
+            #[doc = "Buffer with highest priority is transmitted first."]
+            pub const HIGHEST_BUFFER_FIRST: u32 = 0;
+            #[doc = "Lowest number buffer is transmitted first."]
+            pub const LOWEST_BUFFER_FIRST: u32 = 0x01;
         }
     }
     #[doc = "Timer Sync"]
@@ -1193,10 +1193,10 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Timer Sync feature disabled"]
-            pub const TSYN_0: u32 = 0;
-            #[doc = "Timer Sync feature enabled"]
-            pub const TSYN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const TIMER_SYNC_DISABLED: u32 = 0;
+            #[doc = "Enable"]
+            pub const TIMER_SYNC_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Bus Off Recovery"]
@@ -1206,10 +1206,10 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Automatic recovering from Bus Off state enabled, according to CAN Spec 2.0 part B"]
-            pub const BOFFREC_0: u32 = 0;
-            #[doc = "Automatic recovering from Bus Off state disabled"]
-            pub const BOFFREC_1: u32 = 0x01;
+            #[doc = "Enabled"]
+            pub const AUTO_RECOVER_ENABLED: u32 = 0;
+            #[doc = "Disabled"]
+            pub const AUTO_RECOVER_DISABLED: u32 = 0x01;
         }
     }
     #[doc = "CAN Bit Sampling"]
@@ -1219,49 +1219,49 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Just one sample is used to determine the bit value"]
-            pub const SMP_0: u32 = 0;
-            #[doc = "Three samples are used to determine the value of the received bit: the regular one (sample point) and 2 preceding samples, a majority rule is used"]
-            pub const SMP_1: u32 = 0x01;
+            #[doc = "One sample is used to determine the bit value."]
+            pub const ONE_SAMPLE: u32 = 0;
+            #[doc = "Three samples are used to determine the value of the received bit: the regular one (sample point) and two preceding samples. A majority rule is used."]
+            pub const THREE_SAMPLE: u32 = 0x01;
         }
     }
-    #[doc = "Rx Warning Interrupt Mask"]
+    #[doc = "RX Warning Interrupt Mask"]
     pub mod RWRNMSK {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Rx Warning Interrupt disabled"]
-            pub const RWRNMSK_0: u32 = 0;
-            #[doc = "Rx Warning Interrupt enabled"]
-            pub const RWRNMSK_1: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const RX_WARNING_INT_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const RX_WARNING_INT_ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Tx Warning Interrupt Mask"]
+    #[doc = "TX Warning Interrupt Mask"]
     pub mod TWRNMSK {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Tx Warning Interrupt disabled"]
-            pub const TWRNMSK_0: u32 = 0;
-            #[doc = "Tx Warning Interrupt enabled"]
-            pub const TWRNMSK_1: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const TX_WARNING_INT_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const TX_WARNING_INT_ENABLED: u32 = 0x01;
         }
     }
-    #[doc = "Loop Back Mode"]
+    #[doc = "Loopback Mode"]
     pub mod LPB {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Loop Back disabled"]
-            pub const LPB_0: u32 = 0;
-            #[doc = "Loop Back enabled"]
-            pub const LPB_1: u32 = 0x01;
+            #[doc = "Disabled"]
+            pub const LOOPBACK_DISABLED: u32 = 0;
+            #[doc = "Enabled"]
+            pub const LOOPBACK_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "CAN Engine Clock Source"]
@@ -1271,9 +1271,9 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The CAN engine clock source is the oscillator clock. Under this condition, the oscillator clock frequency must be lower than the bus clock."]
+            #[doc = "Peripheral clock"]
             pub const OSCILLATOR_CLOCK: u32 = 0;
-            #[doc = "The CAN engine clock source is the peripheral clock."]
+            #[doc = "Bus clock"]
             pub const PERIPHERAL_CLOCK: u32 = 0x01;
         }
     }
@@ -1284,10 +1284,10 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Error interrupt disabled"]
-            pub const ERRMSK_0: u32 = 0;
-            #[doc = "Error interrupt enabled"]
-            pub const ERRMSK_1: u32 = 0x01;
+            #[doc = "Interrupt disabled"]
+            pub const ERROR_INT_DISABLED: u32 = 0;
+            #[doc = "Interrupt enabled"]
+            pub const ERROR_INT_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Bus Off Interrupt Mask"]
@@ -1297,10 +1297,10 @@ pub mod CTRL1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Bus Off interrupt disabled"]
-            pub const BOFFMSK_0: u32 = 0;
-            #[doc = "Bus Off interrupt enabled"]
-            pub const BOFFMSK_1: u32 = 0x01;
+            #[doc = "Interrupt disabled"]
+            pub const BUS_OFF_INT_DISABLED: u32 = 0;
+            #[doc = "Interrupt enabled"]
+            pub const BUS_OFF_INT_ENABLED: u32 = 0x01;
         }
     }
     #[doc = "Phase Segment 2"]
@@ -1338,7 +1338,7 @@ pub mod CTRL1 {
 }
 #[doc = "Free-Running Timer"]
 pub mod TIMER {
-    #[doc = "TIMER"]
+    #[doc = "Timer Value"]
     pub mod TIMER {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff << offset;
@@ -1349,7 +1349,7 @@ pub mod TIMER {
 }
 #[doc = "RX Message Buffers Global Mask"]
 pub mod RXMGMASK {
-    #[doc = "Rx Mailboxes Global Mask Bits"]
+    #[doc = "Global Mask for RX Message Buffers"]
     pub mod MG {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -1360,7 +1360,7 @@ pub mod RXMGMASK {
 }
 #[doc = "Receive 14 Mask"]
 pub mod RX14MASK {
-    #[doc = "Rx Buffer 14 Mask Bits"]
+    #[doc = "RX Buffer 14 Mask Bits"]
     pub mod RX14M {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -1371,7 +1371,7 @@ pub mod RX14MASK {
 }
 #[doc = "Receive 15 Mask"]
 pub mod RX15MASK {
-    #[doc = "Rx Buffer 15 Mask Bits"]
+    #[doc = "RX Buffer 15 Mask Bits"]
     pub mod RX15M {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -1398,7 +1398,7 @@ pub mod ECR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Transmit Error Counter for fast bits"]
+    #[doc = "Transmit Error Counter for Fast Bits"]
     pub mod TXERRCNT_FAST {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xff << offset;
@@ -1406,7 +1406,7 @@ pub mod ECR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Receive Error Counter for fast bits"]
+    #[doc = "Receive Error Counter for Fast Bits"]
     pub mod RXERRCNT_FAST {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0xff << offset;
@@ -1417,56 +1417,56 @@ pub mod ECR {
 }
 #[doc = "Error and Status 1"]
 pub mod ESR1 {
-    #[doc = "Wake-Up Interrupt"]
+    #[doc = "Wake-up Interrupt Flag"]
     pub mod WAKINT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const WAKINT_0: u32 = 0;
-            #[doc = "Indicates a recessive to dominant transition received on the CAN bus when the FLEXCAN module is in Stop Mode"]
-            pub const WAKINT_1: u32 = 0x01;
+            #[doc = "No such occurrence."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Indicates that a recessive-to-dominant transition was received on the CAN bus."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
-    #[doc = "Error Interrupt"]
+    #[doc = "Error Interrupt Flag"]
     pub mod ERRINT {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const ERRINT_0: u32 = 0;
-            #[doc = "Indicates setting of any Error Bit in the Error and Status Register"]
-            pub const ERRINT_1: u32 = 0x01;
+            #[doc = "No such occurrence."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Indicates setting of any error flag in the Error and Status register."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
-    #[doc = "Bus Off Interrupt"]
+    #[doc = "Bus Off Interrupt Flag"]
     pub mod BOFFINT {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const BOFFINT_0: u32 = 0;
-            #[doc = "FLEXCAN module entered 'Bus Off' state"]
-            pub const BOFFINT_1: u32 = 0x01;
+            #[doc = "No such occurrence."]
+            pub const DISABLE: u32 = 0;
+            #[doc = "FlexCAN module entered Bus Off state."]
+            pub const ENABLE: u32 = 0x01;
         }
     }
-    #[doc = "FlexCAN In Reception"]
+    #[doc = "FlexCAN in Reception Flag"]
     pub mod RX {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FLEXCAN is receiving a message"]
-            pub const RX_0: u32 = 0;
-            #[doc = "FLEXCAN is transmitting a message"]
-            pub const RX_1: u32 = 0x01;
+            #[doc = "Not receiving"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Receiving"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Fault Confinement State"]
@@ -1477,11 +1477,11 @@ pub mod ESR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "Error Active"]
-            pub const FLTCONF_0: u32 = 0;
+            pub const ERROR_ACTIVE: u32 = 0;
             #[doc = "Error Passive"]
-            pub const FLTCONF_1: u32 = 0x01;
-            #[doc = "Bus off"]
-            pub const FLTCONF_2: u32 = 0x02;
+            pub const ERROR_PASSIVE: u32 = 0x01;
+            #[doc = "Bus Off"]
+            pub const BUS_OFF: u32 = 0x02;
         }
     }
     #[doc = "FlexCAN In Transmission"]
@@ -1491,130 +1491,130 @@ pub mod ESR1 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FLEXCAN is receiving a message"]
-            pub const TX_0: u32 = 0;
-            #[doc = "FLEXCAN is transmitting a message"]
-            pub const TX_1: u32 = 0x01;
+            #[doc = "Not transmitting"]
+            pub const TRANSMIT_MESSAGE_NO: u32 = 0;
+            #[doc = "Transmitting"]
+            pub const TRANSMIT_MESSAGE_YES: u32 = 0x01;
         }
     }
-    #[doc = "IDLE"]
+    #[doc = "Idle"]
     pub mod IDLE {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const IDLE_0: u32 = 0;
-            #[doc = "CAN bus is now IDLE"]
-            pub const IDLE_1: u32 = 0x01;
+            #[doc = "Not IDLE"]
+            pub const CAN_BUS_NOT_IDLE: u32 = 0;
+            #[doc = "IDLE"]
+            pub const CAN_BUS_IDLE: u32 = 0x01;
         }
     }
-    #[doc = "Rx Error Warning"]
+    #[doc = "RX Error Warning Flag"]
     pub mod RXWRN {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const RXWRN_0: u32 = 0;
-            #[doc = "Rx_Err_Counter >= 96"]
-            pub const RXWRN_1: u32 = 0x01;
+            #[doc = "No such occurrence."]
+            pub const RXERRCNT_LT_96: u32 = 0;
+            #[doc = "RXERRCNT is greater than or equal to 96."]
+            pub const RXERRCNT_GTE_96: u32 = 0x01;
         }
     }
-    #[doc = "TX Error Warning"]
+    #[doc = "TX Error Warning Flag"]
     pub mod TXWRN {
         pub const offset: u32 = 9;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const TXWRN_0: u32 = 0;
-            #[doc = "TX_Err_Counter >= 96"]
-            pub const TXWRN_1: u32 = 0x01;
+            #[doc = "No such occurrence."]
+            pub const TXERRCNT_LT_96: u32 = 0;
+            #[doc = "TXERRCNT is 96 or greater."]
+            pub const TXERRCNT_GTE_96: u32 = 0x01;
         }
     }
-    #[doc = "Stuffing Error"]
+    #[doc = "Stuffing Error Flag"]
     pub mod STFERR {
         pub const offset: u32 = 10;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence."]
-            pub const STFERR_0: u32 = 0;
-            #[doc = "A Stuffing Error occurred since last read of this register."]
-            pub const STFERR_1: u32 = 0x01;
+            #[doc = "No error"]
+            pub const STUFFING_ERROR_NO: u32 = 0;
+            #[doc = "Error occurred since last read of this register."]
+            pub const STUFFING_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Form Error"]
+    #[doc = "Form Error Flag"]
     pub mod FRMERR {
         pub const offset: u32 = 11;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const FRMERR_0: u32 = 0;
-            #[doc = "A Form Error occurred since last read of this register"]
-            pub const FRMERR_1: u32 = 0x01;
+            #[doc = "No error"]
+            pub const FORM_ERROR_NO: u32 = 0;
+            #[doc = "Error occurred since last read of this register."]
+            pub const FORM_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Cyclic Redundancy Check Error"]
+    #[doc = "Cyclic Redundancy Check Error Flag"]
     pub mod CRCERR {
         pub const offset: u32 = 12;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const CRCERR_0: u32 = 0;
-            #[doc = "A CRC error occurred since last read of this register."]
-            pub const CRCERR_1: u32 = 0x01;
+            #[doc = "No error"]
+            pub const CRC_ERROR_NO: u32 = 0;
+            #[doc = "Error occurred since last read of this register."]
+            pub const CRC_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Acknowledge Error"]
+    #[doc = "Acknowledge Error Flag"]
     pub mod ACKERR {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const ACKERR_0: u32 = 0;
-            #[doc = "An ACK error occurred since last read of this register"]
-            pub const ACKERR_1: u32 = 0x01;
+            #[doc = "No error"]
+            pub const ACK_ERROR_NO: u32 = 0;
+            #[doc = "Error occurred since last read of this register."]
+            pub const ACK_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Bit0 Error"]
+    #[doc = "Bit0 Error Flag"]
     pub mod BIT0ERR {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const BIT0ERR_0: u32 = 0;
-            #[doc = "At least one bit sent as dominant is received as recessive"]
-            pub const BIT0ERR_1: u32 = 0x01;
+            #[doc = "No such occurrence."]
+            pub const BIT0_ERROR_NO: u32 = 0;
+            #[doc = "At least one bit sent as dominant is received as recessive."]
+            pub const BIT0_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Bit1 Error"]
+    #[doc = "Bit1 Error Flag"]
     pub mod BIT1ERR {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const BIT1ERR_0: u32 = 0;
-            #[doc = "At least one bit sent as recessive is received as dominant"]
-            pub const BIT1ERR_1: u32 = 0x01;
+            #[doc = "No such occurrence."]
+            pub const BIT1_ERROR_NO: u32 = 0;
+            #[doc = "At least one bit sent as recessive is received as dominant."]
+            pub const BIT1_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Rx Warning Interrupt Flag"]
+    #[doc = "RX Warning Interrupt Flag"]
     pub mod RWRNINT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x01 << offset;
@@ -1622,12 +1622,12 @@ pub mod ESR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "No such occurrence"]
-            pub const RWRNINT_0: u32 = 0;
-            #[doc = "The Rx error counter transition from < 96 to >= 96"]
-            pub const RWRNINT_1: u32 = 0x01;
+            pub const RX_WARNING_INT_NO: u32 = 0;
+            #[doc = "RX error counter changed from less than 96 to greater than or equal to 96."]
+            pub const RX_WARNING_INT_YES: u32 = 0x01;
         }
     }
-    #[doc = "Tx Warning Interrupt Flag"]
+    #[doc = "TX Warning Interrupt Flag"]
     pub mod TWRNINT {
         pub const offset: u32 = 17;
         pub const mask: u32 = 0x01 << offset;
@@ -1635,38 +1635,38 @@ pub mod ESR1 {
         pub mod W {}
         pub mod RW {
             #[doc = "No such occurrence"]
-            pub const TWRNINT_0: u32 = 0;
-            #[doc = "The Tx error counter transition from < 96 to >= 96"]
-            pub const TWRNINT_1: u32 = 0x01;
+            pub const TX_WARNING_INT_NO: u32 = 0;
+            #[doc = "TX error counter changed from less than 96 to greater than or equal to 96."]
+            pub const TX_WARNING_INT_YES: u32 = 0x01;
         }
     }
-    #[doc = "CAN Synchronization Status"]
+    #[doc = "CAN Synchronization Status Flag"]
     pub mod SYNCH {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FlexCAN is not synchronized to the CAN bus"]
-            pub const SYNCH_0: u32 = 0;
-            #[doc = "FlexCAN is synchronized to the CAN bus"]
-            pub const SYNCH_1: u32 = 0x01;
+            #[doc = "Not synchronized"]
+            pub const CAN_BUS_SYNC_NO: u32 = 0;
+            #[doc = "Synchronized"]
+            pub const CAN_BUS_SYNC_YES: u32 = 0x01;
         }
     }
-    #[doc = "Bus Off Done Interrupt"]
+    #[doc = "Bus Off Done Interrupt Flag"]
     pub mod BOFFDONEINT {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence."]
+            #[doc = "No such occurrence"]
             pub const BUS_OFF_NOT_DONE: u32 = 0;
             #[doc = "FlexCAN module has completed Bus Off process."]
             pub const BUS_OFF_DONE: u32 = 0x01;
         }
     }
-    #[doc = "Error interrupt for errors detected in Data Phase of CAN FD frames with BRS bit set"]
+    #[doc = "Fast Error Interrupt Flag"]
     pub mod ERRINT_FAST {
         pub const offset: u32 = 20;
         pub const mask: u32 = 0x01 << offset;
@@ -1675,24 +1675,24 @@ pub mod ESR1 {
         pub mod RW {
             #[doc = "No such occurrence."]
             pub const ERRORS_DATA_PHASE_NO: u32 = 0;
-            #[doc = "Indicates setting of any error bit detected in the data phase of CAN FD frames with the BRS bit set."]
+            #[doc = "Error flag set in the data phase of CAN FD frames that have BRS = 1."]
             pub const ERRORS_DATA_PHASE_YES: u32 = 0x01;
         }
     }
-    #[doc = "Error Overrun"]
+    #[doc = "Error Overrun Flag"]
     pub mod ERROVR {
         pub const offset: u32 = 21;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Overrun has not occurred."]
+            #[doc = "No overrun"]
             pub const OVERRUN_NOT_OCCURRED: u32 = 0;
-            #[doc = "Overrun has occurred."]
+            #[doc = "Overrun"]
             pub const OVERRUN_OCCURRED: u32 = 0x01;
         }
     }
-    #[doc = "Stuffing Error in the Data Phase of CAN FD frames with the BRS bit set"]
+    #[doc = "Fast Stuffing Error Flag"]
     pub mod STFERR_FAST {
         pub const offset: u32 = 26;
         pub const mask: u32 = 0x01 << offset;
@@ -1705,7 +1705,7 @@ pub mod ESR1 {
             pub const STUFFING_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Form Error in the Data Phase of CAN FD frames with the BRS bit set"]
+    #[doc = "Fast Form Error Flag"]
     pub mod FRMERR_FAST {
         pub const offset: u32 = 27;
         pub const mask: u32 = 0x01 << offset;
@@ -1718,7 +1718,7 @@ pub mod ESR1 {
             pub const FORM_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Cyclic Redundancy Check Error in the CRC field of CAN FD frames with the BRS bit set"]
+    #[doc = "Fast Cyclic Redundancy Check Error Flag"]
     pub mod CRCERR_FAST {
         pub const offset: u32 = 28;
         pub const mask: u32 = 0x01 << offset;
@@ -1731,7 +1731,7 @@ pub mod ESR1 {
             pub const CRC_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Bit0 Error in the Data Phase of CAN FD frames with the BRS bit set"]
+    #[doc = "Fast Bit0 Error Flag"]
     pub mod BIT0ERR_FAST {
         pub const offset: u32 = 30;
         pub const mask: u32 = 0x01 << offset;
@@ -1740,11 +1740,11 @@ pub mod ESR1 {
         pub mod RW {
             #[doc = "No such occurrence."]
             pub const BIT0_ERROR_NO: u32 = 0;
-            #[doc = "At least one bit sent as dominant is received as recessive."]
+            #[doc = "At least one bit transmitted as dominant is received as recessive."]
             pub const BIT0_ERROR_YES: u32 = 0x01;
         }
     }
-    #[doc = "Bit1 Error in the Data Phase of CAN FD frames with the BRS bit set"]
+    #[doc = "Fast Bit1 Error Flag"]
     pub mod BIT1ERR_FAST {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
@@ -1753,7 +1753,7 @@ pub mod ESR1 {
         pub mod RW {
             #[doc = "No such occurrence."]
             pub const BIT1_ERROR_NO: u32 = 0;
-            #[doc = "At least one bit sent as recessive is received as dominant."]
+            #[doc = "At least one bit transmitted as recessive is received as dominant."]
             pub const BIT1_ERROR_YES: u32 = 0x01;
         }
     }
@@ -1793,20 +1793,20 @@ pub mod IFLAG2 {
 }
 #[doc = "Interrupt Flags 1"]
 pub mod IFLAG1 {
-    #[doc = "Buffer MB0 Interrupt Or Clear FIFO bit"]
+    #[doc = "Buffer MB0 Interrupt or Clear Legacy FIFO bit"]
     pub mod BUF0I {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The corresponding buffer has no occurrence of successfully completed transmission or reception when MCR\\[RFEN\\]=0."]
+            #[doc = "MB0 has no occurrence of successfully completed transmission or reception."]
             pub const BUFFER_TX_RX_NOT_COMPLETE: u32 = 0;
-            #[doc = "The corresponding buffer has successfully completed transmission or reception when MCR\\[RFEN\\]=0."]
+            #[doc = "MB0 has successfully completed transmission or reception."]
             pub const BUFFER_TX_RX_COMPLETE: u32 = 0x01;
         }
     }
-    #[doc = "Buffer MBi Interrupt Or Reserved"]
+    #[doc = "Buffer MBi Interrupt or Reserved"]
     pub mod BUF4TO1I {
         pub const offset: u32 = 1;
         pub const mask: u32 = 0x0f << offset;
@@ -1814,43 +1814,43 @@ pub mod IFLAG1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Buffer MB5 Interrupt Or Frames available in Rx FIFO"]
+    #[doc = "Buffer MB5 Interrupt or Frames available in Legacy RX FIFO"]
     pub mod BUF5I {
         pub const offset: u32 = 5;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const BUF5I_0: u32 = 0;
-            #[doc = "MB5 completed transmission/reception or frames available in the FIFO"]
-            pub const BUF5I_1: u32 = 0x01;
+            #[doc = "No occurrence of completed transmission or reception, or no frames available"]
+            pub const ID1: u32 = 0;
+            #[doc = "MB5 completed transmission or reception, or frames available"]
+            pub const ID2: u32 = 0x01;
         }
     }
-    #[doc = "Buffer MB6 Interrupt Or Rx FIFO Warning"]
+    #[doc = "Buffer MB6 Interrupt or Legacy RX FIFO Warning"]
     pub mod BUF6I {
         pub const offset: u32 = 6;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const BUF6I_0: u32 = 0;
-            #[doc = "MB6 completed transmission/reception or FIFO almost full"]
-            pub const BUF6I_1: u32 = 0x01;
+            #[doc = "No occurrence of MB6 completing transmission or reception, or FIFO not almost full."]
+            pub const ID1: u32 = 0;
+            #[doc = "MB6 completed transmission or reception, or FIFO almost full."]
+            pub const ID2: u32 = 0x01;
         }
     }
-    #[doc = "Buffer MB7 Interrupt Or Rx FIFO Overflow"]
+    #[doc = "Buffer MB7 Interrupt or Legacy RX FIFO Overflow"]
     pub mod BUF7I {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No such occurrence"]
-            pub const BUF7I_0: u32 = 0;
-            #[doc = "MB7 completed transmission/reception or FIFO overflow"]
-            pub const BUF7I_1: u32 = 0x01;
+            #[doc = "No occurrence of MB7 completing transmission or reception, or no FIFO overflow."]
+            pub const ID1: u32 = 0;
+            #[doc = "MB7 completed transmission or reception, or FIFO overflow."]
+            pub const ID2: u32 = 0x01;
         }
     }
     #[doc = "Buffer MBi Interrupt"]
@@ -1903,9 +1903,9 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Edge filter is enabled"]
+            #[doc = "Enabled"]
             pub const ENABLE: u32 = 0;
-            #[doc = "Edge filter is disabled"]
+            #[doc = "Disabled"]
             pub const DISABLE: u32 = 0x01;
         }
     }
@@ -1916,9 +1916,9 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "FlexCAN operates using the non-ISO CAN FD protocol."]
+            #[doc = "Disable"]
             pub const NON_ISO: u32 = 0;
-            #[doc = "FlexCAN operates using the ISO CAN FD protocol (ISO 11898-1)."]
+            #[doc = "Enable"]
             pub const ISO: u32 = 0x01;
         }
     }
@@ -1942,9 +1942,9 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Protocol exception is disabled."]
+            #[doc = "Disabled"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Protocol exception is enabled."]
+            #[doc = "Enabled"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -1955,9 +1955,9 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The free running timer is clocked by the CAN bit clock, which defines the baud rate on the CAN bus."]
+            #[doc = "CAN bit clock"]
             pub const CAN_BIT_CLOCK: u32 = 0;
-            #[doc = "The free running timer is clocked by an external time tick. The period can be either adjusted to be equal to the baud rate on the CAN bus, or a different value as required. See the device-specific section for details about the external time tick."]
+            #[doc = "External time tick"]
             pub const EXTERNAL_CLOCK: u32 = 0x01;
         }
     }
@@ -1968,10 +1968,10 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Rx Mailbox filter's IDE bit is always compared and RTR is never compared despite mask bits."]
-            pub const EACEN_0: u32 = 0;
-            #[doc = "Enables the comparison of both Rx Mailbox filter's IDE and RTR bit with their corresponding bits within the incoming frame. Mask bits do apply."]
-            pub const EACEN_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const RTR_COMPARE_NO: u32 = 0;
+            #[doc = "Enable"]
+            pub const RTR_COMPARE_YES: u32 = 0x01;
         }
     }
     #[doc = "Remote Request Storing"]
@@ -1981,10 +1981,10 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Remote Response Frame is generated"]
-            pub const RRS_0: u32 = 0;
-            #[doc = "Remote Request Frame is stored"]
-            pub const RRS_1: u32 = 0x01;
+            #[doc = "Generated"]
+            pub const REMOTE_RESPONSE_FRAME_NOT_GENERATED: u32 = 0;
+            #[doc = "Stored"]
+            pub const REMOTE_RESPONSE_FRAME_GENERATED: u32 = 0x01;
         }
     }
     #[doc = "Message Buffers Reception Priority"]
@@ -1994,10 +1994,10 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Matching starts from Rx FIFO and continues on Mailboxes"]
-            pub const MRP_0: u32 = 0;
-            #[doc = "Matching starts from Mailboxes and continues on Rx FIFO"]
-            pub const MRP_1: u32 = 0x01;
+            #[doc = "Matching starts from Legacy RX FIFO or Enhanced RX FIFO and continues on message buffers."]
+            pub const ID1: u32 = 0;
+            #[doc = "Matching starts from message buffers and continues on Legacy RX FIFO or Enhanced RX FIFO."]
+            pub const ID3: u32 = 0x01;
         }
     }
     #[doc = "Transmission Arbitration Start Delay"]
@@ -2023,10 +2023,10 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keep the write access restricted in some regions of FlexCAN memory"]
-            pub const WRMFRZ_0: u32 = 0;
-            #[doc = "Enable unrestricted write access to FlexCAN memory"]
-            pub const WRMFRZ_1: u32 = 0x01;
+            #[doc = "Disable"]
+            pub const DISABLE: u32 = 0;
+            #[doc = "Enable"]
+            pub const ENABLE: u32 = 0x01;
         }
     }
     #[doc = "Error Correction Configuration Register Write Enable"]
@@ -2036,9 +2036,9 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Disable update."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Enable update."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -2049,9 +2049,9 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Bus off done interrupt disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Bus off done interrupt enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -2062,42 +2062,42 @@ pub mod CTRL2 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "ERRINT_FAST error interrupt disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "ERRINT_FAST error interrupt enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
 }
 #[doc = "Error and Status 2"]
 pub mod ESR2 {
-    #[doc = "If ESR2\\[VPS\\] is asserted, this bit indicates whether there is any inactive Mailbox (CODE field is either 0b1000 or 0b0000)"]
+    #[doc = "Inactive Message Buffer"]
     pub mod IMB {
         pub const offset: u32 = 13;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "If ESR2\\[VPS\\] is asserted, the ESR2\\[LPTM\\] is not an inactive Mailbox."]
-            pub const IMB_0: u32 = 0;
-            #[doc = "If ESR2\\[VPS\\] is asserted, there is at least one inactive Mailbox. LPTM content is the number of the first one."]
-            pub const IMB_1: u32 = 0x01;
+            #[doc = "Message buffer indicated by ESR2\\[LPTM\\] is not inactive."]
+            pub const INACTIVE_MAILBOX_NO: u32 = 0;
+            #[doc = "At least one message buffer is inactive."]
+            pub const INACTIVE_MAILBOX_YES: u32 = 0x01;
         }
     }
-    #[doc = "This bit indicates whether IMB and LPTM contents are currently valid or not"]
+    #[doc = "Valid Priority Status"]
     pub mod VPS {
         pub const offset: u32 = 14;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Contents of IMB and LPTM are invalid"]
-            pub const VPS_0: u32 = 0;
-            #[doc = "Contents of IMB and LPTM are valid"]
-            pub const VPS_1: u32 = 0x01;
+            #[doc = "Invalid"]
+            pub const INVALID: u32 = 0;
+            #[doc = "Valid"]
+            pub const VALID: u32 = 0x01;
         }
     }
-    #[doc = "If ESR2\\[VPS\\] is asserted, his 7-bit field indicates the lowest number inactive Mailbox (refer to IMB bit description)"]
+    #[doc = "Lowest Priority TX Message Buffer"]
     pub mod LPTM {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x7f << offset;
@@ -2108,7 +2108,7 @@ pub mod ESR2 {
 }
 #[doc = "Cyclic Redundancy Check"]
 pub mod CRCR {
-    #[doc = "This field indicates the CRC value of the last message transmitted"]
+    #[doc = "Transmitted CRC value"]
     pub mod TXCRC {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x7fff << offset;
@@ -2116,7 +2116,7 @@ pub mod CRCR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "This field indicates the number of the Mailbox corresponding to the value in TXCRC field."]
+    #[doc = "CRC Message Buffer"]
     pub mod MBCRC {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x7f << offset;
@@ -2127,7 +2127,7 @@ pub mod CRCR {
 }
 #[doc = "Legacy RX FIFO Global Mask"]
 pub mod RXFGMASK {
-    #[doc = "Rx FIFO Global Mask Bits"]
+    #[doc = "Legacy RX FIFO Global Mask Bits"]
     pub mod FGM {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -2138,7 +2138,7 @@ pub mod RXFGMASK {
 }
 #[doc = "Legacy RX FIFO Information"]
 pub mod RXFIR {
-    #[doc = "This 9-bit field indicates which Identifier Acceptance Filter (see Rx FIFO Structure) was hit by the received message that is in the output of the Rx FIFO"]
+    #[doc = "Identifier Acceptance Filter Hit Indicator"]
     pub mod IDHIT {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01ff << offset;
@@ -2196,9 +2196,9 @@ pub mod CBT {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Extended bit time definitions disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Extended bit time definitions enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -19198,16 +19198,16 @@ pub mod RXIMR {
 }
 #[doc = "Memory Error Control"]
 pub mod MECR {
-    #[doc = "Non-Correctable Errors In FlexCAN Access Put Device In Freeze Mode"]
+    #[doc = "Noncorrectable Errors in FlexCAN Access Put Chip in Freeze Mode"]
     pub mod NCEFAFRZ {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Keep normal operation."]
+            #[doc = "Normal operation"]
             pub const NORMAL: u32 = 0;
-            #[doc = "Put FlexCAN in Freeze mode (see section \"Freeze mode\")."]
+            #[doc = "Freeze mode"]
             pub const FREEZE: u32 = 0x01;
         }
     }
@@ -19218,9 +19218,9 @@ pub mod MECR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Enable memory error correction."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0;
-            #[doc = "Disable memory error correction."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0x01;
         }
     }
@@ -19231,9 +19231,9 @@ pub mod MECR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Enable updates of the error report registers."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0;
-            #[doc = "Disable updates of the error report registers."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0x01;
         }
     }
@@ -19244,9 +19244,9 @@ pub mod MECR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Error injection is applied only to the 32-bit word."]
+            #[doc = "Disable. Apply error injection only to the 32-bit word."]
             pub const INJECT_32_BIT: u32 = 0;
-            #[doc = "Error injection is applied to the 64-bit word."]
+            #[doc = "Enable. Apply error injection to the 64-bit word."]
             pub const INJECT_64_BIT: u32 = 0x01;
         }
     }
@@ -19257,9 +19257,9 @@ pub mod MECR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Injection is disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Injection is enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -19270,9 +19270,9 @@ pub mod MECR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Injection is disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Injection is enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -19283,35 +19283,35 @@ pub mod MECR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Interrupt is disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Interrupt is enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
-    #[doc = "FlexCAN Access With Non-Correctable Errors Interrupt Mask"]
+    #[doc = "FlexCAN Access with Noncorrectable Errors Interrupt Mask"]
     pub mod FANCEI_MSK {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Interrupt is disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Interrupt is enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
-    #[doc = "Host Access With Non-Correctable Errors Interrupt Mask"]
+    #[doc = "Host Access with Noncorrectable Errors Interrupt Mask"]
     pub mod HANCEI_MSK {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Interrupt is disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "Interrupt is enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -19322,9 +19322,9 @@ pub mod MECR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Write is enabled."]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0;
-            #[doc = "Write is disabled."]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0x01;
         }
     }
@@ -19350,7 +19350,7 @@ pub mod ERRIAR {
 }
 #[doc = "Error Injection Data Pattern"]
 pub mod ERRIDPR {
-    #[doc = "Data flip pattern"]
+    #[doc = "Data Flip Pattern"]
     pub mod DFLIP {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -19361,7 +19361,7 @@ pub mod ERRIDPR {
 }
 #[doc = "Error Injection Parity Pattern"]
 pub mod ERRIPPR {
-    #[doc = "Parity Flip Pattern For Byte 0 (Least Significant)"]
+    #[doc = "Parity Flip Pattern for Byte 0 (Least Significant)"]
     pub mod PFLIP0 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x1f << offset;
@@ -19369,7 +19369,7 @@ pub mod ERRIPPR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Parity Flip Pattern For Byte 1"]
+    #[doc = "Parity Flip Pattern for Byte 1"]
     pub mod PFLIP1 {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x1f << offset;
@@ -19377,7 +19377,7 @@ pub mod ERRIPPR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Parity Flip Pattern For Byte 2"]
+    #[doc = "Parity Flip Pattern for Byte 2"]
     pub mod PFLIP2 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
@@ -19385,7 +19385,7 @@ pub mod ERRIPPR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Parity Flip Pattern For Byte 3 (most significant)"]
+    #[doc = "Parity Flip Pattern for Byte 3 (Most Significant)"]
     pub mod PFLIP3 {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x1f << offset;
@@ -19412,7 +19412,7 @@ pub mod RERRAR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Non-Correctable Error"]
+    #[doc = "Noncorrectable Error"]
     pub mod NCE {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x01 << offset;
@@ -19421,14 +19421,14 @@ pub mod RERRAR {
         pub mod RW {
             #[doc = "Reporting a correctable error"]
             pub const CORRECTABLE: u32 = 0;
-            #[doc = "Reporting a non-correctable error"]
+            #[doc = "Reporting a noncorrectable error"]
             pub const NON_CORRECTABLE: u32 = 0x01;
         }
     }
 }
 #[doc = "Error Report Data"]
 pub mod RERRDR {
-    #[doc = "Raw data word read from memory with error"]
+    #[doc = "Raw Data Word Read from Memory with Error"]
     pub mod RDATA {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0xffff_ffff << offset;
@@ -19439,7 +19439,7 @@ pub mod RERRDR {
 }
 #[doc = "Error Report Syndrome"]
 pub mod RERRSYNR {
-    #[doc = "Error Syndrome For Byte 0 (least significant)"]
+    #[doc = "Error Syndrome for Byte 0 (Least Significant)"]
     pub mod SYND0 {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x1f << offset;
@@ -19447,16 +19447,16 @@ pub mod RERRSYNR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Byte Enabled For Byte 0 (least significant)"]
+    #[doc = "Byte Enabled for Byte 0 (Least Significant)"]
     pub mod BE0 {
         pub const offset: u32 = 7;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The byte was not read."]
+            #[doc = "Byte was not read."]
             pub const NOT_READ: u32 = 0;
-            #[doc = "The byte was read."]
+            #[doc = "Byte was read."]
             pub const READ: u32 = 0x01;
         }
     }
@@ -19468,20 +19468,20 @@ pub mod RERRSYNR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Byte Enabled For Byte 1"]
+    #[doc = "Byte Enabled for Byte 1"]
     pub mod BE1 {
         pub const offset: u32 = 15;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The byte was not read."]
+            #[doc = "Byte was not read."]
             pub const NOT_READ: u32 = 0;
-            #[doc = "The byte was read."]
+            #[doc = "Byte was read."]
             pub const READ: u32 = 0x01;
         }
     }
-    #[doc = "Error Syndrome For Byte 2"]
+    #[doc = "Error Syndrome for Byte 2"]
     pub mod SYND2 {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0x1f << offset;
@@ -19489,20 +19489,20 @@ pub mod RERRSYNR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Byte Enabled For Byte 2"]
+    #[doc = "Byte Enabled for Byte 2"]
     pub mod BE2 {
         pub const offset: u32 = 23;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The byte was not read."]
+            #[doc = "Byte was not read."]
             pub const NOT_READ: u32 = 0;
-            #[doc = "The byte was read."]
+            #[doc = "Byte was read."]
             pub const READ: u32 = 0x01;
         }
     }
-    #[doc = "Error Syndrome For Byte 3 (most significant)"]
+    #[doc = "Error Syndrome for Byte 3 (Most Significant)"]
     pub mod SYND3 {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x1f << offset;
@@ -19510,16 +19510,16 @@ pub mod RERRSYNR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Byte Enabled For Byte 3 (most significant)"]
+    #[doc = "Byte Enabled for Byte 3 (Most Significant)"]
     pub mod BE3 {
         pub const offset: u32 = 31;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "The byte was not read."]
+            #[doc = "Byte was not read."]
             pub const NOT_READ: u32 = 0;
-            #[doc = "The byte was read."]
+            #[doc = "Byte was read."]
             pub const READ: u32 = 0x01;
         }
     }
@@ -19533,36 +19533,36 @@ pub mod ERRSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No overrun on correctable errors"]
-            pub const NO_OVERRUN: u32 = 0;
-            #[doc = "Overrun on correctable errors"]
-            pub const OVERRUN: u32 = 0x01;
+            #[doc = "No errors detected"]
+            pub const NOT_FOUND: u32 = 0;
+            #[doc = "Error detected"]
+            pub const FOUND: u32 = 0x01;
         }
     }
-    #[doc = "FlexCAN Access With Non-Correctable Error Interrupt Overrun Flag"]
+    #[doc = "FlexCAN Access with Noncorrectable Error Interrupt Overrun Flag"]
     pub mod FANCEIOF {
         pub const offset: u32 = 2;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No overrun on non-correctable errors in FlexCAN access"]
-            pub const NO_OVERRUN: u32 = 0;
-            #[doc = "Overrun on non-correctable errors in FlexCAN access"]
-            pub const OVERRUN: u32 = 0x01;
+            #[doc = "No errors detected"]
+            pub const NOT_FOUND: u32 = 0;
+            #[doc = "Error detected"]
+            pub const FOUND: u32 = 0x01;
         }
     }
-    #[doc = "Host Access With Non-Correctable Error Interrupt Overrun Flag"]
+    #[doc = "Host Access With Noncorrectable Error Interrupt Overrun Flag"]
     pub mod HANCEIOF {
         pub const offset: u32 = 3;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No overrun on non-correctable errors in host access"]
-            pub const NO_OVERRUN: u32 = 0;
-            #[doc = "Overrun on non-correctable errors in host access"]
-            pub const OVERRUN: u32 = 0x01;
+            #[doc = "No errors detected"]
+            pub const NOT_FOUND: u32 = 0;
+            #[doc = "Error detected"]
+            pub const FOUND: u32 = 0x01;
         }
     }
     #[doc = "Correctable Error Interrupt Flag"]
@@ -19572,35 +19572,35 @@ pub mod ERRSR {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No correctable errors were detected so far."]
-            pub const NO_ERRORS: u32 = 0;
-            #[doc = "A correctable error was detected."]
-            pub const ERRORS: u32 = 0x01;
+            #[doc = "No errors detected"]
+            pub const NOT_FOUND: u32 = 0;
+            #[doc = "Error detected"]
+            pub const FOUND: u32 = 0x01;
         }
     }
-    #[doc = "FlexCAN Access With Non-Correctable Error Interrupt Flag"]
+    #[doc = "FlexCAN Access with Noncorrectable Error Interrupt Flag"]
     pub mod FANCEIF {
         pub const offset: u32 = 18;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No non-correctable errors were detected in FlexCAN accesses so far."]
+            #[doc = "No errors detected"]
             pub const NOT_FOUND: u32 = 0;
-            #[doc = "A non-correctable error was detected in a FlexCAN access."]
+            #[doc = "Error detected"]
             pub const FOUND: u32 = 0x01;
         }
     }
-    #[doc = "Host Access With Non-Correctable Error Interrupt Flag"]
+    #[doc = "Host Access with Noncorrectable Error Interrupt Flag"]
     pub mod HANCEIF {
         pub const offset: u32 = 19;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No non-correctable errors were detected in host accesses so far."]
+            #[doc = "No errors detected"]
             pub const NOT_FOUND: u32 = 0;
-            #[doc = "A non-correctable error was detected in a host access."]
+            #[doc = "Error detected"]
             pub const FOUND: u32 = 0x01;
         }
     }
@@ -19761,9 +19761,9 @@ pub mod FDCTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Measured loop delay is in range."]
+            #[doc = "In range"]
             pub const IN_RANGE: u32 = 0;
-            #[doc = "Measured loop delay is out of range."]
+            #[doc = "Out of range"]
             pub const OUT_OF_RANGE: u32 = 0x01;
         }
     }
@@ -19774,9 +19774,9 @@ pub mod FDCTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "TDC is disabled"]
+            #[doc = "Disable"]
             pub const DISABLE: u32 = 0;
-            #[doc = "TDC is enabled"]
+            #[doc = "Enable"]
             pub const ENABLE: u32 = 0x01;
         }
     }
@@ -19787,13 +19787,13 @@ pub mod FDCTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selects 8 bytes per message buffer."]
+            #[doc = "8 bytes"]
             pub const R0_8_BYTES: u32 = 0;
-            #[doc = "Selects 16 bytes per message buffer."]
+            #[doc = "16 bytes"]
             pub const R0_16_BYTES: u32 = 0x01;
-            #[doc = "Selects 32 bytes per message buffer."]
+            #[doc = "32 bytes"]
             pub const R0_32_BYTES: u32 = 0x02;
-            #[doc = "Selects 64 bytes per message buffer."]
+            #[doc = "64 bytes"]
             pub const R0_64_BYTES: u32 = 0x03;
         }
     }
@@ -19804,13 +19804,13 @@ pub mod FDCTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Selects 8 bytes per message buffer."]
+            #[doc = "8 bytes"]
             pub const R1_8_BYTES: u32 = 0;
-            #[doc = "Selects 16 bytes per message buffer."]
+            #[doc = "16 bytes"]
             pub const R1_16_BYTES: u32 = 0x01;
-            #[doc = "Selects 32 bytes per message buffer."]
+            #[doc = "32 bytes"]
             pub const R1_32_BYTES: u32 = 0x02;
-            #[doc = "Selects 64 bytes per message buffer."]
+            #[doc = "64 bytes"]
             pub const R1_64_BYTES: u32 = 0x03;
         }
     }
@@ -19838,9 +19838,9 @@ pub mod FDCTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Transmit a frame in nominal rate. The BRS bit in the Tx MB has no effect."]
+            #[doc = "Disable"]
             pub const NOMINAL: u32 = 0;
-            #[doc = "Transmit a frame with bit rate switching if the BRS bit in the Tx MB is recessive."]
+            #[doc = "Enable"]
             pub const BIT_RATE_SWITCHING: u32 = 0x01;
         }
     }
@@ -19898,7 +19898,7 @@ pub mod FDCRC {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "CRC Mailbox Number for FD_TXCRC"]
+    #[doc = "CRC Message Buffer Number for FD_TXCRC"]
     pub mod FD_MBCRC {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x7f << offset;

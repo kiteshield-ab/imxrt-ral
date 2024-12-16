@@ -45,7 +45,7 @@ pub struct RegisterBlock {
 }
 #[doc = "Analog Control Register CTRL0"]
 pub mod CTRL0 {
-    #[doc = "Divide value for ref_clk to generate slow_clk (used inside this IP)"]
+    #[doc = "Divide value for ref_clk to generate slow_clk."]
     pub mod REF_CLK_DIV {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x3f << offset;
@@ -56,7 +56,7 @@ pub mod CTRL0 {
 }
 #[doc = "Analog Control Register CTRL0"]
 pub mod CTRL0_SET {
-    #[doc = "Divide value for ref_clk to generate slow_clk (used inside this IP)"]
+    #[doc = "Divide value for ref_clk to generate slow_clk."]
     pub mod REF_CLK_DIV {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x3f << offset;
@@ -67,7 +67,7 @@ pub mod CTRL0_SET {
 }
 #[doc = "Analog Control Register CTRL0"]
 pub mod CTRL0_CLR {
-    #[doc = "Divide value for ref_clk to generate slow_clk (used inside this IP)"]
+    #[doc = "Divide value for ref_clk to generate slow_clk."]
     pub mod REF_CLK_DIV {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x3f << offset;
@@ -78,7 +78,7 @@ pub mod CTRL0_CLR {
 }
 #[doc = "Analog Control Register CTRL0"]
 pub mod CTRL0_TOG {
-    #[doc = "Divide value for ref_clk to generate slow_clk (used inside this IP)"]
+    #[doc = "Divide value for ref_clk to generate slow_clk."]
     pub mod REF_CLK_DIV {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0x3f << offset;
@@ -89,7 +89,7 @@ pub mod CTRL0_TOG {
 }
 #[doc = "Analog Control Register CTRL1"]
 pub mod CTRL1 {
-    #[doc = "Negative hysteresis value for the tuned clock"]
+    #[doc = "Negative hysteresis value for the tuned clock."]
     pub mod HYST_MINUS {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -97,7 +97,7 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Positive hysteresis value for the tuned clock"]
+    #[doc = "Positive hysteresis value for the tuned clock."]
     pub mod HYST_PLUS {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -105,7 +105,7 @@ pub mod CTRL1 {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Target count for the fast clock"]
+    #[doc = "Target count for the fast clock."]
     pub mod TARGET_COUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -116,7 +116,7 @@ pub mod CTRL1 {
 }
 #[doc = "Analog Control Register CTRL1"]
 pub mod CTRL1_SET {
-    #[doc = "Negative hysteresis value for the tuned clock"]
+    #[doc = "Negative hysteresis value for the tuned clock."]
     pub mod HYST_MINUS {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -124,7 +124,7 @@ pub mod CTRL1_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Positive hysteresis value for the tuned clock"]
+    #[doc = "Positive hysteresis value for the tuned clock."]
     pub mod HYST_PLUS {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -132,7 +132,7 @@ pub mod CTRL1_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Target count for the fast clock"]
+    #[doc = "Target count for the fast clock."]
     pub mod TARGET_COUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -143,7 +143,7 @@ pub mod CTRL1_SET {
 }
 #[doc = "Analog Control Register CTRL1"]
 pub mod CTRL1_CLR {
-    #[doc = "Negative hysteresis value for the tuned clock"]
+    #[doc = "Negative hysteresis value for the tuned clock."]
     pub mod HYST_MINUS {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -151,7 +151,7 @@ pub mod CTRL1_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Positive hysteresis value for the tuned clock"]
+    #[doc = "Positive hysteresis value for the tuned clock."]
     pub mod HYST_PLUS {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -159,7 +159,7 @@ pub mod CTRL1_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Target count for the fast clock"]
+    #[doc = "Target count for the fast clock."]
     pub mod TARGET_COUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -170,7 +170,7 @@ pub mod CTRL1_CLR {
 }
 #[doc = "Analog Control Register CTRL1"]
 pub mod CTRL1_TOG {
-    #[doc = "Negative hysteresis value for the tuned clock"]
+    #[doc = "Negative hysteresis value for the tuned clock."]
     pub mod HYST_MINUS {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x0f << offset;
@@ -178,7 +178,7 @@ pub mod CTRL1_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Positive hysteresis value for the tuned clock"]
+    #[doc = "Positive hysteresis value for the tuned clock."]
     pub mod HYST_PLUS {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x0f << offset;
@@ -186,7 +186,7 @@ pub mod CTRL1_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Target count for the fast clock"]
+    #[doc = "Target count for the fast clock."]
     pub mod TARGET_COUNT {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -376,10 +376,10 @@ pub mod CTRL3 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No effect"]
-            pub const CLR_ERR_0: u32 = 0;
-            #[doc = "Clears the error flag CLK1M_ERR in status register STAT0"]
-            pub const CLR_ERR_1: u32 = 0x01;
+            #[doc = "Normal operation"]
+            pub const ENABLE: u32 = 0;
+            #[doc = "Clears the error flag CLK1M_ERR in status register STAT0."]
+            pub const DISABLE: u32 = 0x01;
         }
     }
     #[doc = "1: Disable clk_1m_out."]
@@ -417,7 +417,7 @@ pub mod CTRL3_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enable 1MHz output Clock"]
+    #[doc = "1: Disable clk_1m_out."]
     pub mod EN_1M_CLK {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -433,7 +433,7 @@ pub mod CTRL3_SET {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Count for the locked clk_1m_out"]
+    #[doc = "Count for the locked clk_1m_out."]
     pub mod COUNT_1M_CLK {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -452,7 +452,7 @@ pub mod CTRL3_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enable 1MHz output Clock"]
+    #[doc = "1: Disable clk_1m_out."]
     pub mod EN_1M_CLK {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -468,7 +468,7 @@ pub mod CTRL3_CLR {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Count for the locked clk_1m_out"]
+    #[doc = "Count for the locked clk_1m_out."]
     pub mod COUNT_1M_CLK {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -487,7 +487,7 @@ pub mod CTRL3_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Enable 1MHz output Clock"]
+    #[doc = "1: Disable clk_1m_out."]
     pub mod EN_1M_CLK {
         pub const offset: u32 = 8;
         pub const mask: u32 = 0x01 << offset;
@@ -503,7 +503,7 @@ pub mod CTRL3_TOG {
         pub mod W {}
         pub mod RW {}
     }
-    #[doc = "Count for the locked clk_1m_out"]
+    #[doc = "Count for the locked clk_1m_out."]
     pub mod COUNT_1M_CLK {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -514,23 +514,23 @@ pub mod CTRL3_TOG {
 }
 #[doc = "Analog Status Register STAT0"]
 pub mod STAT0 {
-    #[doc = "Error flag for clk_1m_locked"]
+    #[doc = "Error flag for clk_1m_locked."]
     pub mod CLK1M_ERR {
         pub const offset: u32 = 0;
         pub const mask: u32 = 0x01 << offset;
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "No effect"]
-            pub const CLK1M_ERR_0: u32 = 0;
-            #[doc = "The count value has been reached within one divided ref_clk period"]
-            pub const CLK1M_ERR_1: u32 = 0x01;
+            #[doc = "No error."]
+            pub const NO_ERROR: u32 = 0;
+            #[doc = "Indicates error."]
+            pub const INDICATES_ERROR: u32 = 0x01;
         }
     }
 }
 #[doc = "Analog Status Register STAT1"]
 pub mod STAT1 {
-    #[doc = "Current count for the fast clock"]
+    #[doc = "Current count for the fast clock."]
     pub mod CURR_COUNT_VAL {
         pub const offset: u32 = 16;
         pub const mask: u32 = 0xffff << offset;
@@ -541,7 +541,7 @@ pub mod STAT1 {
 }
 #[doc = "Analog Status Register STAT2"]
 pub mod STAT2 {
-    #[doc = "Current tuning value used by oscillator"]
+    #[doc = "Current tuning value used by oscillator."]
     pub mod CURR_OSC_TUNE_VAL {
         pub const offset: u32 = 24;
         pub const mask: u32 = 0xff << offset;

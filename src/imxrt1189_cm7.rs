@@ -1193,7 +1193,7 @@ pub mod aoi {
     pub const AOI3: *const RegisterBlock = 0x427e_0000 as *const RegisterBlock;
     #[doc = "AOI"]
     pub const AOI4: *const RegisterBlock = 0x427f_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/aoi.rs"]
+    #[path = "blocks/imxrt1189_cm33/aoi.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -1704,7 +1704,7 @@ pub mod cp_cm33_imx9rtc__cm33_tcm_mcm {
 pub mod dac {
     #[doc = "DAC"]
     pub const DAC: *const RegisterBlock = 0x42e2_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/dac.rs"]
+    #[path = "blocks/imxrt1189_cm33/dac.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -1755,17 +1755,17 @@ pub mod dcdc {
     }
 }
 #[path = "."]
-pub mod dma {
+pub mod dma3 {
     #[doc = "DMA MP"]
-    pub const DMA: *const RegisterBlock = 0x4200_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1189_cm33/dma.rs"]
+    pub const DMA3: *const RegisterBlock = 0x4400_0000 as *const RegisterBlock;
+    #[path = "blocks/imxrt1189_cm33/dma3.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
-    pub type DMA = Instance<{ crate::SOLE_INSTANCE }>;
-    impl crate::private::Sealed for DMA {}
-    impl crate::Valid for DMA {}
-    impl DMA {
+    pub type DMA3 = Instance<{ crate::SOLE_INSTANCE }>;
+    impl crate::private::Sealed for DMA3 {}
+    impl crate::Valid for DMA3 {}
+    impl DMA3 {
         #[doc = r" Acquire a vaild, but possibly aliased, instance."]
         #[doc = r""]
         #[doc = r" # Safety"]
@@ -1773,12 +1773,12 @@ pub mod dma {
         #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
         #[inline]
         pub const unsafe fn instance() -> Self {
-            Instance::new(DMA)
+            Instance::new(DMA3)
         }
     }
     #[doc = r" Returns the instance number `N` for a peripheral instance."]
     pub fn number(rb: *const RegisterBlock) -> Option<u8> {
-        core::ptr::eq(rb, DMA).then_some(0)
+        core::ptr::eq(rb, DMA3).then_some(0)
     }
 }
 #[path = "."]
@@ -1806,6 +1806,33 @@ pub mod dma3__tcd {
     #[doc = r" Returns the instance number `N` for a peripheral instance."]
     pub fn number(rb: *const RegisterBlock) -> Option<u8> {
         core::ptr::eq(rb, DMA3__TCD).then_some(0)
+    }
+}
+#[path = "."]
+pub mod dma4 {
+    #[doc = "DMA MP"]
+    pub const DMA4: *const RegisterBlock = 0x4200_0000 as *const RegisterBlock;
+    #[path = "blocks/imxrt1189_cm33/dma4.rs"]
+    mod blocks;
+    pub use blocks::*;
+    pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
+    pub type DMA4 = Instance<{ crate::SOLE_INSTANCE }>;
+    impl crate::private::Sealed for DMA4 {}
+    impl crate::Valid for DMA4 {}
+    impl DMA4 {
+        #[doc = r" Acquire a vaild, but possibly aliased, instance."]
+        #[doc = r""]
+        #[doc = r" # Safety"]
+        #[doc = r""]
+        #[doc = r" See [the struct-level safety documentation](crate::Instance)."]
+        #[inline]
+        pub const unsafe fn instance() -> Self {
+            Instance::new(DMA4)
+        }
+    }
+    #[doc = r" Returns the instance number `N` for a peripheral instance."]
+    pub fn number(rb: *const RegisterBlock) -> Option<u8> {
+        core::ptr::eq(rb, DMA4).then_some(0)
     }
 }
 #[path = "."]
@@ -2349,7 +2376,7 @@ pub mod erm {
 pub mod ewm {
     #[doc = "EWM"]
     pub const EWM: *const RegisterBlock = 0x427b_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/ewm.rs"]
+    #[path = "blocks/imxrt1189_cm33/ewm.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -2830,7 +2857,7 @@ pub mod iomuxc_aon {
 pub mod kpp {
     #[doc = "KPP"]
     pub const KPP: *const RegisterBlock = 0x42a0_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1011/kpp.rs"]
+    #[path = "blocks/imxrt1189_cm33/kpp.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -3463,7 +3490,7 @@ pub mod mecc {
     pub const MECC1: *const RegisterBlock = 0x4292_0000 as *const RegisterBlock;
     #[doc = "MECC64"]
     pub const MECC2: *const RegisterBlock = 0x4293_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/mecc.rs"]
+    #[path = "blocks/imxrt1189_cm33/mecc.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -3896,7 +3923,7 @@ pub mod otfad {
     pub const OTFAD1: *const RegisterBlock = 0x425e_0000 as *const RegisterBlock;
     #[doc = "OTFAD"]
     pub const OTFAD2: *const RegisterBlock = 0x445e_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/otfad.rs"]
+    #[path = "blocks/imxrt1189_cm33/otfad.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -4197,7 +4224,7 @@ pub mod rtwdog {
     pub const RTWDOG1: *const RegisterBlock = 0x442d_0000 as *const RegisterBlock;
     #[doc = "WDOG"]
     pub const RTWDOG2: *const RegisterBlock = 0x442e_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/rtwdog.rs"]
+    #[path = "blocks/imxrt1189_cm33/rtwdog.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -5026,7 +5053,7 @@ pub mod tmr {
     pub const TMR7: *const RegisterBlock = 0x426f_0000 as *const RegisterBlock;
     #[doc = "TMR"]
     pub const TMR8: *const RegisterBlock = 0x4270_0000 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/tmr.rs"]
+    #[path = "blocks/imxrt1189_cm33/tmr.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -5645,7 +5672,7 @@ pub mod usdhc {
 pub mod vmbandgap {
     #[doc = "no description available"]
     pub const VMBANDGAP: *const RegisterBlock = 0x4448_4780 as *const RegisterBlock;
-    #[path = "blocks/imxrt1176_cm4/vmbandgap.rs"]
+    #[path = "blocks/imxrt1189_cm33/vmbandgap.rs"]
     mod blocks;
     pub use blocks::*;
     pub type Instance<const N: u8> = crate::Instance<RegisterBlock, N>;
@@ -5809,8 +5836,9 @@ pub struct Instances {
     pub CP_CM33_IMX9RTC__CM33_TCM_MCM: cp_cm33_imx9rtc__cm33_tcm_mcm::CP_CM33_IMX9RTC__CM33_TCM_MCM,
     pub DAC: dac::DAC,
     pub DCDC: dcdc::DCDC,
-    pub DMA: dma::DMA,
+    pub DMA3: dma3::DMA3,
     pub DMA3__TCD: dma3__tcd::DMA3__TCD,
+    pub DMA4: dma4::DMA4,
     pub DMA4__TCD: dma4__tcd::DMA4__TCD,
     pub ECAT: ecat::ECAT,
     pub EIM: eim::EIM,
@@ -6030,8 +6058,9 @@ impl Instances {
                 cp_cm33_imx9rtc__cm33_tcm_mcm::CP_CM33_IMX9RTC__CM33_TCM_MCM::instance(),
             DAC: dac::DAC::instance(),
             DCDC: dcdc::DCDC::instance(),
-            DMA: dma::DMA::instance(),
+            DMA3: dma3::DMA3::instance(),
             DMA3__TCD: dma3__tcd::DMA3__TCD::instance(),
+            DMA4: dma4::DMA4::instance(),
             DMA4__TCD: dma4__tcd::DMA4__TCD::instance(),
             ECAT: ecat::ECAT::instance(),
             EIM: eim::EIM::instance(),

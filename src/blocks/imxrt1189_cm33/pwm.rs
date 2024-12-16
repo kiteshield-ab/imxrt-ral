@@ -7012,9 +7012,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 0 instead of PWM45."]
-            pub const SM0OUT45_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 0 instead of PWM45."]
-            pub const SM0OUT45_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
     #[doc = "Submodule 0 Software Controlled Output 23"]
@@ -7025,9 +7025,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 0 instead of PWM23."]
-            pub const SM0OUT23_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 0 instead of PWM23."]
-            pub const SM0OUT23_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
     #[doc = "Submodule 1 Software Controlled Output 45"]
@@ -7038,9 +7038,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 1 instead of PWM45."]
-            pub const SM1OUT45_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 1 instead of PWM45."]
-            pub const SM1OUT45_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
     #[doc = "Submodule 1 Software Controlled Output 23"]
@@ -7051,9 +7051,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 1 instead of PWM23."]
-            pub const SM1OUT23_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 1 instead of PWM23."]
-            pub const SM1OUT23_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
     #[doc = "Submodule 2 Software Controlled Output 45"]
@@ -7064,9 +7064,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 2 instead of PWM45."]
-            pub const SM2OUT45_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 2 instead of PWM45."]
-            pub const SM2OUT45_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
     #[doc = "Submodule 2 Software Controlled Output 23"]
@@ -7077,9 +7077,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 2 instead of PWM23."]
-            pub const SM2OUT23_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 2 instead of PWM23."]
-            pub const SM2OUT23_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
     #[doc = "Submodule 3 Software Controlled Output 45"]
@@ -7090,9 +7090,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM45."]
-            pub const SM3OUT45_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 3 instead of PWM45."]
-            pub const SM3OUT45_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
     #[doc = "Submodule 3 Software Controlled Output 23"]
@@ -7103,9 +7103,9 @@ pub mod SWCOUT {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM23."]
-            pub const SM3OUT23_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 is supplied to the deadtime generator of submodule 3 instead of PWM23."]
-            pub const SM3OUT23_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
 }
@@ -7133,14 +7133,14 @@ pub mod DTSRCSEL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Generated SM0PWM23 signal is used by the deadtime logic."]
-            pub const SM0SEL23_0: u16 = 0;
-            #[doc = "Inverted generated SM0PWM23 signal is used by the deadtime logic."]
-            pub const SM0SEL23_1: u16 = 0x01;
-            #[doc = "SWCOUT\\[SM0OUT23\\] is used by the deadtime logic."]
-            pub const SM0SEL23_2: u16 = 0x02;
-            #[doc = "PWM0_EXTA signal is used by the deadtime logic."]
-            pub const SM0SEL23_3: u16 = 0x03;
+            #[doc = "Generated SM0PWM23 signal used by the deadtime logic."]
+            pub const SM0PWM23: u16 = 0;
+            #[doc = "Inverted generated SM0PWM23 signal used by the deadtime logic."]
+            pub const INVERTED_SM0PWM23: u16 = 0x01;
+            #[doc = "SWCOUT\\[SM0OUT23\\] used by the deadtime logic."]
+            pub const SM0OUT23: u16 = 0x02;
+            #[doc = "PWM0_EXTA signal used by the deadtime logic."]
+            pub const PWM0_EXTA: u16 = 0x03;
         }
     }
     #[doc = "Submodule 1 PWM45 Control Select"]
@@ -7165,14 +7165,14 @@ pub mod DTSRCSEL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Generated SM1PWM23 signal is used by the deadtime logic."]
-            pub const SM1SEL23_0: u16 = 0;
-            #[doc = "Inverted generated SM1PWM23 signal is used by the deadtime logic."]
-            pub const SM1SEL23_1: u16 = 0x01;
-            #[doc = "SWCOUT\\[SM1OUT23\\] is used by the deadtime logic."]
-            pub const SM1SEL23_2: u16 = 0x02;
-            #[doc = "PWM1_EXTA signal is used by the deadtime logic."]
-            pub const SM1SEL23_3: u16 = 0x03;
+            #[doc = "Generated SM1PWM23 signal used by the deadtime logic."]
+            pub const SM1PWM23: u16 = 0;
+            #[doc = "Inverted generated SM1PWM23 signal used by the deadtime logic."]
+            pub const INVERTED_SM1PWM23: u16 = 0x01;
+            #[doc = "SWCOUT\\[SM1OUT23\\] used by the deadtime logic."]
+            pub const SM1OUT23: u16 = 0x02;
+            #[doc = "PWM1_EXTA signal used by the deadtime logic."]
+            pub const PWM1_EXTA: u16 = 0x03;
         }
     }
     #[doc = "Submodule 2 PWM45 Control Select"]
@@ -7197,14 +7197,14 @@ pub mod DTSRCSEL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Generated SM2PWM23 signal is used by the deadtime logic."]
-            pub const SM2SEL23_0: u16 = 0;
-            #[doc = "Inverted generated SM2PWM23 signal is used by the deadtime logic."]
-            pub const SM2SEL23_1: u16 = 0x01;
-            #[doc = "SWCOUT\\[SM2OUT23\\] is used by the deadtime logic."]
-            pub const SM2SEL23_2: u16 = 0x02;
-            #[doc = "PWM2_EXTA signal is used by the deadtime logic."]
-            pub const SM2SEL23_3: u16 = 0x03;
+            #[doc = "Generated SM2PWM23 signal used by the deadtime logic."]
+            pub const SM2PWM23: u16 = 0;
+            #[doc = "Inverted generated SM2PWM23 signal used by the deadtime logic."]
+            pub const INVERTED_SM2PWM23: u16 = 0x01;
+            #[doc = "SWCOUT\\[SM2OUT23\\] used by the deadtime logic."]
+            pub const SM2OUT23: u16 = 0x02;
+            #[doc = "PWM2_EXTA signal used by the deadtime logic."]
+            pub const PWM2_EXTA: u16 = 0x03;
         }
     }
     #[doc = "Submodule 3 PWM45 Control Select"]
@@ -7229,14 +7229,14 @@ pub mod DTSRCSEL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Generated SM3PWM23 signal is used by the deadtime logic."]
-            pub const SM3SEL23_0: u16 = 0;
-            #[doc = "Inverted generated SM3PWM23 signal is used by the deadtime logic."]
-            pub const SM3SEL23_1: u16 = 0x01;
-            #[doc = "SWCOUT\\[SM3OUT23\\] is used by the deadtime logic."]
-            pub const SM3SEL23_2: u16 = 0x02;
-            #[doc = "PWM3_EXTA signal is used by the deadtime logic."]
-            pub const SM3SEL23_3: u16 = 0x03;
+            #[doc = "Generated SM3PWM23 signal used by the deadtime logic."]
+            pub const SM3PWM23: u16 = 0;
+            #[doc = "Inverted generated SM3PWM23 signal used by the deadtime logic."]
+            pub const INVERTED_SM3PWM23: u16 = 0x01;
+            #[doc = "SWCOUT\\[SM3OUT23\\] used by the deadtime logic."]
+            pub const SM3OUT23: u16 = 0x02;
+            #[doc = "PWM3_EXTA signal used by the deadtime logic."]
+            pub const PWM3_EXTA: u16 = 0x03;
         }
     }
 }
@@ -7250,9 +7250,9 @@ pub mod MCTRL {
         pub mod W {}
         pub mod RW {
             #[doc = "Do not load new values."]
-            pub const LDOK_0: u16 = 0;
+            pub const DISABLED: u16 = 0;
             #[doc = "Load prescaler, modulus, and PWM values of the corresponding submodule."]
-            pub const LDOK_1: u16 = 0x01;
+            pub const ENABLED: u16 = 0x01;
         }
     }
     #[doc = "Clear Load Okay"]
@@ -7270,10 +7270,10 @@ pub mod MCTRL {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "PWM generator is disabled in the corresponding submodule."]
-            pub const RUN_0: u16 = 0;
-            #[doc = "PWM generator is enabled in the corresponding submodule."]
-            pub const RUN_1: u16 = 0x01;
+            #[doc = "PWM counter is stopped, but PWM outputs hold the current state."]
+            pub const DISABLED: u16 = 0;
+            #[doc = "PWM counter is started in the corresponding submodule."]
+            pub const ENABLED: u16 = 0x01;
         }
     }
     #[doc = "Current Polarity"]
@@ -7284,9 +7284,9 @@ pub mod MCTRL {
         pub mod W {}
         pub mod RW {
             #[doc = "PWM23 is used to generate complementary PWM pair in the corresponding submodule."]
-            pub const IPOL_0: u16 = 0;
+            pub const PWM23: u16 = 0;
             #[doc = "PWM45 is used to generate complementary PWM pair in the corresponding submodule."]
-            pub const IPOL_1: u16 = 0x01;
+            pub const PWM45: u16 = 0x01;
         }
     }
 }
@@ -7320,9 +7320,9 @@ pub mod FCTRL0 {
         pub mod W {}
         pub mod RW {
             #[doc = "FAULTx CPU interrupt requests disabled."]
-            pub const FIE_0: u16 = 0;
+            pub const DISABLED: u16 = 0;
             #[doc = "FAULTx CPU interrupt requests enabled."]
-            pub const FIE_1: u16 = 0x01;
+            pub const ENABLED: u16 = 0x01;
         }
     }
     #[doc = "Fault Safety Mode"]
@@ -7332,10 +7332,10 @@ pub mod FCTRL0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Normal mode. PWM outputs disabled by this fault are not enabled until FSTS\\[FFLAGx\\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\\[FHALF\\] and FSTS\\[FFULL\\] without regard to the state of FSTS\\[FFPINx\\]. If neither FHALF nor FFULL is setm then the fault condition cannot be cleared. The PWM outputs disabled by this fault input will not be re-enabled until the actual FAULTx input signal de-asserts since the fault input will combinationally disable the PWM outputs (as programmed in DISMAPn)."]
-            pub const FSAFE_0: u16 = 0;
+            #[doc = "Normal mode. PWM outputs disabled by this fault are not enabled until FSTS\\[FFLAGx\\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\\[FHALF\\] and FSTS\\[FFULL\\] without regard to the state of FSTS\\[FFPINx\\]. If neither FHALF nor FFULL is set, then the fault condition cannot be cleared. The PWM outputs disabled by this fault input will not be re-enabled until the actual FAULTx input signal de-asserts since the fault input will combinationally disable the PWM outputs (as programmed in DISMAPn)."]
+            pub const NORMAL: u16 = 0;
             #[doc = "Safe mode. PWM outputs disabled by this fault are not enabled until FSTS\\[FFLAGx\\] is clear and FSTS\\[FFPINx\\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\\[FHALF\\] and FSTS\\[FFULL\\]. If neither FHLAF nor FFULL is set, then the fault condition cannot be cleared."]
-            pub const FSAFE_1: u16 = 0x01;
+            pub const SAFE: u16 = 0x01;
         }
     }
     #[doc = "Automatic Fault Clearing"]
@@ -7345,10 +7345,10 @@ pub mod FCTRL0 {
         pub mod R {}
         pub mod W {}
         pub mod RW {
-            #[doc = "Manual fault clearing. PWM outputs disabled by this fault are not enabled until FSTS\\[FFLAGx\\] is clear at the start of a half cycle or full cycle depending the states of FSTS\\[FHALF\\] and FSTS\\[FFULL\\]. If neither FFULL nor FHALF is set, then the fault condition cannot be cleared. This is further controlled by FCTRL\\[FSAFE\\]."]
-            pub const FAUTO_0: u16 = 0;
+            #[doc = "Manual fault clearing. PWM outputs disabled by this fault are not enabled until FSTS\\[FFLAGx\\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\\[FHALF\\] and FSTS\\[FFULL\\]. If neither FFULL nor FHALF is set, then the fault condition cannot be cleared. This is further controlled by FCTRL\\[FSAFE\\]."]
+            pub const MANUAL: u16 = 0;
             #[doc = "Automatic fault clearing. PWM outputs disabled by this fault are enabled when FSTS\\[FFPINx\\] is clear at the start of a half cycle or full cycle depending on the states of FSTS\\[FHALF\\] and FSTS\\[FFULL\\] without regard to the state of FSTS\\[FFLAGx\\]. If neither FFULL nor FHALF is set, then the fault condition cannot be cleared."]
-            pub const FAUTO_1: u16 = 0x01;
+            pub const AUTOMATIC: u16 = 0x01;
         }
     }
     #[doc = "Fault Level"]
@@ -7359,9 +7359,9 @@ pub mod FCTRL0 {
         pub mod W {}
         pub mod RW {
             #[doc = "A logic 0 on the fault input indicates a fault condition."]
-            pub const FLVL_0: u16 = 0;
+            pub const LOGIC_0: u16 = 0;
             #[doc = "A logic 1 on the fault input indicates a fault condition."]
-            pub const FLVL_1: u16 = 0x01;
+            pub const LOGIC_1: u16 = 0x01;
         }
     }
 }
@@ -7375,9 +7375,9 @@ pub mod FSTS0 {
         pub mod W {}
         pub mod RW {
             #[doc = "No fault on the FAULTx pin."]
-            pub const FFLAG_0: u16 = 0;
+            pub const NO_FLAG: u16 = 0;
             #[doc = "Fault on the FAULTx pin."]
-            pub const FFLAG_1: u16 = 0x01;
+            pub const FLAG: u16 = 0x01;
         }
     }
     #[doc = "Full Cycle"]
@@ -7388,9 +7388,9 @@ pub mod FSTS0 {
         pub mod W {}
         pub mod RW {
             #[doc = "PWM outputs are not re-enabled at the start of a full cycle"]
-            pub const FFULL_0: u16 = 0;
+            pub const PWM_OUTPUTS_NOT_REENABLED: u16 = 0;
             #[doc = "PWM outputs are re-enabled at the start of a full cycle"]
-            pub const FFULL_1: u16 = 0x01;
+            pub const PWM_OUTPUTS_REENABLED: u16 = 0x01;
         }
     }
     #[doc = "Filtered Fault Pins"]
@@ -7409,9 +7409,9 @@ pub mod FSTS0 {
         pub mod W {}
         pub mod RW {
             #[doc = "PWM outputs are not re-enabled at the start of a half cycle."]
-            pub const FHALF_0: u16 = 0;
+            pub const PWM_OUTPUTS_NOT_REENABLED: u16 = 0;
             #[doc = "PWM outputs are re-enabled at the start of a half cycle (as defined by VAL0)."]
-            pub const FHALF_1: u16 = 0x01;
+            pub const PWM_OUTPUTS_REENABLED: u16 = 0x01;
         }
     }
 }
@@ -7441,9 +7441,9 @@ pub mod FFILT0 {
         pub mod W {}
         pub mod RW {
             #[doc = "Fault input glitch stretching is disabled."]
-            pub const GSTR_0: u16 = 0;
-            #[doc = "Input fault signals will be stretched to at least 2 IPBus clock cycles."]
-            pub const GSTR_1: u16 = 0x01;
+            pub const DISABLED: u16 = 0;
+            #[doc = "Input fault signals are stretched to at least 2 IPBus clock cycles."]
+            pub const ENABLED: u16 = 0x01;
         }
     }
 }
@@ -7457,9 +7457,9 @@ pub mod FTST0 {
         pub mod W {}
         pub mod RW {
             #[doc = "No fault"]
-            pub const FTEST_0: u16 = 0;
+            pub const NO_FAULT: u16 = 0;
             #[doc = "Cause a simulated fault"]
-            pub const FTEST_1: u16 = 0x01;
+            pub const FAULT: u16 = 0x01;
         }
     }
 }
@@ -7473,9 +7473,9 @@ pub mod FCTRL20 {
         pub mod W {}
         pub mod RW {
             #[doc = "There is a combinational link from the fault inputs to the PWM outputs. The fault inputs are combined with the filtered and latched fault signals to disable the PWM outputs."]
-            pub const NOCOMB_0: u16 = 0;
+            pub const ENABLED: u16 = 0;
             #[doc = "The direct combinational path from the fault inputs to the PWM outputs is disabled and the filtered and latched fault signals are used to disable the PWM outputs."]
-            pub const NOCOMB_1: u16 = 0x01;
+            pub const DISABLED: u16 = 0x01;
         }
     }
 }

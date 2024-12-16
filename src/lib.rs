@@ -88,56 +88,6 @@ mod private {
 #[doc = r" See the package documentation for more information on how"]
 #[doc = r" to use this trait in your APIs."]
 pub trait Valid: private::Sealed {}
-#[cfg(feature = "imxrt1011")]
-#[path = "imxrt1011.rs"]
-mod imxrt1011;
-#[cfg(feature = "imxrt1011")]
-pub use imxrt1011::*;
-#[cfg(feature = "imxrt1015")]
-#[path = "imxrt1015.rs"]
-mod imxrt1015;
-#[cfg(feature = "imxrt1015")]
-pub use imxrt1015::*;
-#[cfg(feature = "imxrt1021")]
-#[path = "imxrt1021.rs"]
-mod imxrt1021;
-#[cfg(feature = "imxrt1021")]
-pub use imxrt1021::*;
-#[cfg(feature = "imxrt1051")]
-#[path = "imxrt1051.rs"]
-mod imxrt1051;
-#[cfg(feature = "imxrt1051")]
-pub use imxrt1051::*;
-#[cfg(feature = "imxrt1052")]
-#[path = "imxrt1052.rs"]
-mod imxrt1052;
-#[cfg(feature = "imxrt1052")]
-pub use imxrt1052::*;
-#[cfg(feature = "imxrt1061")]
-#[path = "imxrt1061.rs"]
-mod imxrt1061;
-#[cfg(feature = "imxrt1061")]
-pub use imxrt1061::*;
-#[cfg(feature = "imxrt1062")]
-#[path = "imxrt1062.rs"]
-mod imxrt1062;
-#[cfg(feature = "imxrt1062")]
-pub use imxrt1062::*;
-#[cfg(feature = "imxrt1064")]
-#[path = "imxrt1064.rs"]
-mod imxrt1064;
-#[cfg(feature = "imxrt1064")]
-pub use imxrt1064::*;
-#[cfg(feature = "imxrt1176_cm4")]
-#[path = "imxrt1176_cm4.rs"]
-mod imxrt1176_cm4;
-#[cfg(feature = "imxrt1176_cm4")]
-pub use imxrt1176_cm4::*;
-#[cfg(feature = "imxrt1176_cm7")]
-#[path = "imxrt1176_cm7.rs"]
-mod imxrt1176_cm7;
-#[cfg(feature = "imxrt1176_cm7")]
-pub use imxrt1176_cm7::*;
 #[cfg(feature = "imxrt1189_cm33")]
 #[path = "imxrt1189_cm33.rs"]
 mod imxrt1189_cm33;
